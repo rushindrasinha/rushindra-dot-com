@@ -47,7 +47,7 @@ const WORK = [
     tag: "Company",
     status: "Live",
     line: "India's first VC-backed esports org. Won Valorant Conqueror Championship. One of 10 permanent VCT Pacific franchise teams selected by Riot Games globally. India's only profitable esports org while 18+ competitors shut down.",
-    url: "https://globalesports.in",
+    url: "https://globalesports.com",
     wide: true,
   },
   {
@@ -90,7 +90,14 @@ const WORK = [
     tag: "Tool",
     status: "Shipped",
     line: "X threads as clean readable articles. Built for durable thinking.",
-    url: "https://github.com/rushindrasinha/x-article-reader",
+    url: "https://xreader.ai",
+  },
+  {
+    name: "YT Shorts Pipeline",
+    tag: "Open Source",
+    status: "Shipped",
+    line: "Fully automated YouTube Shorts engine: news → script → AI visuals → voiceover → captions → upload.",
+    url: "https://github.com/rushindrasinha/youtube-shorts-pipeline",
   },
 ];
 
