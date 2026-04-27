@@ -1,36 +1,78 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# rushindra.com
 
-## Getting Started
+Personal website for Dr. Rushindra Sinha — founder, builder, creator.
 
-First, run the development server:
+**Live:** https://rushindra.com  
+**Vercel project:** https://vercel.com/gesports-pvt-ltd/rushindra-dot-com  
+**GitHub:** https://github.com/rushindrasinha/rushindra-dot-com
+
+---
+
+## Stack
+
+- Next.js 16 (App Router, TypeScript)
+- Google Fonts: Instrument Serif + Outfit
+- Pure CSS animations + inline styles (no UI library)
+- Intersection Observer API for scroll animations
+- Deployed on Vercel (auto-deploy on push to `main`)
+
+## Local development
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev        # dev server → localhost:3000
+npm run build      # production build
+npm start          # serve production build locally
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Deployment rules
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+> **No changes are pushed to production without explicit approval from Rushindra.**
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. All proposed changes are made to the local copy first
+2. A diff/summary is sent for review
+3. Only after explicit approval → `git push origin main`
+4. Vercel auto-deploys within ~60 seconds of push
 
-## Learn More
+## Weekly pass (automated)
 
-To learn more about Next.js, take a look at the following resources:
+Ares runs a weekly review of the offline version covering:
+- Stat accuracy (follower counts, view counts)
+- "Now" section currency (update for current quarter)
+- Broken or outdated links
+- New products/projects to add
+- Story/timeline updates if milestones occurred
+- Any copy that feels stale
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+All changes proposed as a diff. Nothing ships without approval.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## File structure
 
-## Deploy on Vercel
+```
+app/
+  layout.tsx      — metadata, fonts, root HTML
+  page.tsx        — full page component (all sections)
+  globals.css     — CSS variables, keyframes, base styles
+next.config.ts    — Next.js config
+CHANGELOG.md      — version history of every change
+PRODUCT_LOG.md    — timestamped session log
+README.md         — this file
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Design tokens
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+| Token | Value |
+|-------|-------|
+| Background | `#08080a` |
+| Accent (lime) | `#9cff57` |
+| Blue | `#5ebaff` |
+| Text | `#e2e0da` |
+| Text mid | `#98958d` |
+| Text dim | `#585450` |
+| Display font | Instrument Serif |
+| Body font | Outfit |
+
+## Contact email
+
+`rushindra@globalesports.com` — professional/business  
+`sinha@rushindra.com` — personal brand
