@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef, Fragment } from "react";
+import { useState, useEffect, useRef, Fragment, createContext, useContext } from "react";
 
 // ============================================================================
 // DESIGN TOKENS
@@ -34,6 +34,8 @@ const LIGHT_C = {
   textDim: "#8a8880",
   white: "#0a0908",
 };
+
+const ThemeCtx = createContext(DARK_C);
 
 const F = {
   display: "var(--font-display)",
@@ -227,6 +229,7 @@ function Reveal({ children, delay = 0, style = {}, className = "" }: { children:
 }
 
 function Label({ children }: { children: React.ReactNode }) {
+  const C = useContext(ThemeCtx);
   return (
     <p style={{ fontSize: 11, letterSpacing: "2.5px", textTransform: "uppercase", color: C.accent, fontWeight: 600, margin: "0 0 14px 0", fontFamily: F.body }}>
       {children}
@@ -235,10 +238,12 @@ function Label({ children }: { children: React.ReactNode }) {
 }
 
 function SectionTitle({ children }: { children: React.ReactNode }) {
+  const C = useContext(ThemeCtx);
   return <h2 style={{ fontFamily: F.display, fontSize: "clamp(32px, 4.2vw, 54px)", fontWeight: 400, fontStyle: "italic", margin: "0 0 40px 0", color: C.white, lineHeight: 1.1 }}>{children}</h2>;
 }
 
 function StatusDot({ status }: { status: string }) {
+  const C = useContext(ThemeCtx);
   const color = status === "Live" ? C.accent : status === "Active" ? C.blue : status === "Soon" ? "#ffcc44" : C.textDim;
   const glow = (status === "Live" || status === "Active") ? `0 0 8px ${color}66` : "none";
 
@@ -251,6 +256,7 @@ function StatusDot({ status }: { status: string }) {
 }
 
 function Divider() {
+  const C = useContext(ThemeCtx);
   return <div style={{ height: 1, background: C.border }} />;
 }
 
@@ -308,6 +314,7 @@ export default function Home() {
   const [tedxCount, tC] = useCounter(2, 1000);
 
   return (
+    <ThemeCtx.Provider value={C}>
     <div style={{ background: C.bg, color: C.text, fontFamily: F.body, minHeight: "100vh", overflowX: "hidden" }}>
       {/* ========== NAV ========== */}
       <nav
@@ -750,5 +757,6 @@ export default function Home() {
         <p style={{ margin: 0, fontSize: 11, color: C.textDim, fontWeight: 300, fontFamily: F.display, fontStyle: "italic" }}>From gaming servers to AI systems.</p>
       </footer>
     </div>
+    </ThemeCtx.Provider>
   );
 }
