@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Instrument_Serif, Outfit } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 const instrumentSerif = Instrument_Serif({
@@ -80,7 +81,7 @@ const jsonLd = {
   description:
     "Creator-founder building at the intersection of medicine, AI, esports, and media.",
   alumniOf: [
-    { "@type": "CollegeOrUniversity", name: "D.Y. Patil Medical College, Pune" },
+    { "@type": "CollegeOrUniversity", name: "D.Y. Patil Medical College, Navi Mumbai" },
     { "@type": "CollegeOrUniversity", name: "Stanford Graduate School of Business" },
   ],
   foundedOrganization: [
@@ -102,6 +103,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         {children}
+        <Analytics />
       </body>
     </html>
   );
