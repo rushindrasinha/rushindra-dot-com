@@ -168,6 +168,29 @@ body::before {
   border-radius: 999px;
 }
 
+/* Products bento grid */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 16px;
+}
+
+@media (max-width: 900px) {
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .products-grid {
+    grid-template-columns: 1fr;
+  }
+  .products-grid > * {
+    grid-column: span 1 !important;
+  }
+}
+
 /* Mobile adjustments */
 @media (max-width: 640px) {
   .section {

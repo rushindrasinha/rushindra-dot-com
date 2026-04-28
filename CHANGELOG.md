@@ -4,6 +4,54 @@ All changes are logged here. Format: version → date → what changed → who a
 
 ---
 
+## [1.1.0] — 2026-04-28 (IST)
+
+**Hygiene, compliance, and UX pass. All work by Ares. Approved by Rushindra Sinha.**
+
+### Bug fixes
+- `gridColumn: "span 2"` was on the wrong div (card, not the grid child Reveal wrapper) — Global Esports wide card was never actually spanning 2 columns. Fixed.
+- Removed broken "Media" nav link that pointed to a non-existent `#media` section ID.
+
+### Visual improvements
+- Platform bars now use a sqrt scale — LinkedIn (7.3K) was rendering at ~6.6% width, invisible next to YouTube. Now proportional and readable.
+- Marquee separator dots `·` added between items for visual rhythm.
+- Products grid: 3-col → 2-col at 900px → 1-col at 640px. Previously had no mobile breakpoints.
+
+### Content & copy
+- Hero subtitle: "Founder of Global Esports, VCT Pacific franchise partner" → specific proof-first version with 1-of-10 context and "only profitable org" claim.
+- Platform section heading: "100M+ lifetime views" → "100M+ personal views" (matches hero stat wording).
+- Removed Ges pilot pricing (₹50K/month, 10 creators) from public NOW section — business-sensitive detail.
+- "Current Focus — Q2 2026" is now dynamic — auto-updates every quarter.
+
+### SEO & compliance
+- `metadataBase` added to metadata (required for absolute OG URLs).
+- Canonical URL (`/`) added via `alternates`.
+- `sitemap.xml` route added at `/app/sitemap.ts` — auto-generates `https://rushindra.com/sitemap.xml`.
+- `robots.txt` route added at `/app/robots.ts`.
+- Schema.org Person JSON-LD structured data added to `<body>` in layout.tsx.
+- `viewport` export added: `themeColor: "#08080a"`, explicit width/initialScale.
+- OG `siteName` added.
+- Keywords expanded with creator economy and India esports terms.
+
+### Security headers (via next.config.ts)
+- `X-Frame-Options: SAMEORIGIN` — prevents clickjacking.
+- `X-Content-Type-Options: nosniff` — prevents MIME sniffing.
+- `Referrer-Policy: strict-origin-when-cross-origin` — limits referrer leakage.
+- `Permissions-Policy` — disables camera, microphone, geolocation.
+- `X-DNS-Prefetch-Control: on` — improves page load performance.
+
+### Favicon
+- `app/icon.svg` created — branded "R" in accent green (#9cff57) on dark background (#08080a), italic serif, rounded corners. Replaces default Next.js favicon in modern browsers.
+
+### Code hygiene
+- Removed unused `useCallback` import from page.tsx.
+- Removed 5 unused default Next.js SVG assets from `public/`.
+- `CLAUDE.md` restored — was malformed (contained only `@AGENTS.md`).
+- `Reveal` component now accepts optional `className` prop.
+- `aria-label` added to all nav buttons and CTAs.
+
+---
+
 ## [1.0.0] — 2026-04-27 (IST)
 
 **Initial build and launch session. All work done by Ares in single session.**

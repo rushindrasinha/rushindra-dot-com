@@ -68,3 +68,63 @@ Timestamped record of every session, change, and decision. Never deleted — app
 
 _Future sessions appended below this line._
 
+---
+
+## Session 002 — 2026-04-28
+
+**Time:** ~10:38–11:00 IST  
+**Operator:** Ares  
+**Approved by:** Rushindra Sinha  
+**Status:** Pushed to production ✓
+
+### Trigger
+
+Rushi requested a site improvement pass covering: better browser (headless, no visible Chrome windows), site hygiene, favicon, compliance, copy quality, and GitHub repo version control.
+
+### Work done
+
+**Bug fixes**
+- `gridColumn: "span 2"` was applied to the card div, not the grid child (Reveal wrapper). Global Esports wide card was never actually spanning 2 columns since v1.0.0. Fixed by moving `gridColumn` to Reveal `style` prop.
+- Removed "Media" nav link — pointed to non-existent `#media` section ID.
+
+**Visual**
+- Platform bars: switched from linear to sqrt scale. LinkedIn (7.3K) was rendering at 6.6% width (invisible). Now all bars are proportionally visible.
+- Marquee separator dots `·` between each item.
+- Products grid: added `.products-grid` CSS class with responsive breakpoints (3-col → 2-col at 900px → 1-col at 640px).
+
+**Content & copy**
+- Hero subtitle: made proof-first with specific "1-of-10 VCT Pacific" and "only profitable org" claims.
+- Platform section header: reconciled "lifetime views" → "personal views" to match hero.
+- Removed Ges pricing from public NOW section.
+- "Q2 2026" label is now dynamically generated — won't go stale quarterly.
+
+**SEO compliance**
+- `metadataBase`, canonical URL, sitemap.xml, robots.txt, JSON-LD Person schema, themeColor viewport meta, OG siteName.
+
+**Security**
+- 5 security headers added in next.config.ts: X-Frame-Options, X-Content-Type-Options, Referrer-Policy, Permissions-Policy, X-DNS-Prefetch-Control.
+
+**Favicon**
+- `app/icon.svg` — branded "R" monogram in accent green on dark background.
+
+**Code hygiene**
+- Removed unused `useCallback` import.
+- Removed 5 default Next.js public/ SVG assets.
+- Fixed broken `CLAUDE.md`.
+- `Reveal` component: added `className` prop.
+- `aria-label` on all nav and CTA buttons.
+
+**Docs**
+- `CLAUDE.md`: fully restored with hard rules, workflow, weekly pass checklist.
+- `CHANGELOG.md`: v1.1.0 entry added.
+- `PRODUCT_LOG.md`: this entry.
+- `package.json`: version bumped 0.1.0 → 1.1.0.
+
+### Final state — v1.1.0
+- All v1.0.0 sections intact, no content removed except Ges pilot pricing
+- Nav: 4 links (About, Work, Now, Contact) — was 5 (Media removed)
+- Platform bars: sqrt scale with 6% minimum width
+- Grid: fully responsive
+- SEO score: sitemap ✓, robots ✓, canonical ✓, JSON-LD ✓, OG ✓, Twitter card ✓
+- Security: 5 headers active
+
