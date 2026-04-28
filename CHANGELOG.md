@@ -4,6 +4,21 @@ All changes are logged here. Format: version → date → what changed → who a
 
 ---
 
+## [1.2.0] — 2026-04-28 (IST)
+
+**AI-native layer + CI/CD wiring. All work by Ares. Approved by Rushindra Sinha.**
+
+### Added
+- `public/llms.txt` — structured markdown following the llms.txt standard; entity data, orgs, platforms, current focus for AI indexers
+- `app/llm/route.ts` — easter egg route at `/llm`; plain-text machine layer for AI agents/crawlers with entity data, canonical spellings, VCT context, dynamic quarter label
+- `.github/workflows/deploy.yml` — GitHub Actions CI/CD pipeline; every push to `main` auto-deploys to Vercel production
+- GitHub repo secrets: `VERCEL_TOKEN`, `VERCEL_ORG_ID`, `VERCEL_PROJECT_ID`
+
+### Fixed
+- Vercel CLI authenticated and Vercel token stored in vault; all v1.1.0 changes now live on rushindra.com
+
+---
+
 ## [1.1.0] — 2026-04-28 (IST)
 
 **Hygiene, compliance, and UX pass. All work by Ares. Approved by Rushindra Sinha.**
