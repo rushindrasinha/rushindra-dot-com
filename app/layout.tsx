@@ -42,6 +42,9 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/",
   },
+  icons: {
+    icon: [{ url: "/icon.svg", type: "image/svg+xml" }],
+  },
   openGraph: {
     title: "Dr. Rushindra Sinha — Founder, Builder, Creator",
     description:
