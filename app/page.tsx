@@ -5,7 +5,7 @@ import { useState, useEffect, useRef, Fragment } from "react";
 // ============================================================================
 // DESIGN TOKENS
 // ============================================================================
-const C = {
+const DARK_C = {
   bg: "#08080a",
   surface: "rgba(255,255,255,0.025)",
   surfaceStrong: "rgba(255,255,255,0.045)",
@@ -18,6 +18,21 @@ const C = {
   textMid: "#98958d",
   textDim: "#585450",
   white: "#ffffff",
+};
+
+const LIGHT_C = {
+  bg: "#f5f5f0",
+  surface: "rgba(0,0,0,0.035)",
+  surfaceStrong: "rgba(0,0,0,0.06)",
+  border: "rgba(0,0,0,0.09)",
+  borderAccent: "rgba(80,160,30,0.28)",
+  accent: "#4d9e1a",
+  accentDim: "rgba(80,160,30,0.1)",
+  blue: "#1a6fa8",
+  text: "#1a1915",
+  textMid: "#545250",
+  textDim: "#8a8880",
+  white: "#0a0908",
 };
 
 const F = {
@@ -33,7 +48,7 @@ const ROLES = ["Founder.", "Builder.", "Creator.", "Doctor."];
 const TIMELINE = [
   { yr: "'93", t: "First games on a hospital computer — borrowed time between a parent's rounds. Early exposure to systems, play, and digital worlds." },
   { yr: "'08", t: "Built Phoenix RO — a Ragnarok Online private server with thousands of active players. Developed and sold my first online game commercially at 18. First real lessons in products, monetization, and running live internet infrastructure." },
-  { yr: "'14", t: "MBBS from D.Y. Patil Medical College, Pune. Pioneered Google Glass for live-streaming surgeries in India. Realized the deeper instinct was building, not practice." },
+  { yr: "'14", t: "MBBS from D.Y. Patil Medical College, Navi Mumbai. Pioneered Google Glass for live-streaming surgeries in India. Realized the deeper instinct was building, not practice." },
   { yr: "'16", t: "San Francisco. 480-hour full-stack bootcamp at General Assembly. Stanford GSB: Innovative Healthcare Leadership. The coding and business foundations locked in." },
   { yr: "'17", t: "Co-founded Global Esports in Mumbai with Mohit Israney. India's first VC-backed esports organization." },
   { yr: "'22", t: "Riot Games selected Global Esports as one of 10 permanent VCT Pacific franchise partners globally. Won Valorant Conqueror Championship. Competed on the world stage in Seoul." },
@@ -245,6 +260,26 @@ function Divider() {
 export default function Home() {
   const [scrolled, setScrolled] = useState(false);
   const [roleIdx, setRoleIdx] = useState(0);
+  const [isDark, setIsDark] = useState(true);
+
+  const C = isDark ? DARK_C : LIGHT_C;
+
+  const toggleTheme = () => {
+    setIsDark((d) => {
+      const next = !d;
+      localStorage.setItem("theme", next ? "dark" : "light");
+      return next;
+    });
+  };
+
+  useEffect(() => {
+    const saved = localStorage.getItem("theme");
+    if (saved === "light") setIsDark(false);
+  }, []);
+
+  useEffect(() => {
+    document.documentElement.setAttribute("data-theme", isDark ? "dark" : "light");
+  }, [isDark]);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
@@ -286,7 +321,7 @@ export default function Home() {
           display: "flex",
           justifyContent: "space-between",
           alignItems: "center",
-          background: scrolled ? "rgba(8,8,10,0.85)" : "transparent",
+          background: scrolled ? (isDark ? "rgba(8,8,10,0.9)" : "rgba(245,245,240,0.94)") : "transparent",
           backdropFilter: scrolled ? "blur(16px)" : "none",
           borderBottom: scrolled ? `1px solid ${C.border}` : "none",
           transition: "all 0.35s ease",
@@ -296,34 +331,64 @@ export default function Home() {
           R.
         </button>
 
-        <div style={{ display: "flex", gap: 28, flexWrap: "wrap", fontSize: 12, fontWeight: 500, letterSpacing: "1.4px", textTransform: "uppercase" }}>
-          {[
-            ["About", "about"],
-            ["Work", "work"],
-            ["Now", "now"],
-            ["Contact", "contact"],
-          ].map(([label, id]) => (
-            <button
-              key={id}
-              onClick={() => scrollTo(id)}
-              aria-label={`Go to ${label} section`}
-              style={{
-                background: "none",
-                border: "none",
-                cursor: "pointer",
-                color: C.textMid,
-                transition: "color 0.2s",
-              }}
-              onMouseEnter={(e) => {
-                (e.target as HTMLElement).style.color = C.accent;
-              }}
-              onMouseLeave={(e) => {
-                (e.target as HTMLElement).style.color = C.textMid;
-              }}
-            >
-              {label}
-            </button>
-          ))}
+        <div style={{ display: "flex", alignItems: "center", gap: 20 }}>
+          <div style={{ display: "flex", gap: 28, flexWrap: "wrap", fontSize: 12, fontWeight: 500, letterSpacing: "1.4px", textTransform: "uppercase" }}>
+            {[
+              ["About", "about"],
+              ["Work", "work"],
+              ["Now", "now"],
+              ["Contact", "contact"],
+            ].map(([label, id]) => (
+              <button
+                key={id}
+                onClick={() => scrollTo(id)}
+                aria-label={`Go to ${label} section`}
+                style={{
+                  background: "none",
+                  border: "none",
+                  cursor: "pointer",
+                  color: C.textMid,
+                  transition: "color 0.2s",
+                }}
+                onMouseEnter={(e) => {
+                  (e.target as HTMLElement).style.color = C.accent;
+                }}
+                onMouseLeave={(e) => {
+                  (e.target as HTMLElement).style.color = C.textMid;
+                }}
+              >
+                {label}
+              </button>
+            ))}
+          </div>
+          <button
+            onClick={toggleTheme}
+            aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
+            style={{
+              background: "none",
+              border: `1px solid ${C.border}`,
+              borderRadius: 6,
+              cursor: "pointer",
+              color: C.textMid,
+              fontSize: 15,
+              lineHeight: 1,
+              padding: "5px 8px",
+              transition: "border-color 0.2s, color 0.2s",
+              flexShrink: 0,
+            }}
+            onMouseEnter={(e) => {
+              const el = e.currentTarget;
+              el.style.borderColor = C.accent;
+              el.style.color = C.accent;
+            }}
+            onMouseLeave={(e) => {
+              const el = e.currentTarget;
+              el.style.borderColor = C.border;
+              el.style.color = C.textMid;
+            }}
+          >
+            {isDark ? "☀" : "☾"}
+          </button>
         </div>
       </nav>
 
@@ -486,7 +551,7 @@ export default function Home() {
                 Games found me at two — first plays on a hospital computer, borrowed time between a parent's rounds. By 2008 I was running Phoenix RO, a Ragnarok Online private server with thousands of active players. At 18, I developed and sold my first game commercially. I learned what it meant to build products people live inside before anyone called it a career.
               </p>
               <p style={{ marginBottom: 22 }}>
-                I completed my MBBS at D.Y. Patil Medical College, Pune in 2014. I was already experimenting — using Google Glass to live-stream surgeries, one of the first in India to do so. But the pull toward building was too strong. San Francisco. A 480-hour full-stack bootcamp at General Assembly. Stanford GSB's Innovative Healthcare Leadership program. Self-teaching code from zero while holding a medical degree. I wanted to be dangerous with both.
+                I completed my MBBS at D.Y. Patil Medical College, Navi Mumbai in 2014. I was already experimenting — using Google Glass to live-stream surgeries, one of the first in India to do so. But the pull toward building was too strong. San Francisco. A 480-hour full-stack bootcamp at General Assembly. Stanford GSB's Innovative Healthcare Leadership program. Self-teaching code from zero while holding a medical degree. I wanted to be dangerous with both.
               </p>
               <p style={{ marginBottom: 22 }}>
                 In 2017 I co-founded Global Esports — India's first VC-backed esports organization. We won the Valorant Conqueror Championship. Riot Games selected us as one of 10 permanent VCT Pacific franchise partners globally. We stayed profitable while 18+ Indian esports competitors shut down in 2024. Alongside that: 100M+ personal views across platforms, 5B+ generated for creators and brands, two TEDx stages, a contribution to a Tribeca Film Festival-winning film, and national rankings in inline speed skating. Today I build AI-native products, creator infrastructure, and the systems that let me operate at scale.
@@ -511,7 +576,7 @@ export default function Home() {
                           width: 7,
                           height: 7,
                           borderRadius: "50%",
-                          background: i === TIMELINE.length - 1 ? C.accent : "#333",
+                          background: i === TIMELINE.length - 1 ? C.accent : C.border,
                           boxShadow: i === TIMELINE.length - 1 ? `0 0 10px ${C.accent}66` : "none",
                         }}
                       />

@@ -33,7 +33,7 @@ SECTION 1 — IDENTITY
 SECTION 2 — IDENTITY STACK (why each credential matters)
 
   DOCTOR (MD)
-    Medical degree, D.Y. Patil Medical College, Pune.
+    Medical degree, D.Y. Patil Medical College, Navi Mumbai.
     Comes from a family of 26 doctors.
     Published articles on 3D laparoscopic surgery.
     Pioneered live-streaming of surgeries using Google Glass in India
@@ -77,7 +77,7 @@ SECTION 3 — FULL BACKSTORY (chronological)
     Played first LAN event in Counter-Strike.
     Continued competing in CS, DOTA, and WCG qualifiers at local events.
 
-  MEDICAL SCHOOL (D.Y. Patil, Pune)
+  MEDICAL SCHOOL (D.Y. Patil, Navi Mumbai)
     Discovered MMORPGs: Ragnarok Online, World of Warcraft.
     Taught himself to code — built his own Ragnarok Online private server
     from scratch. That server became the #1 private Ragnarok server globally
