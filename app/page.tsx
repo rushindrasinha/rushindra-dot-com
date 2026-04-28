@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useState, useEffect, useRef, Fragment } from "react";
 
 // ============================================================================
 // DESIGN TOKENS
@@ -110,7 +110,7 @@ const PLATFORMS = [
 ];
 
 const NOW = [
-  { label: "Ges", desc: "AI business operator for creators. Concierge pilot launching — 10 creators, ₹50K/month." },
+  { label: "Ges", desc: "AI business operator for creators. Concierge pilot in progress." },
   { label: "Aarees v5", desc: "Rebuilding on Meta WhatsApp Cloud API. Multi-agent runtime. Phone number features." },
   { label: "Creator growth", desc: "Distribution as first-class lever. Content compounding. Flywheel closing." },
   { label: "Global Esports", desc: "Operating through the final VCT Pacific franchise era." },
@@ -192,13 +192,13 @@ function useCounter(end: number, duration = 2000, shouldCount = true) {
 // ============================================================================
 // COMPONENTS
 // ============================================================================
-function Reveal({ children, delay = 0, style = {} }: { children: React.ReactNode; delay?: number; style?: React.CSSProperties }) {
+function Reveal({ children, delay = 0, style = {}, className = "" }: { children: React.ReactNode; delay?: number; style?: React.CSSProperties; className?: string }) {
   const [ref, visible] = useInView();
 
   return (
     <div
       ref={ref}
-      className="reveal"
+      className={`reveal${className ? ` ${className}` : ""}`}
       style={{
         opacity: visible ? 1 : 0,
         transform: visible ? "translateY(0)" : "translateY(28px)",
@@ -262,6 +262,9 @@ export default function Home() {
     if (el) el.scrollIntoView({ behavior: "smooth" });
   };
 
+  const now = new Date();
+  const qLabel = `Q${Math.ceil((now.getMonth() + 1) / 3)} ${now.getFullYear()}`;
+
   const [viewCount, vC] = useCounter(100, 2000);
   const [reachCount, rC] = useCounter(241, 1800);
   const [yearsCount, yC] = useCounter(20, 1600);
@@ -289,7 +292,7 @@ export default function Home() {
           transition: "all 0.35s ease",
         }}
       >
-        <button onClick={() => scrollTo("hero")} style={{ background: "none", border: "none", cursor: "pointer", fontFamily: F.display, fontSize: 24, fontStyle: "italic", color: C.accent, letterSpacing: 1 }}>
+        <button onClick={() => scrollTo("hero")} aria-label="Back to top" style={{ background: "none", border: "none", cursor: "pointer", fontFamily: F.display, fontSize: 24, fontStyle: "italic", color: C.accent, letterSpacing: 1 }}>
           R.
         </button>
 
@@ -298,12 +301,12 @@ export default function Home() {
             ["About", "about"],
             ["Work", "work"],
             ["Now", "now"],
-            ["Media", "media"],
             ["Contact", "contact"],
           ].map(([label, id]) => (
             <button
               key={id}
               onClick={() => scrollTo(id)}
+              aria-label={`Go to ${label} section`}
               style={{
                 background: "none",
                 border: "none",
@@ -354,7 +357,7 @@ export default function Home() {
 
           <Reveal delay={0.2}>
             <p style={{ fontSize: 18, lineHeight: 1.8, color: C.textMid, maxWidth: 660, margin: "0 0 20px 0", fontWeight: 300 }}>
-              I build companies, content, and AI-native systems at the intersection of medicine, esports, and the internet. Founder of Global Esports, VCT Pacific franchise partner.
+              I build companies, content, and AI-native systems at the intersection of medicine, esports, and the internet. Co-founder of Global Esports — India&apos;s only profitable esports org while 18+ shut down. One of 10 permanent VCT Pacific franchise teams selected by Riot Games globally.
             </p>
           </Reveal>
 
@@ -392,6 +395,7 @@ export default function Home() {
               </button>
               <button
                 onClick={() => scrollTo("contact")}
+                aria-label="Go to contact section"
                 style={{
                   padding: "12px 28px",
                   background: "transparent",
@@ -451,11 +455,14 @@ export default function Home() {
       {/* ========== MARQUEE ========== */}
       <section style={{ padding: "32px 0", background: "rgba(156,255,87,0.02)", overflow: "hidden", borderTop: `1px solid ${C.border}`, borderBottom: `1px solid ${C.border}` }}>
         <div style={{ display: "flex", overflow: "hidden" }}>
-          <div className="marquee-inner" style={{ display: "flex", gap: 24 }}>
+          <div className="marquee-inner" style={{ display: "flex", gap: 24, alignItems: "center" }}>
             {[...MARQUEE_ITEMS, ...MARQUEE_ITEMS].map((item, i) => (
-              <div key={i} style={{ whiteSpace: "nowrap", fontSize: 12, fontWeight: 600, color: C.textMid, letterSpacing: "1px", textTransform: "uppercase" }}>
-                {item}
-              </div>
+              <Fragment key={i}>
+                <div style={{ whiteSpace: "nowrap", fontSize: 12, fontWeight: 600, color: C.textMid, letterSpacing: "1px", textTransform: "uppercase" }}>
+                  {item}
+                </div>
+                <span style={{ color: C.textDim, fontSize: 16, lineHeight: 1, flexShrink: 0 }}>·</span>
+              </Fragment>
             ))}
           </div>
         </div>
@@ -531,21 +538,13 @@ export default function Home() {
             <SectionTitle>Proof of execution.</SectionTitle>
           </Reveal>
 
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(3, 1fr)",
-              gap: 16,
-              marginTop: 16,
-            }}
-          >
+          <div className="products-grid">
             {WORK.map((w, i) => (
-              <Reveal key={w.name} delay={0.08 * i}>
+              <Reveal key={w.name} delay={0.08 * i} style={{ gridColumn: w.wide ? "span 2" : undefined }}>
                 <div
                   className="card"
                   onClick={() => w.url && window.open(w.url, "_blank")}
                   style={{
-                    gridColumn: w.wide ? "span 2" : "span 1",
                     padding: 26,
                     height: "100%",
                     cursor: w.url ? "pointer" : "default",
@@ -580,13 +579,13 @@ export default function Home() {
             <Label>Platform Presence</Label>
           </Reveal>
           <Reveal delay={0.08}>
-            <SectionTitle>100M+ lifetime views across platforms.</SectionTitle>
+            <SectionTitle>100M+ personal views across platforms.</SectionTitle>
           </Reveal>
 
           <div style={{ display: "grid", gap: 20, marginTop: 32 }}>
             {PLATFORMS.map((p, i) => {
-              const maxSubs = 110000;
-              const pct = (p.subs / maxSubs) * 100;
+              const maxSubs = Math.max(...PLATFORMS.map(x => x.subs));
+              const pct = Math.max((Math.sqrt(p.subs) / Math.sqrt(maxSubs)) * 100, 6);
 
               return (
                 <Reveal key={p.name} delay={0.08 * i}>
@@ -612,7 +611,7 @@ export default function Home() {
       <section id="now" style={{ padding: "96px clamp(24px, 5vw, 64px)" }}>
         <div style={{ maxWidth: 820, margin: "0 auto" }}>
           <Reveal>
-            <Label>Current Focus — Q2 2026</Label>
+            <Label>Current Focus — {qLabel}</Label>
           </Reveal>
           <Reveal delay={0.08}>
             <SectionTitle>What I'm building right now.</SectionTitle>
