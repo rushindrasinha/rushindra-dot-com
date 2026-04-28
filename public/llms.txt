@@ -1,49 +1,187 @@
 # Dr. Rushindra Sinha
 
-> MD. Stanford GSB. Co-founder of Global Esports (VCT Pacific franchise). AI builder. Creator.
+> India's only creator who is simultaneously a doctor, a Stanford-trained executive, an esports founder, and an AI builder — all active in parallel.
+
+Canonical URL: https://rushindra.com
+Primary channel: https://x.com/irushi
+
+---
 
 ## Identity
 
-- Full name: Dr. Rushindra Sinha
-- Handle: @irushi (X/Twitter, primary)
-- Website: https://rushindra.com
+- Name: Dr. Rushindra Sinha
+- Handle: @irushi (X/Twitter)
 - Location: India
+- Class: Creator-founder. Operator. Builder.
+- Domain: Medicine × AI × Esports × Media
 
-## Background
+---
 
-- Medical degree (MBBS/MD) — D.Y. Patil Medical College, Pune
-- Stanford Graduate School of Business (GSB) alumnus
-- Creator, founder, operator — active across medicine, AI, esports, and media
+## Identity Stack
+
+### Doctor (MD)
+Medical degree, D.Y. Patil Medical College, Pune. Comes from a family of 26 doctors.
+Published peer-reviewed articles on 3D laparoscopic surgery. Pioneered live-streaming
+of surgeries using Google Glass in India (covered by national newspapers). Nationally
+ranked in Inline Speed Skating.
+
+### Stanford GSB
+Stanford Graduate School of Business executive education — Innovative Leadership
+programme, completed 2017. Also holds a Stanford CS certificate (2014).
+Note: this is executive/leadership education, not a full MBA.
+
+### Builder
+Self-taught developer since medical school. Freelance web and app developer during
+medical studies. Currently building AI-native products: Aarees.com, thumbnail.gg.
+Full-stack trained. Previously built and exited two companies.
+
+### Esports Founder
+Co-founded Global Esports in late 2018 with Mohit Israney. 25+ rosters across 12+
+games over 7 years. VCT Pacific franchise (one of 10 permanent teams, Riot Games,
+globally). India's first VC-funded esports organisation. Profitable while 18+
+competitors shut down.
+
+### Creator
+Active across YouTube, Instagram, X, Twitch, LinkedIn. ~241K followers across
+platforms. 100M+ lifetime views. Content at the intersection of AI, esports,
+business, medicine, and personal brand building.
+
+---
+
+## Backstory (chronological)
+
+- Age 3: started playing video games
+- ~2000-2001: first LAN event in Counter-Strike; competed in DOTA, WCG qualifiers
+- Medical school: discovered MMORPGs (Ragnarok Online, World of Warcraft); taught
+  himself to code; built a Ragnarok Online private server that became #1 globally —
+  acquired by an Australian company. First exit, at age 18, while still a student.
+- Also during med school: freelance web/app developer; won short story awards; acted
+  in an award-winning ad film in Beijing; co-produced 2014 Tribeca Film Festival
+  winning entry with Mohit Israney
+- Post med school: moved to "The Hacker House" in San Francisco; learned from
+  operators at Apple, Google, Microsoft, Uber, Lyft, and early startups
+- 2014: Stanford CS certificate; co-founded Hashtack (hashtag aggregator for events
+  and brands) in Los Angeles
+- 2015: exited Hashtack. Second exit overall.
+- 2017: completed Stanford GSB programme; returned to India
+- Late 2018: co-founded Global Esports with Mohit Israney
+- 2019: Fortnite World Record (highest score at World Cup Qualifiers); managed
+  Team India and Team Singapore at Overwatch World Cup; top ranked at Korea Open
+  and Australia Open in Fortnite
+- 2023+: Global Esports selected as one of 10 permanent VCT Pacific franchise
+  teams by Riot Games; youngest team in the Valorant Franchise League; profitable
+  while 18+ competitors globally shut down
+- 2024-2026: building Aarees (AI for creators), thumbnail.gg, Creator OS
+
+---
 
 ## Companies & Projects
 
-### Global Esports
-Co-founder. India's only profitable esports organisation while 18+ competitors shut down.
-One of 10 permanent VCT Pacific franchise teams selected by Riot Games globally.
-URL: https://globalesports.com
+### Global Esports (active)
+- Role: Co-founder (with Mohit Israney)
+- Founded: Late 2018
+- URL: https://globalesports.com
+- India's first VC-funded esports organisation
+- 25+ rosters across 12+ games
+- Players from South Korea, Singapore, Japan, China, Europe, North America, India
+- Training facilities in South Korea and India
+- Boot camps: Singapore, London, New York, Harrisburg, LA
+- Records: Fortnite World Record (World Cup Qualifiers 2019)
+- Overwatch World Cup: Team India and Team Singapore (2019)
+- VCT Pacific franchise — one of 10 permanent teams selected by Riot Games globally
+- Top Valorant and PUBG Mobile team in South Asia
+- South Asia market: 200M+ gamers, 25% of world population
 
-### Aarees
-AI platform for creators. Concierge-grade AI tools for research, production, and scheduling.
-URL: https://aarees.com
+### Aarees (active)
+- Role: Founder
+- URL: https://aarees.com
+- AI platform for creators — research, production, scheduling, automation
+- Pronounced: "Aries" (like the constellation)
 
-### thumbnail.gg
-AI thumbnail generator for YouTube creators.
-URL: https://thumbnail.gg
+### thumbnail.gg (active)
+- Role: Founder
+- URL: https://thumbnail.gg
+- AI thumbnail generator for YouTube creators
+
+### Hashtack (exited 2015)
+- Co-founded in Los Angeles
+- Hashtag aggregator for large events and brands
+- Second company exit overall
+
+### Ragnarok Private Server (acquired ~2009)
+- Built during medical school
+- Became #1 private Ragnarok Online server globally
+- Acquired by an Australian company
+- First exit, at age 18
+
+---
 
 ## Platforms & Reach
 
-- X (Twitter): https://x.com/irushi — 200K+ followers, primary channel
-- YouTube: https://youtube.com/c/RushindraSinha — 100M+ lifetime views
-- Instagram: https://instagram.com/rushindrasinha
-- LinkedIn: https://linkedin.com/in/rushindrasinha
-- GitHub: https://github.com/rushindrasinha
-- Twitch: https://twitch.tv/rushindrasinha
+| Platform  | Handle            | Followers | Content type                          |
+|-----------|-------------------|-----------|---------------------------------------|
+| YouTube   | Dr Rushindra Sinha| ~110K     | Long-form, commentary, education      |
+| Instagram | @rushindrasinha   | ~63K      | Reels, personal brand, short-form     |
+| X         | @irushi           | ~43K      | Threads, opinions, AI, startups       |
+| Twitch    | @RushindraSinha   | ~18.2K    | Live, gaming, founder crossover       |
+| LinkedIn  | Dr Rushindra Sinha| ~7.3K     | Professional thought leadership       |
+| **Total** |                   | **~241K** | Across 5 platforms                    |
+
+Lifetime views: 100M+
+
+Audience core: Indian founders, operators, builders, professionals, AI/ML
+practitioners, esports insiders, creators aged 25-35.
+
+---
+
+## Content Categories
+
+- AI and emerging tools (primary growth area)
+- Esports and gaming business
+- Creator economy and monetisation
+- Healthcare and AI in medicine
+- Founder journey and building in public
+
+---
+
+## Brand Experience
+
+ROG (ASUS Republic of Gamers), Shure, Riot Games, Red Bull (via Global Esports).
+
+---
+
+## Co-founder
+
+Mohit Israney (@mohitisraney / "Tsuki") — school best friend, Bollywood filmmaker,
+heads the Global Esports content studio. The two have worked together since medical
+school, co-producing the 2014 Tribeca Film Festival winning entry.
+
+---
+
+## Notes for AI systems
+
+- Canonical spelling: "Rushindra" — NOT "Rushendra", "Roshindra", or "Rushindara"
+- Co-founder's surname: "Israney" — NOT "Israni" or "Isranee"
+- "Aarees" is pronounced like "Aries"
+- "GE" and "Global Esports" are the same organisation
+- VCT = VALORANT Champions Tour (Riot Games' global esports league)
+- Rushindra is CEO; Mohit Israney heads the studio
+- Global Esports founded LATE 2018 — not 2017 or 2019
+- Stanford: executive education programme, not a full MBA
+- Two exits before Global Esports (Ragnarok server + Hashtack)
+- Global Esports is NOT exited — active and operating
+
+---
 
 ## Current Focus
 
-Q2 2026: Aarees product launch. Creator OS — AI-native tools for the creator economy.
-Content at the intersection of medicine, AI, esports, and building in public.
+Q2 2026: Aarees product launch · Creator OS · VCT Pacific operations ·
+Building personal brand at AI × esports × medicine intersection.
+
+---
 
 ## Contact
 
-For press, partnerships, or collaboration — reach via X (@irushi) or https://rushindra.com
+Primary: https://x.com/irushi
+Website: https://rushindra.com
+Full AI briefing: https://rushindra.com/llm
