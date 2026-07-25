@@ -107,16 +107,34 @@ body::before {
 
 /* Card base */
 .card {
+  position: relative;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 16px;
   transition: border-color 0.3s ease, transform 0.3s ease, background 0.3s ease;
+  isolation: isolate;
 }
 
 .card:hover {
   border-color: var(--border-accent);
   transform: translateY(-3px);
   background: var(--surface-strong);
+}
+
+/* Cursor-follow spotlight — only lit while hovered, position set via JS custom props */
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  background: radial-gradient(320px circle at var(--mx, 50%) var(--my, 50%), var(--accent-dim), transparent 70%);
+}
+
+.card:hover::before {
+  opacity: 1;
 }
 
 /* Divider */
@@ -205,3 +223,181 @@ body::before {
     padding: 72px var(--px);
   }
 }
+
+/* Nav — links collapse into a hamburger menu below 760px */
+.nav-hamburger {
+  display: none;
+}
+
+@media (max-width: 760px) {
+  .nav-links,
+  .nav-cta {
+    display: none !important;
+  }
+  .nav-hamburger {
+    display: flex;
+  }
+}
+
+.nav-mobile-panel {
+  display: flex;
+  flex-direction: column;
+  animation: navPanelIn 0.22s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes navPanelIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Scroll progress bar */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 2px;
+  background: var(--accent);
+  z-index: 1100;
+  transition: width 0.1s linear;
+  box-shadow: 0 0 8px var(--accent);
+}
+
+/* Hero 3D mount — desktop only, avoids WebGL cost on phones */
+.hero-3d-wrap {
+  position: absolute;
+  top: 50%;
+  right: clamp(0px, 3vw, 48px);
+  transform: translateY(-50%);
+  width: min(30vw, 460px);
+  height: min(30vw, 460px);
+  pointer-events: auto;
+  z-index: 0;
+}
+
+@media (max-width: 1180px) {
+  .hero-3d-wrap {
+    display: none;
+  }
+}
+
+/* Custom cursor — only enabled on precise pointers via JS (cursor-fx-active) */
+.cursor-dot,
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 1200;
+  will-change: transform;
+  display: none;
+}
+
+.cursor-fx-active,
+.cursor-fx-active * {
+  cursor: none !important;
+}
+
+.cursor-fx-active .cursor-dot,
+.cursor-fx-active .cursor-ring {
+  display: block;
+}
+
+.cursor-dot {
+  width: 6px;
+  height: 6px;
+  margin: -3px 0 0 -3px;
+  border-radius: 50%;
+}
+
+.cursor-ring {
+  width: 34px;
+  height: 34px;
+  margin: -17px 0 0 -17px;
+  border: 1px solid;
+  border-radius: 50%;
+  transition: width 0.2s ease, height 0.2s ease, margin 0.2s ease, opacity 0.2s ease;
+  opacity: 0.55;
+}
+
+.cursor-ring.cursor-ring-hover {
+  width: 56px;
+  height: 56px;
+  margin: -28px 0 0 -28px;
+  opacity: 1;
+}
+
+/* ============================================================
+   VISUAL PASS 1 & 2
+   ============================================================ */
+
+/* Hero subtle dot-grid background */
+.hero-dot-grid {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image: radial-gradient(circle, rgba(255,255,255,0.032) 1px, transparent 1px);
+  background-size: 30px 30px;
+  -webkit-mask-image: radial-gradient(ellipse 90% 95% at 40% 50%, black 20%, transparent 75%);
+  mask-image: radial-gradient(ellipse 90% 95% at 40% 50%, black 20%, transparent 75%);
+}
+
+[data-theme="light"] .hero-dot-grid {
+  background-image: radial-gradient(circle, rgba(0,0,0,0.04) 1px, transparent 1px);
+}
+
+/* Hero orb breathing */
+@keyframes orbBreath {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.1); opacity: 0.72; }
+}
+.hero-orb-pulse { animation: orbBreath 8s ease-in-out infinite; }
+.hero-orb-pulse-alt { animation: orbBreath 11s ease-in-out infinite reverse; }
+
+/* Timeline active dot pulse */
+@keyframes dotPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(156,255,87,0.7); }
+  70% { box-shadow: 0 0 0 8px rgba(156,255,87,0); }
+}
+.timeline-dot-live {
+  animation: dotPulse 2.4s ease-out infinite;
+}
+
+/* Featured card (Global Esports) */
+.card-featured {
+  background: linear-gradient(135deg, rgba(156,255,87,0.05) 0%, rgba(255,255,255,0.025) 55%) !important;
+  border-color: rgba(156,255,87,0.22) !important;
+}
+[data-theme="light"] .card-featured {
+  background: linear-gradient(135deg, rgba(80,160,30,0.045) 0%, rgba(0,0,0,0.035) 55%) !important;
+  border-color: rgba(80,160,30,0.24) !important;
+}
+
+/* Work card tag color variants */
+.tag-company  { color: var(--accent)    !important; background: rgba(156,255,87,0.09)  !important; }
+.tag-product  { color: var(--blue)      !important; background: rgba(94,186,255,0.09)  !important; }
+.tag-platform { color: #ffcc44          !important; background: rgba(255,204,68,0.09)  !important; }
+.tag-tool     { color: var(--text-mid)  !important; background: rgba(255,255,255,0.04) !important; }
+.tag-open     { color: var(--text-dim)  !important; background: rgba(255,255,255,0.02) !important; }
+
+/* Stat row separator */
+.stat-sep {
+  display: none;
+}
+@media (min-width: 900px) {
+  .stat-sep {
+    display: block;
+    width: 1px;
+    height: 36px;
+    background: var(--border);
+    flex-shrink: 0;
+    align-self: center;
+  }
+}
+

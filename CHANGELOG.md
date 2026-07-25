@@ -4,6 +4,36 @@ All changes are logged here. Format: version → date → what changed → who a
 
 ---
 
+## [1.3.0] — 2026-07-26 (IST)
+
+**NOVA X1-inspired Three.js hero + content pass. All work by Ares. Approved by Rushindra Sinha.**
+
+### Added
+- `app/components/Hero3D.tsx` — procedural Three.js hero centerpiece: faceted glass/metal orb with three orbiting satellites (medicine/gaming/AI), RoomEnvironment + PMREMGenerator reflections, ACES filmic tone mapping, three-point lighting, drag-to-rotate
+- Hero3D: second perpendicular ring (blue) + 110-point ambient particle cloud for depth
+- `app/components/CursorFX.tsx` — cursor interaction effect
+- Hero dot-grid texture background (accent-masked subtle depth layer)
+- Section heading accent rules (short green rule under key headings)
+- Timeline '26 dot: pulsing green ring animation
+- Global Esports card: `card-featured` treatment (green gradient background, stronger border)
+- Card tags: color-coded chips by type (COMPANY/PRODUCT/PLATFORM/TOOL/OPEN SOURCE)
+
+### Changed (content, fact-checked)
+- Subtitle: `MD · Stanford GSB · Global Esports Founder · VCT Pacific · 2× TEDx`
+- Hero opener: "MD-turned-founder."
+- thumbnail.gg: "Click-through intelligence at production scale"
+- Aarees: "direct phone-number access"
+- Global Esports: "Turn an audience into a repeatable revenue engine"
+- NOW section: Aarees v5.1, GE "Stable. Profitable."
+- Timeline '26: "Building systems that compound — and the machine that builds them."
+- Closing line: "Built at the edge of every era. Still building."
+- "18+ shut down" → "18+ competitors shut down" (precision)
+
+### Removed
+- Unused default Next.js public SVG assets (file/globe/next/vercel/window)
+
+---
+
 ## [1.2.0] — 2026-04-28 (IST)
 
 **AI-native layer + CI/CD wiring. All work by Ares. Approved by Rushindra Sinha.**

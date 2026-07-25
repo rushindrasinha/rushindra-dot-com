@@ -1,6 +1,8 @@
 "use client";
 
 import { useState, useEffect, useRef, Fragment, createContext, useContext } from "react";
+import Hero3D from "./components/Hero3D";
+import CursorFX from "./components/CursorFX";
 
 // ============================================================================
 // DESIGN TOKENS
@@ -47,15 +49,22 @@ const F = {
 // ============================================================================
 const ROLES = ["Founder.", "Builder.", "Creator.", "Doctor."];
 
+const NAV_LINKS: [string, string][] = [
+  ["About", "about"],
+  ["Work", "work"],
+  ["Now", "now"],
+  ["Contact", "contact"],
+];
+
 const TIMELINE = [
-  { yr: "'93", t: "First games on a hospital computer — borrowed time between a parent's rounds. Early exposure to systems, play, and digital worlds." },
-  { yr: "'08", t: "Built Phoenix RO — a Ragnarok Online private server with thousands of active players. Developed and sold my first online game commercially at 18. First real lessons in products, monetization, and running live internet infrastructure." },
+  { yr: "'93", t: "First games on a hospital computer, borrowed time between a parent's rounds. Early exposure to systems, play, and digital worlds." },
+  { yr: "'08", t: "Built Phoenix RO, a Ragnarok Online private server with thousands of active players. Developed and sold my first online game commercially at 18. First real lessons in products, monetization, and running live internet infrastructure." },
   { yr: "'14", t: "MBBS from D.Y. Patil Medical College, Navi Mumbai. Pioneered Google Glass for live-streaming surgeries in India. Realized the deeper instinct was building, not practice." },
   { yr: "'16", t: "San Francisco. 480-hour full-stack bootcamp at General Assembly. Stanford GSB: Innovative Healthcare Leadership. The coding and business foundations locked in." },
   { yr: "'17", t: "Co-founded Global Esports in Mumbai with Mohit Israney. India's first VC-backed esports organization." },
   { yr: "'22", t: "Riot Games selected Global Esports as one of 10 permanent VCT Pacific franchise partners globally. Won Valorant Conqueror Championship. Competed on the world stage in Seoul." },
-  { yr: "'24", t: "GE achieves profitability. 18+ Indian esports competitors shut down — GE was the only one standing. Contributed to a Tribeca Film Festival-winning entry. 2x TEDx stages." },
-  { yr: "'26", t: "Creator-founder era. AI-native products. Building the machine that builds." },
+  { yr: "'24", t: "GE achieves profitability. 18+ Indian esports competitors shut down. GE was the only one standing. Contributed to a Tribeca Film Festival-winning entry. 2x TEDx stages." },
+  { yr: "'26", t: "Creator-founder era. AI-native products at scale. Building systems that compound — and the machine that builds them." },
 ];
 
 const WORK = [
@@ -71,14 +80,14 @@ const WORK = [
     name: "thumbnail.gg",
     tag: "Product",
     status: "Live",
-    line: "AI thumbnail generation for YouTube creators. Speed, intelligence, and workflow leverage.",
+    line: "AI thumbnail generation for YouTube creators. Click-through intelligence at production scale.",
     url: "https://thumbnail.gg",
   },
   {
     name: "Aarees",
     tag: "Platform",
     status: "Active",
-    line: "AI creator tools platform on WhatsApp. Multi-agent runtime. The consumer layer.",
+    line: "AI creator platform on WhatsApp. Multi-agent runtime with direct phone-number access.",
     url: "https://aarees.com",
   },
   {
@@ -92,7 +101,7 @@ const WORK = [
     name: "Ges",
     tag: "Product",
     status: "Soon",
-    line: "AI business operator for serious creators. Turning audience into direct revenue.",
+    line: "AI-native business operator for creators. Turn an audience into a repeatable revenue engine.",
     url: null,
   },
   {
@@ -127,10 +136,10 @@ const PLATFORMS = [
 ];
 
 const NOW = [
-  { label: "Ges", desc: "AI business operator for creators. Concierge pilot in progress." },
-  { label: "Aarees v5", desc: "Rebuilding on Meta WhatsApp Cloud API. Multi-agent runtime. Phone number features." },
-  { label: "Creator growth", desc: "Distribution as first-class lever. Content compounding. Flywheel closing." },
-  { label: "Global Esports", desc: "Operating through the final VCT Pacific franchise era." },
+  { label: "Ges", desc: "AI business operator for creators. Founding cohort pilot in progress." },
+  { label: "Aarees v5.1", desc: "Live on Meta WhatsApp Cloud API. Multi-agent runtime, phone-native access." },
+  { label: "Creator growth", desc: "Distribution as a first-class product lever. Content compounding. Flywheel closing." },
+  { label: "Global Esports", desc: "Operating through the final VCT Pacific franchise era. Stable. Profitable." },
 ];
 
 const MARQUEE_ITEMS = [
@@ -147,6 +156,14 @@ const MARQUEE_ITEMS = [
   "5B+ Views for Creators & Brands",
   "241K Reach",
 ];
+
+const TAG_CLASS: Record<string, string> = {
+  Company: "tag-company",
+  Product: "tag-product",
+  Platform: "tag-platform",
+  Tool: "tag-tool",
+  "Open Source": "tag-open",
+};
 
 const SOCIALS = [
   { name: "X", url: "https://x.com/irushi" },
@@ -218,7 +235,7 @@ function Reveal({ children, delay = 0, style = {}, className = "" }: { children:
       className={`reveal${className ? ` ${className}` : ""}`}
       style={{
         opacity: visible ? 1 : 0,
-        transform: visible ? "translateY(0)" : "translateY(28px)",
+        transform: visible ? "translateY(0) scale(1)" : "translateY(28px) scale(0.97)",
         transition: `opacity 0.75s cubic-bezier(.22,1,.36,1) ${delay}s, transform 0.75s cubic-bezier(.22,1,.36,1) ${delay}s`,
         ...style,
       }}
@@ -239,7 +256,12 @@ function Label({ children }: { children: React.ReactNode }) {
 
 function SectionTitle({ children }: { children: React.ReactNode }) {
   const C = useContext(ThemeCtx);
-  return <h2 style={{ fontFamily: F.display, fontSize: "clamp(32px, 4.2vw, 54px)", fontWeight: 400, fontStyle: "italic", margin: "0 0 40px 0", color: C.white, lineHeight: 1.1 }}>{children}</h2>;
+  return (
+    <div style={{ marginBottom: 40 }}>
+      <h2 style={{ fontFamily: F.display, fontSize: "clamp(32px, 4.2vw, 54px)", fontWeight: 400, fontStyle: "italic", margin: "0 0 12px 0", color: C.white, lineHeight: 1.1 }}>{children}</h2>
+      <span style={{ display: "block", width: 28, height: 2, borderRadius: 1, background: C.accent }} />
+    </div>
+  );
 }
 
 function StatusDot({ status }: { status: string }) {
@@ -257,16 +279,29 @@ function StatusDot({ status }: { status: string }) {
 
 function Divider() {
   const C = useContext(ThemeCtx);
-  return <div style={{ height: 1, background: C.border }} />;
+  return <div style={{ height: 1, background: `linear-gradient(90deg, transparent, ${C.border} 20%, ${C.border} 80%, transparent)` }} />;
 }
 
 // ============================================================================
 // MAIN COMPONENT
 // ============================================================================
+function magnetize(e: React.MouseEvent<HTMLButtonElement>) {
+  const el = e.currentTarget;
+  const r = el.getBoundingClientRect();
+  const x = e.clientX - (r.left + r.width / 2);
+  const y = e.clientY - (r.top + r.height / 2);
+  el.style.transform = `translate(${x * 0.22}px, ${y * 0.32}px)`;
+}
+function unmagnetize(e: React.MouseEvent<HTMLButtonElement>) {
+  e.currentTarget.style.transform = "translate(0, 0)";
+}
+
 export default function Home() {
   const [scrolled, setScrolled] = useState(false);
+  const [scrollPct, setScrollPct] = useState(0);
   const [roleIdx, setRoleIdx] = useState(0);
   const [isDark, setIsDark] = useState(true);
+  const [menuOpen, setMenuOpen] = useState(false);
 
   const C = isDark ? DARK_C : LIGHT_C;
 
@@ -288,8 +323,14 @@ export default function Home() {
   }, [isDark]);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener("scroll", onScroll);
+    const onScroll = () => {
+      setScrolled(window.scrollY > 50);
+      const h = document.documentElement;
+      const max = h.scrollHeight - h.clientHeight;
+      setScrollPct(max > 0 ? (window.scrollY / max) * 100 : 0);
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
@@ -299,6 +340,7 @@ export default function Home() {
   }, []);
 
   const scrollTo = (id: string) => {
+    setMenuOpen(false);
     const el = document.getElementById(id);
     if (el) el.scrollIntoView({ behavior: "smooth" });
   };
@@ -316,6 +358,24 @@ export default function Home() {
   return (
     <ThemeCtx.Provider value={C}>
     <div style={{ background: C.bg, color: C.text, fontFamily: F.body, minHeight: "100vh", overflowX: "hidden" }}>
+      <CursorFX accent={C.accent} />
+      <div className="scroll-progress" style={{ width: `${scrollPct}%` }} />
+      <div
+        aria-hidden="true"
+        style={{
+          position: "fixed",
+          top: 0,
+          left: 0,
+          right: 0,
+          height: 110,
+          zIndex: 999,
+          pointerEvents: "none",
+          opacity: scrolled ? 0 : 1,
+          transition: "opacity 0.35s ease",
+          background: `linear-gradient(180deg, ${C.bg} 0%, transparent 100%)`,
+        }}
+      />
+
       {/* ========== NAV ========== */}
       <nav
         style={{
@@ -339,13 +399,8 @@ export default function Home() {
         </button>
 
         <div style={{ display: "flex", alignItems: "center", gap: 20 }}>
-          <div style={{ display: "flex", gap: 28, flexWrap: "wrap", fontSize: 12, fontWeight: 500, letterSpacing: "1.4px", textTransform: "uppercase" }}>
-            {[
-              ["About", "about"],
-              ["Work", "work"],
-              ["Now", "now"],
-              ["Contact", "contact"],
-            ].map(([label, id]) => (
+          <div className="nav-links" style={{ display: "flex", gap: 28, fontSize: 12, fontWeight: 500, letterSpacing: "1.4px", textTransform: "uppercase" }}>
+            {NAV_LINKS.map(([label, id]) => (
               <button
                 key={id}
                 onClick={() => scrollTo(id)}
@@ -368,6 +423,30 @@ export default function Home() {
               </button>
             ))}
           </div>
+          <button
+            className="nav-cta"
+            onClick={() => scrollTo("contact")}
+            onMouseMove={magnetize}
+            onMouseLeave={unmagnetize}
+            aria-label="Go to contact section"
+            style={{
+              padding: "8px 18px",
+              background: C.accent,
+              color: C.bg,
+              border: "none",
+              borderRadius: 7,
+              fontSize: 11,
+              fontWeight: 700,
+              letterSpacing: "0.8px",
+              textTransform: "uppercase",
+              cursor: "pointer",
+              fontFamily: F.body,
+              transition: "transform 0.15s cubic-bezier(.22,1,.36,1)",
+              flexShrink: 0,
+            }}
+          >
+            Work together
+          </button>
           <button
             onClick={toggleTheme}
             aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
@@ -396,14 +475,106 @@ export default function Home() {
           >
             {isDark ? "☀" : "☾"}
           </button>
+          <button
+            className="nav-hamburger"
+            onClick={() => setMenuOpen((o) => !o)}
+            aria-label={menuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={menuOpen}
+            style={{
+              alignItems: "center",
+              justifyContent: "center",
+              width: 32,
+              height: 32,
+              background: "none",
+              border: `1px solid ${C.border}`,
+              borderRadius: 6,
+              cursor: "pointer",
+              color: C.text,
+              flexShrink: 0,
+            }}
+          >
+            <svg width="16" height="12" viewBox="0 0 16 12" fill="none" aria-hidden="true">
+              {menuOpen ? (
+                <path d="M1 1L15 11M15 1L1 11" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+              ) : (
+                <>
+                  <line x1="0" y1="1" x2="16" y2="1" stroke="currentColor" strokeWidth="1.5" />
+                  <line x1="0" y1="6" x2="16" y2="6" stroke="currentColor" strokeWidth="1.5" />
+                  <line x1="0" y1="11" x2="16" y2="11" stroke="currentColor" strokeWidth="1.5" />
+                </>
+              )}
+            </svg>
+          </button>
         </div>
+
+        {menuOpen && (
+          <div
+            className="nav-mobile-panel"
+            style={{
+              position: "absolute",
+              top: "100%",
+              left: 0,
+              right: 0,
+              padding: "12px clamp(24px, 5vw, 64px) 20px",
+              background: isDark ? "rgba(8,8,10,0.98)" : "rgba(245,245,240,0.98)",
+              backdropFilter: "blur(16px)",
+              borderBottom: `1px solid ${C.border}`,
+              gap: 4,
+            }}
+          >
+            {NAV_LINKS.map(([label, id]) => (
+              <button
+                key={id}
+                onClick={() => scrollTo(id)}
+                aria-label={`Go to ${label} section`}
+                style={{
+                  background: "none",
+                  border: "none",
+                  textAlign: "left",
+                  cursor: "pointer",
+                  color: C.text,
+                  fontSize: 15,
+                  fontWeight: 500,
+                  padding: "10px 0",
+                  borderBottom: `1px solid ${C.border}`,
+                }}
+              >
+                {label}
+              </button>
+            ))}
+            <button
+              onClick={() => scrollTo("contact")}
+              style={{
+                marginTop: 14,
+                padding: "12px 20px",
+                background: C.accent,
+                color: C.bg,
+                border: "none",
+                borderRadius: 8,
+                fontSize: 13,
+                fontWeight: 700,
+                letterSpacing: "0.8px",
+                textTransform: "uppercase",
+                cursor: "pointer",
+                fontFamily: F.body,
+              }}
+            >
+              Work together
+            </button>
+          </div>
+        )}
       </nav>
 
       {/* ========== HERO ========== */}
       <section id="hero" style={{ minHeight: "100vh", display: "flex", alignItems: "center", padding: "140px clamp(24px, 5vw, 64px) 100px", position: "relative" }}>
+        <div className="hero-dot-grid" aria-hidden="true" />
         {/* Gradient orbs */}
-        <div style={{ position: "absolute", top: "15%", right: "-8%", width: 600, height: 600, borderRadius: "50%", background: "radial-gradient(circle, rgba(156,255,87,0.08) 0%, transparent 65%)", filter: "blur(100px)", pointerEvents: "none" }} />
-        <div style={{ position: "absolute", bottom: "10%", left: "-5%", width: 400, height: 400, borderRadius: "50%", background: "radial-gradient(circle, rgba(94,186,255,0.04) 0%, transparent 65%)", filter: "blur(80px)", pointerEvents: "none" }} />
+        <div className="hero-orb-pulse" style={{ position: "absolute", top: "15%", right: "-8%", width: 600, height: 600, borderRadius: "50%", background: "radial-gradient(circle, rgba(156,255,87,0.08) 0%, transparent 65%)", filter: "blur(100px)", pointerEvents: "none" }} />
+        <div className="hero-orb-pulse-alt" style={{ position: "absolute", bottom: "10%", left: "-5%", width: 400, height: 400, borderRadius: "50%", background: "radial-gradient(circle, rgba(94,186,255,0.04) 0%, transparent 65%)", filter: "blur(80px)", pointerEvents: "none" }} />
+
+        <div className="hero-3d-wrap">
+          <Hero3D accent={C.accent} />
+        </div>
 
         <div style={{ maxWidth: 920, position: "relative", zIndex: 1 }}>
           <Reveal>
@@ -429,13 +600,13 @@ export default function Home() {
 
           <Reveal delay={0.2}>
             <p style={{ fontSize: 18, lineHeight: 1.8, color: C.textMid, maxWidth: 660, margin: "0 0 20px 0", fontWeight: 300 }}>
-              I build companies, content, and AI-native systems at the intersection of medicine, esports, and the internet. Co-founder of Global Esports — India&apos;s only profitable esports org while 18+ shut down. One of 10 permanent VCT Pacific franchise teams selected by Riot Games globally.
+              MD-turned-founder. I build companies, products, and AI-native systems at the intersection of medicine, esports, and the internet. Co-founder of Global Esports — India&apos;s only profitable esports org while 18+ competitors shut down. One of 10 permanent VCT Pacific franchise teams selected by Riot Games globally.
             </p>
           </Reveal>
 
           <Reveal delay={0.28}>
             <p style={{ fontSize: 14, color: C.textDim, margin: "0 0 36px 0", fontWeight: 400 }}>
-              MD · Stanford GSB executive education · Founder, Global Esports · TEDx Speaker
+              MD · Stanford GSB · Global Esports Founder · VCT Pacific · 2× TEDx
             </p>
           </Reveal>
 
@@ -443,6 +614,14 @@ export default function Home() {
             <div style={{ display: "flex", gap: 14, flexWrap: "wrap", marginBottom: 64 }}>
               <button
                 onClick={() => scrollTo("work")}
+                onMouseMove={magnetize}
+                onMouseLeave={(e) => {
+                  unmagnetize(e);
+                  (e.target as HTMLElement).style.opacity = "1";
+                }}
+                onMouseEnter={(e) => {
+                  (e.target as HTMLElement).style.opacity = "0.9";
+                }}
                 style={{
                   padding: "12px 28px",
                   background: C.accent,
@@ -454,13 +633,7 @@ export default function Home() {
                   letterSpacing: "0.8px",
                   cursor: "pointer",
                   fontFamily: F.body,
-                  transition: "all 0.2s",
-                }}
-                onMouseEnter={(e) => {
-                  (e.target as HTMLElement).style.opacity = "0.9";
-                }}
-                onMouseLeave={(e) => {
-                  (e.target as HTMLElement).style.opacity = "1";
+                  transition: "transform 0.15s cubic-bezier(.22,1,.36,1), opacity 0.2s",
                 }}
               >
                 Explore the work
@@ -468,6 +641,18 @@ export default function Home() {
               <button
                 onClick={() => scrollTo("contact")}
                 aria-label="Go to contact section"
+                onMouseMove={magnetize}
+                onMouseEnter={(e) => {
+                  const el = e.target as HTMLElement;
+                  el.style.borderColor = C.white;
+                  el.style.color = C.white;
+                }}
+                onMouseLeave={(e) => {
+                  unmagnetize(e);
+                  const el = e.target as HTMLElement;
+                  el.style.borderColor = C.accent;
+                  el.style.color = C.accent;
+                }}
                 style={{
                   padding: "12px 28px",
                   background: "transparent",
@@ -479,17 +664,7 @@ export default function Home() {
                   letterSpacing: "0.8px",
                   cursor: "pointer",
                   fontFamily: F.body,
-                  transition: "all 0.2s",
-                }}
-                onMouseEnter={(e) => {
-                  const el = e.target as HTMLElement;
-                  el.style.borderColor = C.white;
-                  el.style.color = C.white;
-                }}
-                onMouseLeave={(e) => {
-                  const el = e.target as HTMLElement;
-                  el.style.borderColor = C.accent;
-                  el.style.color = C.accent;
+                  transition: "transform 0.15s cubic-bezier(.22,1,.36,1), border-color 0.2s, color 0.2s",
                 }}
               >
                 Work together
@@ -555,13 +730,13 @@ export default function Home() {
           <Reveal delay={0.14}>
             <div style={{ fontSize: 16, lineHeight: 1.9, color: C.textMid, fontWeight: 300 }}>
               <p style={{ marginBottom: 22 }}>
-                Games found me at two — first plays on a hospital computer, borrowed time between a parent's rounds. By 2008 I was running Phoenix RO, a Ragnarok Online private server with thousands of active players. At 18, I developed and sold my first game commercially. I learned what it meant to build products people live inside before anyone called it a career.
+                Games found me at two. First plays on a hospital computer, borrowed time between a parent's rounds. By 2008 I was running Phoenix RO, a Ragnarok Online private server with thousands of active players. At 18, I developed and sold my first game commercially. I learned what it meant to build products people live inside before anyone called it a career.
               </p>
               <p style={{ marginBottom: 22 }}>
-                I completed my MBBS at D.Y. Patil Medical College, Navi Mumbai in 2014. I was already experimenting — using Google Glass to live-stream surgeries, one of the first in India to do so. But the pull toward building was too strong. San Francisco. A 480-hour full-stack bootcamp at General Assembly. Stanford GSB's Innovative Healthcare Leadership program. Self-teaching code from zero while holding a medical degree. I wanted to be dangerous with both.
+                I completed my MBBS at D.Y. Patil Medical College, Navi Mumbai in 2014. I was already experimenting, using Google Glass to live-stream surgeries, one of the first in India to do so. But the pull toward building was too strong. San Francisco. A 480-hour full-stack bootcamp at General Assembly. Stanford GSB's Innovative Healthcare Leadership program. Self-teaching code from zero while holding a medical degree. I wanted to be dangerous with both.
               </p>
               <p style={{ marginBottom: 22 }}>
-                In 2017 I co-founded Global Esports — India's first VC-backed esports organization. We won the Valorant Conqueror Championship. Riot Games selected us as one of 10 permanent VCT Pacific franchise partners globally. We stayed profitable while 18+ Indian esports competitors shut down in 2024. Alongside that: 100M+ personal views across platforms, 5B+ generated for creators and brands, two TEDx stages, a contribution to a Tribeca Film Festival-winning film, and national rankings in inline speed skating. Today I build AI-native products, creator infrastructure, and the systems that let me operate at scale.
+                In 2017 I co-founded Global Esports, India's first VC-backed esports organization. We won the Valorant Conqueror Championship. Riot Games selected us as one of 10 permanent VCT Pacific franchise partners globally. We stayed profitable while 18+ Indian esports competitors shut down in 2024. Alongside that: 100M+ personal views across platforms, 5B+ generated for creators and brands, two TEDx stages, a contribution to a Tribeca Film Festival-winning film, and national rankings in inline speed skating. Today I build AI-native products, creator infrastructure, and the systems that let me operate at scale.
               </p>
             </div>
           </Reveal>
@@ -576,6 +751,7 @@ export default function Home() {
                   <Reveal key={t.yr} delay={0.04 * i}>
                     <div style={{ display: "flex", gap: 18, marginBottom: 22, alignItems: "flex-start", position: "relative" }}>
                       <div
+                        className={i === TIMELINE.length - 1 ? "timeline-dot-live" : ""}
                         style={{
                           position: "absolute",
                           left: -26,
@@ -614,7 +790,7 @@ export default function Home() {
             {WORK.map((w, i) => (
               <Reveal key={w.name} delay={0.08 * i} style={{ gridColumn: w.wide ? "span 2" : undefined }}>
                 <div
-                  className="card"
+                  className={`card${w.wide ? " card-featured" : ""}`}
                   onClick={() => w.url && window.open(w.url, "_blank")}
                   style={{
                     padding: 26,
@@ -625,7 +801,7 @@ export default function Home() {
                   <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 14, gap: 12 }}>
                     <div>
                       <h3 style={{ margin: "0 0 8px 0", fontSize: 18, fontWeight: 700, color: C.white }}>{w.name}</h3>
-                      <span style={{ display: "inline-block", padding: "4px 8px", borderRadius: 4, background: C.surfaceStrong, color: C.textDim, fontSize: 10, fontWeight: 700, textTransform: "uppercase", letterSpacing: "1px" }}>
+                      <span className={TAG_CLASS[w.tag] ?? ""} style={{ display: "inline-block", padding: "4px 8px", borderRadius: 4, background: C.surfaceStrong, color: C.textDim, fontSize: 10, fontWeight: 700, textTransform: "uppercase", letterSpacing: "1px" }}>
                         {w.tag}
                       </span>
                     </div>
@@ -683,7 +859,7 @@ export default function Home() {
       <section id="now" style={{ padding: "96px clamp(24px, 5vw, 64px)" }}>
         <div style={{ maxWidth: 820, margin: "0 auto" }}>
           <Reveal>
-            <Label>Current Focus — {qLabel}</Label>
+            <Label>Current Focus · {qLabel}</Label>
           </Reveal>
           <Reveal delay={0.08}>
             <SectionTitle>What I'm building right now.</SectionTitle>
@@ -751,10 +927,62 @@ export default function Home() {
 
       <Divider />
 
+      {/* ========== CLOSING STATEMENT ========== */}
+      <section style={{ padding: "80px clamp(24px, 5vw, 64px)", textAlign: "center" }}>
+        <Reveal>
+          <p
+            style={{
+              fontFamily: F.display,
+              fontSize: "clamp(28px, 4vw, 46px)",
+              fontStyle: "italic",
+              fontWeight: 400,
+              color: C.white,
+              margin: 0,
+              lineHeight: 1.25,
+            }}
+          >
+            Built at the edge of every era. Still building.
+          </p>
+        </Reveal>
+        <Reveal delay={0.1}>
+          <button
+            onClick={() => scrollTo("hero")}
+            onMouseMove={magnetize}
+            onMouseLeave={(e) => {
+              unmagnetize(e);
+              const el = e.currentTarget;
+              el.style.color = C.textMid;
+              el.style.borderColor = C.border;
+            }}
+            aria-label="Back to top"
+            style={{
+              marginTop: 32,
+              background: "none",
+              border: `1px solid ${C.border}`,
+              borderRadius: 999,
+              padding: "10px 22px",
+              color: C.textMid,
+              fontSize: 12,
+              fontWeight: 600,
+              letterSpacing: "0.6px",
+              cursor: "pointer",
+              fontFamily: F.body,
+              transition: "transform 0.15s cubic-bezier(.22,1,.36,1), color 0.2s, border-color 0.2s",
+            }}
+            onMouseEnter={(e) => {
+              const el = e.currentTarget;
+              el.style.color = C.accent;
+              el.style.borderColor = C.borderAccent;
+            }}
+          >
+            Back to top ↑
+          </button>
+        </Reveal>
+      </section>
+
       {/* ========== FOOTER ========== */}
-      <footer style={{ padding: "36px clamp(24px, 5vw, 64px)", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 12 }}>
+      <footer style={{ padding: "24px clamp(24px, 5vw, 64px) 36px", display: "flex", justifyContent: "center", alignItems: "center" }}>
         <p style={{ margin: 0, fontSize: 12, color: C.textDim, fontWeight: 300 }}>© 2026 Dr. Rushindra Sinha</p>
-        <p style={{ margin: 0, fontSize: 11, color: C.textDim, fontWeight: 300, fontFamily: F.display, fontStyle: "italic" }}>From gaming servers to AI systems.</p>
       </footer>
     </div>
     </ThemeCtx.Provider>
