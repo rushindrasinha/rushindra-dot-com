@@ -53,6 +53,7 @@ export const metadata: Metadata = {
     type: "website",
     url: "https://rushindra.com",
     siteName: "Dr. Rushindra Sinha",
+    locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
@@ -78,6 +79,19 @@ const jsonLd = {
     "https://twitch.tv/rushindrasinha",
   ],
   jobTitle: "Founder, Creator, AI Builder",
+  email: "mailto:rushindra@globalesports.com",
+  contactPoint: {
+    "@type": "ContactPoint",
+    contactType: "business enquiries",
+    email: "rushindra@globalesports.com",
+    url: "https://rushindra.com/contact",
+    availableLanguage: ["en"],
+  },
+  address: {
+    "@type": "PostalAddress",
+    // Country-level only — deliberately not a street or city address.
+    addressCountry: "IN",
+  },
   description:
     "Creator-founder building at the intersection of medicine, AI, esports, and media.",
   alumniOf: [
@@ -88,6 +102,17 @@ const jsonLd = {
     { "@type": "Organization", name: "Global Esports", url: "https://globalesports.com" },
     { "@type": "Organization", name: "Aarees", url: "https://aarees.com" },
   ],
+};
+
+// Separate node so agents can resolve the site entity and its search/contact
+// surfaces independently of the Person entity.
+const webSiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "Dr. Rushindra Sinha",
+  url: "https://rushindra.com",
+  inLanguage: "en",
+  publisher: { "@type": "Person", name: "Dr. Rushindra Sinha", url: "https://rushindra.com" },
 };
 
 export default function RootLayout({
@@ -101,6 +126,10 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(webSiteJsonLd) }}
         />
         {children}
         <Analytics />

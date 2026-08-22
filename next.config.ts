@@ -13,6 +13,22 @@ const nextConfig: NextConfig = {
           { key: "X-DNS-Prefetch-Control", value: "on" },
         ],
       },
+      {
+        // acceptmarkdown.com: the homepage is content-negotiated between
+        // text/html and text/markdown, so caches must key on Accept.
+        // Next.js overwrites a Vary set from proxy.ts on the HTML branch,
+        // so it is declared here as well.
+        source: "/",
+        headers: [
+          {
+            key: "Vary",
+            // Superset: Accept (markdown negotiation) + the RSC values Next.js
+            // needs for correct client-router caching. Never drop the latter.
+            value:
+              "Accept, RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Router-Segment-Prefetch, Accept-Encoding",
+          },
+        ],
+      },
     ];
   },
 };

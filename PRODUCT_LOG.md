@@ -4,6 +4,51 @@ Timestamped record of every session, change, and decision. Never deleted — app
 
 ---
 
+## Session 003 — 2026-08-22
+
+**Time:** ~01:30–02:00 IST  
+**Operator:** Ares  
+**Approved by:** Rushindra Sinha (Discord, 2026-08-22 07:39 IST — "Go for it, push")  
+**Status:** Pushed to production ✓
+
+### Trigger
+
+Is Agentic readiness audit scored rushindra.com 74/100 with 7 items (2 Essential, 5 Recommended). Rushi dropped the audit into #web-dev › rushindra.com.
+
+### Work done
+
+Implemented 6 of 7 audit items. Item 5 (brand-name search rank) is external SEO/PR, not a code change.
+
+| # | Item | Before | Action |
+|---|------|--------|--------|
+| 1 | Agent-friendly 404s | Partial | `app/not-found.tsx` with markdown recovery block |
+| 2 | Markdown content negotiation | Failed | `proxy.ts` + `app/index.md/route.ts` |
+| 3 | Agent when-to-use guidance | Failed | New section in `llms.txt` and `/llm` |
+| 4 | Trust anchor pages | Failed | `/about`, `/contact`, `/privacy` |
+| 5 | Brand discoverability | Partial | OUT OF SCOPE — needs press/backlinks |
+| 6 | Metadata (og:image) | Partial | `app/opengraph-image.tsx` via ImageResponse |
+| 7 | Schema contactPoint/address | Partial | Person JSON-LD + WebSite node |
+
+### Findings not in the audit
+
+1. **Next 16 renamed `middleware` → `proxy`.** Writing `middleware.ts` would have silently done nothing.
+2. **`public/sitemap.xml` + `public/robots.txt` shadowed the generated `app/` routes.** Caught by the verification script when the new URLs did not appear locally. Static duplicates removed.
+3. **Apex `rushindra.com` 307-redirects to `www.rushindra.com`**, while every canonical URL and JSON-LD claims the apex. Redirect chain masking the apex is exactly what audit item 5 warns about. NOT changed — Vercel domain config, needs Rushi's decision.
+4. **Content contradiction:** `page.tsx` timeline says Global Esports founded '17; `llms.txt` says "LATE 2018 — not 2017 or 2019". Contradictory first-party facts hurt agent entity resolution. NOT resolved — needs Rushi to confirm which is correct.
+5. **`llms.txt` was stale** — missing ClutchPass, Ges, Clutch Creator, xReader.ai, YT Shorts Pipeline, all live on the homepage. Added.
+
+### Verification
+
+`scripts/verify-agent-readiness.sh` — 26 assertions, 26 passed against a local production build. `npm run build` clean. `npm run lint` unchanged (6 pre-existing errors in `page.tsx`, present at HEAD, none introduced).
+
+### Open / needs decision
+
+- Apex vs www canonical (item 5)
+- Global Esports founding year contradiction
+- HTML-branch `Vary: Accept` relies on `vercel.json` edge headers — unverifiable locally, must be re-checked after deploy
+
+---
+
 ## Session 001 — 2026-04-27
 
 **Time:** ~20:00–23:18 IST  

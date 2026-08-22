@@ -4,6 +4,32 @@ All changes are logged here. Format: version → date → what changed → who a
 
 ---
 
+## [1.4.0] — 2026-08-22 (IST)
+
+**Agent-readiness pass (Is Agentic audit 74/100). All work by Ares. Approved by Rushindra Sinha.**
+
+### Added
+- `app/not-found.tsx` — branded 404 with agent recovery links plus a literal markdown recovery block (sitemap, llms.txt, /llm, /about, /contact)
+- `proxy.ts` — Accept-header content negotiation on `/` (Next 16 renamed `middleware` → `proxy`)
+- `app/index.md/route.ts` — markdown representation of the homepage, served as `text/markdown; charset=utf-8` with `Vary: Accept, Accept-Encoding`
+- `app/about/page.tsx`, `app/contact/page.tsx`, `app/privacy/page.tsx` — trust anchor pages
+- `app/components/PageShell.tsx` — shared server-rendered chrome for the trust anchor pages
+- `app/opengraph-image.tsx` — og:image generated in code via `ImageResponse` (1200×630, real typography, no external asset)
+- `llms.txt` + `/llm`: "When To Use This Source" agent guidance, including explicit do-not-use cases
+- JSON-LD: `contactPoint`, `address` (country-level), `email`; new `WebSite` entity node
+- `scripts/verify-agent-readiness.sh` — 26 HTTP-level assertions covering every behaviour changed here
+
+### Changed
+- `app/sitemap.ts` — now lists /about, /contact, /privacy
+- `app/robots.ts` — declares canonical host
+- `llms.txt` — added ClutchPass, Ges, Clutch Creator, xReader.ai, YT Shorts Pipeline (were live on the homepage but missing from the machine layer); published canonical contact email
+- `next.config.ts` + `vercel.json` — `Vary` superset on `/` that adds `Accept` without dropping Next's RSC router values
+
+### Removed
+- `public/sitemap.xml`, `public/robots.txt` — stale static files shadowing the generated `app/` routes (single source of truth restored)
+
+---
+
 ## [1.3.0] — 2026-07-26 (IST)
 
 **NOVA X1-inspired Three.js hero + content pass. All work by Ares. Approved by Rushindra Sinha.**
