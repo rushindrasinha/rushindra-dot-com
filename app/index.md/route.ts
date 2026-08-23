@@ -21,7 +21,8 @@ one of 10 permanent VCT Pacific franchise teams selected by Riot Games globally.
   3D laparoscopic surgery.
 - **Stanford GSB** — Executive education (Innovative Leadership). This is
   executive/leadership education, not a full MBA.
-- **Esports founder** — Co-founded Global Esports with Mohit Israney. India's
+- **Esports founder** — Started Global Esports with Mohit Israney in July
+  2017 as a proprietorship, formally incorporated by November 2018. India's
   first VC-backed esports organisation. VCT Pacific franchise partner.
   Profitable while 18+ Indian competitors shut down.
 - **Builder** — Self-taught developer since medical school. Built and sold a

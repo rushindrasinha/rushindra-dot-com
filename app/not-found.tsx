@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { NOT_FOUND_MARKDOWN } from "./lib/notFoundMarkdown";
 
 export const metadata: Metadata = {
   title: "404 — Page not found | Dr. Rushindra Sinha",
@@ -17,23 +18,12 @@ const RECOVERY = [
   { href: "/sitemap.xml", label: "/sitemap.xml", desc: "Every indexable URL on this site" },
 ];
 
-// Plain-markdown recovery block. Agents that land on a 404 can parse this
-// directly instead of guessing which paths exist.
-const MARKDOWN_BODY = `# 404 — Not Found
-
-The requested path does not exist on rushindra.com.
-
-## Where to look next
-
-- [/](https://rushindra.com/) — homepage, full profile
-- [/about](https://rushindra.com/about) — biography and background
-- [/contact](https://rushindra.com/contact) — contact routes and channels
-- [/llms.txt](https://rushindra.com/llms.txt) — structured profile for LLMs and agents
-- [/llm](https://rushindra.com/llm) — full machine-readable agent briefing
-- [/sitemap.xml](https://rushindra.com/sitemap.xml) — every indexable URL
-
-Canonical host: https://rushindra.com
-`;
+// Plain-markdown recovery block, rendered here for humans/browsers hitting
+// the 404 with an HTML Accept header. Agents sending Accept: text/markdown
+// get this exact same text served directly (no HTML wrapper) from proxy.ts,
+// since Next.js middleware runs ahead of this component and short-circuits
+// the response before it ever reaches this render path.
+const MARKDOWN_BODY = NOT_FOUND_MARKDOWN;
 
 export default function NotFound() {
   return (

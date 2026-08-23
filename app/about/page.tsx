@@ -47,8 +47,11 @@ export default function AboutPage() {
 
       <H2>Global Esports</H2>
       <P>
-        He co-founded Global Esports with Mohit Israney, building what became
-        India&apos;s first VC-backed esports organisation. Riot Games selected Global
+        He started Global Esports with Mohit Israney in July 2017, initially
+        running it as a proprietorship under his own name. The pair formally
+        incorporated the company and transferred the business over by
+        November 2018, building what became India&apos;s first VC-backed
+        esports organisation. Riot Games selected Global
         Esports as one of ten permanent VCT Pacific franchise partners globally,
         making it the youngest team in the VALORANT franchise league. The
         organisation has fielded 25+ rosters across 12+ titles, won the VALORANT

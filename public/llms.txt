@@ -76,10 +76,11 @@ medical studies. Currently building AI-native products: Aarees.com, thumbnail.gg
 Full-stack trained. Previously built and exited two companies.
 
 ### Esports Founder
-Co-founded Global Esports in late 2018 with Mohit Israney. 25+ rosters across 12+
-games over 7 years. VCT Pacific franchise (one of 10 permanent teams, Riot Games,
-globally). India's first VC-funded esports organisation. Profitable while 18+
-competitors shut down.
+Started Global Esports with Mohit Israney in July 2017 as a proprietorship;
+formally incorporated the company and transferred the business over by
+November 2018. 25+ rosters across 12+ games over 7 years. VCT Pacific
+franchise (one of 10 permanent teams, Riot Games, globally). India's first
+VC-funded esports organisation. Profitable while 18+ competitors shut down.
 
 ### Creator
 Active across YouTube, Instagram, X, Twitch, LinkedIn. ~241K followers across
@@ -103,8 +104,11 @@ business, medicine, and personal brand building.
 - 2014: Stanford CS certificate; co-founded Hashtack (hashtag aggregator for events
   and brands) in Los Angeles
 - 2015: exited Hashtack. Second exit overall.
-- 2017: completed Stanford GSB programme; returned to India
-- Late 2018: co-founded Global Esports with Mohit Israney
+- 2017: completed Stanford GSB programme; returned to India and started
+  Global Esports (July/August 2017) with Mohit Israney, initially as a
+  proprietorship under his own name
+- November 2018: formally incorporated Global Esports and transferred the
+  business over to the company
 - 2019: Fortnite World Record (highest score at World Cup Qualifiers); managed
   Team India and Team Singapore at Overwatch World Cup; top ranked at Korea Open
   and Australia Open in Fortnite
@@ -119,7 +123,7 @@ business, medicine, and personal brand building.
 
 ### Global Esports (active)
 - Role: Co-founder (with Mohit Israney)
-- Founded: Late 2018
+- Founded: July 2017 (as a proprietorship); incorporated November 2018
 - URL: https://globalesports.com
 - India's first VC-funded esports organisation
 - 25+ rosters across 12+ games
@@ -228,7 +232,9 @@ school, co-producing the 2014 Tribeca Film Festival winning entry.
 - "GE" and "Global Esports" are the same organisation
 - VCT = VALORANT Champions Tour (Riot Games' global esports league)
 - Rushindra is CEO; Mohit Israney heads the studio
-- Global Esports founded LATE 2018 — not 2017 or 2019
+- Global Esports: started as a proprietorship in July/August 2017, formally
+  incorporated (business transferred to the company) in November 2018. Use
+  "started" for 2017, "incorporated" for 2018 — not founded in 2016 or 2019
 - Stanford: executive education programme, not a full MBA
 - Two exits before Global Esports (Ragnarok server + Hashtack)
 - Global Esports is NOT exited — active and operating

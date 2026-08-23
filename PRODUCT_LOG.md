@@ -4,6 +4,39 @@ Timestamped record of every session, change, and decision. Never deleted — app
 
 ---
 
+## Session 004 — 2026-08-23
+
+**Time:** ~10:30–11:15 IST  
+**Operator:** Ares  
+**Approved by:** Rushindra Sinha (explicit approval to make and push/deploy these changes)  
+**Status:** Pushed to production ✓ (2 of 3 items fully closed; VERCEL_TOKEN blocked, see below)
+
+### Trigger
+
+Three items left open from the Aug 22 audit follow-up (Session 003, item 4 and the CI/CD deploy history).
+
+### Work done
+
+| # | Item | Before | Action |
+|---|------|--------|--------|
+| 1 | Founding-year contradiction | `page.tsx` said '17; `llm/route.ts`/`llms.txt` said "LATE 2018, not 2017" | Confirmed real facts with Rushindra Sinha: started as a proprietorship July/Aug 2017, incorporated Nov 2018. Made every copy source (`page.tsx`, `about/page.tsx`, `index.md/route.ts`, `llm/route.ts`, `llms.txt`) state both dates the same way |
+| 2 | 404 markdown negotiation gap | `proxy.ts` matcher only covered `/`; unknown paths always got HTML regardless of Accept | Widened matcher to all extension-less paths; unknown path + `Accept: text/markdown` now returns the markdown 404 body directly (404 status, correct Content-Type, Vary). Shared body extracted to `app/lib/notFoundMarkdown.ts` |
+| 3 | Stale `VERCEL_TOKEN` GH secret | Last rotated 2026-04-28, most recent Actions run (Aug 22) failed | BLOCKED — see below |
+
+### VERCEL_TOKEN finding
+
+`vercel tokens add` against the ambient authenticated CLI session fails with `Error: Cannot create tokens for this app. (403)`, regardless of `--scope` or `--project`. The local `auth.json` holds a `vca_`-prefixed OAuth-app token (from "Sign in with Vercel"), and Vercel does not allow OAuth-app-issued CLI sessions to mint new personal access tokens via the API — only a token created through the classic dashboard/email login flow can do that. No non-interactive fix exists from here. Did not attempt browser-based `vercel login` since that touches account credentials and the instruction was to check back first rather than automate it. `gh secret set` was not run because there is no new token value to set. Net effect: GitHub Actions auto-deploy-on-push is still broken; this release was shipped via manual `vercel deploy --prod` on the ambient CLI session, same as the workaround already in use.
+
+### Verification
+
+`npm run build` clean. Tested locally with `next start`: `Accept: text/markdown` on `/` returns the homepage markdown (unchanged behavior), on a nonexistent path returns the 404 markdown body with `404` status and `Vary: Accept, Accept-Encoding`; no-Accept-header requests get HTML in both cases. Confirmed against production after deploy (see CHANGELOG / final report for exact curl output and commit hash).
+
+### Open / needs decision
+
+- VERCEL_TOKEN: needs Rushindra to either run `vercel login` interactively (browser/email) to get a token-minting-capable session, or generate a token from the Vercel dashboard directly and hand it over for `gh secret set`.
+
+---
+
 ## Session 003 — 2026-08-22
 
 **Time:** ~01:30–02:00 IST  

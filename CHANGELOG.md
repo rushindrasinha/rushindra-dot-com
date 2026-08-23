@@ -4,6 +4,22 @@ All changes are logged here. Format: version → date → what changed → who a
 
 ---
 
+## [1.4.1] — 2026-08-23 (IST)
+
+**Three open items from the Aug 22 audit follow-up. All work by Ares. Approved by Rushindra Sinha.**
+
+### Fixed
+- Global Esports founding-year contradiction: `page.tsx` said '17, `llm/route.ts` and `llms.txt` explicitly said "LATE 2018, not 2017" — first-party facts disagreed with each other. Confirmed with Rushindra Sinha: started as a proprietorship under his own name in July/August 2017, formally incorporated and the business transferred to the company by November 2018. Updated `app/page.tsx`, `app/about/page.tsx`, `app/index.md/route.ts`, `app/llm/route.ts`, and `public/llms.txt` to state both dates consistently ("started" 2017 / "incorporated" Nov 2018) instead of picking one and contradicting the other.
+- 404 page did not honor `Accept: text/markdown` — every other content route on the site (`/`) content-negotiates via `proxy.ts`, but a dead path always returned the branded HTML 404 regardless of Accept header. `proxy.ts` matcher widened from `/` only to every extension-less path; unknown paths with `Accept: text/markdown` now get the plain-markdown recovery block directly (status 404, `Content-Type: text/markdown; charset=utf-8`, `Vary: Accept, Accept-Encoding`) instead of the rendered HTML not-found page. Markdown body extracted to `app/lib/notFoundMarkdown.ts` so the HTML and markdown 404 variants can't drift apart.
+
+### Added
+- `app/lib/notFoundMarkdown.ts` — shared 404 markdown body, imported by both `app/not-found.tsx` and `proxy.ts`.
+
+### Infra
+- `VERCEL_TOKEN` GitHub Actions secret: attempted rotation via `vercel tokens add` against the ambient authenticated CLI session — blocked. The CLI's "Sign in with Vercel" OAuth session (`vca_`-prefixed token) cannot mint new personal access tokens via the API (`Error: Cannot create tokens for this app. (403)`), independent of `--scope`/`--project`. No non-interactive path found; a full browser-based `vercel login` (email/dashboard flow) would be needed to get a token-minting-capable session, which was intentionally not attempted here per instruction not to touch account-credential flows without checking back. Secret is unchanged and still stale (last set 2026-04-28); CI/CD deploy-on-push remains broken. Manual `vercel deploy --prod` (ambient CLI session) remains the working deploy path and was used to ship this release.
+
+---
+
 ## [1.4.0] — 2026-08-22 (IST)
 
 **Agent-readiness pass (Is Agentic audit 74/100). All work by Ares. Approved by Rushindra Sinha.**
