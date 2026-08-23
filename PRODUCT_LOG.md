@@ -4,6 +4,29 @@ Timestamped record of every session, change, and decision. Never deleted — app
 
 ---
 
+## Session 005 — 2026-08-23
+
+**Time:** ~12:00–12:20 IST
+**Operator:** Ares
+**Approved by:** Rushindra Sinha (explicit approval to delete the stray secret and ship the TEDx links)
+**Status:** Pushed to production — this push is the live test of the VERCEL_TOKEN fix
+
+### Trigger
+
+Closing out the one item Session 004 left blocked, plus a gap spotted while that session was running: the site claims "2× TEDx" in three places but links neither talk.
+
+### Work done
+
+1. **VERCEL_TOKEN, closed.** Root cause confirmed, not just worked around: the Claude Code CLI's Vercel integration authenticates via a `vca_`-prefixed OAuth-app session, and Vercel structurally blocks OAuth-app sessions from minting new personal access tokens via API (`403 Cannot create tokens for this app`) — reproduced identically even after a fresh interactive `vercel login`, so it isn't an auth-freshness issue, it's the app type. Rushindra generated a token directly from the Vercel dashboard and it's now in place as `VERCEL_TOKEN` via `gh secret set`.
+2. **Stray secret cleanup.** A manual `gh secret set` attempt during the token rotation used the raw old token string as the secret *name* instead of the value, leaving `VCP_...DFL` sitting in the repo's Actions secrets. Confirmed the underlying token was already rotated/revoked (inert), got explicit go-ahead, deleted it. Only `VERCEL_TOKEN`, `VERCEL_ORG_ID`, `VERCEL_PROJECT_ID` remain.
+3. **TEDx links.** `app/about/page.tsx` "two TEDx stages" line now links both talks: TEDxNMIMS ("Can You Get Paid To Play Video Games?", with Mohit Israney) and TEDxSanjivani University ("Passion Pivots Redefine Career Frontiers").
+
+### Verification
+
+`npm run build` clean. This commit's push is the real-world test of the GitHub Actions deploy pipeline with the new token — see CHANGELOG for the run result.
+
+---
+
 ## Session 004 — 2026-08-23
 
 **Time:** ~10:30–11:15 IST  

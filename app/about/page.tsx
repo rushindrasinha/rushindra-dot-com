@@ -74,7 +74,11 @@ export default function AboutPage() {
       <P>
         He publishes across YouTube, Instagram, X, Twitch, and LinkedIn to a combined
         audience of roughly 241,000, with over 100 million lifetime personal views,
-        and has spoken on two TEDx stages. The content sits where the work does: AI
+        and has spoken on two TEDx stages:{" "}
+        <a href="https://youtu.be/DFw5fSh9D3I" target="_blank" rel="noopener noreferrer" style={{ color: C.accent }}>TEDxNMIMS</a>{" "}
+        and{" "}
+        <a href="https://youtu.be/KIZiMBvIeog" target="_blank" rel="noopener noreferrer" style={{ color: C.accent }}>TEDxSanjivani University</a>.
+        The content sits where the work does: AI
         tooling, esports as a business, the creator economy, healthcare and AI, and
         the unedited version of building companies in public.
       </P>

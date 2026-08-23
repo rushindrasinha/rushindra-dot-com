@@ -4,6 +4,19 @@ All changes are logged here. Format: version → date → what changed → who a
 
 ---
 
+## [1.4.2] — 2026-08-23 (IST)
+
+**Close out the VERCEL_TOKEN blocker from 1.4.1, plus TEDx proof links. All work by Ares. Approved by Rushindra Sinha.**
+
+### Fixed
+- `app/about/page.tsx`: the "two TEDx stages" claim was unlinked in three places on the site (marquee, animated counter, about copy). Added the two actual talk links to the about-page sentence: TEDxNMIMS ("Can You Get Paid To Play Video Games?", with Mohit Israney) and TEDxSanjivani University ("Passion Pivots Redefine Career Frontiers").
+
+### Infra
+- `VERCEL_TOKEN` GitHub Actions secret: root cause from 1.4.1 confirmed — the Claude Code CLI's Vercel OAuth app (`vca_`-prefixed session) is structurally blocked from minting new personal access tokens via API, regardless of interactive vs. non-interactive login (`vercel login` re-auth reproduced the identical `403 Cannot create tokens for this app`). Rushindra generated a token from the Vercel dashboard directly and it's now wired via `gh secret set VERCEL_TOKEN`. This release's push is the live test of the fix.
+- Cleanup: an earlier manual attempt at setting this secret used the raw token string as the secret *name* instead of the value, leaving a dead secret (`VCP_...DFL`) in the repo's Actions secrets. Confirmed inert (source token already rotated/revoked) and deleted after explicit confirmation.
+
+---
+
 ## [1.4.1] — 2026-08-23 (IST)
 
 **Three open items from the Aug 22 audit follow-up. All work by Ares. Approved by Rushindra Sinha.**
