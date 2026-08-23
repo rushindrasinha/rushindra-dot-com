@@ -5,8 +5,9 @@ import * as THREE from "three";
 import { RoomEnvironment } from "three/examples/jsm/environments/RoomEnvironment.js";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 
-// Procedural sculpture, no external assets: a faceted glass core (the builder)
-// orbited by three metallic satellites (medicine / games / AI) inside a halo ring.
+// Procedural sculpture, no external assets: a faceted glass targeting reticle
+// (the builder's aim) orbited by three metallic satellites — gaming, esports,
+// media/creator — inside a halo ring.
 export default function Hero3D({ accent = "#9cff57" }: { accent?: string }) {
   const mountRef = useRef<HTMLDivElement>(null);
 
@@ -69,9 +70,9 @@ export default function Hero3D({ accent = "#9cff57" }: { accent?: string }) {
     ring2.rotation.y = Math.PI / 1.9;
     rig.add(ring2);
 
-    // Faceted glass core
+    // Faceted glass center — the reticle's core
     const core = new THREE.Mesh(
-      new THREE.IcosahedronGeometry(0.95, 2),
+      new THREE.OctahedronGeometry(0.42, 2),
       new THREE.MeshPhysicalMaterial({
         color: 0xffffff,
         metalness: 0,
@@ -87,7 +88,7 @@ export default function Hero3D({ accent = "#9cff57" }: { accent?: string }) {
 
     // Rim glow — slightly larger backside shell, additive, reads as a soft fresnel halo
     const rimGlow = new THREE.Mesh(
-      new THREE.IcosahedronGeometry(1.02, 2),
+      new THREE.OctahedronGeometry(0.46, 2),
       new THREE.MeshBasicMaterial({
         color: accentColor,
         transparent: true,
@@ -100,10 +101,40 @@ export default function Hero3D({ accent = "#9cff57" }: { accent?: string }) {
 
     // Inner emissive spark (reads through the glass)
     const spark = new THREE.Mesh(
-      new THREE.IcosahedronGeometry(0.3, 0),
+      new THREE.IcosahedronGeometry(0.15, 0),
       new THREE.MeshBasicMaterial({ color: accentColor })
     );
     rig.add(spark);
+
+    // Reticle arms — six gapped bars along ±X/±Y/±Z, so it reads as a 3D aim
+    // reticle/target from any rotation instead of a flat crosshair edge-on.
+    const armMat = new THREE.MeshPhysicalMaterial({
+      color: accentColor,
+      metalness: 0.9,
+      roughness: 0.15,
+      clearcoat: 1,
+      clearcoatRoughness: 0.1,
+    });
+    const armLen = 0.6;
+    const armGap = 0.58;
+    const armThick = 0.05;
+    const armGeo = new THREE.BoxGeometry(armThick, armLen, armThick);
+    const armAxes: [THREE.Vector3, number][] = [
+      [new THREE.Vector3(0, 1, 0), 0],
+      [new THREE.Vector3(0, -1, 0), 0],
+      [new THREE.Vector3(1, 0, 0), Math.PI / 2],
+      [new THREE.Vector3(-1, 0, 0), Math.PI / 2],
+      [new THREE.Vector3(0, 0, 1), Math.PI / 2],
+      [new THREE.Vector3(0, 0, -1), Math.PI / 2],
+    ];
+    armAxes.forEach(([dir, zRot], i) => {
+      const arm = new THREE.Mesh(armGeo, armMat);
+      arm.position.copy(dir).multiplyScalar(armGap + armLen / 2);
+      if (i < 2) arm.rotation.z = 0;
+      else if (i < 4) arm.rotation.z = zRot;
+      else arm.rotation.x = zRot;
+      rig.add(arm);
+    });
 
     // Ambient particle field — scattered stars around the sculpture
     const pCount = 110;
@@ -124,16 +155,22 @@ export default function Hero3D({ accent = "#9cff57" }: { accent?: string }) {
     );
     rig.add(particles);
 
-    // Three satellites — medicine / games / AI — metallic, orbiting the ring plane
-    const satColors = [0x5ebaff, 0xffffff, accentColor.getHex()];
-    const satellites: { mesh: THREE.Mesh; radius: number; speed: number; offset: number }[] = [];
-    satColors.forEach((c, i) => {
+    // Three satellites — gaming / esports / media & creator — metallic, orbiting the ring plane
+    const satColors = [accentColor.getHex(), 0x5ebaff, 0xffffff];
+    const satGeometries: THREE.BufferGeometry[] = [
+      new THREE.OctahedronGeometry(0.15, 0),   // gaming — d8 die
+      new THREE.ConeGeometry(0.12, 0.26, 4),   // esports — trophy silhouette
+      new THREE.ConeGeometry(0.16, 0.07, 3),   // media/creator — play-button wedge
+    ];
+    const satellites: { mesh: THREE.Mesh; radius: number; speed: number; offset: number; spin: number }[] = [];
+    satGeometries.forEach((geo, i) => {
       const mesh = new THREE.Mesh(
-        new THREE.SphereGeometry(0.13, 32, 32),
-        new THREE.MeshPhysicalMaterial({ color: c, metalness: 0.85, roughness: 0.25, clearcoat: 0.6 })
+        geo,
+        new THREE.MeshPhysicalMaterial({ color: satColors[i], metalness: 0.85, roughness: 0.25, clearcoat: 0.6 })
       );
+      if (i === 2) mesh.rotation.z = Math.PI / 2; // orient the wedge to read as a ▶ play icon
       rig.add(mesh);
-      satellites.push({ mesh, radius: ORBIT_R, speed: 0.35 + i * 0.05, offset: (i / 3) * Math.PI * 2 });
+      satellites.push({ mesh, radius: ORBIT_R, speed: 0.35 + i * 0.05, offset: (i / 3) * Math.PI * 2, spin: 0.4 + i * 0.15 });
     });
 
     // Three-point studio lighting
@@ -185,6 +222,8 @@ export default function Hero3D({ accent = "#9cff57" }: { accent?: string }) {
       satellites.forEach((s) => {
         const a = t * s.speed + s.offset;
         s.mesh.position.set(Math.cos(a) * s.radius, Math.sin(a * 0.6) * 0.35, Math.sin(a) * s.radius);
+        s.mesh.rotation.y += 0.006 * s.spin;
+        s.mesh.rotation.x += 0.004 * s.spin;
       });
       spark.rotation.y += 0.01;
       particles.rotation.y += 0.0007;

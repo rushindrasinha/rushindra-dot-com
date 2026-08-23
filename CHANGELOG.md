@@ -4,6 +4,15 @@ All changes are logged here. Format: version → date → what changed → who a
 
 ---
 
+## [1.4.4] — 2026-08-23 (IST)
+
+**Hero 3D sculpture: swap generic core for a gaming/esports/creator-coded design. Flagged by Rushindra Sinha. All work by Ares. Approved by Rushindra Sinha.**
+
+### Changed
+- `app/components/Hero3D.tsx`: the hero's procedural Three.js sculpture read as an abstract glass icosahedron with 3 plain-sphere satellites — no visual signal of gaming, esports, or media/creator despite code comments claiming that intent. Replaced the core with a faceted glass targeting reticle (octahedron core + six radiating bar arms along the X/Y/Z axes, forming a 3D crosshair/aim-point from any rotation) — a direct visual reference to competitive-shooter gaming, which GE competes in directly (VALORANT). Replaced the three plain-sphere satellites with distinct shapes reading as a d8 die (gaming), a trophy silhouette (esports), and a play-button wedge (media/creator), each with continuous self-rotation added so the shape reads clearly as it orbits. No external 3D assets — stays procedural, matches the existing build philosophy. Dark palette, glass/metallic materials, and the orbiting-ring halo are unchanged.
+
+---
+
 ## [1.4.3] — 2026-08-23 (IST)
 
 **Fix misleading metric juxtaposition. Flagged by Rushindra Sinha. All work by Ares. Approved by Rushindra Sinha.**
