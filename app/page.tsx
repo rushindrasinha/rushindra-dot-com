@@ -64,7 +64,7 @@ const TIMELINE = [
   { yr: "'17", t: "Started Global Esports in Mumbai with Mohit Israney — a proprietorship under my name at first. Incorporated the company and transferred the business over by November '18. India's first VC-backed esports organization." },
   { yr: "'22", t: "Riot Games selected Global Esports as one of 10 permanent VCT Pacific franchise partners globally. Won Valorant Conqueror Championship. Competed on the world stage in Seoul." },
   { yr: "'24", t: "GE achieves profitability. 18+ Indian esports competitors shut down. GE was the only one standing. Contributed to a Tribeca Film Festival-winning entry. 2x TEDx stages." },
-  { yr: "'26", t: "Creator-founder era. AI-native products at scale. Building systems that compound — and the machine that builds them." },
+  { yr: "'26", t: "January: started building Ares, an AI operating system, on OpenClaw — voice-first, model-agnostic, running the companies from a Discord command centre. Creator-founder era. Building systems that compound, and the machine that builds them." },
 ];
 
 const WORK = [
@@ -119,6 +119,20 @@ const WORK = [
     url: "https://xreader.ai",
   },
   {
+    name: "rushi.live",
+    tag: "Tool",
+    status: "Live",
+    line: "Prompt Engine. Turns plain-language intent into production-ready AI prompts for any major AI tool.",
+    url: "https://rushi.live",
+  },
+  {
+    name: "Operation Blackout",
+    tag: "Open Source",
+    status: "Shipped",
+    line: "A contemporary-military browser FPS, built from a single prompt. Every texture, mesh, and sound generated procedurally in code — zero external assets.",
+    url: "https://github.com/rushindrasinha/operation-blackout",
+  },
+  {
     name: "YT Shorts Pipeline",
     tag: "Open Source",
     status: "Shipped",
@@ -136,6 +150,7 @@ const PLATFORMS = [
 ];
 
 const NOW = [
+  { label: "Ares", desc: "Building and running his own AI operating system, on OpenClaw, in public." },
   { label: "Ges", desc: "AI business operator for creators. Founding cohort pilot in progress." },
   { label: "Aarees v5.1", desc: "Live on Meta WhatsApp Cloud API. Multi-agent runtime, phone-native access." },
   { label: "Creator growth", desc: "Distribution as a first-class product lever. Content compounding. Flywheel closing." },

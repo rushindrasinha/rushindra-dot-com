@@ -4,6 +4,20 @@ All changes are logged here. Format: version → date → what changed → who a
 
 ---
 
+## [1.4.5] — 2026-08-23 (IST)
+
+**Builder-in-public content pass: real numbers from the Rushi-approved Plaud extraction cut. Approved by Rushindra Sinha. All work by Ares.**
+
+### Added
+- `app/about/page.tsx`: new "Built and running" section (5 lines) — Ares (his AI operating system, built on OpenClaw from Jan 2026, runs his companies from a Discord command centre), voice-first workflow (no laptop, 3 mics, 5-10K dictated words/day), model-agnostic design, AI spend (peaked ~$15K/month, now a hard $500/month cap), and the "agent that builds agents" concept — no internal agent names. Added the "first, best, or only" philosophy line (his father's rule). Added "practising MD" and "200+ player contracts over the decade" to the existing bio/GE copy. Added rushi.live and Operation Blackout to the "Building now" proof points.
+- `app/page.tsx`: added rushi.live and Operation Blackout to the Work grid (both live/shipped and public — Operation Blackout's repo visibility was verified public before adding). Added "Ares" to the Now widget. Replaced the vague 2026 timeline entry with the concrete Ares/OpenClaw/January-2026 origin line.
+- `app/llm/route.ts`, `public/llms.txt`, `app/index.md/route.ts`: mirrored all of the above into the three machine-readable layers so the canonical facts match across the human page and the agent-facing surfaces, per the site's own stated policy. Also fixed a stale "Q2 2026" current-focus label in `llms.txt` to the correct quarter.
+
+### Source and gating
+Content sourced from a Plaud voice-transcript extraction of Rushi (19-22 Aug batch), reviewed and cut down to a Rushi-approved list (23 Aug, 16:35 IST) — every line here is a fact he stated about himself, not an inference. Followed the extraction's explicit do-not-publish list (no internal agent names beyond Ares, no token/message/machine counts, no Hetzner/backup infra, no unannounced partner or deal details). The two flagged verify-before-publish items were checked before shipping: Operation Blackout's GitHub repo was confirmed public via `gh repo view` (`isPrivate: false`), and the AI-spend figures were checked against local telemetry/boot-cost records — no internal billing dataset covers dollar spend, so the number stands as Rushi's own direct, recorded statement about his own spend, same basis as the other self-reported figures already on the site (100M+ views, 241K audience).
+
+---
+
 ## [1.4.4] — 2026-08-23 (IST)
 
 **Hero 3D sculpture: swap generic core for a gaming/esports/creator-coded design. Flagged by Rushindra Sinha. All work by Ares. Approved by Rushindra Sinha.**

@@ -136,3 +136,36 @@ export function H2({ children }: { children: React.ReactNode }) {
     </h2>
   );
 }
+
+export function UL({ children }: { children: React.ReactNode }) {
+  return (
+    <ul
+      style={{
+        margin: "0 0 22px 0",
+        padding: 0,
+        listStyle: "none",
+      }}
+    >
+      {children}
+    </ul>
+  );
+}
+
+export function LI({ children }: { children: React.ReactNode }) {
+  return (
+    <li
+      style={{
+        fontSize: 16,
+        color: C.textMid,
+        lineHeight: 1.75,
+        fontWeight: 300,
+        margin: "0 0 10px 0",
+        paddingLeft: 20,
+        position: "relative",
+      }}
+    >
+      <span style={{ position: "absolute", left: 0, color: C.accent }}>—</span>
+      {children}
+    </li>
+  );
+}

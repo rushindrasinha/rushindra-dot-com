@@ -23,6 +23,25 @@ Note: this edit was made directly in an earlier turn but never built, committed,
 
 ---
 
+## Session 008 — 2026-08-23
+
+**Time:** ~19:20-19:50 IST
+**Operator:** Ares
+**Approved by:** Rushindra Sinha (approved a content spec sent in a different session/thread at 16:35 IST — that approval didn't reach this thread's context, causing a "why are you asking me what launch means" moment before it was located and read)
+**Status:** Pushed to production
+
+### Trigger
+
+A separate Ares session/lane ran a Plaud voice-transcript extraction (19-22 Aug recordings) and produced a cut of site-usable facts and quotes, sent to Rushi as "Source copy from the Plaud batch, Rushi-approved cut" at 16:35 IST. Rushi approved it there ("works, let's launch") but that message never reached this thread's session context — a cross-session context gap, not Rushi repeating himself. He sent screenshots of the approved spec directly when this session failed to act on the implicit reference.
+
+### Work done
+
+Located the source files (`brain/content/plaud_extract_2026-08-23/BRIEF.md` and `MASTER.md`). Verified the two flagged items before publishing: confirmed the Operation Blackout GitHub repo is public (`gh repo view`, `isPrivate: false`); checked local telemetry/boot-cost records for the AI-spend figures (no hit — no internal $ billing dataset exists locally, so published as Rushi's own directly-recorded statement, consistent with how other self-reported figures already work on the site).
+
+Added a "Built and running" section to `/about` (Ares, voice-first workflow, model-agnostic design, spend figures, agent-that-builds-agents), the "first, best, or only" philosophy line, "practising MD" and "200+ player contracts" bio additions, and rushi.live + Operation Blackout as proof points. Mirrored the same facts into `app/page.tsx` (Work grid, Now widget, sharpened 2026 timeline entry), `app/llm/route.ts`, `public/llms.txt`, and `app/index.md/route.ts` so the human page and all three machine-readable layers stay in sync, per the site's own stated policy. Fixed a stale "Q2 2026" label found in `llms.txt` along the way. Cross-checked every new line against the extraction's do-not-publish list before shipping — no internal agent names beyond Ares, no infra/token/message counts, no unannounced deals.
+
+---
+
 ## Session 006 — 2026-08-23
 
 **Time:** ~12:44–12:50 IST

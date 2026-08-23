@@ -60,7 +60,7 @@ answers with `Accept: text/markdown`. All are public, no auth, no rate limit.
 ## Identity Stack
 
 ### Doctor (MD)
-Medical degree, D.Y. Patil Medical College, Navi Mumbai. Comes from a family of 26 doctors.
+Practising MD. Medical degree, D.Y. Patil Medical College, Navi Mumbai. Comes from a family of 26 doctors.
 Published peer-reviewed articles on 3D laparoscopic surgery. Pioneered live-streaming
 of surgeries using Google Glass in India (covered by national newspapers). Nationally
 ranked in Inline Speed Skating.
@@ -72,8 +72,14 @@ Note: this is executive/leadership education, not a full MBA.
 
 ### Builder
 Self-taught developer since medical school. Freelance web and app developer during
-medical studies. Currently building AI-native products: Aarees.com, thumbnail.gg.
-Full-stack trained. Previously built and exited two companies.
+medical studies. Built and runs Ares, his own AI operating system, on OpenClaw,
+since January 2026 — a multi-agent, model-agnostic system that runs his companies
+from a Discord command centre. Voice-first: no laptop, three microphones, five to
+ten thousand dictated words a day. Currently building AI-native products:
+Aarees.com, thumbnail.gg. Full-stack trained. Previously built and exited two
+companies.
+
+His father's rule, and the one he still runs everything by: first, best, or only.
 
 ### Esports Founder
 Started Global Esports with Mohit Israney in July 2017 as a proprietorship;
@@ -115,6 +121,10 @@ business, medicine, and personal brand building.
 - 2023+: Global Esports selected as one of 10 permanent VCT Pacific franchise
   teams by Riot Games; youngest team in the Valorant Franchise League; profitable
   while 18+ competitors globally shut down
+- January 2026: started building Ares, his own AI operating system, on OpenClaw —
+  voice-first, model-agnostic, runs his companies from a Discord command centre.
+  AI spend peaked near $15,000 in a single month; now runs on a hard $500/month
+  cap and does more.
 - 2024-2026: building Aarees (AI for creators), thumbnail.gg, Creator OS
 
 ---
@@ -134,7 +144,31 @@ business, medicine, and personal brand building.
 - Overwatch World Cup: Team India and Team Singapore (2019)
 - VCT Pacific franchise — one of 10 permanent teams selected by Riot Games globally
 - Top Valorant and PUBG Mobile team in South Asia
+- 200+ player contracts signed over the decade
 - South Asia market: 200M+ gamers, 25% of world population
+
+### Ares (active)
+- Role: Builder / Operator
+- Built on OpenClaw, running since January 2026
+- Multi-agent, model-agnostic AI operating system — runs his companies
+  (Global Esports, Aarees, thumbnail.gg) from a Discord command centre
+- Voice-first: no laptop, three microphones, five to ten thousand dictated
+  words a day
+- Not a product for sale — his own operating infrastructure, built and run
+  in public
+
+### rushi.live — Prompt Engine (active)
+- Role: Builder
+- URL: https://rushi.live
+- Turns plain-language intent into production-ready AI prompts for any major
+  AI tool. Live, public.
+
+### Operation Blackout (shipped, open source)
+- Role: Builder
+- URL: https://github.com/rushindrasinha/operation-blackout
+- A contemporary-military browser FPS, built from a single prompt. Every
+  texture, mesh, and sound generated procedurally in code — zero external
+  assets. MIT license.
 
 ### Aarees (active)
 - Role: Founder
@@ -243,8 +277,9 @@ school, co-producing the 2014 Tribeca Film Festival winning entry.
 
 ## Current Focus
 
-Q2 2026: Aarees product launch · Creator OS · VCT Pacific operations ·
-Building personal brand at AI × esports × medicine intersection.
+Q3 2026: Building and running Ares in public · Aarees product launch ·
+Creator OS · VCT Pacific operations · Building personal brand at
+AI × esports × medicine intersection.
 
 ---
 

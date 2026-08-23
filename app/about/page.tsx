@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { PageShell, P, H2, C } from "../components/PageShell";
+import { PageShell, P, H2, UL, LI, C } from "../components/PageShell";
 
 export const metadata: Metadata = {
   title: "About — Dr. Rushindra Sinha",
@@ -20,11 +20,17 @@ export default function AboutPage() {
     <PageShell label="About" title="Doctor, founder, builder — in parallel.">
       <P>
         Dr. Rushindra Sinha is a creator-founder working at the intersection of
-        medicine, artificial intelligence, esports, and media. He holds a medical
-        degree from D.Y. Patil Medical College in Navi Mumbai, and completed
-        executive education at Stanford Graduate School of Business. The Stanford
-        credential is an executive leadership programme, not a full MBA — a
-        distinction he keeps explicit rather than letting it blur.
+        medicine, artificial intelligence, esports, and media. He is a practising
+        MD, holding a medical degree from D.Y. Patil Medical College in Navi
+        Mumbai, and completed executive education at Stanford Graduate School of
+        Business. The Stanford credential is an executive leadership programme,
+        not a full MBA — a distinction he keeps explicit rather than letting it
+        blur.
+      </P>
+
+      <P>
+        His father&apos;s rule, and the one he still runs everything by:
+        first, best, or only. First is the one thing nobody can take from you.
       </P>
 
       <P>
@@ -54,11 +60,35 @@ export default function AboutPage() {
         esports organisation. Riot Games selected Global
         Esports as one of ten permanent VCT Pacific franchise partners globally,
         making it the youngest team in the VALORANT franchise league. The
-        organisation has fielded 25+ rosters across 12+ titles, won the VALORANT
-        Conqueror Championship, and operated training facilities in South Korea and
-        India. It reached profitability during a period when more than eighteen
-        competing Indian esports organisations shut down.
+        organisation has fielded 25+ rosters across 12+ titles, signed 200+ player
+        contracts over the decade, won the VALORANT Conqueror Championship, and
+        operated training facilities in South Korea and India. It reached
+        profitability during a period when more than eighteen competing Indian
+        esports organisations shut down.
       </P>
+
+      <H2>Built and running</H2>
+      <UL>
+        <LI>
+          Built Ares, his own AI operating system, on OpenClaw, from January 2026 —
+          it runs his companies from a Discord command centre.
+        </LI>
+        <LI>
+          Voice-first: no laptop, three microphones, five to ten thousand dictated
+          words a day.
+        </LI>
+        <LI>
+          Model-agnostic by design — the system is a script, and it pulls whichever
+          model fits the task rather than locking to one vendor.
+        </LI>
+        <LI>
+          AI spend peaked near $15,000 in a single month; it now runs on a hard
+          $500-a-month cap and does more.
+        </LI>
+        <LI>
+          Built an agent whose only job is to build the other agents.
+        </LI>
+      </UL>
 
       <H2>Building now</H2>
       <P>
@@ -66,8 +96,10 @@ export default function AboutPage() {
         Aarees, a multi-agent creator platform delivered over WhatsApp; thumbnail.gg,
         AI thumbnail generation for YouTube creators; ClutchPass, an AI battle pass
         for competitive gamers; and Ges, an AI-native business operator for creators.
-        Several smaller tools — xReader.ai and an open-source YouTube Shorts pipeline
-        among them — are shipped and public.
+        Several smaller tools — xReader.ai, rushi.live (a prompt engine that turns
+        plain-language intent into production-ready AI prompts), Operation Blackout
+        (a one-prompt browser FPS, open source), and an open-source YouTube Shorts
+        pipeline among them — are shipped and public.
       </P>
 
       <H2>Reach</H2>
