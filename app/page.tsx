@@ -827,7 +827,7 @@ export default function Home() {
             <Label>Platform Presence</Label>
           </Reveal>
           <Reveal delay={0.08}>
-            <SectionTitle>100M+ personal views across platforms.</SectionTitle>
+            <SectionTitle>241K combined audience across platforms.</SectionTitle>
           </Reveal>
 
           <div style={{ display: "grid", gap: 20, marginTop: 32 }}>

@@ -4,6 +4,27 @@ Timestamped record of every session, change, and decision. Never deleted — app
 
 ---
 
+## Session 006 — 2026-08-23
+
+**Time:** ~12:44–12:50 IST
+**Operator:** Ares
+**Approved by:** Rushindra Sinha (flagged the issue directly, fix approved by proceeding)
+**Status:** Pushed to production — first push through the now-working CI/CD pipeline
+
+### Trigger
+
+Rushindra flagged a screenshot: the "Platform Presence" section headline claims "100M+ personal views across platforms" directly above a bar chart of follower counts. Felt misleading — like the chart was breaking down the 100M figure when it's an entirely different, much smaller metric.
+
+### Work done
+
+Confirmed the chart's `PLATFORMS` array (`app/page.tsx`) sums to 110K + 63K + 43K + 18.2K + 7.3K = ~241.5K — matching the site's own canonical "241K" audience figure already used on `/about` and `/llm`. Changed the section headline from "100M+ personal views across platforms." to "241K combined audience across platforms." so it describes what the chart actually shows. Left the 100M+ views claim untouched everywhere else on the site (hero copy, `/about`) since it's accurate there and not paired with a contradicting chart.
+
+### Verification
+
+`npm run build` clean. This is the first real-world push through the CI/CD pipeline fixed in Session 005 — verify the GitHub Actions "Deploy to Vercel" run succeeds, not just that the push happened.
+
+---
+
 ## Session 005 — 2026-08-23
 
 **Time:** ~12:00–12:20 IST

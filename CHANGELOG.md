@@ -4,6 +4,15 @@ All changes are logged here. Format: version → date → what changed → who a
 
 ---
 
+## [1.4.3] — 2026-08-23 (IST)
+
+**Fix misleading metric juxtaposition. Flagged by Rushindra Sinha. All work by Ares. Approved by Rushindra Sinha.**
+
+### Fixed
+- `app/page.tsx`: the "Platform Presence" section headline read "100M+ personal views across platforms" directly above a bar chart of per-platform follower counts (YouTube 110K, Instagram 63K, X 43K, Twitch 18.2K, LinkedIn 7.3K — summing to ~241.5K). Views and followers are different metrics off by ~400x; pairing them made the chart read as if it were breaking down the 100M figure, which it wasn't. Changed the headline to "241K combined audience across platforms," matching the actual chart data and the site's own canonical audience figure already used on `/about` and `/llm`. The 100M+ views claim itself is unaffected and still stated correctly elsewhere (`/about`, hero copy) where it isn't juxtaposed with a contradicting chart.
+
+---
+
 ## [1.4.2] — 2026-08-23 (IST)
 
 **Close out the VERCEL_TOKEN blocker from 1.4.1, plus TEDx proof links. All work by Ares. Approved by Rushindra Sinha.**
