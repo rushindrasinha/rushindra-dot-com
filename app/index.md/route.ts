@@ -30,8 +30,8 @@ one of 10 permanent VCT Pacific franchise teams selected by Riot Games globally.
   own AI operating system, on OpenClaw, since January 2026 — voice-first,
   model-agnostic, runs his companies from a Discord command centre. Now
   building AI-native products.
-- **Creator** — ~241K followers across YouTube, Instagram, X, Twitch, and
-  LinkedIn. 100M+ lifetime personal views.
+- **Creator** — ~250K personal followers across YouTube, Instagram, X, Twitch,
+  and LinkedIn. 100M+ lifetime personal views.
 
 His father's rule, and the one he still runs everything by: first, best, or only.
 

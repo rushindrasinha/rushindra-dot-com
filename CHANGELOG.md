@@ -4,6 +4,20 @@ All changes are logged here. Format: version → date → what changed → who a
 
 ---
 
+## [1.4.6] — 2026-08-23 (IST)
+
+**Reframe the platform-audience stat: "241K combined audience" undersold what a quarter-million-plus real following actually represents. Approved by Rushindra Sinha. All work by Ares.**
+
+### Changed
+- `app/page.tsx`: Platform Presence section headline changed from "241K combined audience across platforms." to "A quarter million personal followers across socials." Marquee tag changed from "241K Reach" to "250K+ Followers."
+- `app/layout.tsx`: Twitter meta description "241K+ reach" → "250K+ followers."
+- `app/llm/route.ts`, `app/index.md/route.ts`, `public/llms.txt`: mirrored the same rounding — "~241K followers" → "~250K followers" / "~250K personal followers," including the platform-breakdown table totals. Per-platform numbers (YouTube ~110K, Instagram ~63K, X ~43K, Twitch ~18.2K, LinkedIn ~7.3K) left untouched — only the aggregate label changed.
+
+### Note
+This is the second pass on this stat this week (see [1.4.3]/[1.4.4] and Session 006 in PRODUCT_LOG.md, which fixed a different mismatch — the 100M+ views claim sitting next to this same chart). Rushi's ask both times has been about framing, not accuracy: the underlying platform numbers are unchanged.
+
+---
+
 ## [1.4.5] — 2026-08-23 (IST)
 
 **Builder-in-public content pass: real numbers from the Rushi-approved Plaud extraction cut. Approved by Rushindra Sinha. All work by Ares.**

@@ -61,7 +61,7 @@ export const metadata: Metadata = {
     creator: "@irushi",
     title: "Dr. Rushindra Sinha — Founder, Builder, Creator",
     description:
-      "MD. Stanford GSB. Co-founder of Global Esports, VCT Pacific franchise. AI builder. 241K+ reach.",
+      "MD. Stanford GSB. Co-founder of Global Esports, VCT Pacific franchise. AI builder. 250K+ followers.",
   },
 };
 

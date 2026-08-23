@@ -116,7 +116,7 @@ SECTION 3 — IDENTITY STACK (why each credential matters)
 
   CREATOR
     Active across YouTube, Instagram, X, Twitch, LinkedIn.
-    ~241K followers across platforms. 100M+ lifetime views.
+    ~250K followers across platforms. 100M+ lifetime views.
     Content at the intersection of AI, esports, business, medicine, and
     personal brand building.
 
@@ -277,7 +277,7 @@ SECTION 6 — PLATFORMS & REACH
   Twitch      @RushindraSinha     ~18.2K       Live, gaming, founder crossover
   LinkedIn    Dr Rushindra Sinha  ~7.3K        Professional thought leadership
   ─────────────────────────────────────────────────────────────
-  Total                           ~241K        Across 5 platforms
+  Total                           ~250K        Across 5 platforms
 
   Lifetime views: 100M+ (YouTube primary, content across all platforms)
   Audience core:  Indian founders, operators, builders, professionals,

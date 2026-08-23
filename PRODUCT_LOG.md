@@ -4,6 +4,26 @@ Timestamped record of every session, change, and decision. Never deleted — app
 
 ---
 
+## Session 009 — 2026-08-23
+
+**Time:** ~20:55 IST
+**Operator:** Ares
+**Approved by:** Rushindra Sinha ("let's say a quarter million personal followers across socials")
+**Status:** Pushed to production
+
+### Trigger
+
+Rushi's second pass on the Platform Presence stat in one day. Session 006 had already fixed the section headline from a misleading "100M+ views" to "241K combined audience" (matching the actual chart). Rushi came back saying 241K still doesn't land well — it reads as "241K plus total followers," undersells a real quarter-million-plus following, and doesn't reflect that his actual reach (hundreds of millions) and impressions (billions) live elsewhere on the page. Asked to say "a quarter million personal followers across socials" instead of the raw 241K figure.
+
+### Work done
+
+Found and changed every "241K" reference across the codebase: the homepage section headline, the top marquee tag, the Twitter meta description in `app/layout.tsx`, and all three machine-readable layers (`app/llm/route.ts`, `app/index.md/route.ts`, `public/llms.txt`) including their platform-breakdown table totals. Left the individual per-platform numbers (YouTube ~110K, Instagram ~63K, X ~43K, Twitch ~18.2K, LinkedIn ~7.3K) untouched — this was a change to how the aggregate is framed, not a change to the underlying data. `npm run build` passed clean before committing.
+
+### Verification
+Confirmed no remaining "241K" strings anywhere in `app/` or `public/` before build. Live-verified `rushindra.com`, `/llm`, and `/llms.txt` after deploy to confirm the new phrasing shipped and the CI/CD pipeline's own deploy step succeeded (not just that the push happened).
+
+---
+
 ## Session 007 — 2026-08-23
 
 **Time:** ~15:05 IST

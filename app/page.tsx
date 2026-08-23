@@ -169,7 +169,7 @@ const MARQUEE_ITEMS = [
   "AI Builder",
   "ClutchPass",
   "5B+ Views for Creators & Brands",
-  "241K Reach",
+  "250K+ Followers",
 ];
 
 const TAG_CLASS: Record<string, string> = {
@@ -842,7 +842,7 @@ export default function Home() {
             <Label>Platform Presence</Label>
           </Reveal>
           <Reveal delay={0.08}>
-            <SectionTitle>241K combined audience across platforms.</SectionTitle>
+            <SectionTitle>A quarter million personal followers across socials.</SectionTitle>
           </Reveal>
 
           <div style={{ display: "grid", gap: 20, marginTop: 32 }}>
