@@ -4,6 +4,15 @@ All changes are logged here. Format: version → date → what changed → who a
 
 ---
 
+## [1.5.1] — 2026-09-29 (IST)
+
+**Stanford year fix. Correction by Rushindra Sinha (#web-dev, 15:51 IST): "2017 completed not 2016". All work by Ares.**
+
+### Fixed
+- `app/page.tsx`: moved Stanford GSB out of the '16 timeline entry (which stays SF + General Assembly bootcamp) into '17, before GE's start. The story section now says the programme was completed in 2017. The human page now matches the machine layers, which already said "completed 2017".
+
+---
+
 ## [1.5.0] — 2026-09-29 (IST)
 
 **Fresh audit: GE's 2026 season, stale product claims removed, quarter-label freeze fixed, critical Next.js advisory patched. All work by Ares. Approved by Rushindra Sinha (#web-dev, 15:47 IST).**
