@@ -152,7 +152,8 @@ SECTION 4 — FULL BACKSTORY (chronological)
 
     Also during med school: won short story awards, acted in an award-winning
     ad film in Beijing, and (with co-founder Mohit Israney) won first place
-    at the 2014 Tribeca Film Festival. Published peer-reviewed
+    at the 2014 Tribeca Film Festival and second place at the Beijing
+    film festival. Published peer-reviewed
     articles on technological advances in 3D laparoscopic surgeries.
     Nationally ranked in Inline Speed Skating.
 

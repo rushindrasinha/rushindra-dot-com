@@ -4,6 +4,15 @@ All changes are logged here. Format: version → date → what changed → who a
 
 ---
 
+## [1.6.3] — 2026-09-29 (IST)
+
+**Add Beijing film festival, 2nd place. Rushi (#web-dev, 18:08 IST): "Also won Beijing film festival (2nd place)". All work by Ares.**
+
+### Added
+- Timeline '14 (med-school era), story paragraph, /llm, and llms.txt: "second place at the Beijing film festival", alongside Tribeca first place, both with Mohit Israney. The exact year isn't confirmed yet; it's grouped with Tribeca per Rushi's canonical intro ("while still in med school the two of us somehow won Tribeca AND Beijing").
+
+---
+
 ## [1.6.2] — 2026-09-29 (IST)
 
 **Fact fix: Tribeca was 2014, first place. Rushi (#web-dev, 18:07 IST): "the tribeca film festival was 2014, how did it end up in 2024? (Mohit and I won first place)". All work by Ares.**
