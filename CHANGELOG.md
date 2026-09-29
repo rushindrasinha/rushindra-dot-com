@@ -6,7 +6,7 @@ All changes are logged here. Format: version → date → what changed → who a
 
 ## [1.6.0] — 2026-09-29 (IST)
 
-**Redesign pass: builder-in-public hero, grotesk type, portrait, mobile-first. Rushi's calls (#web-dev, 16:34 IST): "Doctor" not "MD", add my best photo, yes to builder-in-public, yes to moving off serif headings. All work by Ares. PENDING push approval.**
+**Redesign pass: builder-in-public hero, grotesk type, portrait, mobile-first. Rushi's calls (#web-dev, 16:34 IST): "Doctor" not "MD", add my best photo, yes to builder-in-public, yes to moving off serif headings. All work by Ares. Push approved by Rushindra Sinha (#web-dev, 18:03 IST).**
 
 ### Added
 - Portrait: Rushi's X profile photo (400×400; his pick, 17:01 IST, replacing a TEDx video frame he vetoed). Shown in the story section (sticky on desktop) and as the hero avatar. Also in the JSON-LD `image` and the OG card. Talk thumbnails use the official YouTube thumbnails.
