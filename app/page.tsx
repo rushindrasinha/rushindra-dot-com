@@ -70,9 +70,10 @@ const TIMELINE = [
   { yr: "'14", t: "MBBS from D.Y. Patil Medical College, Navi Mumbai. Pioneered Google Glass for live-streaming surgeries in India. With Mohit Israney: first place at the Tribeca Film Festival, second place at the Beijing film festival. Realized the deeper instinct was building, not practice." },
   { yr: "'16", t: "San Francisco. 480-hour full-stack bootcamp at General Assembly. The coding foundations locked in." },
   { yr: "'17", t: "Completed Stanford GSB's The Innovative Health Care Leader, a design thinking and leadership programme. Came home and started Global Esports in Mumbai with Mohit Israney — a proprietorship under my name at first. Incorporated the company and transferred the business over by November '18. India's first VC-backed esports organization." },
+  { yr: "'20", t: "First TEDx stage: TEDx NMIMS, \"Can You Get Paid To Play Video Games?\", with Mohit Israney." },
   { yr: "'22", t: "Riot Games selected Global Esports as one of 10 permanent VCT Pacific franchise partners globally. Won Valorant Conqueror Championship. Competed on the world stage in Seoul." },
-  { yr: "'24", t: "GE achieves profitability. 18+ Indian esports competitors shut down. GE was the only one standing. 2x TEDx stages." },
-  { yr: "'26", t: "Global Esports' best season: Masters London, VCT Pacific Stage 2 champions, and the org's first-ever VALORANT Champions qualification (Shanghai). January: started building Ares, an AI operating system, on OpenClaw — voice-first, model-agnostic, running the companies from a Discord command centre. Creator-founder era. Building systems that compound, and the machine that builds them." },
+  { yr: "'24", t: "GE achieves profitability. 18+ Indian esports competitors shut down. GE was the only one standing." },
+  { yr: "'26", t: "Global Esports' best season: Masters London, VCT Pacific Stage 2 champions, and the org's first-ever VALORANT Champions qualification (Shanghai). January: started building Ares, an AI operating system, on OpenClaw — voice-first, model-agnostic, running the companies from a Discord command centre. Creator-founder era. Building systems that compound, and the machine that builds them. Second TEDx stage: TEDx Sanjivani University." },
 ];
 
 const WORK = [
@@ -157,8 +158,8 @@ const WORK = [
 ];
 
 const TALKS = [
-  { event: "TEDx Sanjivani University", title: "Passion Pivots Redefine Career Frontiers", url: "https://youtu.be/KIZiMBvIeog", img: "/talks/tedx-sanjivani.jpg", note: "" },
-  { event: "TEDx NMIMS", title: "Can You Get Paid To Play Video Games?", url: "https://youtu.be/DFw5fSh9D3I", img: "/talks/tedx-nmims.jpg", note: "With co-founder Mohit Israney" },
+  { event: "TEDx Sanjivani University · 2026", title: "Passion Pivots Redefine Career Frontiers", url: "https://youtu.be/KIZiMBvIeog", img: "/talks/tedx-sanjivani.jpg", note: "" },
+  { event: "TEDx NMIMS · 2020", title: "Can You Get Paid To Play Video Games?", url: "https://youtu.be/DFw5fSh9D3I", img: "/talks/tedx-nmims.jpg", note: "With co-founder Mohit Israney" },
 ];
 
 const PLATFORMS = [

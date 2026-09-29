@@ -4,6 +4,16 @@ All changes are logged here. Format: version → date → what changed → who a
 
 ---
 
+## [1.6.5] — 2026-09-29 (IST)
+
+**TEDx dates. Rushi (#web-dev, 18:10 IST): "NMIMS was 2020". All work by Ares.**
+
+### Fixed
+- Timeline: "2x TEDx stages" removed from the '24 entry (wrong year, same lumping bug as Tribeca). New '20 entry for the first TEDx stage (TEDx NMIMS, with Mohit Israney). The '26 entry now includes the second TEDx stage (TEDx Sanjivani University).
+- Talk cards show years: "TEDx NMIMS · 2020", "TEDx Sanjivani University · 2026". The years are mirrored in /index.md and llms.txt. /llm gains a Talks block with both links.
+
+---
+
 ## [1.6.4] — 2026-09-29 (IST)
 
 **Socials at the top. Rushi (#web-dev, 18:09 IST): "worth adding socials in the header or the burger menu... without it looking messy". All work by Ares.**

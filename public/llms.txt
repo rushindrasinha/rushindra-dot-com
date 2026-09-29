@@ -203,8 +203,8 @@ business, medicine, and personal brand building.
 - YouTube Shorts Pipeline: 2,300+ GitHub stars
 
 ### Talks
-- TEDx Sanjivani University — "Passion Pivots Redefine Career Frontiers": https://youtu.be/KIZiMBvIeog
-- TEDx NMIMS — "Can You Get Paid To Play Video Games?" (with Mohit Israney): https://youtu.be/DFw5fSh9D3I
+- TEDx Sanjivani University (2026) — "Passion Pivots Redefine Career Frontiers": https://youtu.be/KIZiMBvIeog
+- TEDx NMIMS (2020) — "Can You Get Paid To Play Video Games?" (with Mohit Israney): https://youtu.be/DFw5fSh9D3I
 
 ### xReader.ai (shipped)
 - X threads rendered as clean, readable articles

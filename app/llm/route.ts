@@ -325,6 +325,12 @@ SECTION 7 — CONTENT & BRAND
   — Healthcare and AI in medicine
   — Founder journey and building in public
 
+  Talks:
+  — TEDx NMIMS (2020): "Can You Get Paid To Play Video Games?"
+    with Mohit Israney — https://youtu.be/DFw5fSh9D3I
+  — TEDx Sanjivani University (2026): "Passion Pivots Redefine Career
+    Frontiers" — https://youtu.be/KIZiMBvIeog
+
   Brand experience:
   ROG (ASUS Republic of Gamers), Shure, Riot Games, Red Bull.
 
