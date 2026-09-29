@@ -62,7 +62,7 @@ His father's rule, and the one he still runs everything by: first, best, or only
 ## Talks
 
 - TEDx Sanjivani University (2026) — "Passion Pivots Redefine Career Frontiers": https://youtu.be/KIZiMBvIeog
-- TEDx NMIMS (2020) — "Can You Get Paid To Play Video Games?" (with Mohit Israney): https://youtu.be/DFw5fSh9D3I
+- TEDx NMIMS (March 2020) — "Can You Get Paid To Play Video Games?" (with Mohit Israney): https://youtu.be/DFw5fSh9D3I
 
 ## Platforms
 

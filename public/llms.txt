@@ -102,9 +102,9 @@ business, medicine, and personal brand building.
 - Medical school: discovered MMORPGs (Ragnarok Online, World of Warcraft); taught
   himself to code; built a Ragnarok Online private server that became #1 globally —
   acquired by an Australian company. First exit, at age 18, while still a student.
-- Also during med school: freelance web/app developer; won short story awards; acted
-  in an award-winning ad film in Beijing; won first place at the 2014
-  Tribeca Film Festival and second place at the Beijing film festival with Mohit Israney
+- Also during med school: freelance web/app developer; won short story awards; with Mohit
+  Israney, won first place at the 2014 Tribeca Film Festival and second place at the
+  Beijing film festival (~2014) with an ad film he also acted in
 - Post med school: moved to "The Hacker House" in San Francisco; learned from
   operators at Apple, Google, Microsoft, Uber, Lyft, and early startups
 - 2014: Stanford CS certificate; co-founded Hashtack (hashtag aggregator for events
@@ -204,7 +204,7 @@ business, medicine, and personal brand building.
 
 ### Talks
 - TEDx Sanjivani University (2026) — "Passion Pivots Redefine Career Frontiers": https://youtu.be/KIZiMBvIeog
-- TEDx NMIMS (2020) — "Can You Get Paid To Play Video Games?" (with Mohit Israney): https://youtu.be/DFw5fSh9D3I
+- TEDx NMIMS (March 2020) — "Can You Get Paid To Play Video Games?" (with Mohit Israney): https://youtu.be/DFw5fSh9D3I
 
 ### xReader.ai (shipped)
 - X threads rendered as clean, readable articles

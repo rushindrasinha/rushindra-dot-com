@@ -150,10 +150,10 @@ SECTION 4 — FULL BACKSTORY (chronological)
     more time coding than in the hospital — the moment he realised tech
     was his real direction.
 
-    Also during med school: won short story awards, acted in an award-winning
-    ad film in Beijing, and (with co-founder Mohit Israney) won first place
-    at the 2014 Tribeca Film Festival and second place at the Beijing
-    film festival. Published peer-reviewed
+    Also during med school: won short story awards, and (with co-founder
+    Mohit Israney) won first place at the 2014 Tribeca Film Festival and
+    second place at the Beijing film festival (~2014) with an ad film he
+    also acted in. Published peer-reviewed
     articles on technological advances in 3D laparoscopic surgeries.
     Nationally ranked in Inline Speed Skating.
 
@@ -326,7 +326,7 @@ SECTION 7 — CONTENT & BRAND
   — Founder journey and building in public
 
   Talks:
-  — TEDx NMIMS (2020): "Can You Get Paid To Play Video Games?"
+  — TEDx NMIMS (March 2020): "Can You Get Paid To Play Video Games?"
     with Mohit Israney — https://youtu.be/DFw5fSh9D3I
   — TEDx Sanjivani University (2026): "Passion Pivots Redefine Career
     Frontiers" — https://youtu.be/KIZiMBvIeog

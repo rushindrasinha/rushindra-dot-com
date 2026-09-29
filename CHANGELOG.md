@@ -4,6 +4,16 @@ All changes are logged here. Format: version → date → what changed → who a
 
 ---
 
+## [1.6.6] — 2026-09-29 (IST)
+
+**Dates confirmed by Rushi (#web-dev, 18:13 IST): Beijing film festival ~2014; the "award-winning ad film in Beijing" is the same thing; TEDx NMIMS was March 2020. All work by Ares.**
+
+### Fixed
+- /llm and llms.txt: merged the duplicate Beijing mentions ("acted in an award-winning ad film in Beijing" + "second place at the Beijing film festival") into one line: second place at the Beijing film festival (~2014) with an ad film he also acted in, alongside Tribeca first place, both with Mohit Israney.
+- TEDx NMIMS dated March 2020 in /llm, llms.txt, and /index.md. The human page already shows it under '20.
+
+---
+
 ## [1.6.5] — 2026-09-29 (IST)
 
 **TEDx dates. Rushi (#web-dev, 18:10 IST): "NMIMS was 2020". All work by Ares.**
