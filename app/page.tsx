@@ -50,8 +50,20 @@ const F = {
 // ============================================================================
 // DATA
 // ============================================================================
-// Ticker shows what he is doing now. The identity words already sit in the label above the name, so repeating them here doubles up.
-const ROLES = ["building Ares in public.", "headed to Champions Shanghai.", "shipping AI products.", "mapping Mumbai food safety."];
+// Ticker = top 10 proof points (Rushi, 2026-09-29). Identity words live in the label above
+// the name, so never put Doctor/Gamer/Founder here. Keep each under ~34 chars: one line at 390px.
+const ROLES = [
+  "VCT Pacific Stage 2 champions.",
+  "first-ever VALORANT Champions.",
+  "1 of 10 VCT Pacific franchises.",
+  "100M+ personal views.",
+  "5B+ creator & brand views.",
+  "2,300+ GitHub stars.",
+  "2× TEDx speaker.",
+  "sold my first game at 18.",
+  "Google Glass surgery pioneer.",
+  "building Ares in public.",
+];
 
 const NAV_LINKS: [string, string][] = [
   ["About", "about"],
