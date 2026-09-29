@@ -483,3 +483,13 @@ body::before {
 @media (pointer: coarse) {
   .tap { min-height: 44px; display: inline-flex; align-items: center; }
 }
+
+/* Hero ticker: fade-in per item + story-style segmented progress (rotation indicator) */
+.ticker-text { display: inline-block; animation: tickerIn 0.35s cubic-bezier(.22,1,.36,1); }
+@keyframes tickerIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+.ticker-fill { transform-origin: left; animation: tickerFill 2.4s linear forwards; }
+@keyframes tickerFill { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+@media (prefers-reduced-motion: reduce) {
+  .ticker-text { animation: none; }
+  .ticker-fill { animation: none; }
+}
