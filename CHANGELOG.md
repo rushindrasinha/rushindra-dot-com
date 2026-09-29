@@ -4,7 +4,7 @@ All changes are logged here. Format: version → date → what changed → who a
 
 ---
 
-## [1.6.7] — 2026-09-29 (IST) — PENDING push approval
+## [1.6.7] — 2026-09-29 (IST)
 
 **Self-host fonts so deploys never depend on Google Fonts. All work by Ares.**
 
