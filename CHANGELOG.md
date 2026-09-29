@@ -10,6 +10,7 @@ All changes are logged here. Format: version → date → what changed → who a
 
 ### Changed
 - `app/layout.tsx`: `next/font/google` (Space Grotesk, Outfit, JetBrains Mono) → `next/font/local`, using latin variable woff2 files copied into `app/fonts/` from @fontsource-variable (OFL). Total 95KB. No visual change; before/after hero render compared side by side.
+- `/llm`, `llms.txt`: "the MD" → "the medical degree" in the commonly-garbled-credentials note. Rushi's Doctor-not-MD rule now holds on the machine layers too.
 
 ### Why
 - The v1.6.6 CI deploy failed at build time with `module-not-found` on the Space Grotesk font files: the Google Fonts fetch flaked on the GitHub runner. The live site stayed on v1.6.5 until a re-run passed. Removing the network dependency eliminates that failure class instead of re-running on each flake.
