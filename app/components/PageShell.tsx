@@ -10,7 +10,7 @@ export const C = {
   accent: "#9cff57",
   text: "#e2e0da",
   textMid: "#98958d",
-  textDim: "#585450",
+  textDim: "#8a857c",
   white: "#ffffff",
 };
 
@@ -53,7 +53,8 @@ export function PageShell({
             textTransform: "uppercase",
             color: C.accent,
             margin: "40px 0 18px 0",
-            fontWeight: 600,
+            fontWeight: 500,
+            fontFamily: "var(--font-mono)",
           }}
         >
           {label}
@@ -65,8 +66,8 @@ export function PageShell({
             fontSize: "clamp(34px, 6vw, 56px)",
             lineHeight: 1.06,
             margin: "0 0 36px 0",
-            fontWeight: 400,
-            letterSpacing: -1,
+            fontWeight: 600,
+            letterSpacing: "-0.03em",
           }}
         >
           {title}

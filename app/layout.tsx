@@ -1,13 +1,21 @@
 import type { Metadata, Viewport } from "next";
-import { Instrument_Serif, Outfit } from "next/font/google";
+import { Space_Grotesk, Outfit, JetBrains_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
-const instrumentSerif = Instrument_Serif({
-  weight: ["400"],
-  style: ["normal", "italic"],
+// Display: grotesk, not serif. Rushi rejected serif/editorial for this site
+// ("doesn't feel gamer or tech or AI") — 2026-04-30, reconfirmed 2026-09-29.
+const spaceGrotesk = Space_Grotesk({
+  weight: ["500", "600", "700"],
   subsets: ["latin"],
   variable: "--font-display",
+  display: "swap",
+});
+
+const jetbrainsMono = JetBrains_Mono({
+  weight: ["400", "500", "600"],
+  subsets: ["latin"],
+  variable: "--font-mono",
   display: "swap",
 });
 
@@ -25,9 +33,9 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://rushindra.com"),
-  title: "Dr. Rushindra Sinha — Founder, Builder, Creator",
+  title: "Dr. Rushindra Sinha — Doctor, Gamer, Founder. Building AI in public.",
   description:
-    "Creator-founder building at the intersection of medicine, AI, esports, and media. Co-founder of Global Esports, VCT Pacific franchise partner. MD, Stanford GSB.",
+    "Doctor, gamer, founder. Builds the AI systems that run his companies, in public. Co-founder of Global Esports: 2026 VCT Pacific Stage 2 champions, first-ever VALORANT Champions. Stanford GSB.",
   keywords: [
     "Rushindra Sinha",
     "Dr Rushindra Sinha",
@@ -37,6 +45,8 @@ export const metadata: Metadata = {
     "thumbnail.gg",
     "Aarees",
     "VCT Pacific",
+    "Mundhe Maps",
+    "OpenClaw",
     "Creator economy",
     "India esports",
   ],
@@ -47,9 +57,9 @@ export const metadata: Metadata = {
     icon: [{ url: "/icon.svg", type: "image/svg+xml" }],
   },
   openGraph: {
-    title: "Dr. Rushindra Sinha — Founder, Builder, Creator",
+    title: "Dr. Rushindra Sinha — Doctor, Gamer, Founder. Building AI in public.",
     description:
-      "Creator-founder building at the intersection of medicine, AI, esports, and media. Co-founder of Global Esports, one of 10 permanent VCT Pacific franchise teams.",
+      "Doctor, gamer, founder. Builds the AI systems that run his companies, in public. Co-founder of Global Esports: 2026 VCT Pacific Stage 2 champions, first-ever VALORANT Champions. Stanford GSB.",
     type: "website",
     url: "https://rushindra.com",
     siteName: "Dr. Rushindra Sinha",
@@ -59,9 +69,9 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     site: "@irushi",
     creator: "@irushi",
-    title: "Dr. Rushindra Sinha — Founder, Builder, Creator",
+    title: "Dr. Rushindra Sinha — Doctor, Gamer, Founder. Building AI in public.",
     description:
-      "MD. Stanford GSB. Co-founder of Global Esports, VCT Pacific franchise. AI builder. 250K+ followers.",
+      "Doctor. Gamer. Founder. Building AI systems in public. Co-founder of Global Esports, 2026 VCT Pacific champions. 250K+ followers.",
   },
 };
 
@@ -70,6 +80,7 @@ const jsonLd = {
   "@type": "Person",
   name: "Dr. Rushindra Sinha",
   url: "https://rushindra.com",
+  image: "https://rushindra.com/rushi.jpg",
   sameAs: [
     "https://x.com/irushi",
     "https://instagram.com/rushindrasinha",
@@ -78,7 +89,7 @@ const jsonLd = {
     "https://github.com/rushindrasinha",
     "https://twitch.tv/rushindrasinha",
   ],
-  jobTitle: "Founder, Creator, AI Builder",
+  jobTitle: "Doctor, Founder, AI Builder",
   email: "mailto:sinha@rushindra.com",
   contactPoint: {
     "@type": "ContactPoint",
@@ -122,7 +133,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${instrumentSerif.variable} ${outfit.variable}`}>
+      <body className={`${spaceGrotesk.variable} ${outfit.variable} ${jetbrainsMono.variable}`}>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}

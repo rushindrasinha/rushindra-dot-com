@@ -1,11 +1,14 @@
 import { ImageResponse } from "next/og";
+import { readFileSync } from "node:fs";
+import { join } from "node:path";
 
 export const alt =
-  "Dr. Rushindra Sinha — Founder, Builder, Creator. MD, Stanford GSB, co-founder of Global Esports.";
+  "Dr. Rushindra Sinha: doctor, gamer, founder. Building AI systems in public. Co-founder of Global Esports.";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
 export default function OpenGraphImage() {
+  const portrait = `data:image/jpeg;base64,${readFileSync(join(process.cwd(), "public", "rushi.jpg")).toString("base64")}`;
   return new ImageResponse(
     (
       <div
@@ -66,19 +69,25 @@ export default function OpenGraphImage() {
             marginTop: 24,
           }}
         >
-          Founder · Builder · Creator
+          Doctor · Gamer · Founder
         </div>
 
         <div
           style={{
             display: "flex",
             fontSize: 24,
-            color: "#585450",
+            color: "#8a857c",
             marginTop: 40,
           }}
         >
-          MD · Stanford GSB · Global Esports · AI Builder
+          Building AI systems in public
         </div>
+        <img
+          src={portrait}
+          width={360}
+          height={450}
+          style={{ position: "absolute", right: 80, top: 90, width: 360, height: 450, objectFit: "cover", borderRadius: 20, border: "3px solid #9cff57" }}
+        />
       </div>
     ),
     { ...size },

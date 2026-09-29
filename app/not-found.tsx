@@ -59,7 +59,8 @@ export default function NotFound() {
             fontSize: "clamp(36px, 7vw, 64px)",
             lineHeight: 1.05,
             margin: "0 0 20px 0",
-            fontWeight: 400,
+            fontWeight: 600,
+            letterSpacing: "-0.03em",
           }}
         >
           This page doesn&apos;t exist.
@@ -117,7 +118,7 @@ export default function NotFound() {
             borderRadius: 10,
             fontSize: 12,
             lineHeight: 1.6,
-            color: "#585450",
+            color: "#8a857c",
             overflowX: "auto",
             whiteSpace: "pre-wrap",
           }}

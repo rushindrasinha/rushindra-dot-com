@@ -11,7 +11,7 @@
   --blue: #5ebaff;
   --text: #e2e0da;
   --text-mid: #98958d;
-  --text-dim: #585450;
+  --text-dim: #8a857c;
   --white: #ffffff;
   --font-display: var(--font-display-var, serif);
   --font-body: var(--font-body-var, sans-serif);
@@ -401,3 +401,85 @@ body::before {
   }
 }
 
+
+/* ===== v1.6 — mobile-first pass ===== */
+
+/* Hero stats: 2-up on phones, 3-up on tablets, one clean row of 6 on desktop */
+.hero-stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px 24px;
+}
+@media (min-width: 600px) {
+  .hero-stats { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (min-width: 1181px) {
+  .hero-stats { grid-template-columns: repeat(6, auto); gap: 40px; justify-content: start; }
+}
+
+/* Terminal caret after the rotating role */
+.caret { animation: caretBlink 1s steps(1) infinite; margin-left: 2px; }
+@keyframes caretBlink { 50% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .caret { animation: none; } }
+
+/* Work grid → swipeable cards on phones instead of a 9-card single column */
+@media (max-width: 640px) {
+  .products-grid {
+    display: flex !important;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 12px;
+    margin-left: calc(-1 * var(--px));
+    margin-right: calc(-1 * var(--px));
+    padding: 4px var(--px) 16px;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+  .products-grid::-webkit-scrollbar { display: none; }
+  .products-grid > * {
+    flex: 0 0 84%;
+    scroll-snap-align: start;
+  }
+  .products-grid > * > * { height: 100%; }
+}
+.swipe-hint { display: none; }
+@media (max-width: 640px) {
+  .swipe-hint { display: block; }
+}
+
+/* Story + timeline collapse on phones */
+@media (max-width: 700px) {
+  .story-more:not(.open) { display: none !important; }
+  .timeline-early:not(.open) { display: none !important; }
+}
+.story-toggle { display: none; }
+@media (max-width: 700px) {
+  .story-toggle { display: inline-flex; }
+}
+
+/* Portrait in the story section */
+.story-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  align-items: start;
+}
+@media (min-width: 900px) {
+  .story-grid { grid-template-columns: 280px 1fr; gap: 56px; }
+  .story-portrait { position: sticky; top: 96px; }
+}
+
+/* Talks grid */
+.talks-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+@media (min-width: 760px) {
+  .talks-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* Comfortable tap targets on touch devices */
+@media (pointer: coarse) {
+  .tap { min-height: 44px; display: inline-flex; align-items: center; }
+}

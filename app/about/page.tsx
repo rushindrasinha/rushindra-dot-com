@@ -17,11 +17,11 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <PageShell label="About" title="Doctor, founder, builder — in parallel.">
+    <PageShell label="About" title="Doctor, gamer, founder. Building AI in public.">
       <P>
         Dr. Rushindra Sinha is a creator-founder working at the intersection of
         medicine, artificial intelligence, esports, and media. He is a practising
-        MD, holding a medical degree from D.Y. Patil Medical College in Navi
+        doctor, holding a medical degree from D.Y. Patil Medical College in Navi
         Mumbai, and completed executive education at Stanford Graduate School of
         Business. The Stanford credential is an executive leadership programme,
         not a full MBA — a distinction he keeps explicit rather than letting it
@@ -98,7 +98,9 @@ export default function AboutPage() {
         His current work is AI-native product development for the creator economy:
         Aarees, a multi-agent creator platform delivered over WhatsApp, with its
         next version in build; thumbnail.gg, AI thumbnail generation for YouTube
-        creators; and ClutchPass, an AI battle pass for competitive gamers.
+        creators; and ClutchPass, an AI battle pass for competitive gamers. He also
+        runs Mundhe Maps, a public map of Mumbai food businesses actioned by FDA
+        Maharashtra, updated daily.
         Several smaller tools — xReader.ai, rushi.live (a prompt engine that turns
         plain-language intent into production-ready AI prompts), Operation Blackout
         (a one-prompt browser FPS, open source), and an open-source YouTube Shorts

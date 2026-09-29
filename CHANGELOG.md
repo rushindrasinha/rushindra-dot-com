@@ -4,6 +4,32 @@ All changes are logged here. Format: version → date → what changed → who a
 
 ---
 
+## [1.6.0] — 2026-09-29 (IST)
+
+**Redesign pass: builder-in-public hero, grotesk type, portrait, mobile-first. Rushi's calls (#web-dev, 16:34 IST): "Doctor" not "MD", add my best photo, yes to builder-in-public, yes to moving off serif headings. All work by Ares. PENDING push approval.**
+
+### Added
+- Portrait: TEDx Sanjivani University 2026 frame (1080p from the talk video, cropped 4:5). Shown in the story section (sticky on desktop) and as the hero avatar. Also in the JSON-LD `image` and the OG card.
+- Work cards for Mundhe Maps (mundhemaps.com), Ares, and Agent tooling (openclaw-guide, ares-mbl, skill-audit-router, xreader-mcp). YT Shorts Pipeline now shows "2,300+ GitHub stars". Clutch Creator folded into the xReader card. The grid is now exactly 4×3 on desktop.
+- Talks section: both TEDx talks with stills, titles, and links. "Talks" added to the nav.
+- Copy-email button next to sinha@rushindra.com, because mailto fails on devices with no mail app.
+- Machine layers (/llm, /llms.txt, /index.md) mirror Mundhe Maps, agent tooling, and talks.
+
+### Changed
+- Typography: Instrument Serif italic → Space Grotesk (display) + JetBrains Mono (labels, status, role ticker). There is no serif or italic anywhere now. Logo "R." → "R_". Role ticker is terminal-style ("> Builder._").
+- Hero copy leads with builder-in-public: "Doctor turned founder. I build the AI systems that run my companies, and I build them in public." It also names the 2026 Stage 2 title and Champions Shanghai. "MD" → "Doctor" in the hero, credential strip, marquee, meta, OG, and /about.
+- Stats: CSS grid (2 / 3 / 6 columns) instead of flex-wrap, which had left "2x TEDx" orphaned on its own row.
+- Contrast: textDim #585450 → #8a857c on dark (about 2.6:1 → 5:1), and the light theme adjusted too. Labels, tags, and status went from 10–11px to 11–12px.
+- Work cards are now real `<a>` links (keyboard- and middle-click-friendly) instead of `div onClick`.
+
+### Performance / mobile
+- three.js hero is loaded with `next/dynamic` only at ≥1181px. Before, phones downloaded about 1MB of JS for a canvas they never showed. Local measure at 390px: JS 1041KB → 495KB.
+- Mobile page length 9,804px → 7,802px. Story shows 1 paragraph plus "Read the full story + timeline". The timeline shows the last 3 entries until expanded. The Work grid is a horizontal swipe carousel on phones.
+- Touch targets ≥44px on socials, email, copy, and the logo. Small tap targets at 390px: 14 → 8.
+- Single `<h1>` (was two).
+
+---
+
 ## [1.5.1] — 2026-09-29 (IST)
 
 **Stanford year fix. Correction by Rushindra Sinha (#web-dev, 15:51 IST): "2017 completed not 2016". All work by Ares.**

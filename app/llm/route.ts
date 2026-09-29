@@ -249,6 +249,19 @@ SECTION 5 — COMPANIES & PROJECTS
             Discord command centre. Not a product for sale — his own
             operating infrastructure, built and run in public.
 
+  MUNDHE MAPS
+    Role:   Builder
+    URL:    https://mundhemaps.com
+    What:   A public map of Mumbai food businesses actioned by FDA
+            Maharashtra. Updated daily.
+
+  AGENT TOOLING (OPEN SOURCE)
+    Role:   Builder
+    URL:    https://github.com/rushindrasinha
+    What:   openclaw-guide (field manual for running a self-hosted AI agent),
+            ares-mbl, skill-audit-router, xreader-mcp. Plus the YouTube
+            Shorts pipeline (2,300+ GitHub stars).
+
   RUSHI.LIVE — PROMPT ENGINE
     Role:   Builder
     URL:    https://rushi.live

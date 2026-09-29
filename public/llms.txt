@@ -193,6 +193,19 @@ business, medicine, and personal brand building.
 - Chrome extension: turn any page into content angles with one click
 - URL: https://github.com/rushindrasinha/clutch-creator
 
+### Mundhe Maps (live)
+- URL: https://mundhemaps.com
+- Public map of Mumbai food businesses actioned by FDA Maharashtra. Updated daily.
+
+### Agent tooling (open source)
+- URL: https://github.com/rushindrasinha
+- openclaw-guide, ares-mbl, skill-audit-router, xreader-mcp
+- YouTube Shorts Pipeline: 2,300+ GitHub stars
+
+### Talks
+- TEDx Sanjivani University — "Passion Pivots Redefine Career Frontiers": https://youtu.be/KIZiMBvIeog
+- TEDx NMIMS — "Can You Get Paid To Play Video Games?" (with Mohit Israney): https://youtu.be/DFw5fSh9D3I
+
 ### xReader.ai (shipped)
 - X threads rendered as clean, readable articles
 - URL: https://xreader.ai

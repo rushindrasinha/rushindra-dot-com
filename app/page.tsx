@@ -1,7 +1,9 @@
 "use client";
 
 import { useState, useEffect, useRef, Fragment, createContext, useContext } from "react";
-import Hero3D from "./components/Hero3D";
+import dynamic from "next/dynamic";
+// three.js is ~1MB; load it only when the desktop hero actually shows it.
+const Hero3D = dynamic(() => import("./components/Hero3D"), { ssr: false });
 import CursorFX from "./components/CursorFX";
 
 // ============================================================================
@@ -18,7 +20,7 @@ const DARK_C = {
   blue: "#5ebaff",
   text: "#e2e0da",
   textMid: "#98958d",
-  textDim: "#585450",
+  textDim: "#8a857c",
   white: "#ffffff",
 };
 
@@ -33,7 +35,7 @@ const LIGHT_C = {
   blue: "#1a6fa8",
   text: "#1a1915",
   textMid: "#545250",
-  textDim: "#8a8880",
+  textDim: "#66645e",
   white: "#0a0908",
 };
 
@@ -42,16 +44,18 @@ const ThemeCtx = createContext(DARK_C);
 const F = {
   display: "var(--font-display)",
   body: "var(--font-body)",
+  mono: "var(--font-mono)",
 };
 
 // ============================================================================
 // DATA
 // ============================================================================
-const ROLES = ["Founder.", "Builder.", "Creator.", "Doctor."];
+const ROLES = ["Builder.", "Doctor.", "Gamer.", "Founder."];
 
 const NAV_LINKS: [string, string][] = [
   ["About", "about"],
   ["Work", "work"],
+  ["Talks", "talks"],
   ["Now", "now"],
   ["Contact", "contact"],
 ];
@@ -77,6 +81,20 @@ const WORK = [
     wide: true,
   },
   {
+    name: "Ares",
+    tag: "AI System",
+    status: "Live",
+    line: "My own AI operating system, built on OpenClaw. Multi-agent, voice-first, model-agnostic. Runs my companies from a Discord command centre, in public.",
+    url: "https://github.com/rushindrasinha/openclaw-guide",
+  },
+  {
+    name: "Mundhe Maps",
+    tag: "Public Good",
+    status: "Live",
+    line: "A public map of Mumbai food businesses actioned by FDA Maharashtra. Updated daily.",
+    url: "https://mundhemaps.com",
+  },
+  {
     name: "thumbnail.gg",
     tag: "Product",
     status: "Live",
@@ -98,20 +116,6 @@ const WORK = [
     url: "https://clutchpass.gg",
   },
   {
-    name: "Clutch Creator",
-    tag: "Tool",
-    status: "Shipped",
-    line: "Chrome extension: turn any page into content angles with one click.",
-    url: "https://github.com/rushindrasinha/clutch-creator",
-  },
-  {
-    name: "xReader.ai",
-    tag: "Tool",
-    status: "Shipped",
-    line: "X threads as clean readable articles. Built for durable thinking.",
-    url: "https://xreader.ai",
-  },
-  {
     name: "rushi.live",
     tag: "Tool",
     status: "Live",
@@ -119,19 +123,38 @@ const WORK = [
     url: "https://rushi.live",
   },
   {
-    name: "Operation Blackout",
-    tag: "Open Source",
-    status: "Shipped",
-    line: "A contemporary-military browser FPS, built from a single prompt. Every texture, mesh, and sound generated procedurally in code — zero external assets.",
-    url: "https://github.com/rushindrasinha/operation-blackout",
-  },
-  {
     name: "YT Shorts Pipeline",
     tag: "Open Source",
     status: "Shipped",
-    line: "Fully automated YouTube Shorts engine: news → script → AI visuals → voiceover → captions → upload.",
+    line: "2,300+ GitHub stars. Fully automated YouTube Shorts engine: news → script → AI visuals → voiceover → captions → upload.",
     url: "https://github.com/rushindrasinha/youtube-shorts-pipeline",
   },
+  {
+    name: "Operation Blackout",
+    tag: "Open Source",
+    status: "Shipped",
+    line: "A contemporary-military browser FPS, built from a single prompt. Every texture, mesh, and sound generated procedurally in code. Zero external assets.",
+    url: "https://github.com/rushindrasinha/operation-blackout",
+  },
+  {
+    name: "Agent tooling",
+    tag: "Open Source",
+    status: "Shipped",
+    line: "Field-tested tools for running real AI agents: openclaw-guide, ares-mbl, skill-audit-router, xreader-mcp.",
+    url: "https://github.com/rushindrasinha",
+  },
+  {
+    name: "xReader.ai",
+    tag: "Tool",
+    status: "Shipped",
+    line: "X threads as clean readable articles. Also shipped: Clutch Creator, a one-click content-angle Chrome extension.",
+    url: "https://xreader.ai",
+  },
+];
+
+const TALKS = [
+  { event: "TEDx Sanjivani University", title: "Passion Pivots Redefine Career Frontiers", url: "https://youtu.be/KIZiMBvIeog", img: "/talks/tedx-sanjivani.jpg", note: "" },
+  { event: "TEDx NMIMS", title: "Can You Get Paid To Play Video Games?", url: "https://youtu.be/DFw5fSh9D3I", img: "/talks/tedx-nmims.jpg", note: "With co-founder Mohit Israney" },
 ];
 
 const PLATFORMS = [
@@ -159,9 +182,10 @@ const MARQUEE_ITEMS = [
   "Aarees",
   "TEDx Speaker",
   "Stanford GSB",
-  "MD",
+  "Doctor",
   "AI Builder",
-  "ClutchPass",
+  "Mundhe Maps",
+  "Ares",
   "5B+ Views for Creators & Brands",
   "250K+ Followers",
 ];
@@ -172,6 +196,8 @@ const TAG_CLASS: Record<string, string> = {
   Platform: "tag-platform",
   Tool: "tag-tool",
   "Open Source": "tag-open",
+  "AI System": "tag-product",
+  "Public Good": "tag-platform",
 };
 
 const SOCIALS = [
@@ -257,7 +283,7 @@ function Reveal({ children, delay = 0, style = {}, className = "" }: { children:
 function Label({ children }: { children: React.ReactNode }) {
   const C = useContext(ThemeCtx);
   return (
-    <p style={{ fontSize: 11, letterSpacing: "2.5px", textTransform: "uppercase", color: C.accent, fontWeight: 600, margin: "0 0 14px 0", fontFamily: F.body }}>
+    <p style={{ fontSize: 12, letterSpacing: "2px", textTransform: "uppercase", color: C.accent, fontWeight: 500, margin: "0 0 14px 0", fontFamily: F.mono }}>
       {children}
     </p>
   );
@@ -267,7 +293,7 @@ function SectionTitle({ children }: { children: React.ReactNode }) {
   const C = useContext(ThemeCtx);
   return (
     <div style={{ marginBottom: 40 }}>
-      <h2 style={{ fontFamily: F.display, fontSize: "clamp(32px, 4.2vw, 54px)", fontWeight: 400, fontStyle: "italic", margin: "0 0 12px 0", color: C.white, lineHeight: 1.1 }}>{children}</h2>
+      <h2 style={{ fontFamily: F.display, fontSize: "clamp(30px, 4.2vw, 52px)", fontWeight: 600, letterSpacing: "-0.03em", margin: "0 0 12px 0", color: C.white, lineHeight: 1.08 }}>{children}</h2>
       <span style={{ display: "block", width: 28, height: 2, borderRadius: 1, background: C.accent }} />
     </div>
   );
@@ -279,7 +305,7 @@ function StatusDot({ status }: { status: string }) {
   const glow = (status === "Live" || status === "Active") ? `0 0 8px ${color}66` : "none";
 
   return (
-    <span style={{ display: "inline-flex", alignItems: "center", gap: 6, color, fontSize: 10, fontWeight: 700, letterSpacing: "1.2px", textTransform: "uppercase" }}>
+    <span style={{ display: "inline-flex", alignItems: "center", gap: 6, color, fontSize: 11, fontWeight: 600, letterSpacing: "1px", textTransform: "uppercase", fontFamily: F.mono }}>
       <span style={{ width: 6, height: 6, borderRadius: "50%", background: color, boxShadow: glow, flexShrink: 0 }} />
       {status}
     </span>
@@ -311,6 +337,17 @@ export default function Home() {
   const [roleIdx, setRoleIdx] = useState(0);
   const [isDark, setIsDark] = useState(true);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [isWide, setIsWide] = useState(false);
+  const [storyOpen, setStoryOpen] = useState(false);
+  const [copied, setCopied] = useState(false);
+
+  useEffect(() => {
+    const mq = window.matchMedia("(min-width: 1181px)");
+    const on = () => setIsWide(mq.matches);
+    on();
+    mq.addEventListener("change", on);
+    return () => mq.removeEventListener("change", on);
+  }, []);
 
   const C = isDark ? DARK_C : LIGHT_C;
 
@@ -403,8 +440,8 @@ export default function Home() {
           transition: "all 0.35s ease",
         }}
       >
-        <button onClick={() => scrollTo("hero")} aria-label="Back to top" style={{ background: "none", border: "none", cursor: "pointer", fontFamily: F.display, fontSize: 24, fontStyle: "italic", color: C.accent, letterSpacing: 1 }}>
-          R.
+        <button onClick={() => scrollTo("hero")} aria-label="Back to top" style={{ background: "none", border: "none", cursor: "pointer", fontFamily: F.mono, fontSize: 20, fontWeight: 600, color: C.accent, letterSpacing: 0, minWidth: 44, minHeight: 44, textAlign: "left" }}>
+          R_
         </button>
 
         <div style={{ display: "flex", alignItems: "center", gap: 20 }}>
@@ -581,41 +618,43 @@ export default function Home() {
         <div className="hero-orb-pulse" style={{ position: "absolute", top: "15%", right: "-8%", width: 600, height: 600, borderRadius: "50%", background: "radial-gradient(circle, rgba(156,255,87,0.08) 0%, transparent 65%)", filter: "blur(100px)", pointerEvents: "none" }} />
         <div className="hero-orb-pulse-alt" style={{ position: "absolute", bottom: "10%", left: "-5%", width: 400, height: 400, borderRadius: "50%", background: "radial-gradient(circle, rgba(94,186,255,0.04) 0%, transparent 65%)", filter: "blur(80px)", pointerEvents: "none" }} />
 
-        <div className="hero-3d-wrap">
-          <Hero3D accent={C.accent} />
-        </div>
+        {isWide && (
+          <div className="hero-3d-wrap">
+            <Hero3D accent={C.accent} />
+          </div>
+        )}
 
         <div style={{ maxWidth: 920, position: "relative", zIndex: 1 }}>
           <Reveal>
-            <Label>Creator-Founder · AI · Media · Gaming · Performance</Label>
+            <div style={{ display: "flex", alignItems: "center", gap: 14, marginBottom: 18 }}>
+              <img src="/rushi-avatar.jpg" alt="Dr. Rushindra Sinha" width={64} height={64} className="hero-avatar" style={{ width: 64, height: 64, borderRadius: "50%", objectFit: "cover", border: `2px solid ${C.accent}`, flexShrink: 0 }} />
+              <Label>Doctor · Gamer · Founder · AI Builder</Label>
+            </div>
           </Reveal>
 
           <Reveal delay={0.1}>
-            <div style={{ display: "flex", alignItems: "baseline", gap: 12, marginBottom: 28, flexWrap: "wrap" }}>
-              <h1 style={{ fontFamily: F.display, fontSize: "clamp(56px, 8vw, 100px)", fontWeight: 400, lineHeight: 1.02, margin: 0, color: C.white }}>
-                Dr. Rushindra
-              </h1>
-              <h1 style={{ fontFamily: F.display, fontSize: "clamp(56px, 8vw, 100px)", fontWeight: 400, lineHeight: 1.02, margin: 0, color: C.white }}>
-                Sinha.
+            <div style={{ marginBottom: 28 }}>
+              <h1 style={{ fontFamily: F.display, fontSize: "clamp(48px, 8vw, 96px)", fontWeight: 700, letterSpacing: "-0.045em", lineHeight: 0.98, margin: 0, color: C.white }}>
+                Dr. Rushindra Sinha.
               </h1>
             </div>
 
             <div style={{ height: 36, marginBottom: 24 }}>
-              <p style={{ fontFamily: F.display, fontSize: "clamp(20px, 2.8vw, 32px)", fontStyle: "italic", color: C.accent, lineHeight: 1.2, margin: 0, fontWeight: 400 }}>
-                {ROLES[roleIdx]}
+              <p style={{ fontFamily: F.mono, fontSize: "clamp(18px, 2.4vw, 28px)", color: C.accent, lineHeight: 1.2, margin: 0, fontWeight: 500 }}>
+                <span style={{ color: C.textDim }}>&gt; </span>{ROLES[roleIdx]}<span className="caret" aria-hidden="true">_</span>
               </p>
             </div>
           </Reveal>
 
           <Reveal delay={0.2}>
-            <p style={{ fontSize: 18, lineHeight: 1.8, color: C.textMid, maxWidth: 660, margin: "0 0 20px 0", fontWeight: 300 }}>
-              MD-turned-founder. I build companies, products, and AI-native systems at the intersection of medicine, esports, and the internet. Co-founder of Global Esports — India&apos;s only profitable esports org while 18+ competitors shut down. One of 10 permanent VCT Pacific franchise teams selected by Riot Games globally.
+            <p style={{ fontSize: "clamp(16px, 1.6vw, 19px)", lineHeight: 1.7, color: C.text, maxWidth: 620, margin: "0 0 20px 0", fontWeight: 300 }}>
+              Doctor turned founder. I build the AI systems that run my companies, and I build them in public. Co-founder of Global Esports: 2026 VCT Pacific Stage 2 champions, headed to VALORANT Champions Shanghai for the first time.
             </p>
           </Reveal>
 
           <Reveal delay={0.28}>
-            <p style={{ fontSize: 14, color: C.textDim, margin: "0 0 36px 0", fontWeight: 400 }}>
-              MD · Stanford GSB · Global Esports Founder · VCT Pacific · 2× TEDx
+            <p style={{ fontSize: 13, color: C.textMid, margin: "0 0 36px 0", fontWeight: 400, fontFamily: F.mono }}>
+              Doctor · Stanford GSB · Global Esports · VCT Pacific Champions 2026 · 2× TEDx
             </p>
           </Reveal>
 
@@ -682,7 +721,7 @@ export default function Home() {
           </Reveal>
 
           <Reveal delay={0.42}>
-            <div style={{ display: "flex", gap: 48, flexWrap: "wrap" }}>
+            <div className="hero-stats">
               {[
                 { ref: viewCount, val: vC, suffix: "M+", label: "Personal Views" },
                 { ref: reachCount, val: rC, suffix: "K+", label: "Total Reach" },
@@ -692,11 +731,11 @@ export default function Home() {
                 { ref: tedxCount, val: tC, suffix: "x TEDx", label: "Stages" },
               ].map((stat, i) => (
                 <div key={i} ref={stat.ref as any}>
-                  <div style={{ fontSize: 36, fontWeight: 800, color: C.accent, lineHeight: 1 }}>
+                  <div style={{ fontSize: "clamp(28px, 3vw, 36px)", fontWeight: 700, color: C.accent, lineHeight: 1, fontFamily: F.display, letterSpacing: "-0.03em" }}>
                     {stat.val}
                     {stat.suffix}
                   </div>
-                  <div style={{ fontSize: 11, color: C.textDim, letterSpacing: "1px", textTransform: "uppercase", marginTop: 6, fontWeight: 500 }}>
+                  <div style={{ fontSize: 12, color: C.textMid, letterSpacing: "0.5px", textTransform: "uppercase", marginTop: 6, fontWeight: 500, fontFamily: F.mono }}>
                     {stat.label}
                   </div>
                 </div>
@@ -728,27 +767,56 @@ export default function Home() {
 
       {/* ========== STORY & TIMELINE ========== */}
       <section id="about" style={{ padding: "96px clamp(24px, 5vw, 64px)", maxWidth: "100%" }}>
-        <div style={{ maxWidth: 820, margin: "0 auto" }}>
+        <div style={{ maxWidth: 1040, margin: "0 auto" }}>
           <Reveal>
             <Label>The Story</Label>
           </Reveal>
           <Reveal delay={0.08}>
-            <SectionTitle>Doctor. Founder. Creator. Built from first principles.</SectionTitle>
+            <SectionTitle>Doctor. Gamer. Founder. Built from first principles.</SectionTitle>
           </Reveal>
 
+          <div className="story-grid">
+            <Reveal delay={0.1} className="story-portrait">
+              <figure style={{ margin: 0 }}>
+                <img
+                  src="/rushi.jpg"
+                  alt="Dr. Rushindra Sinha speaking at TEDx Sanjivani University"
+                  width={720}
+                  height={900}
+                  loading="lazy"
+                  style={{ width: "100%", height: "auto", aspectRatio: "4 / 5", objectFit: "cover", borderRadius: 14, border: `1px solid ${C.border}`, display: "block" }}
+                />
+                <figcaption style={{ marginTop: 10, fontSize: 12, color: C.textMid, fontFamily: F.mono }}>
+                  On stage · TEDx Sanjivani University, 2026
+                </figcaption>
+              </figure>
+            </Reveal>
+
           <Reveal delay={0.14}>
-            <div style={{ fontSize: 16, lineHeight: 1.9, color: C.textMid, fontWeight: 300 }}>
+            <div style={{ fontSize: 16, lineHeight: 1.85, color: C.textMid, fontWeight: 300 }}>
               <p style={{ marginBottom: 22 }}>
-                Games found me at two. First plays on a hospital computer, borrowed time between a parent's rounds. By 2008 I was running Phoenix RO, a Ragnarok Online private server with thousands of active players. At 18, I developed and sold my first game commercially. I learned what it meant to build products people live inside before anyone called it a career.
+                Games found me at two. First plays on a hospital computer, borrowed time between a parent&apos;s rounds. By 2008 I was running Phoenix RO, a Ragnarok Online private server with thousands of active players. At 18, I developed and sold my first game commercially. I learned what it meant to build products people live inside before anyone called it a career.
               </p>
-              <p style={{ marginBottom: 22 }}>
-                I completed my MBBS at D.Y. Patil Medical College, Navi Mumbai in 2014. I was already experimenting, using Google Glass to live-stream surgeries, one of the first in India to do so. But the pull toward building was too strong. San Francisco. A 480-hour full-stack bootcamp at General Assembly. Stanford GSB's Innovative Health Care Leader program, from design thinking to personal leadership, completed in 2017. Self-teaching code from zero while holding a medical degree. I wanted to be dangerous with both.
+              <p className={`story-more${storyOpen ? " open" : ""}`} style={{ marginBottom: 22 }}>
+                I completed my MBBS at D.Y. Patil Medical College, Navi Mumbai in 2014. I was already experimenting, using Google Glass to live-stream surgeries, one of the first in India to do so. But the pull toward building was too strong. San Francisco. A 480-hour full-stack bootcamp at General Assembly. Stanford GSB&apos;s Innovative Health Care Leader program, from design thinking to personal leadership, completed in 2017. Self-teaching code from zero while holding a medical degree. I wanted to be dangerous with both.
               </p>
-              <p style={{ marginBottom: 22 }}>
-                In 2017 I started Global Esports, India's first VC-backed esports organization — running it as a proprietorship under my own name for the first year, then formally incorporating the company and transferring the business over by November 2018. We won the Valorant Conqueror Championship. Riot Games selected us as one of 10 permanent VCT Pacific franchise partners globally. We stayed profitable while 18+ Indian esports competitors shut down in 2024. Alongside that: 100M+ personal views across platforms, 5B+ generated for creators and brands, two TEDx stages, a contribution to a Tribeca Film Festival-winning film, and national rankings in inline speed skating. Today I build AI-native products, creator infrastructure, and the systems that let me operate at scale.
+              <p className={`story-more${storyOpen ? " open" : ""}`} style={{ marginBottom: 22 }}>
+                In 2017 I started Global Esports, India&apos;s first VC-backed esports organization. It ran as a proprietorship under my own name for the first year; I incorporated the company and moved the business over by November 2018. We won the Valorant Conqueror Championship. Riot Games selected us as one of 10 permanent VCT Pacific franchise partners globally. We stayed profitable while 18+ Indian esports competitors shut down. In 2026 we won VCT Pacific Stage 2 and qualified for VALORANT Champions for the first time. Alongside that: 100M+ personal views across platforms, 5B+ generated for creators and brands, two TEDx stages, a contribution to a Tribeca Film Festival-winning film, and national rankings in inline speed skating.
               </p>
+              <p className={`story-more${storyOpen ? " open" : ""}`} style={{ marginBottom: 22 }}>
+                Today I build AI systems in public. Ares, my own AI operating system, runs my companies from a Discord command centre, and most of what I ship now starts as a voice note.
+              </p>
+              <button
+                className="story-toggle tap"
+                onClick={() => setStoryOpen((o) => !o)}
+                aria-expanded={storyOpen}
+                style={{ background: "none", border: `1px solid ${C.border}`, borderRadius: 8, color: C.accent, fontFamily: F.mono, fontSize: 13, padding: "10px 16px", cursor: "pointer", marginBottom: 8 }}
+              >
+                {storyOpen ? "Show less" : "Read the full story + timeline"}
+              </button>
             </div>
           </Reveal>
+          </div>
 
           <Reveal delay={0.26}>
             <div style={{ marginTop: 72 }}>
@@ -758,7 +826,7 @@ export default function Home() {
 
                 {TIMELINE.map((t, i) => (
                   <Reveal key={t.yr} delay={0.04 * i}>
-                    <div style={{ display: "flex", gap: 18, marginBottom: 22, alignItems: "flex-start", position: "relative" }}>
+                    <div className={i < TIMELINE.length - 3 ? `timeline-early${storyOpen ? " open" : ""}` : ""} style={{ display: "flex", gap: 18, marginBottom: 22, alignItems: "flex-start", position: "relative" }}>
                       <div
                         className={i === TIMELINE.length - 1 ? "timeline-dot-live" : ""}
                         style={{
@@ -772,7 +840,7 @@ export default function Home() {
                           boxShadow: i === TIMELINE.length - 1 ? `0 0 10px ${C.accent}66` : "none",
                         }}
                       />
-                      <span style={{ fontSize: 12, fontWeight: 700, color: C.textDim, minWidth: 36, fontFamily: F.body }}>{t.yr}</span>
+                      <span style={{ fontSize: 12, fontWeight: 600, color: C.accent, minWidth: 36, fontFamily: F.mono }}>{t.yr}</span>
                       <span style={{ fontSize: 14, color: C.textMid, fontWeight: 300, lineHeight: 1.6 }}>{t.t}</span>
                     </div>
                   </Reveal>
@@ -795,22 +863,28 @@ export default function Home() {
             <SectionTitle>Proof of execution.</SectionTitle>
           </Reveal>
 
+          <p className="swipe-hint" style={{ fontSize: 12, color: C.textMid, fontFamily: F.mono, margin: "-24px 0 12px 0" }}>Swipe →</p>
           <div className="products-grid">
             {WORK.map((w, i) => (
-              <Reveal key={w.name} delay={0.08 * i} style={{ gridColumn: w.wide ? "span 2" : undefined }}>
-                <div
+              <Reveal key={w.name} delay={Math.min(0.05 * i, 0.3)} style={{ gridColumn: w.wide ? "span 2" : undefined }}>
+                <a
+                  href={w.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className={`card${w.wide ? " card-featured" : ""}`}
-                  onClick={() => w.url && window.open(w.url, "_blank")}
                   style={{
-                    padding: 26,
+                    padding: 24,
                     height: "100%",
-                    cursor: w.url ? "pointer" : "default",
+                    cursor: "pointer",
+                    display: "block",
+                    textDecoration: "none",
+                    color: "inherit",
                   }}
                 >
                   <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 14, gap: 12 }}>
                     <div>
-                      <h3 style={{ margin: "0 0 8px 0", fontSize: 18, fontWeight: 700, color: C.white }}>{w.name}</h3>
-                      <span className={TAG_CLASS[w.tag] ?? ""} style={{ display: "inline-block", padding: "4px 8px", borderRadius: 4, background: C.surfaceStrong, color: C.textDim, fontSize: 10, fontWeight: 700, textTransform: "uppercase", letterSpacing: "1px" }}>
+                      <h3 style={{ margin: "0 0 8px 0", fontSize: 19, fontWeight: 600, color: C.white, fontFamily: F.display, letterSpacing: "-0.02em" }}>{w.name}</h3>
+                      <span className={TAG_CLASS[w.tag] ?? ""} style={{ display: "inline-block", padding: "4px 8px", borderRadius: 4, background: C.surfaceStrong, color: C.textMid, fontSize: 11, fontWeight: 500, textTransform: "uppercase", letterSpacing: "0.8px", fontFamily: F.mono }}>
                         {w.tag}
                       </span>
                     </div>
@@ -819,8 +893,39 @@ export default function Home() {
 
                   <p style={{ margin: 0, fontSize: 14, color: C.textMid, lineHeight: 1.7, fontWeight: 300 }}>{w.line}</p>
 
-                  {w.url && <p style={{ margin: "12px 0 0 0", fontSize: 12, color: C.accent, fontWeight: 600 }}>View →</p>}
-                </div>
+                  <p style={{ margin: "12px 0 0 0", fontSize: 12, color: C.accent, fontWeight: 500, fontFamily: F.mono }}>View →</p>
+                </a>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <Divider />
+
+      {/* ========== TALKS ========== */}
+      <section id="talks" style={{ padding: "96px clamp(24px, 5vw, 64px)" }}>
+        <div style={{ maxWidth: "100%" }}>
+          <Reveal>
+            <Label>Talks</Label>
+          </Reveal>
+          <Reveal delay={0.08}>
+            <SectionTitle>Two TEDx stages.</SectionTitle>
+          </Reveal>
+          <div className="talks-grid">
+            {TALKS.map((t, i) => (
+              <Reveal key={t.url} delay={0.08 * i}>
+                <a href={t.url} target="_blank" rel="noopener noreferrer" className="card" style={{ display: "block", textDecoration: "none", color: "inherit", overflow: "hidden", padding: 0, height: "100%" }}>
+                  <div style={{ position: "relative", aspectRatio: "16 / 9", background: C.surfaceStrong }}>
+                    <img src={t.img} alt={`${t.event}: ${t.title}`} loading="lazy" width={960} height={540} style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }} />
+                    <span aria-hidden="true" style={{ position: "absolute", left: 16, bottom: 16, width: 44, height: 44, borderRadius: "50%", background: C.accent, color: "#08080a", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 16 }}>▶</span>
+                  </div>
+                  <div style={{ padding: 20 }}>
+                    <p style={{ margin: "0 0 6px 0", fontSize: 12, color: C.accent, fontFamily: F.mono, textTransform: "uppercase", letterSpacing: "1px" }}>{t.event}</p>
+                    <h3 style={{ margin: 0, fontSize: 19, fontWeight: 600, color: C.white, fontFamily: F.display, letterSpacing: "-0.02em", lineHeight: 1.3 }}>{t.title}</h3>
+                    {t.note && <p style={{ margin: "8px 0 0 0", fontSize: 13, color: C.textMid }}>{t.note}</p>}
+                  </div>
+                </a>
               </Reveal>
             ))}
           </div>
@@ -908,13 +1013,32 @@ export default function Home() {
             </p>
           </Reveal>
 
+          <Reveal delay={0.2}>
+            <div style={{ display: "flex", alignItems: "center", gap: 10, flexWrap: "wrap", margin: "-12px 0 32px 0" }}>
+              <a className="tap" href="mailto:sinha@rushindra.com" style={{ fontFamily: F.mono, fontSize: 15, color: C.white, textDecoration: "none" }}>sinha@rushindra.com</a>
+              <button
+                className="tap"
+                onClick={() => {
+                  navigator.clipboard?.writeText("sinha@rushindra.com").then(() => {
+                    setCopied(true);
+                    setTimeout(() => setCopied(false), 1800);
+                  });
+                }}
+                aria-label="Copy email address"
+                style={{ background: "none", border: `1px solid ${C.border}`, borderRadius: 8, color: copied ? C.accent : C.textMid, fontFamily: F.mono, fontSize: 12, padding: "8px 14px", cursor: "pointer" }}
+              >
+                {copied ? "Copied" : "Copy"}
+              </button>
+            </div>
+          </Reveal>
+
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(240px, 1fr))", gap: 14 }}>
             {CONTACT_ROUTES.map((r, i) => (
               <Reveal key={r.label} delay={0.08 * i}>
                 <a href={`mailto:sinha@rushindra.com?subject=${encodeURIComponent(r.label)}`} style={{ textDecoration: "none", color: "inherit" }}>
                   <div className="card" style={{ padding: 22, height: "100%" }}>
                     <h4 style={{ margin: "0 0 6px 0", fontSize: 15, fontWeight: 600, color: C.white }}>{r.label}</h4>
-                    <p style={{ margin: 0, fontSize: 13, color: C.textDim, lineHeight: 1.5, fontWeight: 300 }}>{r.desc}</p>
+                    <p style={{ margin: 0, fontSize: 13, color: C.textMid, lineHeight: 1.5, fontWeight: 300 }}>{r.desc}</p>
                     <p style={{ margin: "10px 0 0 0", fontSize: 12, color: C.accent, fontWeight: 600 }}>Reach out →</p>
                   </div>
                 </a>
@@ -925,7 +1049,7 @@ export default function Home() {
           <Reveal delay={0.4}>
             <div style={{ display: "flex", gap: 20, marginTop: 48, flexWrap: "wrap" }}>
               {SOCIALS.map((s) => (
-                <a key={s.name} href={s.url} target="_blank" rel="noopener" style={{ color: C.textDim, textDecoration: "none", fontSize: 13, fontWeight: 400, transition: "color 0.2s" }} onMouseEnter={(e) => ((e.target as HTMLElement).style.color = C.accent)} onMouseLeave={(e) => ((e.target as HTMLElement).style.color = C.textDim)}>
+                <a key={s.name} className="tap" href={s.url} target="_blank" rel="noopener" style={{ color: C.textMid, textDecoration: "none", fontSize: 13, fontWeight: 400, transition: "color 0.2s", fontFamily: F.mono }} onMouseEnter={(e) => ((e.target as HTMLElement).style.color = C.accent)} onMouseLeave={(e) => ((e.target as HTMLElement).style.color = C.textMid)}>
                   {s.name} →
                 </a>
               ))}
@@ -942,9 +1066,9 @@ export default function Home() {
           <p
             style={{
               fontFamily: F.display,
-              fontSize: "clamp(28px, 4vw, 46px)",
-              fontStyle: "italic",
-              fontWeight: 400,
+              fontSize: "clamp(26px, 4vw, 44px)",
+              fontWeight: 600,
+              letterSpacing: "-0.03em",
               color: C.white,
               margin: 0,
               lineHeight: 1.25,

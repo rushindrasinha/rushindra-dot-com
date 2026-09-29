@@ -4,6 +4,13 @@ Timestamped record of every session, change, and decision. Never deleted — app
 
 ---
 
+## Session 011 — 2026-09-29 (afternoon)
+
+Rushi asked why Mundhe Maps was missing and what UI/UX work was needed, mobile-first. He approved: Doctor not MD, best photo, builder-in-public hero, no serif headings.
+- Photo sourcing: nothing website-grade on disk (only casual restaurant shots). The X avatar is 400px only. yt-dlp got blocked through the Hetzner tunnel ("sign in to confirm you're not a bot"), then worked direct over Airtel. Pulled 1080p frames from the TEDx Sanjivani talk and picked frame 1 (camera-facing, smiling).
+- Built v1.6.0 locally. Verified with Playwright at 390 and 1440 (screenshots in ~/.openclaw/media/rushindra-v16/). Found and fixed one bug: an inline `display:flex` beat the timeline collapse class, fixed with !important.
+- Headless WebGL doesn't render, so the desktop 3D sculpture can't be checked in screenshots. It's unchanged code, now lazy-loaded.
+
 ## Session 010 — 2026-09-29
 
 Rushi (#web-dev, 15:04 IST): "Run a fresh audit and run of rushindra.com, see what can/should be updated... this is your path." Follow-up: "find a way and remember it, you're the only one who manages rushindra.com."

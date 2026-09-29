@@ -12,7 +12,7 @@ const homepageMarkdown = (quarter: string) => `# Dr. Rushindra Sinha
 
 > Creator-founder building at the intersection of medicine, AI, esports, and media.
 
-Founder · Builder · Creator. MD. Stanford GSB. Co-founder of Global Esports,
+Doctor · Gamer · Founder. Builds AI systems in public. Stanford GSB. Co-founder of Global Esports,
 one of 10 permanent VCT Pacific franchise teams selected by Riot Games globally.
 
 - Canonical URL: https://rushindra.com
@@ -48,6 +48,7 @@ His father's rule, and the one he still runs everything by: first, best, or only
 |---|---|---|---|
 | [Global Esports](https://globalesports.com) | Company | Live | India's first VC-backed esports org. VCT Pacific franchise partner. 2026 VCT Pacific Stage 2 champions; first VALORANT Champions qualification. |
 | Ares | Builder / Operator | Live | His own AI operating system, built on OpenClaw. Runs his companies in public. |
+| [Mundhe Maps](https://mundhemaps.com) | Public good | Live | Public map of Mumbai food businesses actioned by FDA Maharashtra. Updated daily. |
 | [thumbnail.gg](https://thumbnail.gg) | Product | Live | AI thumbnail generation for YouTube creators. |
 | [Aarees](https://aarees.com) | Platform | Building | WhatsApp-native AI for creators. Next version in build. |
 | [ClutchPass](https://clutchpass.gg) | Product | Active | AI battle pass for competitive gamers. |
@@ -55,7 +56,13 @@ His father's rule, and the one he still runs everything by: first, best, or only
 | [xReader.ai](https://xreader.ai) | Tool | Shipped | X threads as clean readable articles. |
 | [rushi.live](https://rushi.live) | Tool | Live | Prompt Engine — plain-language intent into production-ready AI prompts. |
 | [Operation Blackout](https://github.com/rushindrasinha/operation-blackout) | Open Source | Shipped | One-prompt browser FPS. Zero external assets. |
-| [YT Shorts Pipeline](https://github.com/rushindrasinha/youtube-shorts-pipeline) | Open Source | Shipped | Automated YouTube Shorts engine. |
+| [YT Shorts Pipeline](https://github.com/rushindrasinha/youtube-shorts-pipeline) | Open Source | Shipped | Automated YouTube Shorts engine. 2,300+ GitHub stars. |
+| [Agent tooling](https://github.com/rushindrasinha) | Open Source | Shipped | openclaw-guide, ares-mbl, skill-audit-router, xreader-mcp. |
+
+## Talks
+
+- TEDx Sanjivani University — "Passion Pivots Redefine Career Frontiers": https://youtu.be/KIZiMBvIeog
+- TEDx NMIMS — "Can You Get Paid To Play Video Games?" (with Mohit Israney): https://youtu.be/DFw5fSh9D3I
 
 ## Platforms
 
