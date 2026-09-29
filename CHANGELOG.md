@@ -4,6 +4,17 @@ All changes are logged here. Format: version → date → what changed → who a
 
 ---
 
+## [1.6.2] — 2026-09-29 (IST)
+
+**Fact fix: Tribeca was 2014, first place. Rushi (#web-dev, 18:07 IST): "the tribeca film festival was 2014, how did it end up in 2024? (Mohit and I won first place)". All work by Ares.**
+
+### Fixed
+- `app/page.tsx` timeline: Tribeca moved from the '24 entry to '14, reworded as "Won first place at the Tribeca Film Festival with Mohit Israney." Story paragraph: "a contribution to a Tribeca Film Festival-winning film" → "first place at the 2014 Tribeca Film Festival with Mohit".
+- `/llm`, `llms.txt`: "produced and edited / co-produced the 2014 Tribeca winning entry" → "won first place at the 2014 Tribeca Film Festival".
+- Root cause: the Apr 27 v1.0 timeline lumped several "alongside" achievements into the '24 entry by theme, not by date. The machine layers always said 2014, so the two layers had silently disagreed.
+
+---
+
 ## [1.6.1] — 2026-09-29 (IST)
 
 **Hero label: drop "India". Rushi (#web-dev, 18:06 IST): "having India in the header has no meaning, please remove it." All work by Ares.**
