@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   },
 };
 
-const EMAIL = "rushindra@globalesports.com";
+const EMAIL = "sinha@rushindra.com";
 const UPDATED = "22 August 2026";
 
 export default function PrivacyPage() {

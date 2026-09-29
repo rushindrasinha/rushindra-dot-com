@@ -17,14 +17,14 @@ one of 10 permanent VCT Pacific franchise teams selected by Riot Games globally.
 
 - Canonical URL: https://rushindra.com
 - Primary channel: https://x.com/irushi
-- Contact: rushindra@globalesports.com
+- Contact: sinha@rushindra.com
 
 ## Identity stack
 
 - **Doctor (MD)** — Medical degree, D.Y. Patil Medical College, Navi Mumbai.
   Pioneered Google Glass live-streaming of surgeries in India. Published on
   3D laparoscopic surgery.
-- **Stanford GSB** — Executive education (Innovative Leadership). This is
+- **Stanford GSB** — Executive education (The Innovative Health Care Leader: From Design Thinking to Personal Leadership). This is
   executive/leadership education, not a full MBA.
 - **Esports founder** — Started Global Esports with Mohit Israney in July
   2017 as a proprietorship, formally incorporated by November 2018. India's

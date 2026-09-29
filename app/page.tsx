@@ -60,7 +60,7 @@ const TIMELINE = [
   { yr: "'93", t: "First games on a hospital computer, borrowed time between a parent's rounds. Early exposure to systems, play, and digital worlds." },
   { yr: "'08", t: "Built Phoenix RO, a Ragnarok Online private server with thousands of active players. Developed and sold my first online game commercially at 18. First real lessons in products, monetization, and running live internet infrastructure." },
   { yr: "'14", t: "MBBS from D.Y. Patil Medical College, Navi Mumbai. Pioneered Google Glass for live-streaming surgeries in India. Realized the deeper instinct was building, not practice." },
-  { yr: "'16", t: "San Francisco. 480-hour full-stack bootcamp at General Assembly. Stanford GSB: Innovative Healthcare Leadership. The coding and business foundations locked in." },
+  { yr: "'16", t: "San Francisco. 480-hour full-stack bootcamp at General Assembly. Stanford GSB: The Innovative Health Care Leader, a design thinking and leadership programme. The coding and business foundations locked in." },
   { yr: "'17", t: "Started Global Esports in Mumbai with Mohit Israney — a proprietorship under my name at first. Incorporated the company and transferred the business over by November '18. India's first VC-backed esports organization." },
   { yr: "'22", t: "Riot Games selected Global Esports as one of 10 permanent VCT Pacific franchise partners globally. Won Valorant Conqueror Championship. Competed on the world stage in Seoul." },
   { yr: "'24", t: "GE achieves profitability. 18+ Indian esports competitors shut down. GE was the only one standing. Contributed to a Tribeca Film Festival-winning entry. 2x TEDx stages." },
@@ -742,7 +742,7 @@ export default function Home() {
                 Games found me at two. First plays on a hospital computer, borrowed time between a parent's rounds. By 2008 I was running Phoenix RO, a Ragnarok Online private server with thousands of active players. At 18, I developed and sold my first game commercially. I learned what it meant to build products people live inside before anyone called it a career.
               </p>
               <p style={{ marginBottom: 22 }}>
-                I completed my MBBS at D.Y. Patil Medical College, Navi Mumbai in 2014. I was already experimenting, using Google Glass to live-stream surgeries, one of the first in India to do so. But the pull toward building was too strong. San Francisco. A 480-hour full-stack bootcamp at General Assembly. Stanford GSB's Innovative Healthcare Leadership program. Self-teaching code from zero while holding a medical degree. I wanted to be dangerous with both.
+                I completed my MBBS at D.Y. Patil Medical College, Navi Mumbai in 2014. I was already experimenting, using Google Glass to live-stream surgeries, one of the first in India to do so. But the pull toward building was too strong. San Francisco. A 480-hour full-stack bootcamp at General Assembly. Stanford GSB's Innovative Health Care Leader program, from design thinking to personal leadership. Self-teaching code from zero while holding a medical degree. I wanted to be dangerous with both.
               </p>
               <p style={{ marginBottom: 22 }}>
                 In 2017 I started Global Esports, India's first VC-backed esports organization — running it as a proprietorship under my own name for the first year, then formally incorporating the company and transferring the business over by November 2018. We won the Valorant Conqueror Championship. Riot Games selected us as one of 10 permanent VCT Pacific franchise partners globally. We stayed profitable while 18+ Indian esports competitors shut down in 2024. Alongside that: 100M+ personal views across platforms, 5B+ generated for creators and brands, two TEDx stages, a contribution to a Tribeca Film Festival-winning film, and national rankings in inline speed skating. Today I build AI-native products, creator infrastructure, and the systems that let me operate at scale.
@@ -911,7 +911,7 @@ export default function Home() {
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(240px, 1fr))", gap: 14 }}>
             {CONTACT_ROUTES.map((r, i) => (
               <Reveal key={r.label} delay={0.08 * i}>
-                <a href={`mailto:rushindra@globalesports.com?subject=${encodeURIComponent(r.label)}`} style={{ textDecoration: "none", color: "inherit" }}>
+                <a href={`mailto:sinha@rushindra.com?subject=${encodeURIComponent(r.label)}`} style={{ textDecoration: "none", color: "inherit" }}>
                   <div className="card" style={{ padding: 22, height: "100%" }}>
                     <h4 style={{ margin: "0 0 6px 0", fontSize: 15, fontWeight: 600, color: C.white }}>{r.label}</h4>
                     <p style={{ margin: 0, fontSize: 13, color: C.textDim, lineHeight: 1.5, fontWeight: 300 }}>{r.desc}</p>

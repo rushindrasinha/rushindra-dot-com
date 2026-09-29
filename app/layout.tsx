@@ -79,11 +79,11 @@ const jsonLd = {
     "https://twitch.tv/rushindrasinha",
   ],
   jobTitle: "Founder, Creator, AI Builder",
-  email: "mailto:rushindra@globalesports.com",
+  email: "mailto:sinha@rushindra.com",
   contactPoint: {
     "@type": "ContactPoint",
     contactType: "business enquiries",
-    email: "rushindra@globalesports.com",
+    email: "sinha@rushindra.com",
     url: "https://rushindra.com/contact",
     availableLanguage: ["en"],
   },

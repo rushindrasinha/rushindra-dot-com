@@ -6,7 +6,7 @@ All changes are logged here. Format: version → date → what changed → who a
 
 ## [1.5.0] — 2026-09-29 (IST)
 
-**Fresh audit: GE's 2026 season, stale product claims removed, quarter-label freeze fixed, critical Next.js advisory patched. All work by Ares. PENDING Rushindra's approval.**
+**Fresh audit: GE's 2026 season, stale product claims removed, quarter-label freeze fixed, critical Next.js advisory patched. All work by Ares. Approved by Rushindra Sinha (#web-dev, 15:47 IST).**
 
 ### Added
 - Global Esports 2026 season across every layer (home, /about, /llm, /llms.txt, /index.md): Masters London 2026, VCT 2026 Pacific Stage 2 champions (Grand Final 3-2 vs Nongshim RedForce, 6 Sep 2026), first-ever VALORANT Champions qualification (Champions Shanghai 2026). Verified live on vlr.gg team page 2026-09-29 (Stage 2 Playoffs 1st, $100,000; Champions 2026 group stage in progress). Marquee gains "VCT Pacific Champions" and "Champions Shanghai 2026".
@@ -16,6 +16,10 @@ All changes are logged here. Format: version → date → what changed → who a
 - Now widget: Champions + Aarees items replace Ges and Aarees v5.1.
 - Hero reach counter and /about audience figure: 241K → 250K, finishing the 1.4.6 reframe that missed these two spots.
 - `next` 16.2.4 → 16.3.7 (+ eslint-config-next); `npm audit fix` for nanoid/postcss. `npm audit --omit=dev`: 5 vulns (1 critical: Proxy bypass + redirect cache poisoning, which applies since the site runs proxy.ts) → 0.
+
+### Changed (Rushi's calls, 15:47 IST)
+- Contact email everywhere (home, contact, privacy, JSON-LD, /index.md, llms.txt): rushindra@globalesports.com → sinha@rushindra.com.
+- Stanford programme name corrected to the official title, "The Innovative Health Care Leader: From Design Thinking to Personal Leadership" (GSB × School of Medicine, verified on gsb.stanford.edu), replacing "Innovative Healthcare Leadership" / "Innovative Leadership".
 
 ### Removed
 - Ges (Work grid, Now, /about, /index.md, llms.txt): unchanged since April, pilot not running.

@@ -12,7 +12,7 @@ Rushi (#web-dev, 15:04 IST): "Run a fresh audit and run of rushindra.com, see wh
 - Local main had diverged 22/22 from origin: an author-name rewrite on origin (force-push, Sep 2), with identical trees. Backed up as `backup/pre-sync-2026-09-29`, then reset to origin/main.
 - Live audit: all routes 200, security headers present, 70ms TTFB from Hetzner, last deploy Sep 2, CI green.
 - Shipped locally as v1.5.0 (see CHANGELOG). Build passes. Lint shows 6 react/no-unescaped-entities errors, all present on main before this pass.
-- Open for Rushi: contact email, Stanford programme name, apex vs www canonical. Follower counts not re-verified this pass.
+- Rushi 15:47 IST: (1) contact → sinha@rushindra.com yes, (2) Stanford = "Innovative Healthcare Leadership with design thinking" → official title verified on gsb.stanford.edu, (3) apex primary yes. Push approved. Follower counts not re-verified this pass.
 
 ## Session 009 — 2026-08-23
 

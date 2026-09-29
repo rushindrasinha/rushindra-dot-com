@@ -93,7 +93,8 @@ SECTION 3 — IDENTITY STACK (why each credential matters)
 
   STANFORD GSB
     Stanford Graduate School of Business executive education —
-    Innovative Leadership programme, completed 2017.
+    "The Innovative Health Care Leader: From Design Thinking to Personal Leadership"
+    (joint GSB × Stanford School of Medicine programme), completed 2017.
     Also holds a Stanford CS certificate (2014).
     This is executive / leadership education, not an MBA.
 
@@ -167,7 +168,8 @@ SECTION 4 — FULL BACKSTORY (chronological)
     service for large events and brands. His second exit in 2015.
 
   2017
-    Graduated Stanford GSB (Innovative Leadership executive programme).
+    Completed Stanford GSB executive education (The Innovative Health Care
+    Leader: From Design Thinking to Personal Leadership).
     Returned to India and started Global Esports (July/August 2017) with
     Mohit Israney (school best friend, Bollywood filmmaker, heads the GE
     content studio) — initially as a proprietorship under his own name.

@@ -4,7 +4,7 @@ import { PageShell, P, H2, C } from "../components/PageShell";
 export const metadata: Metadata = {
   title: "Contact — Dr. Rushindra Sinha",
   description:
-    "Contact routes for brand partnerships, speaking and podcasts, business opportunities, and press. Email rushindra@globalesports.com.",
+    "Contact routes for brand partnerships, speaking and podcasts, business opportunities, and press. Email sinha@rushindra.com.",
   alternates: { canonical: "/contact" },
   openGraph: {
     title: "Contact — Dr. Rushindra Sinha",
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   },
 };
 
-const EMAIL = "rushindra@globalesports.com";
+const EMAIL = "sinha@rushindra.com";
 
 const ROUTES = [
   {
