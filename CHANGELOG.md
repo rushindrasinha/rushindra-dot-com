@@ -4,6 +4,15 @@ All changes are logged here. Format: version → date → what changed → who a
 
 ---
 
+## [1.6.1] — 2026-09-29 (IST)
+
+**Hero label: drop "India". Rushi (#web-dev, 18:06 IST): "having India in the header has no meaning, please remove it." All work by Ares.**
+
+### Changed
+- `app/page.tsx`: hero label "India · Building in public" → "Building in public".
+
+---
+
 ## [1.6.0] — 2026-09-29 (IST)
 
 **Redesign pass: builder-in-public hero, grotesk type, portrait, mobile-first. Rushi's calls (#web-dev, 16:34 IST): "Doctor" not "MD", add my best photo, yes to builder-in-public, yes to moving off serif headings. All work by Ares. Push approved by Rushindra Sinha (#web-dev, 18:03 IST).**

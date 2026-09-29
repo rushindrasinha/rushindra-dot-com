@@ -631,7 +631,7 @@ export default function Home() {
           <Reveal>
             <div style={{ display: "flex", alignItems: "center", gap: 14, marginBottom: 18 }}>
               <img src="/rushi-avatar.jpg" alt="Dr. Rushindra Sinha" width={64} height={64} className="hero-avatar" style={{ width: 64, height: 64, borderRadius: "50%", objectFit: "cover", border: `2px solid ${C.accent}`, flexShrink: 0 }} />
-              <Label>India · Building in public</Label>
+              <Label>Building in public</Label>
             </div>
           </Reveal>
 
