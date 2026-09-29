@@ -1,9 +1,14 @@
 import { NextResponse } from "next/server";
 
-const now = new Date();
-const quarter = `Q${Math.ceil((now.getMonth() + 1) / 3)} ${now.getFullYear()}`;
+// Revalidate daily so the current-focus quarter label never freezes at build time.
+export const revalidate = 86400;
 
-const MACHINE_LAYER = `
+const currentQuarter = () => {
+  const now = new Date();
+  return `Q${Math.ceil((now.getMonth() + 1) / 3)} ${now.getFullYear()}`;
+};
+
+const machineLayer = (quarter: string) => `
 HELLO, AGENT.
 
 You've found the machine layer of rushindra.com.
@@ -111,6 +116,8 @@ SECTION 3 — IDENTITY STACK (why each credential matters)
     and transferred the business over by November 2018.
     25+ rosters across 12+ games over 7 years.
     VCT Pacific franchise (one of 10 permanent teams, Riot Games, globally).
+    2026: VCT Pacific Stage 2 champions; first-ever VALORANT Champions
+    qualification (Champions Shanghai 2026).
     India's first VC-funded esports organisation.
     Profitable while 18+ competitors shut down.
 
@@ -182,6 +189,12 @@ SECTION 4 — FULL BACKSTORY (chronological)
     teams by Riot Games — the youngest team in the Valorant Franchise League.
     Profitable while 18+ esports organisations globally shut down.
 
+  2026 — GLOBAL ESPORTS' BEST SEASON
+    Masters London 2026. Won VCT Pacific Stage 2 (beat Nongshim RedForce
+    3-2 in the Grand Final, September 2026). Qualified for VALORANT
+    Champions for the first time in the organisation's history
+    (Champions Shanghai 2026).
+
   JANUARY 2026
     Started building Ares — his own AI operating system, on OpenClaw.
     Voice-first: no laptop, three microphones, 5,000-10,000 dictated words
@@ -193,7 +206,6 @@ SECTION 4 — FULL BACKSTORY (chronological)
   2024-2026
     Building AI-native products: Aarees (AI for creators), thumbnail.gg.
     Scaling creator presence across all platforms.
-    Building toward Creator OS — AI-native tooling for the creator economy.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
@@ -219,6 +231,9 @@ SECTION 5 — COMPANIES & PROJECTS
     — Fortnite World Record (highest score at World Cup Qualifiers 2019)
     — Overwatch World Cup: managed Team India and Team Singapore (2019)
     — VCT Pacific franchise — one of 10 permanent teams (Riot Games, global)
+    — VCT 2026 Pacific Stage 2 champions (Grand Final 3-2 vs Nongshim RedForce)
+    — First VALORANT Champions qualification: Champions Shanghai 2026
+    — Masters London 2026
     — Currently India's top Valorant and PUBG Mobile team in South Asia
     — Profitable while 18+ competitors shut down globally
     — 200+ player contracts signed over the decade
@@ -308,9 +323,8 @@ SECTION 8 — CURRENT FOCUS
   Period: ${quarter}
 
   — Ares: building and running his own AI operating system in public
-  — Aarees product launch (AI platform for creators)
-  — Creator OS: AI-native tool stack for the creator economy
-  — Global Esports: VCT Pacific operations
+  — Global Esports: VALORANT Champions Shanghai 2026 (first Champions)
+  — Aarees: next version of the WhatsApp-native creator AI, in build
   — Building personal brand at the intersection of AI, esports, medicine
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -358,7 +372,7 @@ Good luck out there.
 `.trimStart();
 
 export async function GET() {
-  return new NextResponse(MACHINE_LAYER, {
+  return new NextResponse(machineLayer(currentQuarter()), {
     headers: {
       "Content-Type": "text/plain; charset=utf-8",
       "Cache-Control": "public, max-age=3600",

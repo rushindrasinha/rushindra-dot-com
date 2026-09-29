@@ -64,7 +64,10 @@ export default function AboutPage() {
         contracts over the decade, won the VALORANT Conqueror Championship, and
         operated training facilities in South Korea and India. It reached
         profitability during a period when more than eighteen competing Indian
-        esports organisations shut down.
+        esports organisations shut down. In 2026 it had its best season yet:
+        Masters London, the VCT Pacific Stage 2 title (a 3-2 Grand Final over
+        Nongshim RedForce), and the organisation&apos;s first-ever VALORANT
+        Champions qualification, for Champions Shanghai.
       </P>
 
       <H2>Built and running</H2>
@@ -93,9 +96,9 @@ export default function AboutPage() {
       <H2>Building now</H2>
       <P>
         His current work is AI-native product development for the creator economy:
-        Aarees, a multi-agent creator platform delivered over WhatsApp; thumbnail.gg,
-        AI thumbnail generation for YouTube creators; ClutchPass, an AI battle pass
-        for competitive gamers; and Ges, an AI-native business operator for creators.
+        Aarees, a multi-agent creator platform delivered over WhatsApp, with its
+        next version in build; thumbnail.gg, AI thumbnail generation for YouTube
+        creators; and ClutchPass, an AI battle pass for competitive gamers.
         Several smaller tools — xReader.ai, rushi.live (a prompt engine that turns
         plain-language intent into production-ready AI prompts), Operation Blackout
         (a one-prompt browser FPS, open source), and an open-source YouTube Shorts
@@ -105,7 +108,7 @@ export default function AboutPage() {
       <H2>Reach</H2>
       <P>
         He publishes across YouTube, Instagram, X, Twitch, and LinkedIn to a combined
-        audience of roughly 241,000, with over 100 million lifetime personal views,
+        audience of roughly 250,000, with over 100 million lifetime personal views,
         and has spoken on two TEDx stages:{" "}
         <a href="https://youtu.be/DFw5fSh9D3I" target="_blank" rel="noopener noreferrer" style={{ color: C.accent }}>TEDxNMIMS</a>{" "}
         and{" "}

@@ -4,6 +4,28 @@ All changes are logged here. Format: version → date → what changed → who a
 
 ---
 
+## [1.5.0] — 2026-09-29 (IST)
+
+**Fresh audit: GE's 2026 season, stale product claims removed, quarter-label freeze fixed, critical Next.js advisory patched. All work by Ares. PENDING Rushindra's approval.**
+
+### Added
+- Global Esports 2026 season across every layer (home, /about, /llm, /llms.txt, /index.md): Masters London 2026, VCT 2026 Pacific Stage 2 champions (Grand Final 3-2 vs Nongshim RedForce, 6 Sep 2026), first-ever VALORANT Champions qualification (Champions Shanghai 2026). Verified live on vlr.gg team page 2026-09-29 (Stage 2 Playoffs 1st, $100,000; Champions 2026 group stage in progress). Marquee gains "VCT Pacific Champions" and "Champions Shanghai 2026".
+
+### Changed
+- Aarees: "Active" / "v5.1 live on Meta WhatsApp Cloud API" → "Building" / "next version in build". The WhatsApp line is not currently connected, so the live claim was false.
+- Now widget: Champions + Aarees items replace Ges and Aarees v5.1.
+- Hero reach counter and /about audience figure: 241K → 250K, finishing the 1.4.6 reframe that missed these two spots.
+- `next` 16.2.4 → 16.3.7 (+ eslint-config-next); `npm audit fix` for nanoid/postcss. `npm audit --omit=dev`: 5 vulns (1 critical: Proxy bypass + redirect cache poisoning, which applies since the site runs proxy.ts) → 0.
+
+### Removed
+- Ges (Work grid, Now, /about, /index.md, llms.txt): unchanged since April, pilot not running.
+- Creator OS from /llm and llms.txt current focus (initiative retired 2026-09-01).
+
+### Fixed
+- /llm and /index.md computed the "current focus" quarter at module load, so the static build froze it at deploy date (would read Q3 2026 all of Q4). Now computed per request with `revalidate = 86400`. llms.txt dropped its hard-coded "Q3 2026" label.
+
+---
+
 ## [1.4.6] — 2026-08-23 (IST)
 
 **Reframe the platform-audience stat: "241K combined audience" undersold what a quarter-million-plus real following actually represents. Approved by Rushindra Sinha. All work by Ares.**

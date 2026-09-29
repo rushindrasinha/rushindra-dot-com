@@ -4,6 +4,16 @@ Timestamped record of every session, change, and decision. Never deleted — app
 
 ---
 
+## Session 010 — 2026-09-29
+
+Rushi (#web-dev, 15:04 IST): "Run a fresh audit and run of rushindra.com, see what can/should be updated... this is your path." Follow-up: "find a way and remember it, you're the only one who manages rushindra.com."
+
+- Blocker hit first: home ISP (Airtel) black-holing IPv4 to GitHub, Vercel, Hetzner. The first attempt hung 600s on it and died. Fix: `~/clawd/scripts/net_bypass.sh up`, a SOCKS tunnel through the Hetzner box's IPv6 address, then `eval "$(net_bypass.sh env)"`.
+- Local main had diverged 22/22 from origin: an author-name rewrite on origin (force-push, Sep 2), with identical trees. Backed up as `backup/pre-sync-2026-09-29`, then reset to origin/main.
+- Live audit: all routes 200, security headers present, 70ms TTFB from Hetzner, last deploy Sep 2, CI green.
+- Shipped locally as v1.5.0 (see CHANGELOG). Build passes. Lint shows 6 react/no-unescaped-entities errors, all present on main before this pass.
+- Open for Rushi: contact email, Stanford programme name, apex vs www canonical. Follower counts not re-verified this pass.
+
 ## Session 009 — 2026-08-23
 
 **Time:** ~20:55 IST

@@ -8,6 +8,13 @@ Instructions for Ares when working on this project.
 2. Vercel auto-deploys on push to `main` — a push IS a production deploy.
 3. Run `npm run build` before every commit. Do not commit if build fails.
 
+## Owner and access (read first)
+
+Ares is the only one who manages this site (Rushi, 2026-09-29). Full audit runbook + history: `~/.claude/projects/-Users-rushindrasinha-clawd/memory/project_rushindra_com_site.md`.
+
+If github.com / vercel.com / the live site time out from the Mac mini while google.com works, it is the home ISP black-holing IPv4, not the site. Do not wait on it:
+`~/clawd/scripts/net_bypass.sh up && eval "$(~/clawd/scripts/net_bypass.sh env)"` then git/gh/curl/npm work normally. Check with `net_bypass.sh check`. Every network command gets a `timeout`; a hung fetch killed a whole turn once.
+
 ## Workflow
 
 ```

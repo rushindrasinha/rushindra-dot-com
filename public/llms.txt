@@ -125,7 +125,8 @@ business, medicine, and personal brand building.
   voice-first, model-agnostic, runs his companies from a Discord command centre.
   AI spend peaked near $15,000 in a single month; now runs on a hard $500/month
   cap and does more.
-- 2024-2026: building Aarees (AI for creators), thumbnail.gg, Creator OS
+- 2024-2026: building Aarees (AI for creators), thumbnail.gg
+- 2026: Global Esports wins VCT Pacific Stage 2 and qualifies for VALORANT Champions (Shanghai) for the first time
 
 ---
 
@@ -143,6 +144,8 @@ business, medicine, and personal brand building.
 - Records: Fortnite World Record (World Cup Qualifiers 2019)
 - Overwatch World Cup: Team India and Team Singapore (2019)
 - VCT Pacific franchise — one of 10 permanent teams selected by Riot Games globally
+- 2026: VCT Pacific Stage 2 champions (Grand Final 3-2 vs Nongshim RedForce, September 2026)
+- 2026: first-ever VALORANT Champions qualification (Champions Shanghai 2026); also Masters London 2026
 - Top Valorant and PUBG Mobile team in South Asia
 - 200+ player contracts signed over the decade
 - South Asia market: 200M+ gamers, 25% of world population
@@ -170,10 +173,10 @@ business, medicine, and personal brand building.
   texture, mesh, and sound generated procedurally in code — zero external
   assets. MIT license.
 
-### Aarees (active)
+### Aarees (next version in build)
 - Role: Founder
 - URL: https://aarees.com
-- AI platform for creators — research, production, scheduling, automation
+- WhatsApp-native AI platform for creators — research, production, scheduling, automation
 - Pronounced: "Aries" (like the constellation)
 
 ### thumbnail.gg (active)
@@ -185,11 +188,6 @@ business, medicine, and personal brand building.
 - Role: Founder
 - URL: https://clutchpass.gg
 - AI battle pass for competitive gamers — retention, coaching, progression
-
-### Ges (in development)
-- Role: Founder
-- AI-native business operator for creators — turning an audience into a
-  repeatable revenue engine. Founding cohort pilot in progress.
 
 ### Clutch Creator (shipped)
 - Chrome extension: turn any page into content angles with one click
@@ -277,9 +275,9 @@ school, co-producing the 2014 Tribeca Film Festival winning entry.
 
 ## Current Focus
 
-Q3 2026: Building and running Ares in public · Aarees product launch ·
-Creator OS · VCT Pacific operations · Building personal brand at
-AI × esports × medicine intersection.
+Building and running Ares in public · Global Esports at VALORANT
+Champions Shanghai 2026 (first Champions) · next version of Aarees ·
+Building personal brand at AI × esports × medicine intersection.
 
 ---
 

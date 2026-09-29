@@ -1,9 +1,14 @@
 import { NextResponse } from "next/server";
 
-const now = new Date();
-const quarter = `Q${Math.ceil((now.getMonth() + 1) / 3)} ${now.getFullYear()}`;
+// Revalidate daily so the current-focus quarter label never freezes at build time.
+export const revalidate = 86400;
 
-const HOMEPAGE_MARKDOWN = `# Dr. Rushindra Sinha
+const currentQuarter = () => {
+  const now = new Date();
+  return `Q${Math.ceil((now.getMonth() + 1) / 3)} ${now.getFullYear()}`;
+};
+
+const homepageMarkdown = (quarter: string) => `# Dr. Rushindra Sinha
 
 > Creator-founder building at the intersection of medicine, AI, esports, and media.
 
@@ -24,6 +29,8 @@ one of 10 permanent VCT Pacific franchise teams selected by Riot Games globally.
 - **Esports founder** — Started Global Esports with Mohit Israney in July
   2017 as a proprietorship, formally incorporated by November 2018. India's
   first VC-backed esports organisation. VCT Pacific franchise partner.
+  2026: won VCT Pacific Stage 2 and qualified for VALORANT Champions
+  (Shanghai) for the first time in the organisation's history.
   Profitable while 18+ Indian competitors shut down.
 - **Builder** — Self-taught developer since medical school. Built and sold a
   Ragnarok Online private server at 18 (first exit). Built and runs Ares, his
@@ -39,12 +46,11 @@ His father's rule, and the one he still runs everything by: first, best, or only
 
 | Project | Type | Status | Summary |
 |---|---|---|---|
-| [Global Esports](https://globalesports.com) | Company | Live | India's first VC-backed esports org. VCT Pacific franchise partner. |
+| [Global Esports](https://globalesports.com) | Company | Live | India's first VC-backed esports org. VCT Pacific franchise partner. 2026 VCT Pacific Stage 2 champions; first VALORANT Champions qualification. |
 | Ares | Builder / Operator | Live | His own AI operating system, built on OpenClaw. Runs his companies in public. |
 | [thumbnail.gg](https://thumbnail.gg) | Product | Live | AI thumbnail generation for YouTube creators. |
-| [Aarees](https://aarees.com) | Platform | Active | AI creator platform on WhatsApp. Multi-agent runtime. |
+| [Aarees](https://aarees.com) | Platform | Building | WhatsApp-native AI for creators. Next version in build. |
 | [ClutchPass](https://clutchpass.gg) | Product | Active | AI battle pass for competitive gamers. |
-| Ges | Product | Soon | AI-native business operator for creators. |
 | [Clutch Creator](https://github.com/rushindrasinha/clutch-creator) | Tool | Shipped | Chrome extension: any page into content angles. |
 | [xReader.ai](https://xreader.ai) | Tool | Shipped | X threads as clean readable articles. |
 | [rushi.live](https://rushi.live) | Tool | Live | Prompt Engine — plain-language intent into production-ready AI prompts. |
@@ -64,10 +70,9 @@ His father's rule, and the one he still runs everything by: first, best, or only
 ## Current focus (${quarter})
 
 - Ares — building and running his own AI operating system, in public
-- Ges — AI business operator for creators, founding cohort pilot
-- Aarees v5.1 — live on Meta WhatsApp Cloud API
+- Global Esports — VALORANT Champions Shanghai 2026, the organisation's first Champions
+- Aarees — next version of the WhatsApp-native creator AI, in build
 - Creator growth — distribution as a first-class product lever
-- Global Esports — VCT Pacific operations
 
 ## More for agents
 
@@ -78,7 +83,7 @@ His father's rule, and the one he still runs everything by: first, best, or only
 `;
 
 export async function GET() {
-  return new NextResponse(HOMEPAGE_MARKDOWN, {
+  return new NextResponse(homepageMarkdown(currentQuarter()), {
     headers: {
       "Content-Type": "text/markdown; charset=utf-8",
       "Vary": "Accept, Accept-Encoding",

@@ -64,7 +64,7 @@ const TIMELINE = [
   { yr: "'17", t: "Started Global Esports in Mumbai with Mohit Israney — a proprietorship under my name at first. Incorporated the company and transferred the business over by November '18. India's first VC-backed esports organization." },
   { yr: "'22", t: "Riot Games selected Global Esports as one of 10 permanent VCT Pacific franchise partners globally. Won Valorant Conqueror Championship. Competed on the world stage in Seoul." },
   { yr: "'24", t: "GE achieves profitability. 18+ Indian esports competitors shut down. GE was the only one standing. Contributed to a Tribeca Film Festival-winning entry. 2x TEDx stages." },
-  { yr: "'26", t: "January: started building Ares, an AI operating system, on OpenClaw — voice-first, model-agnostic, running the companies from a Discord command centre. Creator-founder era. Building systems that compound, and the machine that builds them." },
+  { yr: "'26", t: "Global Esports' best season: Masters London, VCT Pacific Stage 2 champions, and the org's first-ever VALORANT Champions qualification (Shanghai). January: started building Ares, an AI operating system, on OpenClaw — voice-first, model-agnostic, running the companies from a Discord command centre. Creator-founder era. Building systems that compound, and the machine that builds them." },
 ];
 
 const WORK = [
@@ -72,7 +72,7 @@ const WORK = [
     name: "Global Esports",
     tag: "Company",
     status: "Live",
-    line: "India's first VC-backed esports org. Won Valorant Conqueror Championship. One of 10 permanent VCT Pacific franchise teams selected by Riot Games globally. India's only profitable esports org while 18+ competitors shut down.",
+    line: "India's first VC-backed esports org. 2026 VCT Pacific Stage 2 champions and first-ever VALORANT Champions qualification (Shanghai). One of 10 permanent VCT Pacific franchise teams selected by Riot Games globally. India's only profitable esports org while 18+ competitors shut down.",
     url: "https://globalesports.com",
     wide: true,
   },
@@ -86,8 +86,8 @@ const WORK = [
   {
     name: "Aarees",
     tag: "Platform",
-    status: "Active",
-    line: "AI creator platform on WhatsApp. Multi-agent runtime with direct phone-number access.",
+    status: "Building",
+    line: "AI creator platform on WhatsApp. Multi-agent runtime with direct phone-number access. Next version in build.",
     url: "https://aarees.com",
   },
   {
@@ -96,13 +96,6 @@ const WORK = [
     status: "Active",
     line: "AI battle pass for competitive gamers. Retention, coaching, and progression built in.",
     url: "https://clutchpass.gg",
-  },
-  {
-    name: "Ges",
-    tag: "Product",
-    status: "Soon",
-    line: "AI-native business operator for creators. Turn an audience into a repeatable revenue engine.",
-    url: null,
   },
   {
     name: "Clutch Creator",
@@ -151,15 +144,16 @@ const PLATFORMS = [
 
 const NOW = [
   { label: "Ares", desc: "Building and running his own AI operating system, on OpenClaw, in public." },
-  { label: "Ges", desc: "AI business operator for creators. Founding cohort pilot in progress." },
-  { label: "Aarees v5.1", desc: "Live on Meta WhatsApp Cloud API. Multi-agent runtime, phone-native access." },
+  { label: "Champions", desc: "Global Esports at VALORANT Champions Shanghai 2026. First Champions in the org's history." },
+  { label: "Aarees", desc: "Next version of the WhatsApp-native creator AI, in build." },
   { label: "Creator growth", desc: "Distribution as a first-class product lever. Content compounding. Flywheel closing." },
-  { label: "Global Esports", desc: "Operating through the final VCT Pacific franchise era. Stable. Profitable." },
+  { label: "Global Esports", desc: "VCT Pacific Stage 2 champions. Operating through the final franchise era. Profitable." },
 ];
 
 const MARQUEE_ITEMS = [
   "Global Esports",
-  "VCT Pacific",
+  "VCT Pacific Champions",
+  "Champions Shanghai 2026",
   "100M+ Personal Views",
   "thumbnail.gg",
   "Aarees",
@@ -281,7 +275,7 @@ function SectionTitle({ children }: { children: React.ReactNode }) {
 
 function StatusDot({ status }: { status: string }) {
   const C = useContext(ThemeCtx);
-  const color = status === "Live" ? C.accent : status === "Active" ? C.blue : status === "Soon" ? "#ffcc44" : C.textDim;
+  const color = status === "Live" ? C.accent : status === "Active" ? C.blue : (status === "Soon" || status === "Building") ? "#ffcc44" : C.textDim;
   const glow = (status === "Live" || status === "Active") ? `0 0 8px ${color}66` : "none";
 
   return (
@@ -364,7 +358,7 @@ export default function Home() {
   const qLabel = `Q${Math.ceil((now.getMonth() + 1) / 3)} ${now.getFullYear()}`;
 
   const [viewCount, vC] = useCounter(100, 2000);
-  const [reachCount, rC] = useCounter(241, 1800);
+  const [reachCount, rC] = useCounter(250, 1800);
   const [yearsCount, yC] = useCounter(20, 1600);
   const [creatorViews, cV] = useCounter(5, 1800);
   const [reposCount, rpC] = useCounter(50, 1400);
