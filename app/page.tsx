@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef, Fragment, createContext, useContext } from "react";
 import dynamic from "next/dynamic";
+import { siX, siInstagram, siYoutube, siGithub, siTwitch } from "simple-icons";
 // three.js is ~1MB; load it only when the desktop hero actually shows it.
 const Hero3D = dynamic(() => import("./components/Hero3D"), { ssr: false });
 import CursorFX from "./components/CursorFX";
@@ -211,6 +212,41 @@ const SOCIALS = [
   { name: "GitHub", url: "https://github.com/rushindrasinha" },
   { name: "Twitch", url: "https://twitch.tv/rushindrasinha" },
 ];
+
+// LinkedIn isn't in simple-icons (brand removal), so its glyph is inlined.
+const LINKEDIN_PATH = "M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.5h4V21H3zM9.5 9.5h3.8v1.6h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.1c0-1.22-.02-2.78-1.7-2.78-1.7 0-1.96 1.33-1.96 2.7V21h-4z";
+const SOCIAL_ICON: Record<string, string> = {
+  X: siX.path,
+  Instagram: siInstagram.path,
+  YouTube: siYoutube.path,
+  LinkedIn: LINKEDIN_PATH,
+  GitHub: siGithub.path,
+  Twitch: siTwitch.path,
+};
+
+function SocialIcons({ size = 16, gap = 14, tap = false }: { size?: number; gap?: number; tap?: boolean }) {
+  const C = useContext(ThemeCtx);
+  return (
+    <div style={{ display: "flex", alignItems: "center", gap }}>
+      {SOCIALS.map((s) => (
+        <a
+          key={s.name}
+          href={s.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label={s.name}
+          title={s.name}
+          className="social-icon"
+          style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", color: C.textMid, minWidth: tap ? 44 : size + 8, minHeight: tap ? 44 : size + 8 }}
+        >
+          <svg viewBox="0 0 24 24" width={size} height={size} fill="currentColor" aria-hidden="true">
+            <path d={SOCIAL_ICON[s.name]} />
+          </svg>
+        </a>
+      ))}
+    </div>
+  );
+}
 
 const CONTACT_ROUTES = [
   { label: "Brand Partnership", desc: "Sponsorships, campaigns, strategic partnerships." },
@@ -472,6 +508,9 @@ export default function Home() {
               </button>
             ))}
           </div>
+          <div className="nav-socials" style={{ alignItems: "center", paddingLeft: 18, borderLeft: `1px solid ${C.border}` }}>
+            <SocialIcons size={15} gap={4} />
+          </div>
           <button
             className="nav-cta"
             onClick={() => scrollTo("contact")}
@@ -591,10 +630,13 @@ export default function Home() {
                 {label}
               </button>
             ))}
+            <div style={{ marginTop: 10, marginLeft: -12 }}>
+              <SocialIcons size={20} gap={0} tap />
+            </div>
             <button
               onClick={() => scrollTo("contact")}
               style={{
-                marginTop: 14,
+                marginTop: 8,
                 padding: "12px 20px",
                 background: C.accent,
                 color: C.bg,

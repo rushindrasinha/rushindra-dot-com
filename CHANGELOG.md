@@ -4,6 +4,17 @@ All changes are logged here. Format: version → date → what changed → who a
 
 ---
 
+## [1.6.4] — 2026-09-29 (IST)
+
+**Socials at the top. Rushi (#web-dev, 18:09 IST): "worth adding socials in the header or the burger menu... without it looking messy". All work by Ares.**
+
+### Added
+- Header (≥1100px): a compact icon row (X, Instagram, YouTube, LinkedIn, GitHub, Twitch) between the nav links and the Work Together button, set off by a hairline divider. Icons are muted and turn accent on hover. Hidden below 1100px so the nav never crowds.
+- Burger menu (phones): the same six icons as a row above the Work Together button, each a 44px tap target.
+- Icons come from `simple-icons` (tree-shaken, 5 glyphs). LinkedIn was removed from simple-icons, so its glyph is inlined.
+
+---
+
 ## [1.6.3] — 2026-09-29 (IST)
 
 **Add Beijing film festival, 2nd place. Rushi (#web-dev, 18:08 IST): "Also won Beijing film festival (2nd place)". All work by Ares.**
