@@ -17,6 +17,7 @@ All changes are logged here. Format: version → date → what changed → who a
 
 ### Changed
 - Typography: Instrument Serif italic → Space Grotesk (display) + JetBrains Mono (labels, status, role ticker). There is no serif or italic anywhere now. Logo "R." → "R_". Role ticker is terminal-style ("> Builder._").
+- Role ticker now rotates what he's doing ("building Ares in public.", "headed to Champions Shanghai.", "shipping AI products.", "mapping Mumbai food safety."), not identity words. "Doctor" had appeared four times in the hero; Rushi flagged the double at 17:04. The credential strip dropped its leading "Doctor" too.
 - Hero copy leads with builder-in-public: "Doctor turned founder. I build the AI systems that run my companies, and I build them in public." It also names the 2026 Stage 2 title and Champions Shanghai. "MD" → "Doctor" in the hero, credential strip, marquee, meta, OG, and /about.
 - Stats: CSS grid (2 / 3 / 6 columns) instead of flex-wrap, which had left "2x TEDx" orphaned on its own row.
 - Contrast: textDim #585450 → #8a857c on dark (about 2.6:1 → 5:1), and the light theme adjusted too. Labels, tags, and status went from 10–11px to 11–12px.

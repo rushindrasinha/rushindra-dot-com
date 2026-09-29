@@ -50,7 +50,8 @@ const F = {
 // ============================================================================
 // DATA
 // ============================================================================
-const ROLES = ["Builder.", "Doctor.", "Gamer.", "Founder."];
+// Ticker shows what he is doing now. The identity words already sit in the label above the name, so repeating them here doubles up.
+const ROLES = ["building Ares in public.", "headed to Champions Shanghai.", "shipping AI products.", "mapping Mumbai food safety."];
 
 const NAV_LINKS: [string, string][] = [
   ["About", "about"],
@@ -639,8 +640,8 @@ export default function Home() {
               </h1>
             </div>
 
-            <div style={{ height: 36, marginBottom: 24 }}>
-              <p style={{ fontFamily: F.mono, fontSize: "clamp(18px, 2.4vw, 28px)", color: C.accent, lineHeight: 1.2, margin: 0, fontWeight: 500 }}>
+            <div style={{ minHeight: 36, marginBottom: 24 }}>
+              <p style={{ fontFamily: F.mono, fontSize: "clamp(15px, 2vw, 24px)", color: C.accent, lineHeight: 1.2, margin: 0, fontWeight: 500 }}>
                 <span style={{ color: C.textDim }}>&gt; </span>{ROLES[roleIdx]}<span className="caret" aria-hidden="true">_</span>
               </p>
             </div>
@@ -654,7 +655,7 @@ export default function Home() {
 
           <Reveal delay={0.28}>
             <p style={{ fontSize: 13, color: C.textMid, margin: "0 0 36px 0", fontWeight: 400, fontFamily: F.mono }}>
-              Doctor · Stanford GSB · Global Esports · VCT Pacific Champions 2026 · 2× TEDx
+              Stanford GSB · Global Esports · VCT Pacific Champions 2026 · 2× TEDx
             </p>
           </Reveal>
 
