@@ -50,20 +50,10 @@ const F = {
 // ============================================================================
 // DATA
 // ============================================================================
-// Ticker = top 10 proof points (Rushi, 2026-09-29). Identity words live in the label above
-// the name, so never put Doctor/Gamer/Founder here. Keep each under ~34 chars: one line at 390px.
-const ROLES = [
-  "VCT Pacific Stage 2 champions.",
-  "first-ever VALORANT Champions.",
-  "1 of 10 VCT Pacific franchises.",
-  "100M+ personal views.",
-  "5B+ creator & brand views.",
-  "2,300+ GitHub stars.",
-  "2× TEDx speaker.",
-  "sold my first game at 18.",
-  "Google Glass surgery pioneer.",
-  "building Ares in public.",
-];
+// Ticker = identity words (Rushi, 2026-09-29 17:10). Proof points live in the stats row
+// and the rest of the page. Because the ticker says who he is, the label above the name
+// and the lead sentence must NOT repeat these words (that caused the "double Doctor").
+const ROLES = ["Doctor.", "Entrepreneur.", "Gamer.", "Builder.", "Creator."];
 
 const NAV_LINKS: [string, string][] = [
   ["About", "about"],
@@ -641,7 +631,7 @@ export default function Home() {
           <Reveal>
             <div style={{ display: "flex", alignItems: "center", gap: 14, marginBottom: 18 }}>
               <img src="/rushi-avatar.jpg" alt="Dr. Rushindra Sinha" width={64} height={64} className="hero-avatar" style={{ width: 64, height: 64, borderRadius: "50%", objectFit: "cover", border: `2px solid ${C.accent}`, flexShrink: 0 }} />
-              <Label>Doctor · Gamer · Founder · AI Builder</Label>
+              <Label>India · Building in public</Label>
             </div>
           </Reveal>
 
@@ -653,28 +643,20 @@ export default function Home() {
             </div>
 
             <div style={{ minHeight: 36, marginBottom: 24 }}>
-              {/* Framed as a list of highlights first, so a single rotating line never reads as his title */}
-              <div aria-hidden="true" style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 10, flexWrap: "wrap" }}>
-                <span style={{ fontFamily: F.mono, fontSize: 12, color: C.textMid, textTransform: "uppercase", letterSpacing: "1.5px" }}>
-                  Top 10 highlights
-                </span>
-                <span style={{ fontFamily: F.mono, fontSize: 12, color: C.accent }}>
-                  {String(roleIdx + 1).padStart(2, "0")}/{String(ROLES.length).padStart(2, "0")}
-                </span>
-                <div style={{ display: "flex", gap: 4 }}>
-                  {ROLES.map((_, i) => (
-                    <span key={i} style={{ position: "relative", width: 14, height: 3, borderRadius: 2, background: C.border, overflow: "hidden" }}>
-                      {i < roleIdx && <span style={{ position: "absolute", inset: 0, background: C.accent, opacity: 0.55 }} />}
-                      {i === roleIdx && <span key={roleIdx} className="ticker-fill" style={{ position: "absolute", inset: 0, background: C.accent }} />}
-                    </span>
-                  ))}
-                </div>
-              </div>
-              <p aria-hidden="true" style={{ fontFamily: F.mono, fontSize: "clamp(15px, 2vw, 24px)", color: C.accent, lineHeight: 1.2, margin: 0, fontWeight: 500 }}>
+              <p aria-hidden="true" style={{ fontFamily: F.mono, fontSize: "clamp(20px, 2.6vw, 30px)", color: C.accent, lineHeight: 1.2, margin: 0, fontWeight: 500 }}>
                 <span style={{ color: C.textDim }}>&gt; </span>
                 <span key={roleIdx} className="ticker-text">{ROLES[roleIdx]}</span>
                 <span className="caret" aria-hidden="true">_</span>
               </p>
+              {/* Rotation indicator: one segment per word, current one fills until the next */}
+              <div aria-hidden="true" style={{ display: "flex", gap: 4, marginTop: 12 }}>
+                {ROLES.map((_, i) => (
+                  <span key={i} style={{ position: "relative", width: 18, height: 3, borderRadius: 2, background: C.border, overflow: "hidden" }}>
+                    {i < roleIdx && <span style={{ position: "absolute", inset: 0, background: C.accent, opacity: 0.55 }} />}
+                    {i === roleIdx && <span key={roleIdx} className="ticker-fill" style={{ position: "absolute", inset: 0, background: C.accent }} />}
+                  </span>
+                ))}
+              </div>
               {/* Screen readers get the full list once, not a flickering single item */}
               <ul className="sr-only">
                 {ROLES.map((r) => <li key={r}>{r}</li>)}
@@ -684,7 +666,7 @@ export default function Home() {
 
           <Reveal delay={0.2}>
             <p style={{ fontSize: "clamp(16px, 1.6vw, 19px)", lineHeight: 1.7, color: C.text, maxWidth: 620, margin: "0 0 20px 0", fontWeight: 300 }}>
-              Doctor turned founder. I build the AI systems that run my companies, and I build them in public. Co-founder of Global Esports: 2026 VCT Pacific Stage 2 champions, headed to VALORANT Champions Shanghai for the first time.
+              I build the AI systems that run my companies, and I build them in public. Co-founder of Global Esports: 2026 VCT Pacific Stage 2 champions, headed to VALORANT Champions Shanghai for the first time.
             </p>
           </Reveal>
 
