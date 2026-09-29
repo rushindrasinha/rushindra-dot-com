@@ -653,14 +653,12 @@ export default function Home() {
             </div>
 
             <div style={{ minHeight: 36, marginBottom: 24 }}>
-              <p style={{ fontFamily: F.mono, fontSize: "clamp(15px, 2vw, 24px)", color: C.accent, lineHeight: 1.2, margin: 0, fontWeight: 500 }}>
-                <span style={{ color: C.textDim }}>&gt; </span>
-                <span key={roleIdx} className="ticker-text">{ROLES[roleIdx]}</span>
-                <span className="caret" aria-hidden="true">_</span>
-              </p>
-              {/* Rotation indicator: position counter + a bar that fills until the next item */}
-              <div aria-hidden="true" style={{ display: "flex", alignItems: "center", gap: 10, marginTop: 10 }}>
-                <span style={{ fontFamily: F.mono, fontSize: 12, color: C.textMid, minWidth: 40 }}>
+              {/* Framed as a list of highlights first, so a single rotating line never reads as his title */}
+              <div aria-hidden="true" style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 10, flexWrap: "wrap" }}>
+                <span style={{ fontFamily: F.mono, fontSize: 12, color: C.textMid, textTransform: "uppercase", letterSpacing: "1.5px" }}>
+                  Top 10 highlights
+                </span>
+                <span style={{ fontFamily: F.mono, fontSize: 12, color: C.accent }}>
                   {String(roleIdx + 1).padStart(2, "0")}/{String(ROLES.length).padStart(2, "0")}
                 </span>
                 <div style={{ display: "flex", gap: 4 }}>
@@ -672,6 +670,15 @@ export default function Home() {
                   ))}
                 </div>
               </div>
+              <p aria-hidden="true" style={{ fontFamily: F.mono, fontSize: "clamp(15px, 2vw, 24px)", color: C.accent, lineHeight: 1.2, margin: 0, fontWeight: 500 }}>
+                <span style={{ color: C.textDim }}>&gt; </span>
+                <span key={roleIdx} className="ticker-text">{ROLES[roleIdx]}</span>
+                <span className="caret" aria-hidden="true">_</span>
+              </p>
+              {/* Screen readers get the full list once, not a flickering single item */}
+              <ul className="sr-only">
+                {ROLES.map((r) => <li key={r}>{r}</li>)}
+              </ul>
             </div>
           </Reveal>
 
