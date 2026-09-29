@@ -51,11 +51,13 @@ export default function OpenGraphImage() {
         <div
           style={{
             display: "flex",
-            fontSize: 88,
+            fontSize: 80,
             color: "#e2e0da",
             marginTop: 28,
-            lineHeight: 1.05,
+            lineHeight: 1.02,
             letterSpacing: -2,
+            width: 560,
+            flexWrap: "wrap",
           }}
         >
           Dr. Rushindra Sinha
@@ -84,9 +86,9 @@ export default function OpenGraphImage() {
         </div>
         <img
           src={portrait}
-          width={360}
-          height={450}
-          style={{ position: "absolute", right: 80, top: 90, width: 360, height: 450, objectFit: "cover", borderRadius: 20, border: "3px solid #9cff57" }}
+          width={400}
+          height={400}
+          style={{ position: "absolute", right: 80, top: 115, width: 400, height: 400, objectFit: "cover", borderRadius: 20, border: "3px solid #9cff57" }}
         />
       </div>
     ),

@@ -780,15 +780,12 @@ export default function Home() {
               <figure style={{ margin: 0 }}>
                 <img
                   src="/rushi.jpg"
-                  alt="Dr. Rushindra Sinha speaking at TEDx Sanjivani University"
-                  width={720}
-                  height={900}
+                  alt="Dr. Rushindra Sinha"
+                  width={400}
+                  height={400}
                   loading="lazy"
-                  style={{ width: "100%", height: "auto", aspectRatio: "4 / 5", objectFit: "cover", borderRadius: 14, border: `1px solid ${C.border}`, display: "block" }}
+                  style={{ width: "100%", maxWidth: 400, height: "auto", aspectRatio: "1 / 1", objectFit: "cover", borderRadius: 14, border: `1px solid ${C.border}`, display: "block" }}
                 />
-                <figcaption style={{ marginTop: 10, fontSize: 12, color: C.textMid, fontFamily: F.mono }}>
-                  On stage · TEDx Sanjivani University, 2026
-                </figcaption>
               </figure>
             </Reveal>
 

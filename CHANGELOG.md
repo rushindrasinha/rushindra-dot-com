@@ -9,7 +9,7 @@ All changes are logged here. Format: version → date → what changed → who a
 **Redesign pass: builder-in-public hero, grotesk type, portrait, mobile-first. Rushi's calls (#web-dev, 16:34 IST): "Doctor" not "MD", add my best photo, yes to builder-in-public, yes to moving off serif headings. All work by Ares. PENDING push approval.**
 
 ### Added
-- Portrait: TEDx Sanjivani University 2026 frame (1080p from the talk video, cropped 4:5). Shown in the story section (sticky on desktop) and as the hero avatar. Also in the JSON-LD `image` and the OG card.
+- Portrait: Rushi's X profile photo (400×400; his pick, 17:01 IST, replacing a TEDx video frame he vetoed). Shown in the story section (sticky on desktop) and as the hero avatar. Also in the JSON-LD `image` and the OG card. Talk thumbnails use the official YouTube thumbnails.
 - Work cards for Mundhe Maps (mundhemaps.com), Ares, and Agent tooling (openclaw-guide, ares-mbl, skill-audit-router, xreader-mcp). YT Shorts Pipeline now shows "2,300+ GitHub stars". Clutch Creator folded into the xReader card. The grid is now exactly 4×3 on desktop.
 - Talks section: both TEDx talks with stills, titles, and links. "Talks" added to the nav.
 - Copy-email button next to sinha@rushindra.com, because mailto fails on devices with no mail app.
