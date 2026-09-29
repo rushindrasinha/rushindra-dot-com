@@ -4,6 +4,18 @@ All changes are logged here. Format: version → date → what changed → who a
 
 ---
 
+## [1.6.7] — 2026-09-29 (IST) — PENDING push approval
+
+**Self-host fonts so deploys never depend on Google Fonts. All work by Ares.**
+
+### Changed
+- `app/layout.tsx`: `next/font/google` (Space Grotesk, Outfit, JetBrains Mono) → `next/font/local`, using latin variable woff2 files copied into `app/fonts/` from @fontsource-variable (OFL). Total 95KB. No visual change; before/after hero render compared side by side.
+
+### Why
+- The v1.6.6 CI deploy failed at build time with `module-not-found` on the Space Grotesk font files: the Google Fonts fetch flaked on the GitHub runner. The live site stayed on v1.6.5 until a re-run passed. Removing the network dependency eliminates that failure class instead of re-running on each flake.
+
+---
+
 ## [1.6.6] — 2026-09-29 (IST)
 
 **Dates confirmed by Rushi (#web-dev, 18:13 IST): Beijing film festival ~2014; the "award-winning ad film in Beijing" is the same thing; TEDx NMIMS was March 2020. All work by Ares.**

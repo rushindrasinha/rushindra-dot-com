@@ -1,27 +1,31 @@
 import type { Metadata, Viewport } from "next";
-import { Space_Grotesk, Outfit, JetBrains_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 // Display: grotesk, not serif. Rushi rejected serif/editorial for this site
 // ("doesn't feel gamer or tech or AI") — 2026-04-30, reconfirmed 2026-09-29.
-const spaceGrotesk = Space_Grotesk({
-  weight: ["500", "600", "700"],
-  subsets: ["latin"],
+// Fonts are self-hosted (app/fonts, variable woff2 from @fontsource-variable) so the
+// build never depends on fonts.googleapis.com — a Google Fonts fetch flake failed the
+// v1.6.6 CI deploy on 2026-09-29.
+const spaceGrotesk = localFont({
+  src: "./fonts/space-grotesk-latin-wght-normal.woff2",
+  weight: "300 700",
   variable: "--font-display",
   display: "swap",
 });
 
-const jetbrainsMono = JetBrains_Mono({
-  weight: ["400", "500", "600"],
-  subsets: ["latin"],
-  variable: "--font-mono",
+const outfit = localFont({
+  src: "./fonts/outfit-latin-wght-normal.woff2",
+  weight: "100 900",
+  variable: "--font-body",
   display: "swap",
 });
 
-const outfit = Outfit({
-  subsets: ["latin"],
-  variable: "--font-body",
+const jetbrainsMono = localFont({
+  src: "./fonts/jetbrains-mono-latin-wght-normal.woff2",
+  weight: "100 800",
+  variable: "--font-mono",
   display: "swap",
 });
 
