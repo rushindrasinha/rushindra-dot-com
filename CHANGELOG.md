@@ -4,6 +4,24 @@ All changes are logged here. Format: version → date → what changed → who a
 
 ---
 
+## [1.7.0] — 2026-10-12 (IST), PENDING APPROVAL (local branch v1.7-proof-deck, not pushed)
+
+**Proof deck hero + content refresh from the Zara-thread personal-site study and the 2026-10-11 meeting notes. All work by Ares.**
+
+### Changed
+- Hero: the abstract three.js object on desktop is replaced by a fanned deck of five identity cards (Doctor, Entrepreneur, Gamer, Builder, Creator), synced to the ticker. Each card carries three hard facts. Hover a card to hold it; tap a ticker segment to jump. On mobile the active card's facts sit under the ticker. three.js no longer loads on the homepage.
+- Hero status row: live IST clock, pulsing "Building in public" dot, "Now: Jeufy".
+- Copy: Champions Shanghai is past tense everywhere (the run ended 4 Oct 2026). "Final franchise era" removed.
+- New: Jeufy (jeufy.com) in hero lead, Work grid, Now list, 2026 timeline, story, and every machine layer (/about, /llm, /index.md, llms.txt, meta, JSON-LD).
+- Now list: Jeufy, Ares, AI-native team, Aarees, Global Esports.
+- Remaining "MD" labels on machine layers changed to Doctor.
+
+### Why
+- Study of 301 sites from the thread: top sites put proof on the first screen and show identity through objects; rotating role words with no proof were the most common failure. Live signals make a site feel inhabited.
+- The hero said GE was "headed to" Champions, which went stale on 4 Oct.
+
+---
+
 ## [1.6.7] — 2026-09-29 (IST)
 
 **Self-host fonts so deploys never depend on Google Fonts. All work by Ares.**

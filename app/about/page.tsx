@@ -4,12 +4,12 @@ import { PageShell, P, H2, UL, LI, C } from "../components/PageShell";
 export const metadata: Metadata = {
   title: "About — Dr. Rushindra Sinha",
   description:
-    "Doctor, Stanford GSB executive-education alumnus, co-founder of Global Esports, and AI builder. The full background behind rushindra.com.",
+    "Doctor, Stanford GSB executive-education alumnus, founder of Jeufy, co-founder of Global Esports, and AI builder. The full background behind rushindra.com.",
   alternates: { canonical: "/about" },
   openGraph: {
     title: "About — Dr. Rushindra Sinha",
     description:
-      "Doctor, Stanford GSB executive-education alumnus, co-founder of Global Esports, and AI builder.",
+      "Doctor, Stanford GSB executive-education alumnus, founder of Jeufy, co-founder of Global Esports, and AI builder.",
     url: "https://rushindra.com/about",
     type: "profile",
   },
@@ -67,7 +67,19 @@ export default function AboutPage() {
         esports organisations shut down. In 2026 it had its best season yet:
         Masters London, the VCT Pacific Stage 2 title (a 3-2 Grand Final over
         Nongshim RedForce), and the organisation&apos;s first-ever VALORANT
-        Champions qualification, for Champions Shanghai.
+        Champions, played at Champions Shanghai 2026.
+      </P>
+
+      <H2>Jeufy</H2>
+      <P>
+        In October 2026 he founded and launched{" "}
+        <a href="https://jeufy.com" target="_blank" rel="noopener noreferrer" style={{ color: C.accent }}>Jeufy</a>,
+        a games studio that builds with AI agents. Its line is prompt to
+        playable, and its slogan is &ldquo;We gamify anything.&rdquo; Jeufy
+        Create lets anyone do the same from one sentence. The studio&apos;s first
+        game, Dhamaka Arena, is an original, India-flavoured arena shooter that
+        went from brief to live multiplayer in under 40 minutes, built with
+        Jeufy. Jeufy is on X and Instagram as @JeufyGames.
       </P>
 
       <H2>Built and running</H2>
@@ -95,7 +107,15 @@ export default function AboutPage() {
 
       <H2>Building now</H2>
       <P>
-        His current work is AI-native product development for the creator economy:
+        His current focus: Jeufy, the prompt-to-playable game studio; Ares, his AI
+        operating system, built on OpenClaw and run in public from a Discord
+        command centre; an AI-native team, taught to master AI instead of being
+        replaced by it; the next version of Aarees, in build; and Global Esports,
+        2026 VCT Pacific Stage 2 champions, who played their first Champions at
+        Shanghai 2026.
+      </P>
+      <P>
+        Alongside that, his product work for the creator economy includes
         Aarees, a multi-agent creator platform delivered over WhatsApp, with its
         next version in build; thumbnail.gg, AI thumbnail generation for YouTube
         creators; and ClutchPass, an AI battle pass for competitive gamers. He also

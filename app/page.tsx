@@ -1,10 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef, Fragment, createContext, useContext } from "react";
-import dynamic from "next/dynamic";
 import { siX, siInstagram, siYoutube, siGithub, siTwitch } from "simple-icons";
-// three.js is ~1MB; load it only when the desktop hero actually shows it.
-const Hero3D = dynamic(() => import("./components/Hero3D"), { ssr: false });
 import CursorFX from "./components/CursorFX";
 
 // ============================================================================
@@ -56,6 +53,16 @@ const F = {
 // and the lead sentence must NOT repeat these words (that caused the "double Doctor").
 const ROLES = ["Doctor.", "Entrepreneur.", "Gamer.", "Builder.", "Creator."];
 
+// Proof deck (v1.7, from the Oct 2026 personal-site study): every ticker word gets a card
+// with hard facts, so the rotating word never reads as a vague self-description.
+const IDENTITIES = [
+  { word: "Doctor", code: "MED", proof: ["MBBS, D.Y. Patil, 2014", "Live-streamed surgeries on Google Glass", "Stanford GSB × Medicine, 2017"] },
+  { word: "Entrepreneur", code: "FND", proof: ["Global Esports: India's first VC-backed esports org", "1 of 10 VCT Pacific partners, picked by Riot", "Founder of Jeufy, prompt to playable"] },
+  { word: "Gamer", code: "GMR", proof: ["Ran Phoenix RO, 2008", "Sold my first game at 18", "VCT Pacific Stage 2 champions, 2026"] },
+  { word: "Builder", code: "BLD", proof: ["Ares: the AI OS that runs my companies", "2,300+ stars on one open-source repo", "A browser FPS from a single prompt"] },
+  { word: "Creator", code: "CRT", proof: ["250K+ followers, 100M+ views", "Tribeca Film Festival, first place, 2014", "Two TEDx stages"] },
+];
+
 const NAV_LINKS: [string, string][] = [
   ["About", "about"],
   ["Work", "work"],
@@ -73,7 +80,7 @@ const TIMELINE = [
   { yr: "'20", t: "First TEDx stage: TEDx NMIMS, \"Can You Get Paid To Play Video Games?\", with Mohit Israney." },
   { yr: "'22", t: "Riot Games selected Global Esports as one of 10 permanent VCT Pacific franchise partners globally. Won Valorant Conqueror Championship. Competed on the world stage in Seoul." },
   { yr: "'24", t: "GE achieves profitability. 18+ Indian esports competitors shut down. GE was the only one standing." },
-  { yr: "'26", t: "Global Esports' best season: Masters London, VCT Pacific Stage 2 champions, and the org's first-ever VALORANT Champions qualification (Shanghai). January: started building Ares, an AI operating system, on OpenClaw — voice-first, model-agnostic, running the companies from a Discord command centre. Creator-founder era. Building systems that compound, and the machine that builds them. Second TEDx stage: TEDx Sanjivani University." },
+  { yr: "'26", t: "Global Esports' best season: Masters London, VCT Pacific Stage 2 champions, and the org's first-ever VALORANT Champions qualification (Shanghai). January: started building Ares, an AI operating system, on OpenClaw — voice-first, model-agnostic, running the companies from a Discord command centre. Creator-founder era. Building systems that compound, and the machine that builds them. Second TEDx stage: TEDx Sanjivani University. October: launched Jeufy, a prompt-to-playable games studio." },
 ];
 
 const WORK = [
@@ -84,6 +91,13 @@ const WORK = [
     line: "India's first VC-backed esports org. 2026 VCT Pacific Stage 2 champions and first-ever VALORANT Champions qualification (Shanghai). One of 10 permanent VCT Pacific franchise teams selected by Riot Games globally. India's only profitable esports org while 18+ competitors shut down.",
     url: "https://globalesports.com",
     wide: true,
+  },
+  {
+    name: "Jeufy",
+    tag: "Studio",
+    status: "Live",
+    line: "Prompt to playable. A games studio that builds with AI agents, and Jeufy Create lets anyone do the same from one sentence. First game: Dhamaka Arena, an India-flavoured arena shooter that went from brief to live multiplayer in under 40 minutes.",
+    url: "https://jeufy.com",
   },
   {
     name: "Ares",
@@ -171,14 +185,15 @@ const PLATFORMS = [
 ];
 
 const NOW = [
+  { label: "Jeufy", desc: "Prompt to playable. A games studio that builds with AI agents, plus Jeufy Create for anyone with one sentence." },
   { label: "Ares", desc: "Building and running his own AI operating system, on OpenClaw, in public." },
-  { label: "Champions", desc: "Global Esports at VALORANT Champions Shanghai 2026. First Champions in the org's history." },
+  { label: "An AI-native team", desc: "Teaching the team to master AI instead of replacing them with it. Same people, a different order of output." },
   { label: "Aarees", desc: "Next version of the WhatsApp-native creator AI, in build." },
-  { label: "Creator growth", desc: "Distribution as a first-class product lever. Content compounding. Flywheel closing." },
-  { label: "Global Esports", desc: "VCT Pacific Stage 2 champions. Operating through the final franchise era. Profitable." },
+  { label: "Global Esports", desc: "2026 VCT Pacific Stage 2 champions. Played VALORANT Champions Shanghai, the org's first Champions." },
 ];
 
 const MARQUEE_ITEMS = [
+  "Jeufy",
   "Global Esports",
   "VCT Pacific Champions",
   "Champions Shanghai 2026",
@@ -202,6 +217,7 @@ const TAG_CLASS: Record<string, string> = {
   Tool: "tag-tool",
   "Open Source": "tag-open",
   "AI System": "tag-product",
+  Studio: "tag-company",
   "Public Good": "tag-platform",
 };
 
@@ -352,6 +368,95 @@ function StatusDot({ status }: { status: string }) {
   );
 }
 
+// Live IST clock, rendered after mount so SSR and client markup agree.
+function LiveStatus() {
+  const C = useContext(ThemeCtx);
+  const [t, setT] = useState("");
+  useEffect(() => {
+    const fmt = () => new Date().toLocaleTimeString("en-GB", { timeZone: "Asia/Kolkata", hour: "2-digit", minute: "2-digit" });
+    setT(fmt());
+    const id = setInterval(() => setT(fmt()), 15000);
+    return () => clearInterval(id);
+  }, []);
+  return (
+    <p style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: "6px 10px", margin: 0, fontFamily: F.mono, fontSize: 12, letterSpacing: "1.4px", textTransform: "uppercase", color: C.textMid }}>
+      <span style={{ display: "inline-flex", alignItems: "center", gap: 8, color: C.accent }}>
+        <span className="live-dot" style={{ width: 7, height: 7, borderRadius: "50%", background: C.accent, boxShadow: `0 0 8px ${C.accent}` }} />
+        Building in public
+      </span>
+      <span aria-hidden="true" className="live-sep">·</span>
+      <span style={{ whiteSpace: "nowrap" }}>
+        {t ? `${t} IST` : "IST"} <span aria-hidden="true">·</span> Now: <a href="https://jeufy.com" target="_blank" rel="noopener noreferrer" style={{ color: C.text, textDecoration: "none", borderBottom: `1px solid ${C.borderAccent}` }}>Jeufy</a>
+      </span>
+    </p>
+  );
+}
+
+// Desktop: a fanned deck of identity cards synced to the ticker. Hover a card to hold it.
+function ProofDeck({ active, onPick, onHold }: { active: number; onPick: (i: number) => void; onHold: (h: boolean) => void }) {
+  const C = useContext(ThemeCtx);
+  const n = IDENTITIES.length;
+  return (
+    <div className="proof-deck" onMouseEnter={() => onHold(true)} onMouseLeave={() => onHold(false)} aria-label="Identity cards">
+      {IDENTITIES.map((id, i) => {
+        let off = i - active;
+        if (off > n / 2) off -= n;
+        if (off < -n / 2) off += n;
+        const isActive = off === 0;
+        return (
+          <button
+            key={id.word}
+            className="proof-card"
+            onMouseEnter={() => onPick(i)}
+            onFocus={() => onPick(i)}
+            aria-pressed={isActive}
+            style={{
+              transform: `translateX(${off * 46}px) translateY(${Math.abs(off) * 14}px) rotate(${off * 6}deg) scale(${isActive ? 1 : 0.92})`,
+              zIndex: 10 - Math.abs(off),
+              opacity: Math.abs(off) > 2 ? 0 : isActive ? 1 : 0.42,
+              background: isActive ? C.bg : C.surfaceStrong,
+              borderColor: isActive ? C.accent : C.border,
+              boxShadow: isActive ? `0 0 0 1px ${C.accent}33, 0 24px 60px rgba(0,0,0,0.45), 0 0 40px ${C.accent}22` : "0 16px 40px rgba(0,0,0,0.35)",
+            }}
+          >
+            <span style={{ display: "flex", justifyContent: "space-between", fontFamily: F.mono, fontSize: 11, letterSpacing: "1.6px", color: isActive ? C.accent : C.textDim }}>
+              <span>{String(i + 1).padStart(2, "0")} / {String(n).padStart(2, "0")}</span>
+              <span>{id.code}</span>
+            </span>
+            <span style={{ display: "block", fontFamily: F.display, fontSize: 38, fontWeight: 700, letterSpacing: "-0.04em", color: C.white, margin: "26px 0 18px", lineHeight: 1, opacity: isActive ? 1 : 0, transition: "opacity 0.3s ease" }}>{id.word}.</span>
+            <span style={{ display: "block", height: 1, background: isActive ? C.borderAccent : C.border, marginBottom: 16 }} />
+            <span style={{ display: "grid", gap: 12, opacity: isActive ? 1 : 0, transition: "opacity 0.3s ease" }}>
+              {id.proof.map((p) => (
+                <span key={p} style={{ display: "flex", gap: 10, fontSize: 14, lineHeight: 1.45, color: isActive ? C.text : C.textMid, fontWeight: 400, textAlign: "left" }}>
+                  <span style={{ color: C.accent, fontFamily: F.mono }}>›</span>
+                  <span>{p}</span>
+                </span>
+              ))}
+            </span>
+            <span aria-hidden="true" className="proof-card-foot" style={{ color: C.textDim }}>RUSHINDRA.COM</span>
+          </button>
+        );
+      })}
+    </div>
+  );
+}
+
+// Mobile / narrow: the active identity's proof sits right under the ticker.
+function ProofLines({ active }: { active: number }) {
+  const C = useContext(ThemeCtx);
+  const id = IDENTITIES[active];
+  return (
+    <ul key={active} className="proof-lines ticker-text" style={{ listStyle: "none", padding: "14px 16px", margin: "14px 0 0 0", display: "grid", gap: 8, border: `1px solid ${C.border}`, borderLeft: `2px solid ${C.accent}`, borderRadius: 10, background: C.surface }}>
+      {id.proof.map((p) => (
+        <li key={p} style={{ display: "flex", gap: 10, fontSize: 14, lineHeight: 1.45, color: C.text, fontWeight: 300 }}>
+          <span style={{ color: C.accent, fontFamily: F.mono }}>›</span>
+          <span>{p}</span>
+        </li>
+      ))}
+    </ul>
+  );
+}
+
 function Divider() {
   const C = useContext(ThemeCtx);
   return <div style={{ height: 1, background: `linear-gradient(90deg, transparent, ${C.border} 20%, ${C.border} 80%, transparent)` }} />;
@@ -420,10 +525,18 @@ export default function Home() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // Ticker + proof deck rotate together; hovering the deck or tapping a segment holds it.
+  const [held, setHeld] = useState(false);
+  const holdUntil = useRef(0);
   useEffect(() => {
-    const interval = setInterval(() => setRoleIdx((i) => (i + 1) % ROLES.length), 2400);
+    if (held) return;
+    const interval = setInterval(() => {
+      if (Date.now() < holdUntil.current) return;
+      setRoleIdx((i) => (i + 1) % ROLES.length);
+    }, 3200);
     return () => clearInterval(interval);
-  }, []);
+  }, [held]);
+  const pickRole = (i: number) => { setRoleIdx(i); holdUntil.current = Date.now() + 8000; };
 
   const scrollTo = (id: string) => {
     setMenuOpen(false);
@@ -666,7 +779,7 @@ export default function Home() {
 
         {isWide && (
           <div className="hero-3d-wrap">
-            <Hero3D accent={C.accent} />
+            <ProofDeck active={roleIdx} onPick={pickRole} onHold={setHeld} />
           </div>
         )}
 
@@ -674,7 +787,7 @@ export default function Home() {
           <Reveal>
             <div style={{ display: "flex", alignItems: "center", gap: 14, marginBottom: 18 }}>
               <img src="/rushi-avatar.jpg" alt="Dr. Rushindra Sinha" width={64} height={64} className="hero-avatar" style={{ width: 64, height: 64, borderRadius: "50%", objectFit: "cover", border: `2px solid ${C.accent}`, flexShrink: 0 }} />
-              <Label>Building in public</Label>
+              <LiveStatus />
             </div>
           </Reveal>
 
@@ -692,14 +805,17 @@ export default function Home() {
                 <span className="caret" aria-hidden="true">_</span>
               </p>
               {/* Rotation indicator: one segment per word, current one fills until the next */}
-              <div aria-hidden="true" style={{ display: "flex", gap: 4, marginTop: 12 }}>
-                {ROLES.map((_, i) => (
-                  <span key={i} style={{ position: "relative", width: 18, height: 3, borderRadius: 2, background: C.border, overflow: "hidden" }}>
-                    {i < roleIdx && <span style={{ position: "absolute", inset: 0, background: C.accent, opacity: 0.55 }} />}
-                    {i === roleIdx && <span key={roleIdx} className="ticker-fill" style={{ position: "absolute", inset: 0, background: C.accent }} />}
-                  </span>
+              <div style={{ display: "flex", gap: 4, marginTop: 6 }}>
+                {ROLES.map((r, i) => (
+                  <button key={i} onClick={() => pickRole(i)} aria-label={`Show ${r}`} className="ticker-seg">
+                    <span style={{ position: "relative", display: "block", width: 18, height: 3, borderRadius: 2, background: C.border, overflow: "hidden" }}>
+                      {i < roleIdx && <span style={{ position: "absolute", inset: 0, background: C.accent, opacity: 0.55 }} />}
+                      {i === roleIdx && <span key={`${roleIdx}-${held}`} className={held ? "" : "ticker-fill"} style={{ position: "absolute", inset: 0, background: C.accent }} />}
+                    </span>
+                  </button>
                 ))}
               </div>
+              {!isWide && <ProofLines active={roleIdx} />}
               {/* Screen readers get the full list once, not a flickering single item */}
               <ul className="sr-only">
                 {ROLES.map((r) => <li key={r}>{r}</li>)}
@@ -709,13 +825,13 @@ export default function Home() {
 
           <Reveal delay={0.2}>
             <p style={{ fontSize: "clamp(16px, 1.6vw, 19px)", lineHeight: 1.7, color: C.text, maxWidth: 620, margin: "0 0 20px 0", fontWeight: 300 }}>
-              I build the AI systems that run my companies, and I build them in public. Co-founder of Global Esports: 2026 VCT Pacific Stage 2 champions, headed to VALORANT Champions Shanghai for the first time.
+              I build the AI systems that run my companies, and I build them in public. Founder of Jeufy, a games studio that turns a prompt into a playable game. Co-founder of Global Esports: 2026 VCT Pacific Stage 2 champions and the org&apos;s first VALORANT Champions.
             </p>
           </Reveal>
 
           <Reveal delay={0.28}>
             <p style={{ fontSize: 13, color: C.textMid, margin: "0 0 36px 0", fontWeight: 400, fontFamily: F.mono }}>
-              Stanford GSB · Global Esports · VCT Pacific Champions 2026 · 2× TEDx
+              Stanford GSB · Global Esports · Jeufy · 2× TEDx
             </p>
           </Reveal>
 
@@ -862,7 +978,7 @@ export default function Home() {
                 In 2017 I started Global Esports, India&apos;s first VC-backed esports organization. It ran as a proprietorship under my own name for the first year; I incorporated the company and moved the business over by November 2018. We won the Valorant Conqueror Championship. Riot Games selected us as one of 10 permanent VCT Pacific franchise partners globally. We stayed profitable while 18+ Indian esports competitors shut down. In 2026 we won VCT Pacific Stage 2 and qualified for VALORANT Champions for the first time. Alongside that: 100M+ personal views across platforms, 5B+ generated for creators and brands, two TEDx stages, first place at the 2014 Tribeca Film Festival and second place at the Beijing film festival with Mohit, and national rankings in inline speed skating.
               </p>
               <p className={`story-more${storyOpen ? " open" : ""}`} style={{ marginBottom: 22 }}>
-                Today I build AI systems in public. Ares, my own AI operating system, runs my companies from a Discord command centre, and most of what I ship now starts as a voice note.
+                Today I build AI systems in public. Ares, my own AI operating system, runs my companies from a Discord command centre, and most of what I ship now starts as a voice note. In October 2026 I launched Jeufy, a games studio that builds with AI agents: prompt to playable. I didn&apos;t replace my team with AI. I taught them to master it.
               </p>
               <button
                 className="story-toggle tap"

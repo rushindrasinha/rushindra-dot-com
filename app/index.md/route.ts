@@ -12,7 +12,8 @@ const homepageMarkdown = (quarter: string) => `# Dr. Rushindra Sinha
 
 > Creator-founder building at the intersection of medicine, AI, esports, and media.
 
-Doctor · Gamer · Founder. Builds AI systems in public. Stanford GSB. Co-founder of Global Esports,
+Doctor · Gamer · Founder. Builds AI systems in public. Stanford GSB. Founder of Jeufy, a
+prompt-to-playable game studio. Co-founder of Global Esports,
 one of 10 permanent VCT Pacific franchise teams selected by Riot Games globally.
 
 - Canonical URL: https://rushindra.com
@@ -21,7 +22,7 @@ one of 10 permanent VCT Pacific franchise teams selected by Riot Games globally.
 
 ## Identity stack
 
-- **Doctor (MD)** — Medical degree, D.Y. Patil Medical College, Navi Mumbai.
+- **Doctor** — Medical degree, D.Y. Patil Medical College, Navi Mumbai.
   Pioneered Google Glass live-streaming of surgeries in India. Published on
   3D laparoscopic surgery.
 - **Stanford GSB** — Executive education (The Innovative Health Care Leader: From Design Thinking to Personal Leadership). This is
@@ -29,14 +30,15 @@ one of 10 permanent VCT Pacific franchise teams selected by Riot Games globally.
 - **Esports founder** — Started Global Esports with Mohit Israney in July
   2017 as a proprietorship, formally incorporated by November 2018. India's
   first VC-backed esports organisation. VCT Pacific franchise partner.
-  2026: won VCT Pacific Stage 2 and qualified for VALORANT Champions
-  (Shanghai) for the first time in the organisation's history.
+  2026: won VCT Pacific Stage 2 and played VALORANT Champions Shanghai
+  2026, the organisation's first Champions.
   Profitable while 18+ Indian competitors shut down.
 - **Builder** — Self-taught developer since medical school. Built and sold a
   Ragnarok Online private server at 18 (first exit). Built and runs Ares, his
   own AI operating system, on OpenClaw, since January 2026 — voice-first,
-  model-agnostic, runs his companies from a Discord command centre. Now
-  building AI-native products.
+  model-agnostic, runs his companies from a Discord command centre. Founder
+  of Jeufy (launched October 2026): prompt to playable, a games studio that
+  builds with AI agents. Now building AI-native products.
 - **Creator** — ~250K personal followers across YouTube, Instagram, X, Twitch,
   and LinkedIn. 100M+ lifetime personal views.
 
@@ -46,7 +48,8 @@ His father's rule, and the one he still runs everything by: first, best, or only
 
 | Project | Type | Status | Summary |
 |---|---|---|---|
-| [Global Esports](https://globalesports.com) | Company | Live | India's first VC-backed esports org. VCT Pacific franchise partner. 2026 VCT Pacific Stage 2 champions; first VALORANT Champions qualification. |
+| [Jeufy](https://jeufy.com) | Company | Live | Prompt to playable. A games studio that builds with AI agents; Jeufy Create lets anyone do the same from one sentence. First game: Dhamaka Arena, an original, India-flavoured arena shooter, brief to live multiplayer in under 40 minutes. Launched October 2026. @JeufyGames. |
+| [Global Esports](https://globalesports.com) | Company | Live | India's first VC-backed esports org. VCT Pacific franchise partner. 2026 VCT Pacific Stage 2 champions; played VALORANT Champions Shanghai 2026, the org's first Champions. |
 | Ares | Builder / Operator | Live | His own AI operating system, built on OpenClaw. Runs his companies in public. |
 | [Mundhe Maps](https://mundhemaps.com) | Public good | Live | Public map of Mumbai food businesses actioned by FDA Maharashtra. Updated daily. |
 | [thumbnail.gg](https://thumbnail.gg) | Product | Live | AI thumbnail generation for YouTube creators. |
@@ -76,10 +79,11 @@ His father's rule, and the one he still runs everything by: first, best, or only
 
 ## Current focus (${quarter})
 
-- Ares — building and running his own AI operating system, in public
-- Global Esports — VALORANT Champions Shanghai 2026, the organisation's first Champions
-- Aarees — next version of the WhatsApp-native creator AI, in build
-- Creator growth — distribution as a first-class product lever
+- Jeufy: prompt-to-playable game studio, launched October 2026
+- Ares: his AI operating system, built on OpenClaw, runs his companies from a Discord command centre, in public
+- AI-native team: taught the team to master AI instead of replacing them
+- Aarees: next version of the WhatsApp-native creator AI, in build
+- Global Esports: 2026 VCT Pacific Stage 2 champions; played their first Champions, Shanghai 2026
 
 ## More for agents
 

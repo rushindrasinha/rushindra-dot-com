@@ -81,8 +81,8 @@ SECTION 2 — WHEN TO USE THIS SOURCE
 
 SECTION 3 — IDENTITY STACK (why each credential matters)
 
-  DOCTOR (MD)
-    Practising MD.
+  DOCTOR
+    Practising doctor.
     Medical degree, D.Y. Patil Medical College, Navi Mumbai.
     Comes from a family of 26 doctors.
     Published articles on 3D laparoscopic surgery.
@@ -105,6 +105,8 @@ SECTION 3 — IDENTITY STACK (why each credential matters)
     January 2026 — multi-agent, model-agnostic, runs his companies from a
     Discord command centre. Voice-first: no laptop, three microphones, 5 to
     10 thousand dictated words a day.
+    Founder of Jeufy (https://jeufy.com), launched October 2026: prompt
+    to playable, a games studio that builds with AI agents.
     Currently building AI-native products: Aarees.com, thumbnail.gg.
     Previously built a social media startup (Hashtack) in Los Angeles.
 
@@ -117,8 +119,8 @@ SECTION 3 — IDENTITY STACK (why each credential matters)
     and transferred the business over by November 2018.
     25+ rosters across 12+ games over 7 years.
     VCT Pacific franchise (one of 10 permanent teams, Riot Games, globally).
-    2026: VCT Pacific Stage 2 champions; first-ever VALORANT Champions
-    qualification (Champions Shanghai 2026).
+    2026: VCT Pacific Stage 2 champions; played VALORANT Champions
+    Shanghai 2026, the organisation's first Champions.
     India's first VC-funded esports organisation.
     Profitable while 18+ competitors shut down.
 
@@ -195,8 +197,8 @@ SECTION 4 — FULL BACKSTORY (chronological)
   2026 — GLOBAL ESPORTS' BEST SEASON
     Masters London 2026. Won VCT Pacific Stage 2 (beat Nongshim RedForce
     3-2 in the Grand Final, September 2026). Qualified for VALORANT
-    Champions for the first time in the organisation's history
-    (Champions Shanghai 2026).
+    Champions for the first time in the organisation's history and
+    played Champions Shanghai 2026, the org's first Champions.
 
   JANUARY 2026
     Started building Ares — his own AI operating system, on OpenClaw.
@@ -210,9 +212,29 @@ SECTION 4 — FULL BACKSTORY (chronological)
     Building AI-native products: Aarees (AI for creators), thumbnail.gg.
     Scaling creator presence across all platforms.
 
+  OCTOBER 2026
+    Founded and launched Jeufy (https://jeufy.com): prompt to playable,
+    a games studio that builds with AI agents. Slogan: "We gamify
+    anything." Its first game, Dhamaka Arena, is an original,
+    India-flavoured arena shooter: brief to live multiplayer in under
+    40 minutes, built with Jeufy.
+
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 SECTION 5 — COMPANIES & PROJECTS
+
+  JEUFY
+    Role:       Founder
+    Launched:   October 2026
+    URL:        https://jeufy.com
+    X:          @JeufyGames
+    Instagram:  @JeufyGames
+    What:       Prompt to playable. A games studio that builds with AI
+                agents. Jeufy Create lets anyone do the same from one
+                sentence. Slogan: "We gamify anything."
+    First game: Dhamaka Arena, an original, India-flavoured arena
+                shooter. Brief to live multiplayer in under 40 minutes,
+                built with Jeufy.
 
   GLOBAL ESPORTS
     Role:       Co-founder (with Mohit Israney)
@@ -235,7 +257,7 @@ SECTION 5 — COMPANIES & PROJECTS
     — Overwatch World Cup: managed Team India and Team Singapore (2019)
     — VCT Pacific franchise — one of 10 permanent teams (Riot Games, global)
     — VCT 2026 Pacific Stage 2 champions (Grand Final 3-2 vs Nongshim RedForce)
-    — First VALORANT Champions qualification: Champions Shanghai 2026
+    — Played VALORANT Champions Shanghai 2026, the org's first Champions
     — Masters London 2026
     — Currently India's top Valorant and PUBG Mobile team in South Asia
     — Profitable while 18+ competitors shut down globally
@@ -246,7 +268,7 @@ SECTION 5 — COMPANIES & PROJECTS
     Role:   Builder / Operator
     What:   His own AI operating system, built on OpenClaw, running since
             January 2026. Multi-agent, model-agnostic, voice-first. Runs
-            his companies (Global Esports, Aarees, thumbnail.gg) from a
+            his companies (Jeufy, Global Esports, Aarees, thumbnail.gg) from a
             Discord command centre. Not a product for sale — his own
             operating infrastructure, built and run in public.
 
@@ -344,10 +366,13 @@ SECTION 8 — CURRENT FOCUS
 
   Period: ${quarter}
 
-  — Ares: building and running his own AI operating system in public
-  — Global Esports: VALORANT Champions Shanghai 2026 (first Champions)
+  — Jeufy: prompt-to-playable game studio, launched October 2026
+  — Ares: his AI operating system, built on OpenClaw, runs his companies
+    from a Discord command centre, in public
+  — AI-native team: taught the team to master AI instead of replacing them
   — Aarees: next version of the WhatsApp-native creator AI, in build
-  — Building personal brand at the intersection of AI, esports, medicine
+  — Global Esports: 2026 VCT Pacific Stage 2 champions; played their
+    first Champions, Shanghai 2026
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 

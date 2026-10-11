@@ -39,10 +39,11 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://rushindra.com"),
   title: "Dr. Rushindra Sinha — Doctor, Gamer, Founder. Building AI in public.",
   description:
-    "Doctor, gamer, founder. Builds the AI systems that run his companies, in public. Co-founder of Global Esports: 2026 VCT Pacific Stage 2 champions, first-ever VALORANT Champions. Stanford GSB.",
+    "Doctor, gamer, founder. Builds the AI systems that run his companies, in public. Founder of Jeufy, a prompt-to-playable game studio. Co-founder of Global Esports: 2026 VCT Pacific Stage 2 champions, played their first VALORANT Champions. Stanford GSB.",
   keywords: [
     "Rushindra Sinha",
     "Dr Rushindra Sinha",
+    "Jeufy",
     "Global Esports",
     "AI builder",
     "Esports founder",
@@ -63,7 +64,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Dr. Rushindra Sinha — Doctor, Gamer, Founder. Building AI in public.",
     description:
-      "Doctor, gamer, founder. Builds the AI systems that run his companies, in public. Co-founder of Global Esports: 2026 VCT Pacific Stage 2 champions, first-ever VALORANT Champions. Stanford GSB.",
+      "Doctor, gamer, founder. Builds the AI systems that run his companies, in public. Founder of Jeufy, a prompt-to-playable game studio. Co-founder of Global Esports: 2026 VCT Pacific Stage 2 champions, played their first VALORANT Champions. Stanford GSB.",
     type: "website",
     url: "https://rushindra.com",
     siteName: "Dr. Rushindra Sinha",
@@ -75,7 +76,7 @@ export const metadata: Metadata = {
     creator: "@irushi",
     title: "Dr. Rushindra Sinha — Doctor, Gamer, Founder. Building AI in public.",
     description:
-      "Doctor. Gamer. Founder. Building AI systems in public. Co-founder of Global Esports, 2026 VCT Pacific champions. 250K+ followers.",
+      "Doctor. Gamer. Founder. Building AI systems in public. Founder of Jeufy. Co-founder of Global Esports, 2026 VCT Pacific champions. 250K+ followers.",
   },
 };
 
@@ -114,6 +115,7 @@ const jsonLd = {
     { "@type": "CollegeOrUniversity", name: "Stanford Graduate School of Business" },
   ],
   foundedOrganization: [
+    { "@type": "Organization", name: "Jeufy", url: "https://jeufy.com" },
     { "@type": "Organization", name: "Global Esports", url: "https://globalesports.com" },
     { "@type": "Organization", name: "Aarees", url: "https://aarees.com" },
   ],
