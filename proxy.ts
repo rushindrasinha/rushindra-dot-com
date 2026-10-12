@@ -28,6 +28,7 @@ const KNOWN_PATHS = new Set([
   "/icon.svg",
   "/opengraph-image",
   "/new",
+  "/clean",
 ]);
 
 function wantsMarkdown(accept: string | null): boolean {

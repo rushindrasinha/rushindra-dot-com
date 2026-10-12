@@ -1,19 +1,22 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // /new is a static preview of the v2 redesign (public/new/index.html),
-  // kept out of search until Rushi promotes it to the homepage.
+  // /new (full v2 redesign) and /clean (calm cut of it) are static previews
+  // in public/, kept out of search until Rushi promotes one to the homepage.
   async rewrites() {
-    return [{ source: "/new", destination: "/new/index.html" }];
+    return [
+      { source: "/new", destination: "/new/index.html" },
+      { source: "/clean", destination: "/clean/index.html" },
+    ];
   },
   async headers() {
     return [
       {
-        source: "/new/:path*",
+        source: "/:dir(new|clean)/:path*",
         headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }],
       },
       {
-        source: "/new",
+        source: "/:dir(new|clean)",
         headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }],
       },
       {
