@@ -4,7 +4,7 @@ All changes are logged here. Format: version → date → what changed → who a
 
 ---
 
-## [1.7.0] — 2026-10-12 (IST), PENDING APPROVAL (local branch v1.7-proof-deck, not pushed)
+## [1.7.0] — 2026-10-12 (IST), approved by Rushi in #web-dev 07:21 IST ("Push it")
 
 **Proof deck hero + content refresh from the Zara-thread personal-site study and the 2026-10-11 meeting notes. All work by Ares.**
 
@@ -13,7 +13,8 @@ All changes are logged here. Format: version → date → what changed → who a
 - Hero status row: live IST clock, pulsing "Building in public" dot, "Now: Jeufy".
 - Copy: Champions Shanghai is past tense everywhere (the run ended 4 Oct 2026). "Final franchise era" removed.
 - New: Jeufy (jeufy.com) in hero lead, Work grid, Now list, 2026 timeline, story, and every machine layer (/about, /llm, /index.md, llms.txt, meta, JSON-LD).
-- Now list: Jeufy, Ares, AI-native team, Aarees, Global Esports.
+- Now list: Jeufy, Ares, AI-native team, Verticals.gg, Aarees, Global Esports.
+- New: Verticals.gg (Building) in Work grid, Now list, marquee and every machine layer (Rushi 07:21 IST: "add it now").
 - Remaining "MD" labels on machine layers changed to Doctor.
 
 ### Why

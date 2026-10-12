@@ -82,6 +82,15 @@ export default function AboutPage() {
         Jeufy. Jeufy is on X and Instagram as @JeufyGames.
       </P>
 
+      <H2>Verticals.gg</H2>
+      <P>
+        Also in build:{" "}
+        <a href="https://verticals.gg" target="_blank" rel="noopener noreferrer" style={{ color: C.accent }}>Verticals.gg</a>,
+        a platform for AI-made vertical short dramas, 60 to 120 second episodes
+        with a recurring cast. Anyone can watch and create, and its own studio
+        makes the originals. Instagram: @verticalsgg.
+      </P>
+
       <H2>Built and running</H2>
       <UL>
         <LI>

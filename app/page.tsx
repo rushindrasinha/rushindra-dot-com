@@ -107,6 +107,13 @@ const WORK = [
     url: "https://github.com/rushindrasinha/openclaw-guide",
   },
   {
+    name: "Verticals.gg",
+    tag: "Platform",
+    status: "Building",
+    line: "A platform for AI-made vertical short dramas: 60 to 120 second episodes with a recurring cast. Anyone can watch and create; our own studio makes the originals.",
+    url: "https://verticals.gg",
+  },
+  {
     name: "Mundhe Maps",
     tag: "Public Good",
     status: "Live",
@@ -188,6 +195,7 @@ const NOW = [
   { label: "Jeufy", desc: "Prompt to playable. A games studio that builds with AI agents, plus Jeufy Create for anyone with one sentence." },
   { label: "Ares", desc: "Building and running his own AI operating system, on OpenClaw, in public." },
   { label: "An AI-native team", desc: "Teaching the team to master AI instead of replacing them with it. Same people, a different order of output." },
+  { label: "Verticals.gg", desc: "A platform for AI-made vertical short dramas, where anyone can watch and create. Originals from our own studio." },
   { label: "Aarees", desc: "Next version of the WhatsApp-native creator AI, in build." },
   { label: "Global Esports", desc: "2026 VCT Pacific Stage 2 champions. Played VALORANT Champions Shanghai, the org's first Champions." },
 ];
@@ -206,6 +214,7 @@ const MARQUEE_ITEMS = [
   "AI Builder",
   "Mundhe Maps",
   "Ares",
+  "Verticals.gg",
   "5B+ Views for Creators & Brands",
   "250K+ Followers",
 ];

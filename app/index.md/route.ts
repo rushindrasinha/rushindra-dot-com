@@ -49,6 +49,7 @@ His father's rule, and the one he still runs everything by: first, best, or only
 | Project | Type | Status | Summary |
 |---|---|---|---|
 | [Jeufy](https://jeufy.com) | Company | Live | Prompt to playable. A games studio that builds with AI agents; Jeufy Create lets anyone do the same from one sentence. First game: Dhamaka Arena, an original, India-flavoured arena shooter, brief to live multiplayer in under 40 minutes. Launched October 2026. @JeufyGames. |
+| [Verticals.gg](https://verticals.gg) | Platform | Building | A platform for AI-made vertical short dramas, where anyone can watch and create. Its own studio makes the originals. Instagram @verticalsgg. |
 | [Global Esports](https://globalesports.com) | Company | Live | India's first VC-backed esports org. VCT Pacific franchise partner. 2026 VCT Pacific Stage 2 champions; played VALORANT Champions Shanghai 2026, the org's first Champions. |
 | Ares | Builder / Operator | Live | His own AI operating system, built on OpenClaw. Runs his companies in public. |
 | [Mundhe Maps](https://mundhemaps.com) | Public good | Live | Public map of Mumbai food businesses actioned by FDA Maharashtra. Updated daily. |
@@ -80,6 +81,7 @@ His father's rule, and the one he still runs everything by: first, best, or only
 ## Current focus (${quarter})
 
 - Jeufy: prompt-to-playable game studio, launched October 2026
+- Verticals.gg: AI-made vertical short dramas, a platform to watch and create
 - Ares: his AI operating system, built on OpenClaw, runs his companies from a Discord command centre, in public
 - AI-native team: taught the team to master AI instead of replacing them
 - Aarees: next version of the WhatsApp-native creator AI, in build

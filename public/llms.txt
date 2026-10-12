@@ -145,6 +145,13 @@ business, medicine, and personal brand building.
 - First game: Dhamaka Arena, an original, India-flavoured arena shooter. Brief
   to live multiplayer in under 40 minutes, built with Jeufy.
 
+### Verticals.gg (building, October 2026)
+- Role: Founder
+- URL: https://verticals.gg
+- Instagram: @verticalsgg
+- A platform for AI-made vertical short dramas, where anyone can watch and create. Its own studio makes the originals.
+- Format: 60 to 120 second vertical episodes with a recurring cast.
+
 ### Global Esports (active)
 - Role: Co-founder (with Mohit Israney)
 - Founded: July 2017 (as a proprietorship); incorporated November 2018
@@ -302,6 +309,7 @@ school; together they won first place at the 2014 Tribeca Film Festival and seco
 ## Current Focus
 
 - Jeufy: prompt-to-playable game studio, launched October 2026
+- Verticals.gg: AI-made vertical short dramas, a platform to watch and create
 - Ares: his AI operating system, built on OpenClaw, runs his companies from a
   Discord command centre, in public
 - AI-native team: taught the team to master AI instead of replacing them

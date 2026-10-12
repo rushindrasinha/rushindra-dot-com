@@ -236,6 +236,15 @@ SECTION 5 — COMPANIES & PROJECTS
                 shooter. Brief to live multiplayer in under 40 minutes,
                 built with Jeufy.
 
+  VERTICALS.GG
+    Role:       Founder
+    Status:     Building (October 2026)
+    URL:        https://verticals.gg
+    Instagram:  @verticalsgg
+    What:       A platform for AI-made vertical short dramas, 60 to 120
+                second episodes with a recurring cast. Anyone can watch
+                and create; its own studio makes the originals.
+
   GLOBAL ESPORTS
     Role:       Co-founder (with Mohit Israney)
     Founded:    July 2017 (as a proprietorship); incorporated November 2018
@@ -367,6 +376,7 @@ SECTION 8 — CURRENT FOCUS
   Period: ${quarter}
 
   — Jeufy: prompt-to-playable game studio, launched October 2026
+  — Verticals.gg: AI-made vertical short dramas, a platform to watch and create
   — Ares: his AI operating system, built on OpenClaw, runs his companies
     from a Discord command centre, in public
   — AI-native team: taught the team to master AI instead of replacing them
