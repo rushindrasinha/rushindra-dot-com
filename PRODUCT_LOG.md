@@ -325,3 +325,6 @@ Rushi requested a site improvement pass covering: better browser (headless, no v
 - SEO score: sitemap ✓, robots ✓, canonical ✓, JSON-LD ✓, OG ✓, Twitter card ✓
 - Security: 5 headers active
 
+
+## 2026-10-12 21:39 IST — v1.8.0-preview
+- v2 combo redesign live at /new (noindex) for Rushi to feel-test before promoting to the homepage. Commit df6e865, live-verified 21:39 IST.

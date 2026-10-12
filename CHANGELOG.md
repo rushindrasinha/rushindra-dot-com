@@ -4,6 +4,16 @@ All changes are logged here. Format: version → date → what changed → who a
 
 ---
 
+## [1.8.0-preview] — 2026-10-12 (IST), approved by Rushi in #web-dev 21:33 IST ("go ... add it to rushindra.com/new")
+
+**v2 combined redesign staged at /new for a feel-test. Homepage unchanged. All work by Ares.**
+
+### Added
+- /new: static preview (public/new/index.html) combining the three v2 directions: character-select hero (B), nine-chapter ink life grid (A), glowing-ventures night scene (C). The identity picked in the hero threads through every section.
+- /new is noindex (meta tag + X-Robots-Tag header), not in the sitemap. Live-verified 21:39 IST (deploy df6e865).
+
+---
+
 ## [1.7.0] — 2026-10-12 (IST), approved by Rushi in #web-dev 07:21 IST ("Push it")
 
 **Proof deck hero + content refresh from the Zara-thread personal-site study and the 2026-10-11 meeting notes. All work by Ares.**
