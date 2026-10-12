@@ -1,23 +1,24 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // /new (full combo), /clean (calm cut) and /v2 (rebuild from the Zara-thread study) are static previews
+  // /new (full combo), /clean (calm cut) and /v2 + /v3 (rebuilds from the Zara-thread study) are static previews
   // in public/, kept out of search until Rushi promotes one to the homepage.
   async rewrites() {
     return [
       { source: "/new", destination: "/new/index.html" },
       { source: "/clean", destination: "/clean/index.html" },
       { source: "/v2", destination: "/v2/index.html" },
+      { source: "/v3", destination: "/v3/index.html" },
     ];
   },
   async headers() {
     return [
       {
-        source: "/:dir(new|clean|v2)/:path*",
+        source: "/:dir(new|clean|v2|v3)/:path*",
         headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }],
       },
       {
-        source: "/:dir(new|clean|v2)",
+        source: "/:dir(new|clean|v2|v3)",
         headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }],
       },
       {

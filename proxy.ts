@@ -30,6 +30,7 @@ const KNOWN_PATHS = new Set([
   "/new",
   "/clean",
   "/v2",
+  "/v3",
 ]);
 
 function wantsMarkdown(accept: string | null): boolean {

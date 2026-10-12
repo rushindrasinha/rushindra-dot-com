@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#f2f0e9">
+<title>Dr. Rushindra Sinha · Case sheet</title>
+<meta name="description" content="Doctor, gamer since age 3, co-founder of Global Esports, now building Jeufy. The case history.">
+<link rel="preload" href="/new/fonts/space-grotesk-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:"Space Grotesk";src:url("/new/fonts/space-grotesk-latin-wght-normal.woff2") format("woff2");font-weight:300 700;font-display:swap}
+@font-face{font-family:"JetBrains Mono";src:url("/new/fonts/jetbrains-mono-latin-wght-normal.woff2") format("woff2");font-weight:100 800;font-display:swap}
+@font-face{font-family:"Outfit";src:url("/new/fonts/outfit-latin-wght-normal.woff2") format("woff2");font-weight:100 900;font-display:swap}
+:root{
+  --desk:#e6e3da;--paper:#f7f5ef;--ink:#16161a;--ink2:#4a4944;--faint:#8a877e;
+  --rule:rgba(22,22,26,.12);--rule2:rgba(22,22,26,.22);
+  --hl:#c8ff8f;--lime:#9cff57;--stamp:#2f7d1e;--red:#c6372f;
+  --display:"Space Grotesk",system-ui,sans-serif;--mono:"JetBrains Mono",ui-monospace,monospace;--body:"Outfit",system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--desk);color:var(--ink);-webkit-font-smoothing:antialiased;-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{font-family:var(--body);font-weight:400;font-size:17px;line-height:1.6;padding:40px 20px 64px}
+a{color:inherit}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+ol,ul{list-style:none}
+img{display:block;max-width:100%}
+:focus-visible{outline:2px solid var(--ink);outline-offset:3px}
+.mono{font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:1.3px;text-transform:uppercase}
+
+/* the sheet */
+.sheet{position:relative;max-width:880px;margin:0 auto;background:var(--paper);box-shadow:0 1px 0 rgba(0,0,0,.04),0 18px 50px -24px rgba(0,0,0,.28);
+  background-image:linear-gradient(var(--rule) 1px,transparent 1px);background-size:100% 32px;background-position:0 -1px}
+.sheet::before{content:"";position:absolute;top:0;bottom:0;left:64px;width:1px;background:rgba(198,55,47,.35)}
+.pad{padding:0 56px 0 96px}
+
+/* letterhead */
+.head{display:flex;justify-content:space-between;align-items:flex-start;gap:20px;padding:30px 56px 22px 96px;background:var(--paper);border-bottom:2px solid var(--ink)}
+.org{font-family:var(--display);font-weight:700;font-size:15px;letter-spacing:-.01em}
+.org small{display:block;font-family:var(--mono);font-weight:500;font-size:10px;letter-spacing:1.3px;color:var(--faint);text-transform:uppercase;margin-top:2px}
+.head-r{text-align:right;color:var(--ink2)}
+.head-r .mono{display:block;line-height:1.9}
+.skin{margin-top:6px;padding:5px 10px;border:1px solid var(--rule2);color:var(--ink)}
+.skin:hover{background:var(--ink);color:var(--paper)}
+
+/* ECG: the one moving thing */
+.ecg{display:block;width:100%;height:56px;background:var(--paper);border-bottom:1px solid var(--rule2)}
+.ecg path{fill:none;stroke:var(--ink);stroke-width:1.6;stroke-linejoin:round;stroke-linecap:round}
+@media (prefers-reduced-motion:no-preference){
+  .ecg path{stroke-dasharray:1400;stroke-dashoffset:1400;animation:draw 2.2s cubic-bezier(.6,.1,.3,1) .2s forwards}
+}
+@keyframes draw{to{stroke-dashoffset:0}}
+
+/* fields */
+.block{padding-top:32px;padding-bottom:0;background:transparent}
+.label{display:flex;align-items:center;gap:10px;color:var(--faint);height:32px}
+.label b{display:inline-grid;place-items:center;min-width:22px;height:18px;padding:0 5px;border:1px solid var(--rule2);color:var(--ink2);font-weight:500;font-size:10px}
+
+.patient{display:grid;grid-template-columns:1fr 150px;gap:36px;padding-top:30px;align-items:start}
+.fields{display:block}
+.f{display:grid;grid-template-columns:132px 1fr;align-items:baseline;min-height:32px;padding:6px 0 2px;border-bottom:1px dotted var(--rule2)}
+.f dt{color:var(--faint)}
+.f dd{font-family:var(--display);font-weight:600;font-size:17px;letter-spacing:-.01em;line-height:1.3}
+.f.big dd{font-size:clamp(30px,4.6vw,46px);font-weight:700;letter-spacing:-.04em;line-height:1.05}
+.id{position:relative;align-self:start;margin-top:6px;padding:6px 6px 26px;background:#fff;box-shadow:0 2px 10px -3px rgba(0,0,0,.25);transform:rotate(2.2deg)}
+.id img{width:100%;height:auto;aspect-ratio:1;object-fit:cover}
+.id span{position:absolute;left:0;right:0;bottom:6px;text-align:center;color:var(--faint);font-size:9px}
+.id::before{content:"";position:absolute;top:-10px;left:44%;width:14px;height:30px;border:2px solid #9a9a9a;border-radius:8px;border-bottom-color:transparent;transform:rotate(8deg)}
+
+.hl{background:linear-gradient(transparent 12%,var(--hl) 12%,var(--hl) 88%,transparent 88%);padding:0 .15em;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+
+/* referral: the Wired quote */
+.ref{margin-top:4px;padding:18px 22px;border:1px solid var(--rule2);background:#fff;position:relative}
+.ref p{font-family:var(--display);font-weight:500;font-size:clamp(19px,2.2vw,23px);line-height:1.38;letter-spacing:-.015em}
+.ref footer{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;margin-top:12px;color:var(--faint)}
+.ref footer a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--ink)}
+.ref .that{margin-top:14px;font-family:var(--body);font-size:17px;color:var(--ink2)}
+.ref .that b{color:var(--ink);font-weight:600}
+
+.text{font-size:18px;line-height:32px;color:var(--ink)}
+.text p+p{margin-top:0}
+.text strong{font-weight:600}
+.complaint{font-family:var(--display);font-weight:700;font-size:clamp(26px,3.6vw,36px);letter-spacing:-.035em;line-height:1.15;padding:2px 0 6px}
+
+/* now */
+.now li{display:grid;grid-template-columns:150px 1fr auto;gap:18px;align-items:baseline;min-height:32px;padding:7px 0 1px;border-bottom:1px dashed var(--rule2)}
+.now li:first-child{border-top:1px dashed var(--rule2)}
+.now .n{font-family:var(--display);font-weight:700;font-size:18px;letter-spacing:-.02em}
+.now .n a{text-decoration:none;border-bottom:1.5px solid var(--ink)}
+.now .n a:hover{background:var(--hl)}
+.now .d{color:var(--ink2);font-size:16px;line-height:1.45}
+.now .s{color:var(--faint)}
+.now .s.on{color:var(--stamp)}
+
+/* past history */
+.hx li{display:grid;grid-template-columns:86px 1fr;gap:18px;padding:6px 0 2px;line-height:1.5}
+.hx .y{font-family:var(--mono);font-size:13px;font-weight:600;color:var(--ink2);padding-top:3px}
+.hx .e{font-size:17px}
+.hx .e strong{font-weight:600}
+.hx .e .aside{color:var(--faint)}
+.hx a{text-decoration:none;border-bottom:1px solid var(--ink)}
+.hx a:hover{background:var(--hl)}
+
+/* vitals */
+.vitals{display:grid;grid-template-columns:repeat(5,1fr);border:1.5px solid var(--ink);background:#fff;margin-top:4px}
+.vitals div{padding:14px 14px 12px;border-left:1px solid var(--rule2)}
+.vitals div:first-child{border-left:0}
+.vitals .v{font-family:var(--display);font-weight:700;font-size:clamp(22px,2.8vw,30px);letter-spacing:-.04em;line-height:1}
+.vitals .k{color:var(--faint);margin-top:8px;font-size:9.5px;line-height:1.4}
+
+/* investigations */
+.inv{display:grid;grid-template-columns:1fr 1fr;column-gap:28px}
+.inv a{display:flex;justify-content:space-between;gap:12px;min-height:32px;align-items:flex-end;padding-bottom:4px;border-bottom:1px dashed var(--rule2);text-decoration:none;font-size:16px}
+.inv a span:last-child{color:var(--faint);white-space:nowrap}
+.inv a:hover span:first-child{background:var(--hl)}
+
+/* impression + plan */
+.dx{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.dx .big{font-family:var(--display);font-weight:700;font-size:clamp(28px,3.6vw,38px);letter-spacing:-.04em;line-height:1.05;padding-top:4px}
+.dx .sub{color:var(--ink2);margin-top:8px;font-size:16px;line-height:1.5}
+.plan li{display:grid;grid-template-columns:22px 1fr;gap:8px;padding:5px 0 3px;font-size:17px;line-height:1.5}
+.plan li::before{content:"→";font-family:var(--mono);color:var(--faint)}
+
+/* Rx + stamp */
+.rx{display:grid;grid-template-columns:1fr 190px;gap:28px;align-items:end;padding-bottom:40px}
+.rx-sym{font-family:var(--display);font-weight:700;font-size:54px;line-height:1;letter-spacing:-.04em}
+.rx-sym sub{font-size:.5em;vertical-align:baseline}
+.mail{display:inline-block;margin-top:10px;font-family:var(--display);font-weight:700;font-size:clamp(24px,3.8vw,38px);letter-spacing:-.035em;text-decoration:none;border-bottom:3px solid var(--lime);line-height:1.15;word-break:break-word}
+.mail:hover{background:var(--hl)}
+.sig{color:var(--ink2);margin-top:6px;font-size:16px}
+.links{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:16px}
+.links a{text-decoration:none;color:var(--ink2);border-bottom:1px solid var(--rule2)}
+.links a:hover{color:var(--ink);border-color:var(--ink)}
+.stamp{justify-self:end;width:170px;height:170px;border-radius:50%;border:3px solid var(--stamp);color:var(--stamp);display:grid;place-items:center;text-align:center;transform:rotate(-11deg);opacity:.86;position:relative}
+.stamp::before{content:"";position:absolute;inset:7px;border-radius:50%;border:1px solid var(--stamp)}
+.stamp div{font-family:var(--mono);font-weight:700;font-size:10px;letter-spacing:1.4px;line-height:1.5;text-transform:uppercase}
+.stamp strong{display:block;font-family:var(--display);font-size:17px;letter-spacing:-.02em;text-transform:none;margin:3px 0}
+
+.foot{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;max-width:880px;margin:18px auto 0;color:#78756c}
+.foot a{text-decoration:none;border-bottom:1px solid currentColor}
+
+/* plain skin: same content, everyday labels */
+body.plain [data-plain]{font-size:0;letter-spacing:0}
+body.plain [data-plain]::after{content:attr(data-plain);font-size:11px;letter-spacing:1.3px}
+body.plain .rx-sym{display:none}
+
+@media (max-width:760px){
+  body{padding:0 0 40px;font-size:16px}
+  .sheet{box-shadow:none}
+  .sheet::before{left:18px}
+  .pad{padding:0 20px 0 34px}
+  .head{padding:20px 20px 16px 34px;flex-direction:column;gap:10px}
+  .head-r{text-align:left}
+  .head-r .mono{display:block;line-height:1.8}
+  .skin{margin-top:8px}
+  .patient{grid-template-columns:1fr 96px;gap:14px}
+  .f{grid-template-columns:1fr;padding:8px 0 6px}
+  .f dt{margin-bottom:2px}
+  .id{margin-top:14px}
+  .now li{grid-template-columns:1fr auto;gap:2px 12px;padding:10px 0 8px}
+  .now .d{grid-column:1 / -1;grid-row:2}
+  .hx li{grid-template-columns:60px 1fr;gap:12px}
+  .vitals{grid-template-columns:1fr 1fr}
+  .vitals div{border-left:0;border-top:1px solid var(--rule2)}
+  .vitals div:nth-child(even){border-left:1px solid var(--rule2)}
+  .vitals div:nth-child(-n+2){border-top:0}
+  .vitals div:last-child{grid-column:span 2;border-left:0}
+  .inv,.dx{grid-template-columns:1fr}
+  .dx{gap:8px}
+  .rx{grid-template-columns:1fr}
+  .stamp{justify-self:start;width:140px;height:140px;margin-top:8px}
+  .foot{padding:0 20px}
+}
+</style>
+</head>
+<body>
+
+<article class="sheet" aria-label="Case sheet: Dr. Rushindra Sinha">
+
+  <header class="head">
+    <div class="org">rushindra.com<small>Out-patient case sheet · Mumbai</small></div>
+    <div class="head-r">
+      <span class="mono">Seen <span class="js-now">12 Oct 2026</span></span>
+      <span class="mono">Examined by: himself</span>
+      <button class="skin mono js-skin" type="button" aria-pressed="false">Plain labels</button>
+    </div>
+  </header>
+
+  <svg class="ecg" viewBox="0 0 880 56" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0 34 H120 l8 -4 l8 4 H170 l6 6 l8 -34 l8 44 l6 -16 H250 l10 -6 l10 6 H330 H420 l8 -4 l8 4 H470 l6 6 l8 -34 l8 44 l6 -16 H550 l10 -6 l10 6 H630 H720 l8 -4 l8 4 H770 l6 6 l8 -34 l8 44 l6 -16 H850 H880"/>
+  </svg>
+
+  <!-- patient details -->
+  <section class="pad patient">
+    <dl class="fields">
+      <div class="f big"><dt class="mono" data-plain="Name">Patient</dt><dd>Dr. Rushindra Sinha</dd></div>
+      <div class="f"><dt class="mono">Age / Sex</dt><dd>35 / M</dd></div>
+      <div class="f"><dt class="mono" data-plain="Work">Occupation</dt><dd>Doctor. Esports founder. Makes games with AI.</dd></div>
+      <div class="f"><dt class="mono" data-plain="Based in">Address</dt><dd>Mumbai, India</dd></div>
+    </dl>
+    <figure class="id"><img src="/rushi-avatar.jpg" alt="Rushindra Sinha" width="400" height="400" fetchpriority="high"><span class="mono">ID photo</span></figure>
+  </section>
+
+  <!-- referral -->
+  <section class="pad block">
+    <div class="label mono"><b>01</b><span data-plain="Where this starts">Referred by</span></div>
+    <blockquote class="ref">
+      <p>&ldquo;Then there was the doctor, who slept on the other side of the curtain from me. [&hellip;] He&rsquo;d woken up in Mumbai one morning and could not bring himself to clock in at the large municipal hospital where he worked.&rdquo;</p>
+      <footer class="mono"><span>Gideon Lewis-Kraus · WIRED · April 2014</span><a href="https://www.wired.com/2014/04/no-exit/" target="_blank" rel="noopener">Read the piece ↗</a></footer>
+      <p class="that"><b>That was me.</b> A San Francisco hacker house, a mattress behind a shower curtain, 23 years old. This sheet is what happened next.</p>
+    </blockquote>
+  </section>
+
+  <!-- chief complaint -->
+  <section class="pad block">
+    <div class="label mono"><b>02</b><span data-plain="In one line">Chief complaint</span></div>
+    <p class="complaint">Has been playing video games since age 3. <span class="hl">Shows no signs of stopping.</span></p>
+  </section>
+
+  <!-- history of present illness -->
+  <section class="pad block">
+    <div class="label mono"><b>03</b><span data-plain="What I'm doing now">History of present illness</span></div>
+    <div class="text"><p>Currently building <strong>Jeufy</strong>: type a prompt, get a playable game. Also running Global Esports and a small studio that ships products where games, AI and creators meet. Taught the whole team to be masters of AI instead of replacing anyone with it.</p></div>
+    <ul class="now" style="margin-top:12px">
+      <li><span class="n"><a href="https://jeufy.com" target="_blank" rel="noopener">Jeufy</a></span><span class="d">Gamify anything. Prompt to playable. First game: Dhamaka Arena.</span><span class="s on mono">Live · Oct 2026</span></li>
+      <li><span class="n"><a href="https://globalesports.com" target="_blank" rel="noopener">Global Esports</a></span><span class="d">India's first VC-backed esports org. 2026 VCT Pacific Stage 2 champions.</span><span class="s on mono">Since 2017</span></li>
+      <li><span class="n"><a href="https://verticals.gg" target="_blank" rel="noopener">Verticals.gg</a></span><span class="d">AI-made vertical short dramas. Watch them, or make your own.</span><span class="s mono">Building</span></li>
+      <li><span class="n"><a href="https://thumbnail.gg" target="_blank" rel="noopener">thumbnail.gg</a></span><span class="d">Thumbnails for creators, generated by AI.</span><span class="s on mono">Live</span></li>
+      <li><span class="n"><a href="https://aarees.com" target="_blank" rel="noopener">Aarees</a></span><span class="d">A creator's AI that lives inside WhatsApp.</span><span class="s mono">Building</span></li>
+      <li><span class="n"><a href="https://mundhemaps.com" target="_blank" rel="noopener">Mundhe Maps</a></span><span class="d">A public map of FDA-actioned Mumbai food businesses.</span><span class="s on mono">Live</span></li>
+      <li><span class="n">Ares</span><span class="d">My AI chief of staff. It runs my companies from a Discord command centre.</span><span class="s on mono">Live</span></li>
+    </ul>
+  </section>
+
+  <!-- past history -->
+  <section class="pad block">
+    <div class="label mono"><b>04</b><span data-plain="The story so far">Past history</span></div>
+    <ol class="hx">
+      <li><span class="y">1993</span><span class="e">First video games, age 3, on a hospital computer.</span></li>
+      <li><span class="y">2001</span><span class="e">First LAN: <strong>Counter-Strike</strong>. Then years of Dota, and CS at WCG qualifiers.</span></li>
+      <li><span class="y">2008</span><span class="e">Built and ran our own MMORPG server, <strong>Phoenix RO</strong>. Sold it in 2009. <span class="aside">First exit. Didn't know what an exit was at the time.</span></span></li>
+      <li><span class="y">2014</span><span class="e"><strong>MBBS</strong>, D.Y. Patil Medical College. Live-streamed surgeries on Google Glass. Coded through med school with my best friend Mohit Israney, and somehow we took <strong>first at Tribeca</strong> and second in Beijing.</span></li>
+      <li><span class="y">2014</span><span class="e">Couldn't clock in. Moved into a San Francisco hacker house and <a href="https://www.wired.com/2014/04/no-exit/" target="_blank" rel="noopener">ended up in WIRED</a>.</span></li>
+      <li><span class="y">2015</span><span class="e">Co-founded a social media startup in LA. <strong>Exited</strong> the same year.</span></li>
+      <li><span class="y">2017</span><span class="e"><strong>Stanford</strong>, GSB × School of Medicine programme. Came home and co-founded <strong>Global Esports</strong> with Mohit.</span></li>
+      <li><span class="y">2020</span><span class="e"><a href="https://youtu.be/DFw5fSh9D3I" target="_blank" rel="noopener">TEDxNMIMS</a>: "Can you get paid to play video games?"</span></li>
+      <li><span class="y">2017–26</span><span class="e">25+ rosters across a dozen games. A Fortnite world record. Two Overwatch World Cup teams. One of 10 VCT Pacific partner teams, with a <strong>482K</strong> peak audience.</span></li>
+      <li><span class="y">2026</span><span class="e"><a href="https://youtu.be/KIZiMBvIeog" target="_blank" rel="noopener">TEDx Sanjivani University</a>. <strong>VCT Pacific Stage 2 champions</strong>, then Champions in Shanghai. Launched <strong>Jeufy</strong>.</span></li>
+    </ol>
+  </section>
+
+  <!-- vitals -->
+  <section class="pad block">
+    <div class="label mono"><b>05</b><span data-plain="Numbers">On examination</span></div>
+    <div class="vitals">
+      <div><div class="v">482K</div><div class="k mono">Peak viewers, one match</div></div>
+      <div><div class="v">25+</div><div class="k mono">Esports rosters run</div></div>
+      <div><div class="v">5B+</div><div class="k mono">Views made for creators + brands</div></div>
+      <div><div class="v">250K+</div><div class="k mono">Followers</div></div>
+      <div><div class="v">2,300+</div><div class="k mono">GitHub stars, open source</div></div>
+    </div>
+  </section>
+
+  <!-- investigations -->
+  <section class="pad block">
+    <div class="label mono"><b>06</b><span data-plain="Proof">Investigations</span></div>
+    <div class="inv">
+      <a href="https://www.wired.com/2014/04/no-exit/" target="_blank" rel="noopener"><span>WIRED, "No Exit"</span><span class="mono">2014 ↗</span></a>
+      <a href="https://youtu.be/DFw5fSh9D3I" target="_blank" rel="noopener"><span>TEDxNMIMS talk</span><span class="mono">2020 ↗</span></a>
+      <a href="https://youtu.be/KIZiMBvIeog" target="_blank" rel="noopener"><span>TEDx Sanjivani University talk</span><span class="mono">2026 ↗</span></a>
+      <a href="https://github.com/rushindrasinha/youtube-shorts-pipeline" target="_blank" rel="noopener"><span>YouTube Shorts pipeline</span><span class="mono">GitHub ↗</span></a>
+      <a href="https://globalesports.com" target="_blank" rel="noopener"><span>Global Esports</span><span class="mono">Site ↗</span></a>
+      <a href="https://jeufy.com" target="_blank" rel="noopener"><span>Jeufy</span><span class="mono">Play ↗</span></a>
+    </div>
+  </section>
+
+  <!-- impression + plan -->
+  <section class="pad block">
+    <div class="dx">
+      <div>
+        <div class="label mono"><b>07</b><span data-plain="In short">Impression</span></div>
+        <p class="big">Chronic builder.</p>
+        <p class="sub">Differential: doctor, gamer, founder. All three confirmed.</p>
+      </div>
+      <div>
+        <div class="label mono"><b>08</b><span data-plain="What's next">Plan</span></div>
+        <ul class="plan">
+          <li>South Asia and Southeast Asia are the next billion gamers.</li>
+          <li>Esports was the wedge. The studio is the machine. Content is the flywheel.</li>
+          <li><span class="hl">Build the world's biggest video game company out of India.</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Rx -->
+  <section class="pad block rx">
+    <div>
+      <div class="label mono"><b>09</b><span data-plain="Get in touch">Rx</span></div>
+      <div class="rx-sym" aria-hidden="true">R<sub>x</sub></div>
+      <a class="mail" href="mailto:sinha@rushindra.com">sinha@rushindra.com</a>
+      <p class="sig">One inbox, read by me.</p>
+      <div class="links mono">
+        <a href="https://x.com/irushi" target="_blank" rel="noopener">X @irushi</a>
+        <a href="https://instagram.com/rushindrasinha" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://youtube.com/c/RushindraSinha" target="_blank" rel="noopener">YouTube</a>
+        <a href="https://linkedin.com/in/rushindrasinha" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://github.com/rushindrasinha" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+    <div class="stamp" aria-hidden="true"><div>Dr.<strong>Rushindra Sinha</strong>MBBS · 2014<br>Mumbai</div></div>
+  </section>
+
+</article>
+
+<div class="foot mono"><span>Dr. Rushindra Sinha · <span class="js-clock">--:--</span> IST in Mumbai</span><span id="updated">Updated Oct 2026</span></div>
+
+<script>
+(() => {
+  const tz = "Asia/Kolkata";
+  const d = new Intl.DateTimeFormat("en-GB", {day:"numeric", month:"short", year:"numeric", timeZone:tz});
+  const t = new Intl.DateTimeFormat("en-GB", {hour:"2-digit", minute:"2-digit", hour12:false, timeZone:tz});
+  const tick = () => {
+    const n = new Date();
+    document.querySelectorAll(".js-now").forEach(e => e.textContent = d.format(n) + ", " + t.format(n) + " IST");
+    document.querySelectorAll(".js-clock").forEach(e => e.textContent = t.format(n));
+  };
+  tick(); setInterval(tick, 15000);
+
+  const UPDATED = new Date("2026-10-12T23:45:00+05:30");
+  const days = Math.max(0, Math.floor((Date.now() - UPDATED) / 864e5));
+  document.getElementById("updated").textContent = days === 0 ? "Updated today" : "Updated " + days + (days === 1 ? " day" : " days") + " ago";
+
+  /* escape hatch: same sheet, everyday labels. ?plain links straight to it */
+  const btn = document.querySelector(".js-skin");
+  const set = on => { document.body.classList.toggle("plain", on); btn.textContent = on ? "Doctor's labels" : "Plain labels"; btn.setAttribute("aria-pressed", on); };
+  btn.addEventListener("click", () => set(!document.body.classList.contains("plain")));
+  set(/[?&]plain\b/.test(location.search));
+})();
+</script>
+</body>
+</html>
