@@ -29,6 +29,7 @@ const KNOWN_PATHS = new Set([
   "/opengraph-image",
   "/new",
   "/clean",
+  "/v2",
 ]);
 
 function wantsMarkdown(accept: string | null): boolean {

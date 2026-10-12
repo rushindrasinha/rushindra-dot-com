@@ -1,0 +1,459 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#08080a">
+<title>Dr. Rushindra Sinha</title>
+<meta name="description" content="Doctor, esports founder and AI builder. Co-founder of Global Esports, building Jeufy.">
+<link rel="preload" href="/new/fonts/space-grotesk-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:"Space Grotesk";src:url("/new/fonts/space-grotesk-latin-wght-normal.woff2") format("woff2");font-weight:300 700;font-display:swap}
+@font-face{font-family:"JetBrains Mono";src:url("/new/fonts/jetbrains-mono-latin-wght-normal.woff2") format("woff2");font-weight:100 800;font-display:swap}
+@font-face{font-family:"Outfit";src:url("/new/fonts/outfit-latin-wght-normal.woff2") format("woff2");font-weight:100 900;font-display:swap}
+:root{
+  --bg:#08080a;--panel:#0e0e11;--line:rgba(255,255,255,.08);--line2:rgba(255,255,255,.14);
+  --lime:#9cff57;--lime-soft:rgba(156,255,87,.1);--blue:#5ebaff;
+  --text:#e2e0da;--mid:#8f8c85;--dim:#5d5b56;--white:#fff;
+  --display:"Space Grotesk",system-ui,sans-serif;--mono:"JetBrains Mono",ui-monospace,monospace;--body:"Outfit",system-ui,sans-serif;
+  --pad:clamp(20px,4.5vw,64px);--cut:12px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:var(--body);font-weight:300;font-size:16px;line-height:1.55;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+ol,ul{list-style:none}
+img{display:block;max-width:100%;height:auto}
+svg{display:block}
+:focus-visible{outline:2px solid var(--lime);outline-offset:3px}
+.wrap{max-width:1240px;margin:0 auto;padding:0 var(--pad)}
+.mono{font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase}
+.cut{clip-path:polygon(0 0,calc(100% - var(--cut)) 0,100% var(--cut),100% 100%,var(--cut) 100%,0 calc(100% - var(--cut)))}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--lime);box-shadow:0 0 8px rgba(156,255,87,.8);flex:none}
+@media (prefers-reduced-motion:no-preference){.dot.live{animation:blink 2.4s ease-in-out infinite}}
+@keyframes blink{50%{opacity:.35}}
+
+/* ---------- top bar: live signals + escape hatch ---------- */
+.bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:22px 0;border-bottom:1px solid var(--line)}
+.brand{display:flex;align-items:center;gap:10px;color:var(--white)}
+.brand b{display:grid;place-items:center;width:28px;height:28px;background:var(--lime);color:#08080a;font-family:var(--display);font-weight:700;font-size:12px;letter-spacing:-.02em}
+.live{display:flex;align-items:center;gap:10px;color:var(--mid)}
+.live strong{color:var(--text);font-weight:500}
+.hatch{display:flex;align-items:center;gap:8px;padding:9px 14px;border:1px solid var(--line2);color:var(--text);transition:border-color .2s,color .2s}
+.hatch:hover{border-color:var(--lime);color:var(--lime)}
+
+/* ---------- 1. agent select (the one world) ---------- */
+.select{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);grid-template-areas:"intro card" "roster card";grid-template-rows:auto 1fr;column-gap:56px;padding:64px 0 48px}
+.intro{grid-area:intro}.roster{grid-area:roster}.card{grid-area:card}
+.avatar{display:none}
+.kick{display:flex;align-items:center;gap:10px;color:var(--lime);margin-bottom:22px}
+.kick i{width:20px;height:1px;background:var(--lime)}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(40px,5.6vw,76px);line-height:.98;letter-spacing:-.045em;color:var(--white)}
+.lead{font-size:clamp(18px,1.6vw,21px);color:var(--text);margin:22px 0 0;max-width:34ch}
+.role{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:22px;color:var(--mid)}
+.role span{display:flex;align-items:center;gap:8px}
+.role span b{color:var(--text);font-weight:500}
+
+.roster{margin-top:44px}
+.roster-head{display:flex;justify-content:space-between;color:var(--dim);margin-bottom:12px}
+.tiles{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+.tile{position:relative;display:flex;flex-direction:column;align-items:center;gap:10px;padding:16px 6px 13px;background:var(--panel);border:1px solid var(--line);color:var(--mid);transition:color .2s,border-color .2s,background .2s}
+.tile svg{width:24px;height:24px}
+.tile:hover{color:var(--white);border-color:var(--line2)}
+.tile[aria-selected="true"]{color:var(--lime);border-color:var(--lime);background:var(--lime-soft)}
+.tile[aria-selected="true"]::after{content:"";position:absolute;left:50%;bottom:-7px;width:10px;height:10px;background:var(--bg);border-right:1px solid var(--lime);border-bottom:1px solid var(--lime);transform:translateX(-50%) rotate(45deg)}
+.tile .mono{font-size:10px;letter-spacing:1.2px}
+
+.card{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1fr);background:var(--panel);border:1px solid var(--line)}
+.portrait{position:relative;min-height:360px;overflow:hidden;background:#111}
+.portrait img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.portrait::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(8,8,10,.92))}
+.plate{position:absolute;left:18px;right:18px;bottom:16px;z-index:1}
+.plate .mono{color:var(--lime)}
+.plate h2{font-family:var(--display);font-weight:700;font-size:clamp(26px,2.6vw,34px);letter-spacing:-.035em;color:var(--white);line-height:1.05;margin-top:4px}
+.kit{padding:24px 24px 22px;display:flex;flex-direction:column}
+.kit-head{display:flex;justify-content:space-between;color:var(--dim);padding-bottom:14px;border-bottom:1px solid var(--line)}
+.abilities{flex:1}
+.abilities li{display:grid;grid-template-columns:30px 1fr;gap:14px;padding:16px 0;border-bottom:1px solid var(--line)}
+.key{display:grid;place-items:center;width:30px;height:30px;border:1px solid var(--line2);color:var(--lime);font-family:var(--mono);font-size:12px;font-weight:600}
+.abilities h3{font-family:var(--display);font-weight:600;font-size:16px;color:var(--white);letter-spacing:-.01em;line-height:1.25}
+.abilities p{font-size:14px;color:var(--mid);margin-top:3px;line-height:1.45}
+.abilities p b{color:var(--text);font-weight:500}
+.kit-foot{padding-top:14px;color:var(--dim)}
+.swap{transition:opacity .18s ease}
+.swap.out{opacity:0}
+
+/* ---------- hi-score: proof as numbers ---------- */
+.score{border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.score ul{display:grid;grid-template-columns:repeat(5,1fr)}
+.score li{padding:26px 0 24px;border-left:1px solid var(--line);padding-left:22px}
+.score li:first-child{border-left:0;padding-left:0}
+.score .v{font-family:var(--display);font-weight:700;font-size:clamp(24px,2.6vw,34px);color:var(--white);letter-spacing:-.035em;line-height:1}
+.score .l{color:var(--mid);margin-top:10px;font-size:10px}
+
+/* ---------- section heads ---------- */
+.sec{padding:110px 0 0}
+.sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:36px}
+.sec-head h2{font-family:var(--display);font-weight:700;font-size:clamp(30px,3.6vw,46px);letter-spacing:-.04em;color:var(--white);line-height:1.02;margin-top:14px}
+.sec-head .meta{color:var(--dim);white-space:nowrap;padding-bottom:6px}
+
+/* ---------- 2. match history (the story) ---------- */
+.matches li{display:grid;grid-template-columns:92px 176px minmax(0,1fr) 150px;gap:28px;align-items:center;padding:16px 0;border-top:1px solid var(--line)}
+.matches li:last-child{border-bottom:1px solid var(--line)}
+.matches .yr{font-family:var(--mono);font-size:13px;color:var(--mid);letter-spacing:1px}
+.thumb{aspect-ratio:16/9;background-image:url("/new/life_grid_ink.png");background-size:300% 300%;border:1px solid var(--line);filter:grayscale(1) brightness(.85);transition:filter .25s}
+.matches li:hover .thumb{filter:none}
+.matches h3{font-family:var(--display);font-weight:600;font-size:19px;color:var(--white);letter-spacing:-.015em;line-height:1.25}
+.matches p{color:var(--mid);font-size:15px;margin-top:3px}
+.res{justify-self:end;padding:6px 10px;border:1px solid var(--line2);color:var(--text)}
+.res.win{border-color:var(--lime);color:var(--lime)}
+
+/* ---------- 3. arsenal (the work) ---------- */
+.arsenal{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.gun{position:relative;display:flex;flex-direction:column;min-height:196px;padding:22px 22px 20px;background:var(--panel);border:1px solid var(--line);transition:border-color .2s,transform .2s}
+a.gun:hover{border-color:var(--lime);transform:translateY(-2px)}
+.gun.feat{grid-column:span 2;background:linear-gradient(135deg,rgba(156,255,87,.09),transparent 60%),var(--panel);border-color:rgba(156,255,87,.35)}
+.gun-top{display:flex;justify-content:space-between;align-items:center;color:var(--mid)}
+.st{display:flex;align-items:center;gap:8px}
+.st.wip .dot{background:var(--blue);box-shadow:0 0 8px rgba(94,186,255,.8)}
+.gun h3{font-family:var(--display);font-weight:700;font-size:26px;color:var(--white);letter-spacing:-.035em;margin-top:auto;padding-top:28px}
+.gun.feat h3{font-size:clamp(32px,3.4vw,44px)}
+.gun p{color:var(--mid);margin-top:6px;max-width:44ch}
+.gun.slot{background:transparent;border-style:dashed;border-color:var(--line2)}
+.gun.slot h3{color:var(--mid)}
+.gun .go{position:absolute;top:20px;right:20px;color:var(--mid)}
+.gun .go svg{width:12px;height:12px}
+
+/* ---------- comms ---------- */
+.comms{padding:130px 0 0}
+.mail{display:inline-flex;align-items:center;gap:18px;font-family:var(--display);font-weight:700;font-size:clamp(28px,5.4vw,68px);letter-spacing:-.045em;color:var(--white);margin-top:18px;transition:color .2s;word-break:break-word}
+.mail svg{width:.6em;height:.6em;color:var(--lime);flex:none;transition:transform .2s}
+.mail:hover{color:var(--lime)}
+.mail:hover svg{transform:translateX(6px)}
+.note{color:var(--mid);margin-top:14px}
+footer{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:110px;padding:26px 0 34px;border-top:1px solid var(--line);color:var(--dim)}
+footer .live{color:var(--dim)}
+footer button{color:var(--mid)}
+footer button:hover{color:var(--lime)}
+
+/* ---------- escape hatch: just the facts ---------- */
+.facts{display:none;padding:56px 0 40px;max-width:760px}
+.facts h1{font-size:clamp(34px,4.4vw,52px)}
+.facts .lead{max-width:none}
+.facts h2{font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:var(--lime);margin:40px 0 10px}
+.facts li{padding:5px 0 5px 18px;position:relative;color:var(--text)}
+.facts li::before{content:"";position:absolute;left:0;top:14px;width:6px;height:1px;background:var(--mid)}
+.facts li b{color:var(--white);font-weight:500}
+.facts a{border-bottom:1px solid var(--lime)}
+body.plain .game{display:none}
+body.plain .facts{display:block}
+
+/* ---------- mobile: designed, not shrunk ---------- */
+@media (max-width:980px){
+  .select{grid-template-columns:1fr;grid-template-areas:"intro" "card" "roster";grid-template-rows:auto;row-gap:36px;padding:40px 0 40px}
+  .roster{margin-top:0}
+  .score ul{grid-template-columns:repeat(3,1fr)}
+  .score li:nth-child(4){border-left:0;padding-left:0}
+  .score li:nth-child(n+4){border-top:1px solid var(--line)}
+  .matches li{grid-template-columns:64px 140px minmax(0,1fr);gap:18px}
+  .matches .res{display:none}
+  .arsenal{grid-template-columns:1fr 1fr}
+  .gun.slot{grid-column:span 2}
+}
+@media (max-width:640px){
+  .bar{padding:16px 0}
+  .bar .live{display:none}
+  .brand span{display:none}
+  .mlive{display:flex!important}
+  .tiles{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:var(--pad);margin:0 calc(var(--pad)*-1);padding:0 var(--pad) 10px;scrollbar-width:none}
+  .tiles::-webkit-scrollbar{display:none}
+  .tile{flex:0 0 31%;scroll-snap-align:start}
+  .select{grid-template-areas:"intro" "roster" "card";row-gap:0;padding:32px 0 36px}
+  .roster{margin-top:30px}
+  .card{grid-template-columns:1fr;margin-top:16px}
+  .portrait{display:none}
+  .avatar{display:block;width:56px;height:56px;margin-right:6px;border:1px solid var(--lime);object-fit:cover}
+  .kick{margin-bottom:18px}
+  .kit{padding:18px 18px 16px}
+  .score ul{grid-template-columns:1fr 1fr}
+  .score li{padding:20px 0 18px 18px}
+  .score li:nth-child(odd){border-left:0;padding-left:0}
+  .score li:nth-child(4){border-left:1px solid var(--line);padding-left:18px}
+  .score li:nth-child(n+3){border-top:1px solid var(--line)}
+  .score li:last-child{grid-column:span 2;border-left:0;padding-left:0}
+  .sec{padding-top:80px}
+  .sec-head{display:block}
+  .sec-head .meta{margin-top:10px}
+  .matches li{grid-template-columns:1fr;gap:12px;padding:20px 0}
+  .matches .yr{order:-1}
+  .thumb{width:100%}
+  .arsenal{grid-template-columns:1fr}
+  .gun.feat,.gun.slot{grid-column:auto}
+  .gun{min-height:0}
+  .comms{padding-top:90px}
+}
+.mlive{display:none;align-items:center;gap:10px;color:var(--mid);padding:12px 0;border-bottom:1px solid var(--line)}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-doctor" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 3h2M12 3h2"/><path d="M5 3v5a4 4 0 0 0 8 0V3"/><path d="M9 12v2.5a5 5 0 0 0 10 0V13"/><circle cx="19" cy="10.5" r="2.3"/></symbol>
+  <symbol id="i-entrepreneur" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7.5 4h9v5a4.5 4.5 0 0 1-9 0z"/><path d="M7.5 6H5a2.5 2.5 0 0 0 2.6 4"/><path d="M16.5 6H19a2.5 2.5 0 0 1-2.6 4"/><path d="M12 13.5V17"/><path d="M8.5 20h7M9.5 17h5"/></symbol>
+  <symbol id="i-gamer" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7.2 7.5h9.6a4 4 0 0 1 4 4.3l-.5 4.2a2.4 2.4 0 0 1-4.2 1.2L14.4 15H9.6l-1.7 2.2a2.4 2.4 0 0 1-4.2-1.2l-.5-4.2a4 4 0 0 1 4-4.3z"/><path d="M8 10.4v3.2M6.4 12h3.2"/><circle cx="15.6" cy="11" r=".6" fill="currentColor"/><circle cx="17.6" cy="13" r=".6" fill="currentColor"/></symbol>
+  <symbol id="i-builder" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M8 7l-5 5 5 5"/><path d="M16 7l5 5-5 5"/><path d="M13.6 5l-3.2 14"/></symbol>
+  <symbol id="i-creator" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2.8" y="5" width="18.4" height="14" rx="3"/><path d="M10 9.3v5.4l4.6-2.7z" fill="currentColor"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-ext" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M3 9l6-6M4 3h5v5"/></symbol>
+</svg>
+
+<div class="wrap">
+  <header class="bar">
+    <a class="brand" href="#top" id="top"><b>RS</b><span class="mono">rushindra.com</span></a>
+    <div class="live mono"><span class="dot live"></span><span>Building <strong>Jeufy</strong></span><span>·</span><span class="js-clock">--:-- IST</span></div>
+    <button class="hatch mono js-plain" type="button" aria-pressed="false">Just the facts</button>
+  </header>
+  <div class="mlive mono"><span class="dot live"></span><span>Building <strong style="color:var(--text);font-weight:500">Jeufy</strong></span><span>·</span><span class="js-clock">--:-- IST</span></div>
+
+  <main class="game">
+    <!-- 1 · agent select -->
+    <section class="select" aria-label="Introduction">
+      <div class="intro">
+        <div class="kick mono"><img class="avatar" src="/rushi-avatar.jpg" alt="" width="56" height="56"><i></i>Select an agent</div>
+        <h1>Dr. Rushindra Sinha</h1>
+        <p class="lead">I build the AI systems that run my companies, and I build them in public.</p>
+        <div class="role mono">
+          <span>Co-founder · <b>Global Esports</b></span>
+          <span>Building · <b>Jeufy</b></span>
+        </div>
+      </div>
+      <div class="roster">
+          <div class="roster-head mono"><span>Five agents, one player</span><span id="pos">01 / 05</span></div>
+          <div class="tiles" role="tablist" aria-label="Pick an identity" id="tiles"></div>
+      </div>
+
+      <div class="card cut" role="tabpanel" id="panel" aria-live="polite">
+        <div class="portrait">
+          <img src="/rushi.jpg" alt="Rushindra Sinha" width="400" height="400" fetchpriority="high">
+          <div class="plate swap" id="plate"><div class="mono" id="plateRole">Agent 01</div><h2 id="plateName">Doctor</h2></div>
+        </div>
+        <div class="kit">
+          <div class="kit-head mono"><span>Abilities</span><span id="kitAgent">Agent 01</span></div>
+          <ul class="abilities swap" id="abilities"></ul>
+          <div class="kit-foot mono swap" id="kitFoot"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<div class="score game" aria-label="Career stats">
+  <div class="wrap">
+    <ul>
+      <li><div class="v">Stage 2</div><div class="l mono">VCT Pacific champions · 2026</div></li>
+      <li><div class="v">5B+</div><div class="l mono">Views made for creators + brands</div></li>
+      <li><div class="v">250K+</div><div class="l mono">Followers</div></li>
+      <li><div class="v">2,300+</div><div class="l mono">GitHub stars</div></li>
+      <li><div class="v">2× TEDx</div><div class="l mono">NMIMS '20 · Sanjivani '26</div></li>
+    </ul>
+  </div>
+</div>
+
+<div class="wrap game">
+  <!-- 2 · match history -->
+  <section class="sec" id="story">
+    <div class="sec-head">
+      <div><div class="kick mono"><i></i>Match history</div><h2>Thirty-three years, nine matches.</h2></div>
+      <div class="meta mono">1993 → now · hover to colour</div>
+    </div>
+    <ol class="matches" id="matches"></ol>
+  </section>
+
+  <!-- 3 · arsenal -->
+  <section class="sec" id="work">
+    <div class="sec-head">
+      <div><div class="kick mono"><i></i>Arsenal</div><h2>Everything I'm running right now.</h2></div>
+      <div class="meta mono"><span style="color:var(--lime)">●</span> Live &nbsp; <span style="color:var(--blue)">●</span> Building</div>
+    </div>
+    <div class="arsenal">
+      <a class="gun feat cut" href="https://jeufy.com" target="_blank" rel="noopener">
+        <div class="gun-top mono"><span class="st"><span class="dot"></span>Live · launched Oct 2026</span></div>
+        <span class="go"><svg><use href="#i-ext"/></svg></span>
+        <h3>Jeufy</h3><p>An AI games studio. Type a prompt, get a playable game. First release: Dhamaka Arena.</p>
+      </a>
+      <div class="gun cut">
+        <div class="gun-top mono"><span class="st"><span class="dot"></span>Live · since 2017</span></div>
+        <h3>Global Esports</h3><p>India's first VC-backed esports org. 1 of 10 VCT Pacific partners. 2026 Stage 2 champions.</p>
+      </div>
+      <div class="gun cut">
+        <div class="gun-top mono"><span class="st"><span class="dot"></span>Live</span></div>
+        <h3>Ares</h3><p>My AI operating system on OpenClaw. It runs my companies from a Discord command centre.</p>
+      </div>
+      <a class="gun cut" href="https://verticals.gg" target="_blank" rel="noopener">
+        <div class="gun-top mono"><span class="st wip"><span class="dot"></span>Building</span></div>
+        <span class="go"><svg><use href="#i-ext"/></svg></span>
+        <h3>Verticals.gg</h3><p>AI-made vertical short dramas. Watch them, or make your own.</p>
+      </a>
+      <a class="gun cut" href="https://thumbnail.gg" target="_blank" rel="noopener">
+        <div class="gun-top mono"><span class="st"><span class="dot"></span>Live</span></div>
+        <span class="go"><svg><use href="#i-ext"/></svg></span>
+        <h3>thumbnail.gg</h3><p>Thumbnails, generated by AI.</p>
+      </a>
+      <div class="gun cut">
+        <div class="gun-top mono"><span class="st"><span class="dot"></span>Live</span></div>
+        <h3>Mundhe Maps</h3><p>A public map of FDA-actioned Mumbai food businesses.</p>
+      </div>
+      <div class="gun cut">
+        <div class="gun-top mono"><span class="st wip"><span class="dot"></span>Building</span></div>
+        <h3>Aarees</h3><p>A creator's AI that lives inside WhatsApp.</p>
+      </div>
+      <div class="gun slot cut">
+        <div class="gun-top mono"><span class="st">Slot 08 · open</span></div>
+        <h3>Next build</h3><p>Whatever I ship next lands here.</p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- escape hatch -->
+<div class="wrap">
+  <article class="facts" aria-label="Just the facts">
+    <h1>Dr. Rushindra Sinha</h1>
+    <p class="lead">Doctor, esports founder and AI builder, based in Mumbai. I build the AI systems that run my companies, and I build them in public.</p>
+    <h2>Doctor</h2><ul>
+      <li><b>MBBS</b>, D.Y. Patil Medical College, 2014</li>
+      <li>Live-streamed surgeries on <b>Google Glass</b></li>
+      <li><b>Stanford</b> GSB × School of Medicine programme, 2017</li></ul>
+    <h2>Entrepreneur</h2><ul>
+      <li>Co-founded <b>Global Esports</b> in 2017, India's first VC-backed esports org</li>
+      <li>1 of 10 <b>VCT Pacific</b> partner teams picked by Riot</li>
+      <li><b>2026 VCT Pacific Stage 2 champions</b>, then a first VALORANT Champions, in Shanghai</li>
+      <li>Profitable while 18+ Indian rivals shut down</li></ul>
+    <h2>Builder</h2><ul>
+      <li><b>Jeufy</b>, an AI games studio: prompt to playable. Launched October 2026 (<a href="https://jeufy.com">jeufy.com</a>)</li>
+      <li><b>Ares</b>, my AI operating system on OpenClaw, runs my companies</li>
+      <li>YouTube Shorts pipeline, <b>2,300+ GitHub stars</b></li>
+      <li><b>Mundhe Maps</b>, <b>thumbnail.gg</b> (live) · <b>Verticals.gg</b>, <b>Aarees</b> (building)</li></ul>
+    <h2>Gamer</h2><ul>
+      <li>First games on a hospital computer, 1993</li>
+      <li>Ran <b>Phoenix RO</b>, a Ragnarok Online server, 2008</li>
+      <li>Sold my first game at 18</li></ul>
+    <h2>Creator</h2><ul>
+      <li><b>250K+</b> followers, <b>100M+</b> personal views, <b>5B+</b> views made for creators and brands</li>
+      <li><b>Tribeca Film Festival</b>, first place, 2014, with Mohit Israney</li>
+      <li>Two <b>TEDx</b> talks: NMIMS 2020, Sanjivani University 2026</li></ul>
+  </article>
+</div>
+
+<div class="wrap">
+  <section class="comms" id="contact">
+    <div class="kick mono"><i></i>Comms</div>
+    <a class="mail" href="mailto:sinha@rushindra.com">sinha@rushindra.com<svg><use href="#i-arrow"/></svg></a>
+    <p class="note">One inbox, read by me.</p>
+  </section>
+  <footer class="mono">
+    <span class="live"><span class="dot"></span><span class="js-clock">--:-- IST</span> · Mumbai · <span id="updated">Updated Oct 2026</span></span>
+    <button type="button" class="js-plain">Just the facts</button>
+  </footer>
+</div>
+
+<script>
+(() => {
+  /* identities: every ability is a verifiable fact */
+  const IDS = [
+    { k:"doctor", n:"Doctor", foot:"MBBS 2014 · Stanford 2017", ab:[
+      ["MBBS","D.Y. Patil Medical College, <b>2014</b>."],
+      ["Surgery, live on Google Glass","Live-streamed surgeries to the internet."],
+      ["Stanford","GSB × School of Medicine programme, <b>2017</b>."]]},
+    { k:"entrepreneur", n:"Entrepreneur", foot:"Global Esports · since 2017", ab:[
+      ["Global Esports","India's first VC-backed esports org, co-founded <b>2017</b>."],
+      ["Pacific partner","1 of 10 VCT Pacific partner teams picked by Riot."],
+      ["Stage 2 champions","<b>2026</b> VCT Pacific Stage 2, then Champions in Shanghai."]]},
+    { k:"gamer", n:"Gamer", foot:"Playing since 1993", ab:[
+      ["Spawn point","First games on a hospital computer, <b>1993</b>."],
+      ["Phoenix RO","Ran a Ragnarok Online server, <b>2008</b>."],
+      ["First sale","Sold my first game at <b>18</b>."]]},
+    { k:"builder", n:"Builder", foot:"5 live · 2 building", ab:[
+      ["Jeufy","AI games studio. Prompt to playable, launched <b>Oct 2026</b>."],
+      ["Ares","My AI operating system. It runs my companies."],
+      ["Shorts pipeline","Open source, <b>2,300+</b> GitHub stars."]]},
+    { k:"creator", n:"Creator", foot:"5B+ views made for others", ab:[
+      ["Audience","<b>250K+</b> followers, <b>100M+</b> personal views."],
+      ["Tribeca","First place, Tribeca Film Festival, <b>2014</b>."],
+      ["2× TEDx","NMIMS <b>2020</b> · Sanjivani University <b>2026</b>."]]}
+  ];
+  const KEYS = ["Q","E","C"];
+  const $ = id => document.getElementById(id);
+  const tiles = $("tiles"), abl = $("abilities"), swaps = [$("plate"), abl, $("kitFoot")];
+  let cur = -1;
+
+  function render(i){
+    $("plateName").textContent = IDS[i].n;
+    $("plateRole").textContent = "Agent 0" + (i+1);
+    abl.innerHTML = IDS[i].ab.map((a,j) => `<li><span class="key">${KEYS[j]}</span><div><h3>${a[0]}</h3><p>${a[1]}</p></div></li>`).join("");
+    $("kitFoot").textContent = IDS[i].foot;
+    $("pos").textContent = "0" + (i+1) + " / 05";
+    $("kitAgent").textContent = IDS[i].n;
+  }
+  function pick(i, focus){
+    if (i === cur) return;
+    [...tiles.children].forEach((t,j) => { t.setAttribute("aria-selected", i===j); t.tabIndex = i===j ? 0 : -1; });
+    if (focus) tiles.children[i].focus();
+    if (cur < 0 || matchMedia("(prefers-reduced-motion: reduce)").matches){ render(i); cur = i; return; }
+    cur = i;
+    swaps.forEach(s => s.classList.add("out"));
+    setTimeout(() => { render(i); swaps.forEach(s => s.classList.remove("out")); }, 160);
+  }
+  IDS.forEach((d,i) => {
+    const b = document.createElement("button");
+    b.className = "tile"; b.type = "button"; b.setAttribute("role","tab"); b.id = "t-" + d.k;
+    b.setAttribute("aria-controls","panel");
+    b.innerHTML = `<svg aria-hidden="true"><use href="#i-${d.k}"/></svg><span class="mono">${d.n}</span>`;
+    b.addEventListener("click", () => pick(i));
+    tiles.appendChild(b);
+  });
+  tiles.addEventListener("keydown", e => {
+    const d = {ArrowRight:1, ArrowDown:1, ArrowLeft:-1, ArrowUp:-1}[e.key];
+    if (d){ e.preventDefault(); pick((cur + d + IDS.length) % IDS.length, true); }
+  });
+  pick(0);
+
+  /* match history: thumbnails are crops of the 3x3 ink life grid */
+  const M = [
+    ["1993", 0, "Spawn point", "First games, on a hospital computer.", "First game"],
+    ["2008", 1, "Ran Phoenix RO", "My own Ragnarok Online server.", "Server up"],
+    ["2014", 2, "Became a doctor", "MBBS, then live-streamed surgeries on Google Glass.", "MBBS", 1],
+    ["2014", 3, "Tribeca Film Festival", "First place, with Mohit Israney.", "1st place", 1],
+    ["2020", 4, "TEDx NMIMS", "The first of two. The second came at Sanjivani University in 2026.", "On stage"],
+    ["2026", 5, "VCT Pacific Stage 2", "Global Esports, co-founded 2017, won Stage 2 and played Champions Shanghai.", "Champions", 1],
+    ["2026", 6, "Ares goes live", "An AI operating system that runs my companies from Discord.", "Live"],
+    ["2026", 8, "Jeufy launches", "Prompt to playable. First game: Dhamaka Arena.", "Live", 1],
+    ["Now", 7, "Still a gamer", "Games are where all of this started.", "In queue"]
+  ];
+  $("matches").innerHTML = M.map(m => {
+    const c = m[1] % 3, r = Math.floor(m[1] / 3);
+    return `<li><span class="yr">${m[0]}</span><div class="thumb" role="img" aria-label="Ink drawing: ${m[2]}" style="background-position:${c*50}% ${r*50}%"></div><div><h3>${m[2]}</h3><p>${m[3]}</p></div><span class="res mono${m[5] ? " win" : ""}">${m[4]}</span></li>`;
+  }).join("");
+
+  /* live signals */
+  const clocks = document.querySelectorAll(".js-clock");
+  const fmt = new Intl.DateTimeFormat("en-GB", {hour:"2-digit", minute:"2-digit", hour12:false, timeZone:"Asia/Kolkata"});
+  const tick = () => clocks.forEach(c => c.textContent = fmt.format(new Date()) + " IST");
+  tick(); setInterval(tick, 15000);
+  const UPDATED = new Date("2026-10-12T23:30:00+05:30");
+  const days = Math.max(0, Math.floor((Date.now() - UPDATED) / 864e5));
+  $("updated").textContent = days === 0 ? "Updated today" : "Updated " + days + (days === 1 ? " day" : " days") + " ago";
+
+  /* escape hatch: plain one-pager; ?plain links straight to it */
+  const btns = document.querySelectorAll(".js-plain");
+  function setPlain(on){
+    document.body.classList.toggle("plain", on);
+    btns.forEach(b => { b.textContent = on ? "Back to the game" : "Just the facts"; b.setAttribute("aria-pressed", on); });
+  }
+  btns.forEach(b => b.addEventListener("click", () => { setPlain(!document.body.classList.contains("plain")); scrollTo(0,0); }));
+  setPlain(/[?&]plain\b/.test(location.search));
+})();
+</script>
+</body>
+</html>
