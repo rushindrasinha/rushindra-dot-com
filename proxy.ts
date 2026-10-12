@@ -27,6 +27,7 @@ const KNOWN_PATHS = new Set([
   "/favicon.ico",
   "/icon.svg",
   "/opengraph-image",
+  "/new",
 ]);
 
 function wantsMarkdown(accept: string | null): boolean {
