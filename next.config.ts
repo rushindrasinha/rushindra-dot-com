@@ -9,6 +9,8 @@ const nextConfig: NextConfig = {
       { source: "/clean", destination: "/clean/index.html" },
       { source: "/v2", destination: "/v2/index.html" },
       { source: "/v3", destination: "/v3/index.html" },
+      // /ares: public lead-magnet page for the "comment ARES" Instagram campaign (indexed, unlike the previews)
+      { source: "/ares", destination: "/ares/index.html" },
     ];
   },
   async headers() {

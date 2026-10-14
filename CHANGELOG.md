@@ -4,6 +4,16 @@ All changes are logged here. Format: version → date → what changed → who a
 
 ---
 
+## [1.11.0] — 2026-10-14 (IST), requested by Rushi in #builds 21:31 IST ("host em on rushindra.com/ares")
+
+**/ares: public page for the "comment ARES" Instagram campaign. Homepage unchanged. All work by Ares.**
+
+### Added
+- /ares (public/ares/index.html, rewrite in next.config.ts): indexed landing page with the three free guides (Start Here 3 pp, OpenClaw Bible 18 pp, Full Stack 6 pp), a Follow @rushindrasinha button, and links to the GitHub repo and the homepage.
+- /ares/*.pdf: the final 29 Sep review-pass PDFs (privacy scan clean 21:31 IST: no emails, phones, IPs or keys).
+
+---
+
 ## [1.8.0-preview] — 2026-10-12 (IST), approved by Rushi in #web-dev 21:33 IST ("go ... add it to rushindra.com/new")
 
 **v2 combined redesign staged at /new for a feel-test. Homepage unchanged. All work by Ares.**
