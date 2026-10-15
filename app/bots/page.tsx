@@ -16,8 +16,8 @@ export const metadata: Metadata = {
 };
 
 const START_HERE: { slug: string; when: string; why: string }[] = [
-  { slug: "maker", when: "Want your own", why: "Describe a job and it builds a focused bot for it. Nothing gets created until you say yes." },
-  { slug: "cos", when: "Running a few", why: "A chief of staff that audits your bots every weekday and watches your usage limits." },
+  { slug: "bot-maker", when: "Want your own", why: "Describe a job and it builds a focused bot for it. Nothing gets created until you say yes." },
+  { slug: "chief-of-staff", when: "Running a few", why: "Audits your bots every weekday, watches your usage limits and tracks handoffs." },
   { slug: "clip-finder", when: "Quick win", why: "Paste one transcript, get 5 to 8 ranked clips with hooks and captions. Nothing to connect." },
 ];
 
@@ -86,7 +86,7 @@ export default function BotsPage() {
           </div>
           <div>
             <p className={s.lead}>
-              Every bot I&apos;ve built, from clipping VODs to closing brand deals. Open one in Grok and you get
+              Every bot I&apos;ve built, from clipping VODs and closing brand deals to planning your week of meals. Open one in Grok and you get
               your own copy to run and change. <strong>Most of them draft first and ask before they act.</strong>
             </p>
             <div className={s.stats}>

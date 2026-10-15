@@ -4,6 +4,22 @@ All changes are logged here. Format: version → date → what changed → who a
 
 ---
 
+## [1.13.0] — 2026-10-15 (IST), requested by Rushi in #web-dev 17:00 IST ("Please update the website accordingly")
+
+**/bots grows from 24 to 41 Grok Bots, names synced to the published templates. All work by Ares.**
+
+### Added
+- 17 new bots from Rushi's sheet (grok-bot-directory.xlsx): Review Gate, Inbox Runner, Ledger Keeper, Morning Brief, Nudge, Admin Runner, Trip Planner, Meal Planner, Wellness Coach, Family Projects, Study Tutor, Job Desk, Back Office, Market Researcher, Prospect Finder, Call Desk, System Watch. Name and description taken from each live x.ai template page (fetched 17:00 IST), not from the handoff placeholders.
+- Categories Personal and Business (10 total). Order follows the sheet.
+- Aliases: 13 renamed bots keep their old URLs. /bots/<old> 308s to the new slug (next.config.ts redirects built from data/bots.json); /go/<old> still reaches the bot.
+
+### Changed
+- 13 renames to the published template names: COS -> Chief of Staff, Maker -> Bot Maker, Catalog -> Plugin Installer, Merch Scout -> Merch Buyer Finder, Merch Launch -> Merch Launch Designer, Publicist -> PR Desk, Matchday -> Match Briefing, Brand Deals -> Brand Deal Manager, Reel Trio -> Anime Reel Maker, Packaging -> Title & Thumbnail Scorer, Seed Hunter -> Seed Frame Picker, Builder -> Website Builder, BookmarkDigest -> Bookmark Library. Slugs follow the names.
+- Bot Maker and Chief of Staff descriptions updated to the live wording.
+- Bot pages with no published use list skip the empty "What it does" panel.
+
+---
+
 ## [1.12.1] — 2026-10-15 (IST), fixes from Grok's review forwarded by Rushi in #web-dev 15:59 IST , pushed 16:03 IST with the Web Analytics enable redeploy (Rushi enabled it 16:02 IST)
 
 ### Changed

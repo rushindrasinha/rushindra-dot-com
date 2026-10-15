@@ -1,13 +1,13 @@
 import { NextRequest, NextResponse } from "next/server";
 import { track } from "@vercel/analytics/server";
-import { getBot } from "../../lib/bots";
+import { getBotOrAlias } from "../../lib/bots";
 
 // rushindra.com/go/<slug>: the short, shareable link for every bot. Logs the
 // click, then 302s to the bot's template page. Unknown slugs land on
 // /bots?missing=<slug>, which shows a notice, so a dead link still finds the directory.
 export async function GET(request: NextRequest, ctx: { params: Promise<{ slug: string }> }) {
   const { slug } = await ctx.params;
-  const bot = getBot(slug);
+  const bot = getBotOrAlias(slug);
   if (!bot || bot.status !== "live") {
     const to = new URL("/bots", request.url);
     to.searchParams.set("missing", slug.slice(0, 60));

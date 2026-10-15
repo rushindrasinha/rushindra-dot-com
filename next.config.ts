@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import bots from "./data/bots.json";
 
 const nextConfig: NextConfig = {
   // /new (full combo), /clean (calm cut) and /v2 + /v3 (rebuilds from the Zara-thread study) are static previews
@@ -12,6 +13,12 @@ const nextConfig: NextConfig = {
       // /ares: public lead-magnet page for the "comment ARES" Instagram campaign (indexed, unlike the previews)
       { source: "/ares", destination: "/ares/index.html" },
     ];
+  },
+  // Renamed bots keep their old /bots/<slug> URLs working (/go handles aliases itself).
+  async redirects() {
+    return bots.flatMap((b: { slug: string; aliases?: string[] }) =>
+      (b.aliases ?? []).map((a) => ({ source: `/bots/${a}`, destination: `/bots/${b.slug}`, permanent: true })),
+    );
   },
   async headers() {
     return [

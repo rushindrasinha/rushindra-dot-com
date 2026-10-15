@@ -6,6 +6,7 @@ import raw from "../../data/bots.json";
 
 export type Bot = {
   slug: string; // never changes after launch: /go/<slug> links are shared publicly
+  aliases: string[]; // old slugs from before a rename; /go and /bots redirect them to slug
   name: string;
   oneLiner: string;
   description: string;
@@ -31,7 +32,9 @@ export const CATEGORIES: Record<string, { color: string; blurb: string }> = {
   Operations: { color: "#9cff57", blurb: "Run your bots and your day" },
   Engineering: { color: "#4fe3c1", blurb: "Ship code and sites" },
   Commerce: { color: "#ff8a5c", blurb: "Sell merch" },
-  Productivity: { color: "#ffe066", blurb: "Inbox, bookmarks and memory" },
+  Productivity: { color: "#ffe066", blurb: "Inbox, money, admin and memory" },
+  Personal: { color: "#ff6b6b", blurb: "Trips, meals, study, fitness and family" },
+  Business: { color: "#d4b483", blurb: "Run and grow a small business" },
 };
 
 const SLUG = /^[a-z0-9]+(-[a-z0-9]+)*$/;
@@ -52,17 +55,32 @@ function validate(list: unknown[]): Bot[] {
     if (!["live", "coming-soon", "hidden"].includes(b.status)) fail("bad status");
     if (b.status === "live" && !/^https:\/\//.test(b.link)) fail("live bot needs an https link");
     if (!Array.isArray(b.tags) || !Array.isArray(b.uses)) fail("tags and uses must be arrays");
+    if (!Array.isArray(b.aliases)) fail("aliases must be an array");
+    for (const a of b.aliases) {
+      if (!SLUG.test(a) || seen.has(a)) fail(`alias "${a}" is malformed or already taken`);
+      seen.add(a);
+    }
     return b;
   });
 }
 
 export const ALL_BOTS = validate(raw as unknown[]);
+{
+  const slugs = new Set(ALL_BOTS.map((b) => b.slug));
+  const clash = ALL_BOTS.flatMap((b) => b.aliases).find((a) => slugs.has(a));
+  if (clash) throw new Error(`data/bots.json: alias "${clash}" is also a live slug`);
+}
 
 // What the public sees, in file order. Featured bots get the "Start here" row instead of the top of the grid.
 export const BOTS = ALL_BOTS.filter((b) => b.status !== "hidden");
 
 export function getBot(slug: string): Bot | undefined {
   return BOTS.find((b) => b.slug === slug);
+}
+
+// For /go: a link shared before a rename still reaches the bot.
+export function getBotOrAlias(slug: string): Bot | undefined {
+  return getBot(slug) ?? BOTS.find((b) => b.aliases.includes(slug));
 }
 
 export function related(bot: Bot, n = 3): Bot[] {

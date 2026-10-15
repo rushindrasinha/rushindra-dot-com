@@ -36,6 +36,8 @@ export default async function BotPage({ params }: { params: Promise<{ slug: stri
   const rest = bot.description.startsWith(bot.oneLiner)
     ? bot.description.slice(bot.oneLiner.length).trim()
     : bot.description;
+  // Newer templates publish one short description and no use list; skip the empty panel.
+  const hasDetail = bot.uses.length > 0 || Boolean(rest);
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -79,16 +81,20 @@ export default async function BotPage({ params }: { params: Promise<{ slug: stri
             <CopyLink slug={bot.slug} className={s.share} />
           </div>
 
-          <div className={s.facts}>
-            <section className={s.panel}>
-              <h2>What it does</h2>
-              <ul className={s.uses}>
-                {bot.uses.map((u) => (
-                  <li key={u}>{u}</li>
-                ))}
-              </ul>
-              {rest && <p style={{ marginTop: 20 }}>{rest}</p>}
-            </section>
+          <div className={s.facts} style={hasDetail ? undefined : { gridTemplateColumns: "minmax(0, 1fr)", maxWidth: 520 }}>
+            {hasDetail && (
+              <section className={s.panel}>
+                <h2>What it does</h2>
+                {bot.uses.length > 0 && (
+                  <ul className={s.uses}>
+                    {bot.uses.map((u) => (
+                      <li key={u}>{u}</li>
+                    ))}
+                  </ul>
+                )}
+                {rest && <p style={{ marginTop: bot.uses.length ? 20 : 0 }}>{rest}</p>}
+              </section>
+            )}
 
             <section className={s.panel}>
               <h2>Before you open it</h2>
