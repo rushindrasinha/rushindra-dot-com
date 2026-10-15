@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef, Fragment, createContext, useContext } from "react";
 import { siX, siInstagram, siYoutube, siGithub, siTwitch } from "simple-icons";
+import Link from "next/link";
 import CursorFX from "./components/CursorFX";
 
 // ============================================================================
@@ -607,7 +608,7 @@ export default function Home() {
         </button>
 
         <div style={{ display: "flex", alignItems: "center", gap: 20 }}>
-          <div className="nav-links" style={{ display: "flex", gap: 28, fontSize: 12, fontWeight: 500, letterSpacing: "1.4px", textTransform: "uppercase" }}>
+          <div className="nav-links" style={{ display: "flex", gap: 28, fontSize: 12, fontWeight: 500, letterSpacing: "1.4px", fontFamily: F.body }}>
             {NAV_LINKS.map(([label, id]) => (
               <button
                 key={id}
@@ -631,6 +632,19 @@ export default function Home() {
               </button>
             ))}
           </div>
+          {/* Outside .nav-links on purpose: that row is hidden on phones, /bots is not. */}
+          <Link
+            href="/bots"
+            style={{ color: C.textMid, textDecoration: "none", transition: "color 0.2s", fontSize: 12, fontWeight: 500, letterSpacing: "1.4px", fontFamily: F.body }}
+            onMouseEnter={(e) => {
+              (e.target as HTMLElement).style.color = C.accent;
+            }}
+            onMouseLeave={(e) => {
+              (e.target as HTMLElement).style.color = C.textMid;
+            }}
+          >
+            Bots
+          </Link>
           <div className="nav-socials" style={{ alignItems: "center", paddingLeft: 18, borderLeft: `1px solid ${C.border}` }}>
             <SocialIcons size={15} gap={4} />
           </div>
