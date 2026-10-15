@@ -1,0 +1,681 @@
+[
+  {
+    "slug": "cos",
+    "name": "COS",
+    "oneLiner": "A chief of staff for your Grok bot fleet.",
+    "description": "A chief of staff for your Grok bot fleet. It audits your bots every weekday, watches usage limits, tracks handoffs, and turns your asks into next moves without sending or spending anything until you say yes.",
+    "platform": "Grok Bot",
+    "link": "https://x.ai/bot/5LLG1GeafXSzpKW0KRkSx",
+    "category": "Operations",
+    "tags": [
+      "fleet",
+      "audits",
+      "usage-limits",
+      "handoffs"
+    ],
+    "emoji": "🧭",
+    "status": "live",
+    "uses": [
+      "Weekday audit of every bot in your fleet",
+      "Watch usage limits",
+      "Track handoffs between bots",
+      "Turn your asks into next moves, nothing sent or spent without your yes"
+    ],
+    "needs": [
+      "Your other Grok bots"
+    ],
+    "runsOnItsOwn": "weekday fleet audit, usage-limit watch",
+    "featured": true,
+    "addedAt": "2026-10-15",
+    "asksFirst": true
+  },
+  {
+    "slug": "merch-launch",
+    "name": "Merch Launch",
+    "oneLiner": "Makes static key visuals, posters, CTA frames and a sell-focused launch plan for esports or brand merch drops.",
+    "description": "Makes static key visuals, posters, CTA frames and a sell-focused launch plan for esports or brand merch drops.",
+    "platform": "Grok Bot",
+    "link": "https://x.ai/bot/qQLMH56oXsGvfgUiTBNEm",
+    "category": "Commerce",
+    "tags": [
+      "merch",
+      "key-visuals",
+      "posters",
+      "launch-plan"
+    ],
+    "emoji": "👕",
+    "status": "live",
+    "uses": [
+      "Static key visuals for a merch drop",
+      "Posters and CTA frames",
+      "A sell-focused launch plan"
+    ],
+    "needs": null,
+    "runsOnItsOwn": null,
+    "featured": false,
+    "addedAt": "2026-10-15",
+    "asksFirst": false
+  },
+  {
+    "slug": "game-polish",
+    "name": "Game Polish",
+    "oneLiner": "QA and polish bot for Astrocade game creators.",
+    "description": "QA and polish bot for Astrocade game creators. It playtests your live games, fixes them with Studio wishes, checks each fix against a ship gate, and publishes improvements that drive more plays and longer sessions.",
+    "platform": "Grok Bot",
+    "link": "https://x.ai/bot/kZv4sb4IAc-NQ1IaFX7ya",
+    "category": "Games",
+    "tags": [
+      "astrocade",
+      "qa",
+      "playtesting",
+      "game-fixes"
+    ],
+    "emoji": "✨",
+    "status": "live",
+    "uses": [
+      "Playtest your live Astrocade games",
+      "Fix issues with Studio wishes",
+      "Check each fix against a ship gate",
+      "Publish improvements for more plays and longer sessions"
+    ],
+    "needs": [
+      "Astrocade account"
+    ],
+    "runsOnItsOwn": null,
+    "featured": false,
+    "addedAt": "2026-10-15",
+    "asksFirst": false
+  },
+  {
+    "slug": "clip-finder",
+    "name": "Clip Finder",
+    "oneLiner": "Turns one transcript or set of VOD notes into a ranked list of 5–8 short-form clip candidates, each with a hook, a caption, and a vertical framing note.",
+    "description": "Turns one transcript or set of VOD notes into a ranked list of 5–8 short-form clip candidates, each with a hook, a caption, and a vertical framing note. It only writes drafts and never edits or posts.",
+    "platform": "Grok Bot",
+    "link": "https://x.ai/bot/979LlPOSWq-GZA9UVF3KE",
+    "category": "Content",
+    "tags": [
+      "clips",
+      "short-form",
+      "transcripts",
+      "hooks"
+    ],
+    "emoji": "🎬",
+    "status": "live",
+    "uses": [
+      "Rank 5–8 clip candidates from a transcript or VOD notes",
+      "Write a hook and caption for each",
+      "Add a vertical framing note"
+    ],
+    "needs": [],
+    "runsOnItsOwn": null,
+    "featured": true,
+    "addedAt": "2026-10-15",
+    "asksFirst": true
+  },
+  {
+    "slug": "x-voice-drafter",
+    "name": "X Voice Drafter",
+    "oneLiner": "Drafts X posts, threads, Articles, and reply ideas in your own voice, learned from your past posts.",
+    "description": "Drafts X posts, threads, Articles, and reply ideas in your own voice, learned from your past posts. Drafts only, so you always press post.",
+    "platform": "Grok Bot",
+    "link": "https://x.ai/bot/G4qRM8FPaJghVRD6CwgW-",
+    "category": "Content",
+    "tags": [
+      "x",
+      "posts",
+      "threads",
+      "voice"
+    ],
+    "emoji": "✍️",
+    "status": "live",
+    "uses": [
+      "Draft X posts in your voice",
+      "Draft threads and Articles",
+      "Suggest reply ideas"
+    ],
+    "needs": [
+      "X"
+    ],
+    "runsOnItsOwn": null,
+    "featured": false,
+    "addedAt": "2026-10-15",
+    "asksFirst": true
+  },
+  {
+    "slug": "story-partner",
+    "name": "Story Partner",
+    "oneLiner": "A daily story partner for serialized fiction.",
+    "description": "A daily story partner for serialized fiction. It keeps long-term world and character memory and writes beat sheets in visual, blocking-level language that video-prompt tools can use directly. Drafts only.",
+    "platform": "Grok Bot",
+    "link": "https://x.ai/bot/uWg91-u-YqFABaCfstwa5",
+    "category": "Content",
+    "tags": [
+      "fiction",
+      "serialized",
+      "beat-sheets",
+      "worldbuilding"
+    ],
+    "emoji": "📖",
+    "status": "live",
+    "uses": [
+      "Daily serialized-fiction partner",
+      "Long-term world and character memory",
+      "Beat sheets in visual, blocking-level language for video-prompt tools"
+    ],
+    "needs": [],
+    "runsOnItsOwn": null,
+    "featured": false,
+    "addedAt": "2026-10-15",
+    "asksFirst": true
+  },
+  {
+    "slug": "local-business-hunter",
+    "name": "Local Business Hunter",
+    "oneLiner": "Finds local businesses with weak or missing websites, builds fact-only preview pages, and drafts owner outreach.",
+    "description": "Finds local businesses with weak or missing websites, builds fact-only preview pages, and drafts owner outreach. Drafts only: never mails, publishes, or spends without your yes.",
+    "platform": "Grok Bot",
+    "link": "https://x.ai/bot/p6iqse9EdG8h83c8HiaVT",
+    "category": "Growth",
+    "tags": [
+      "local-business",
+      "websites",
+      "outreach",
+      "leads"
+    ],
+    "emoji": "📍",
+    "status": "live",
+    "uses": [
+      "Find local businesses with weak or missing websites",
+      "Build fact-only preview pages",
+      "Draft owner outreach"
+    ],
+    "needs": [
+      "Web search"
+    ],
+    "runsOnItsOwn": null,
+    "featured": false,
+    "addedAt": "2026-10-15",
+    "asksFirst": true
+  },
+  {
+    "slug": "claude-code-engineer",
+    "name": "Claude Code Engineer",
+    "oneLiner": "A frontend and architecture engineer that runs Claude Code CLI for UI, design polish, and quality-critical multi-file code.",
+    "description": "A frontend and architecture engineer that runs Claude Code CLI for UI, design polish, and quality-critical multi-file code. It always reports back with a PR link and test evidence, or the reason it's blocked.",
+    "platform": "Grok Bot",
+    "link": "https://x.ai/bot/0IP9EgKeDQabOeAysLzDG",
+    "category": "Engineering",
+    "tags": [
+      "claude-code",
+      "frontend",
+      "pull-requests",
+      "ui"
+    ],
+    "emoji": "🛠️",
+    "status": "live",
+    "uses": [
+      "UI and design polish",
+      "Quality-critical multi-file code",
+      "Reports back with a PR link and test evidence, or why it's blocked"
+    ],
+    "needs": [
+      "Claude Code CLI",
+      "GitHub"
+    ],
+    "runsOnItsOwn": null,
+    "featured": false,
+    "addedAt": "2026-10-15",
+    "asksFirst": false
+  },
+  {
+    "slug": "game-growth",
+    "name": "Game Growth",
+    "oneLiner": "Grows plays for indie game creators: measures your games' plays every few hours, spots movers, and drafts social posts for you to publish.",
+    "description": "Grows plays for indie game creators: measures your games' plays every few hours, spots movers, and drafts social posts for you to publish. Drafts only, never posts or spends.",
+    "platform": "Grok Bot",
+    "link": "https://x.ai/bot/TXJg9sNHRWRFKMRZbNSzI",
+    "category": "Games",
+    "tags": [
+      "indie-games",
+      "plays",
+      "analytics",
+      "social-posts"
+    ],
+    "emoji": "📈",
+    "status": "live",
+    "uses": [
+      "Measure your games' plays every few hours",
+      "Spot movers",
+      "Draft social posts for you to publish"
+    ],
+    "needs": [
+      "Your game platform",
+      "X"
+    ],
+    "runsOnItsOwn": "play measurement every few hours",
+    "featured": false,
+    "addedAt": "2026-10-15",
+    "asksFirst": true
+  },
+  {
+    "slug": "seed-hunter",
+    "name": "Seed Hunter",
+    "oneLiner": "Finds, generates, and scores the right first frame for AI video, so character, style, and composition are locked before you move to image-to-video.",
+    "description": "Finds, generates, and scores the right first frame for AI video, so character, style, and composition are locked before you move to image-to-video. Built for creators and teams making anime or cinematic genAI video.",
+    "platform": "Grok Bot",
+    "link": "https://x.ai/bot/JVP9b5g3yZPBuAXH08o_J",
+    "category": "Creative",
+    "tags": [
+      "ai-video",
+      "first-frame",
+      "image-to-video",
+      "anime"
+    ],
+    "emoji": "🌱",
+    "status": "live",
+    "uses": [
+      "Find and generate candidate first frames for AI video",
+      "Score frames for character, style and composition",
+      "Lock the frame before image-to-video"
+    ],
+    "needs": [
+      "AI image generation"
+    ],
+    "runsOnItsOwn": null,
+    "featured": false,
+    "addedAt": "2026-10-15",
+    "asksFirst": false
+  },
+  {
+    "slug": "giveaway-judge",
+    "name": "Giveaway Judge",
+    "oneLiner": "Picks fair, provable winners for giveaways run in X post replies.",
+    "description": "Picks fair, provable winners for giveaways run in X post replies. It screens out bots, farmers, and new accounts, then draws a winner and backups with a recorded seed.",
+    "platform": "Grok Bot",
+    "link": "https://x.ai/bot/NtwjQGqfkKZfS8EwROwzF",
+    "category": "Growth",
+    "tags": [
+      "giveaways",
+      "x-replies",
+      "fair-draw",
+      "anti-bot"
+    ],
+    "emoji": "🎁",
+    "status": "live",
+    "uses": [
+      "Pick winners from X post replies",
+      "Screen out bots, farmers and new accounts",
+      "Draw a winner and backups with a recorded seed"
+    ],
+    "needs": [
+      "X"
+    ],
+    "runsOnItsOwn": null,
+    "featured": false,
+    "addedAt": "2026-10-15",
+    "asksFirst": false
+  },
+  {
+    "slug": "brand-deals",
+    "name": "Brand Deals",
+    "oneLiner": "Runs a sponsor or brand deal from closed terms to delivered content.",
+    "description": "Runs a sponsor or brand deal from closed terms to delivered content. It tracks deliverables, deadlines and views, and drafts every brand message for your approval.",
+    "platform": "Grok Bot",
+    "link": "https://x.ai/bot/B0VubrnMfh-27HXljMwr6",
+    "category": "Growth",
+    "tags": [
+      "sponsorships",
+      "deliverables",
+      "deadlines",
+      "brand-messages"
+    ],
+    "emoji": "🤝",
+    "status": "live",
+    "uses": [
+      "Run a deal from closed terms to delivered content",
+      "Track deliverables, deadlines and views",
+      "Draft every brand message for your approval"
+    ],
+    "needs": null,
+    "runsOnItsOwn": null,
+    "featured": false,
+    "addedAt": "2026-10-15",
+    "asksFirst": true
+  },
+  {
+    "slug": "catalog",
+    "name": "Catalog",
+    "oneLiner": "Installs and tracks Grok Bot marketplace plugins and community skills from catalogs you point it at, and comes with a starter set of everyday playbooks.",
+    "description": "Installs and tracks Grok Bot marketplace plugins and community skills from catalogs you point it at, and comes with a starter set of everyday playbooks.",
+    "platform": "Grok Bot",
+    "link": "https://x.ai/bot/-276Z7jMyJIwHNkBinM_U",
+    "category": "Operations",
+    "tags": [
+      "plugins",
+      "skills",
+      "marketplace",
+      "playbooks"
+    ],
+    "emoji": "🗂️",
+    "status": "live",
+    "uses": [
+      "Install Grok Bot marketplace plugins and community skills",
+      "Track installed items from catalogs you point it at",
+      "Starter set of everyday playbooks"
+    ],
+    "needs": [],
+    "runsOnItsOwn": null,
+    "featured": false,
+    "addedAt": "2026-10-15",
+    "asksFirst": false
+  },
+  {
+    "slug": "builder",
+    "name": "Builder",
+    "oneLiner": "Turns a brief or static preview into a Next.js + Tailwind site on a private Vercel preview URL, with phone and desktop screenshots.",
+    "description": "Turns a brief or static preview into a Next.js + Tailwind site on a private Vercel preview URL, with phone and desktop screenshots. Never goes to production or contacts clients without your yes.",
+    "platform": "Grok Bot",
+    "link": "https://x.ai/bot/EpVfIyywyrz5z6HJhMNnE",
+    "category": "Engineering",
+    "tags": [
+      "nextjs",
+      "tailwind",
+      "vercel",
+      "websites"
+    ],
+    "emoji": "🏗️",
+    "status": "live",
+    "uses": [
+      "Turn a brief or static preview into a Next.js + Tailwind site",
+      "Deploy to a private Vercel preview URL",
+      "Phone and desktop screenshots"
+    ],
+    "needs": [
+      "Vercel"
+    ],
+    "runsOnItsOwn": null,
+    "featured": false,
+    "addedAt": "2026-10-15",
+    "asksFirst": true
+  },
+  {
+    "slug": "bookmarkdigest",
+    "name": "BookmarkDigest",
+    "oneLiner": "Turns your X bookmarks into a knowledge base and sends short daily, weekly, and monthly digests of what's worth acting on.",
+    "description": "Turns your X bookmarks into a knowledge base and sends short daily, weekly, and monthly digests of what's worth acting on. For people who bookmark freely and never go back.",
+    "platform": "Grok Bot",
+    "link": "https://x.ai/bot/JGrvSf9W9hUX2UUOGSZe4",
+    "category": "Productivity",
+    "tags": [
+      "x-bookmarks",
+      "digests",
+      "knowledge-base"
+    ],
+    "emoji": "🔖",
+    "status": "live",
+    "uses": [
+      "Turn X bookmarks into a knowledge base",
+      "Daily, weekly and monthly digests",
+      "Surface what's worth acting on"
+    ],
+    "needs": [
+      "X bookmarks"
+    ],
+    "runsOnItsOwn": "daily, weekly and monthly digests",
+    "featured": false,
+    "addedAt": "2026-10-15",
+    "asksFirst": false
+  },
+  {
+    "slug": "reel-trio",
+    "name": "Reel Trio",
+    "oneLiner": "Turns a locked visual style into three distinct 12–15s anime-style reels: three different stories using the same characters and world, rendered image-to-video on Seedance.",
+    "description": "Turns a locked visual style into three distinct 12–15s anime-style reels: three different stories using the same characters and world, rendered image-to-video on Seedance. Good for brand and product launch content.",
+    "platform": "Grok Bot",
+    "link": "https://x.ai/bot/aYq96OrqKHm6D0mspeJ32",
+    "category": "Creative",
+    "tags": [
+      "anime",
+      "reels",
+      "seedance",
+      "image-to-video"
+    ],
+    "emoji": "🎞️",
+    "status": "live",
+    "uses": [
+      "Three 12–15s anime-style reels from one locked style",
+      "Same characters and world, three stories",
+      "Image-to-video on Seedance"
+    ],
+    "needs": [
+      "Seedance"
+    ],
+    "runsOnItsOwn": null,
+    "featured": false,
+    "addedAt": "2026-10-15",
+    "asksFirst": false
+  },
+  {
+    "slug": "packaging",
+    "name": "Packaging",
+    "oneLiner": "Scores a video, post, or game title and thumbnail before anyone hits publish.",
+    "description": "Scores a video, post, or game title and thumbnail before anyone hits publish. Drafts only: a scorecard, title rewrites and thumbnail concepts in words.",
+    "platform": "Grok Bot",
+    "link": "https://x.ai/bot/7zBcDXgh_KABZmS33RDDJ",
+    "category": "Content",
+    "tags": [
+      "titles",
+      "thumbnails",
+      "scorecard",
+      "pre-publish"
+    ],
+    "emoji": "🏷️",
+    "status": "live",
+    "uses": [
+      "Score a video, post or game title and thumbnail before publishing",
+      "Title rewrites",
+      "Thumbnail concepts in words"
+    ],
+    "needs": [],
+    "runsOnItsOwn": null,
+    "featured": false,
+    "addedAt": "2026-10-15",
+    "asksFirst": true
+  },
+  {
+    "slug": "matchday",
+    "name": "Matchday",
+    "oneLiner": "Turns public esports match data into cited, approval-ready content packs, and builds travel-day sheets for team trips.",
+    "description": "Turns public esports match data into cited, approval-ready content packs, and builds travel-day sheets for team trips. For esports orgs and creators who want verified matchday drafts.",
+    "platform": "Grok Bot",
+    "link": "https://x.ai/bot/WFQlmFH_QcBNBb8rxvXqV",
+    "category": "Content",
+    "tags": [
+      "esports",
+      "match-data",
+      "content-packs",
+      "travel"
+    ],
+    "emoji": "🏆",
+    "status": "live",
+    "uses": [
+      "Cited, approval-ready matchday content packs from public esports data",
+      "Travel-day sheets for team trips"
+    ],
+    "needs": [],
+    "runsOnItsOwn": null,
+    "featured": false,
+    "addedAt": "2026-10-15",
+    "asksFirst": true
+  },
+  {
+    "slug": "vault",
+    "name": "Vault",
+    "oneLiner": "A second brain you dump links, files, notes and half-ideas into.",
+    "description": "A second brain you dump links, files, notes and half-ideas into. It stores, tags and connects them, absorbs useful techniques into its own skills, and helps you brainstorm.",
+    "platform": "Grok Bot",
+    "link": "https://x.ai/bot/CSWEfVkueVjSweBiLrGQh",
+    "category": "Productivity",
+    "tags": [
+      "second-brain",
+      "notes",
+      "links",
+      "brainstorming"
+    ],
+    "emoji": "🔐",
+    "status": "live",
+    "uses": [
+      "Dump links, files, notes and half-ideas",
+      "Store, tag and connect them",
+      "Absorb useful techniques into its own skills",
+      "Brainstorm with you"
+    ],
+    "needs": null,
+    "runsOnItsOwn": null,
+    "featured": false,
+    "addedAt": "2026-10-15",
+    "asksFirst": false
+  },
+  {
+    "slug": "subscription-tracker",
+    "name": "Subscription Tracker",
+    "oneLiner": "Tracks your subscriptions and recurring spend from your email.",
+    "description": "Tracks your subscriptions and recurring spend from your email. It keeps one spreadsheet ledger and sends daily alerts, weekly digests and monthly CFO-style reports. It's read-only and never cancels or pays anything.",
+    "platform": "Grok Bot",
+    "link": "https://x.ai/bot/-ZMGfxbTvVTzBGdhYIlyR",
+    "category": "Productivity",
+    "tags": [
+      "subscriptions",
+      "recurring-spend",
+      "email",
+      "ledger"
+    ],
+    "emoji": "💳",
+    "status": "live",
+    "uses": [
+      "Track subscriptions and recurring spend from email",
+      "One spreadsheet ledger",
+      "Read-only: never cancels or pays"
+    ],
+    "needs": [
+      "Email",
+      "A spreadsheet"
+    ],
+    "runsOnItsOwn": "daily alerts, weekly digests, monthly reports",
+    "featured": false,
+    "addedAt": "2026-10-15",
+    "asksFirst": true
+  },
+  {
+    "slug": "publicist",
+    "name": "Publicist",
+    "oneLiner": "Turns a big win or launch into a draft-only PR kit with sourced facts, angles, quotes, and post drafts.",
+    "description": "Turns a big win or launch into a draft-only PR kit with sourced facts, angles, quotes, and post drafts. For orgs, creators, and founders.",
+    "platform": "Grok Bot",
+    "link": "https://x.ai/bot/WQFx3jWnP0s2w4d3VBZ62",
+    "category": "Growth",
+    "tags": [
+      "pr-kit",
+      "launches",
+      "press",
+      "quotes"
+    ],
+    "emoji": "📣",
+    "status": "live",
+    "uses": [
+      "Turn a win or launch into a PR kit",
+      "Sourced facts, angles and quotes",
+      "Post drafts"
+    ],
+    "needs": null,
+    "runsOnItsOwn": null,
+    "featured": false,
+    "addedAt": "2026-10-15",
+    "asksFirst": true
+  },
+  {
+    "slug": "merch-scout",
+    "name": "Merch Scout",
+    "oneLiner": "Finds people on X who are already asking how to buy your merch, ranks them by buy intent, and drafts one personal reply or DM each for you to send by hand.",
+    "description": "Finds people on X who are already asking how to buy your merch, ranks them by buy intent, and drafts one personal reply or DM each for you to send by hand.",
+    "platform": "Grok Bot",
+    "link": "https://x.ai/bot/EJ2NzxA7p2mOMjRwS5XdA",
+    "category": "Commerce",
+    "tags": [
+      "merch",
+      "x",
+      "buy-intent",
+      "replies"
+    ],
+    "emoji": "🔎",
+    "status": "live",
+    "uses": [
+      "Find people on X asking how to buy your merch",
+      "Rank them by buy intent",
+      "Draft one personal reply or DM each to send by hand"
+    ],
+    "needs": [
+      "X"
+    ],
+    "runsOnItsOwn": null,
+    "featured": false,
+    "addedAt": "2026-10-15",
+    "asksFirst": true
+  },
+  {
+    "slug": "maker",
+    "name": "Maker",
+    "oneLiner": "A bot factory that turns a job into a focused Grok Bot.",
+    "description": "A bot factory that turns a job into a focused Grok Bot. It sorts each ask, writes a short job description, and only creates the bot after you say yes.",
+    "platform": "Grok Bot",
+    "link": "https://x.ai/bot/WXZjD2yrW3M-uTc91BlEG",
+    "category": "Operations",
+    "tags": [
+      "bot-factory",
+      "grok-bot",
+      "job-descriptions"
+    ],
+    "emoji": "🤖",
+    "status": "live",
+    "uses": [
+      "Sort each ask",
+      "Write a short job description for a new bot",
+      "Create the bot only after you say yes"
+    ],
+    "needs": [],
+    "runsOnItsOwn": null,
+    "featured": true,
+    "addedAt": "2026-10-15",
+    "asksFirst": true
+  },
+  {
+    "slug": "astrocade-daily-studio",
+    "name": "Astrocade Daily Studio",
+    "oneLiner": "Builds, playtests and ships one kid-friendly Astrocade game a day in a new genre, with endless level progression.",
+    "description": "Builds, playtests and ships one kid-friendly Astrocade game a day in a new genre, with endless level progression. For creators who want a steady release slate without babysitting Studio.",
+    "platform": "Grok Bot",
+    "link": "https://x.ai/bot/ITNEMfwgad3x0D6ij-nsq",
+    "category": "Games",
+    "tags": [
+      "astrocade",
+      "daily-games",
+      "kids",
+      "endless-levels"
+    ],
+    "emoji": "🎮",
+    "status": "live",
+    "uses": [
+      "Build one kid-friendly Astrocade game a day",
+      "New genre each day, endless levels",
+      "Playtest and ship"
+    ],
+    "needs": [
+      "Astrocade account"
+    ],
+    "runsOnItsOwn": "one game a day",
+    "featured": false,
+    "addedAt": "2026-10-15",
+    "asksFirst": false
+  }
+]

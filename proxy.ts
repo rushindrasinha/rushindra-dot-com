@@ -31,6 +31,7 @@ const KNOWN_PATHS = new Set([
   "/clean",
   "/v2",
   "/v3",
+  "/bots",
 ]);
 
 function wantsMarkdown(accept: string | null): boolean {
@@ -49,7 +50,7 @@ export function proxy(request: NextRequest) {
     return response;
   }
 
-  if (markdown && !KNOWN_PATHS.has(pathname)) {
+  if (markdown && !KNOWN_PATHS.has(pathname) && !pathname.startsWith("/bots/") && !pathname.startsWith("/go/")) {
     // Unknown path, agent explicitly asked for markdown: short-circuit
     // straight to the markdown 404 body instead of letting Next.js render
     // (and this middleware pass through) the HTML not-found page.

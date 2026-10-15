@@ -4,6 +4,20 @@ All changes are logged here. Format: version → date → what changed → who a
 
 ---
 
+## [1.12.0] — 2026-10-15 (IST), requested by Rushi in #web-dev 15:35 IST (NOT PUSHED, awaiting approval)
+
+**/bots: public directory of Rushi's 24 Grok Bots, built to grow into other platforms and outside submissions. Homepage unchanged. All work by Ares.**
+
+### Added
+- data/bots.json: the 24 bots from the Grok handoff, with every unconfirmed "confirm" field stripped (needs = null hides it). Validated at build time in app/lib/bots.ts; a bad entry fails the build.
+- /bots: hero, "Start here" picks (Maker, COS, Clip Finder), sticky search (press /) + category chips with counts, filters synced to the URL (?c=games&q=clip), "Runs on a schedule" and "Asks before it acts" badges, empty-state bot-idea mailto, submit-a-bot CTA, CollectionPage JSON-LD.
+- /bots/[slug]: 24 static detail pages (the link to share on X) with what-it-does, connect/schedule/control facts, related bots, per-bot OG image and SoftwareApplication JSON-LD.
+- /go/[slug]: tracked short link, logs a bot_click line (slug, ref, referer, country) to Vercel runtime logs plus a Vercel custom event where the plan allows, then 302s to the template. Unknown slugs go to /bots.
+- Client events: bot_open, bot_copy_link, bot_search (debounced; the demand signal for what to build next).
+- Sitemap: /bots + 24 detail pages. proxy.ts: /bots, /bots/*, /go/* exempt from the markdown 404.
+
+---
+
 ## [1.11.0] — 2026-10-14 (IST), requested by Rushi in #builds 21:31 IST ("host em on rushindra.com/ares")
 
 **/ares: public page for the "comment ARES" Instagram campaign. Homepage unchanged. All work by Ares.**
