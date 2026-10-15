@@ -4,7 +4,7 @@ All changes are logged here. Format: version → date → what changed → who a
 
 ---
 
-## [1.12.0] — 2026-10-15 (IST), requested by Rushi in #web-dev 15:35 IST (NOT PUSHED, awaiting approval)
+## [1.12.0] — 2026-10-15 (IST), requested by Rushi in #web-dev 15:35 IST , pushed on Rushi "And Push live" 15:45 IST
 
 **/bots: public directory of Rushi's 24 Grok Bots, built to grow into other platforms and outside submissions. Homepage: one "Bots" nav link (Rushi "yes" 15:45 IST), visible on desktop and phones. All work by Ares.**
 
