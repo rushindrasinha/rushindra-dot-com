@@ -4,7 +4,7 @@ All changes are logged here. Format: version → date → what changed → who a
 
 ---
 
-## [1.12.1] — 2026-10-15 (IST), fixes from Grok's review forwarded by Rushi in #web-dev 15:59 IST (NOT PUSHED, awaiting approval)
+## [1.12.1] — 2026-10-15 (IST), fixes from Grok's review forwarded by Rushi in #web-dev 15:59 IST , pushed 16:03 IST with the Web Analytics enable redeploy (Rushi enabled it 16:02 IST)
 
 ### Changed
 - /go/<unknown> now redirects to /bots?missing=<slug>, which shows a dismissible notice.
