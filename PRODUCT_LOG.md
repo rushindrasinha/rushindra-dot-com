@@ -328,3 +328,6 @@ Rushi requested a site improvement pass covering: better browser (headless, no v
 
 ## 2026-10-12 21:39 IST — v1.8.0-preview
 - v2 combo redesign live at /new (noindex) for Rushi to feel-test before promoting to the homepage. Commit df6e865, live-verified 21:39 IST.
+
+## 2026-10-15 15:49 IST, v1.12.0 LIVE
+/bots directory (24 Grok Bots), /bots/[slug] x24, /go/[slug] tracked redirects, Bots link in homepage nav. Requested by Rushi in #web-dev 15:35 IST, approved "And Push live" 15:45 IST. Deploy run 38719245646 green; live probes 200, /go 302 to x.ai, sitemap lists 24 bot pages.
