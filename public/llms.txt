@@ -180,6 +180,15 @@ business, medicine, and personal brand building.
 - Not a product for sale — his own operating infrastructure, built and run
   in public
 
+### Bots (active)
+- Role: Builder
+- URL: https://rushindra.com/bots
+- 41 Grok Bots he built and published as templates anyone can open and run
+  (count as of 15 Oct 2026; the page has the live list). Ten categories:
+  content, growth, creative, games, operations, engineering, commerce,
+  productivity, personal and business. Most draft first and ask before they act.
+- Each bot has its own page at https://rushindra.com/bots/<slug>
+
 ### rushi.live — Prompt Engine (active)
 - Role: Builder
 - URL: https://rushi.live

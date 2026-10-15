@@ -4,6 +4,18 @@ All changes are logged here. Format: version → date → what changed → who a
 
 ---
 
+## [1.13.1] — 2026-10-15 (IST), requested by Rushi in #web-dev 17:36 IST ("Update the copy and everything else on the website")
+
+### Added
+- Homepage Work grid: "Bots" card linking to /bots (count read from data/bots.json, so it never goes stale).
+- /index.md and /llm: Bots entry with the live count. /llms.txt: Bots section (41 as of 15 Oct 2026).
+
+### Changed
+- /bots copy, meta description and share image now cover the whole shelf (work and life), not just the first 24's content and merch bots.
+- Work cards with internal links open in the same tab.
+
+---
+
 ## [1.13.0] — 2026-10-15 (IST), requested by Rushi in #web-dev 17:00 IST ("Please update the website accordingly")
 
 **/bots grows from 24 to 41 Grok Bots, names synced to the published templates. All work by Ares.**

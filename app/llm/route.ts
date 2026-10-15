@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { BOTS } from "../lib/bots";
 
 // Revalidate daily so the current-focus quarter label never freezes at build time.
 export const revalidate = 86400;
@@ -293,6 +294,13 @@ SECTION 5 — COMPANIES & PROJECTS
     What:   openclaw-guide (field manual for running a self-hosted AI agent),
             ares-mbl, skill-audit-router, xreader-mcp. Plus the YouTube
             Shorts pipeline (2,300+ GitHub stars).
+
+  BOTS
+    Role:   Builder
+    URL:    https://rushindra.com/bots
+    What:   ${BOTS.length} Grok Bots he built and published as templates
+            anyone can open and run: content, games, business and everyday
+            life. Most draft first and ask before they act.
 
   RUSHI.LIVE — PROMPT ENGINE
     Role:   Builder

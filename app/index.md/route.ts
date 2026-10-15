@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { BOTS } from "../lib/bots";
 
 // Revalidate daily so the current-focus quarter label never freezes at build time.
 export const revalidate = 86400;
@@ -58,6 +59,7 @@ His father's rule, and the one he still runs everything by: first, best, or only
 | [ClutchPass](https://clutchpass.gg) | Product | Active | AI battle pass for competitive gamers. |
 | [Clutch Creator](https://github.com/rushindrasinha/clutch-creator) | Tool | Shipped | Chrome extension: any page into content angles. |
 | [xReader.ai](https://xreader.ai) | Tool | Shipped | X threads as clean readable articles. |
+| [Bots](https://rushindra.com/bots) | Directory | Live | ${BOTS.length} Grok Bots built by Rushi, ready to open and run. |
 | [rushi.live](https://rushi.live) | Tool | Live | Prompt Engine — plain-language intent into production-ready AI prompts. |
 | [Operation Blackout](https://github.com/rushindrasinha/operation-blackout) | Open Source | Shipped | One-prompt browser FPS. Zero external assets. |
 | [YT Shorts Pipeline](https://github.com/rushindrasinha/youtube-shorts-pipeline) | Open Source | Shipped | Automated YouTube Shorts engine. 2,300+ GitHub stars. |

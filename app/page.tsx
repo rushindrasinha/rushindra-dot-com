@@ -4,6 +4,7 @@ import { useState, useEffect, useRef, Fragment, createContext, useContext } from
 import { siX, siInstagram, siYoutube, siGithub, siTwitch } from "simple-icons";
 import Link from "next/link";
 import CursorFX from "./components/CursorFX";
+import { BOTS } from "./lib/bots";
 
 // ============================================================================
 // DESIGN TOKENS
@@ -141,6 +142,13 @@ const WORK = [
     status: "Active",
     line: "AI battle pass for competitive gamers. Retention, coaching, and progression built in.",
     url: "https://clutchpass.gg",
+  },
+  {
+    name: "Bots",
+    tag: "Directory",
+    status: "Live",
+    line: `${BOTS.length} Grok Bots I built, ready to open and run: clips, brand deals, games, inbox, trips, meals and more.`,
+    url: "/bots",
   },
   {
     name: "rushi.live",
@@ -1066,8 +1074,7 @@ export default function Home() {
               <Reveal key={w.name} delay={Math.min(0.05 * i, 0.3)} style={{ gridColumn: w.wide ? "span 2" : undefined }}>
                 <a
                   href={w.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  {...(w.url.startsWith("http") ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                   className={`card${w.wide ? " card-featured" : ""}`}
                   style={{
                     padding: 24,

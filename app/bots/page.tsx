@@ -5,7 +5,7 @@ import BotGrid from "./BotGrid";
 import s from "./bots.module.css";
 
 const TITLE = "Bots by Rushi: AI bots you can open and run";
-const DESC = `${BOTS.length} Grok Bots built by Dr. Rushindra Sinha for clips, posts, games, brand deals, merch and more. Open one and it's yours to run.`;
+const DESC = `${BOTS.length} Grok Bots built by Dr. Rushindra Sinha for work and life: clips, brand deals, games, inbox, money, trips, meals and more. Open one and it's yours to run.`;
 
 export const metadata: Metadata = {
   title: TITLE,
@@ -86,7 +86,7 @@ export default function BotsPage() {
           </div>
           <div>
             <p className={s.lead}>
-              Every bot I&apos;ve built, from clipping VODs and closing brand deals to planning your week of meals. Open one in Grok and you get
+              Every bot I&apos;ve built, for work and for life: clipping VODs, closing brand deals, clearing your inbox, planning your week of meals. Open one in Grok and you get
               your own copy to run and change. <strong>Most of them draft first and ask before they act.</strong>
             </p>
             <div className={s.stats}>
