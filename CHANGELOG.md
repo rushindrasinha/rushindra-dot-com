@@ -4,6 +4,20 @@ All changes are logged here. Format: version → date → what changed → who a
 
 ---
 
+## [1.12.1] — 2026-10-15 (IST), fixes from Grok's review forwarded by Rushi in #web-dev 15:59 IST (NOT PUSHED, awaiting approval)
+
+### Changed
+- /go/<unknown> now redirects to /bots?missing=<slug>, which shows a dismissible notice.
+- /bots JSON-LD: ItemList entries are full SoftwareApplication items.
+- robots.txt: Disallow /go/ (crawlers were inflating click counts).
+- A11y: screen-reader h2s for "Start here" and "All bots" so card h3s sit under a heading; active-chip count contrast raised (0.55 to 0.72 alpha).
+
+### Not changed, on purpose
+- sinha@rushindra.com stays: it is the public contact everywhere since 2026-09-29.
+- Site-wide keywords meta stays: every name in it is already public on the site; it is not a privacy leak.
+
+---
+
 ## [1.12.0] — 2026-10-15 (IST), requested by Rushi in #web-dev 15:35 IST , pushed on Rushi "And Push live" 15:45 IST
 
 **/bots: public directory of Rushi's 24 Grok Bots, built to grow into other platforms and outside submissions. Homepage: one "Bots" nav link (Rushi "yes" 15:45 IST), visible on desktop and phones. All work by Ares.**

@@ -108,6 +108,7 @@ export default function BotGrid({ bots, cats }: { bots: Bot[]; cats: Cat[] }) {
   const [q, setQ] = useState("");
   const [cat, setCat] = useState<string | null>(null);
   const [stuck, setStuck] = useState(false);
+  const [missing, setMissing] = useState<string | null>(null);
   const input = useRef<HTMLInputElement>(null);
   const bar = useRef<HTMLDivElement>(null);
   const colors = useMemo(() => Object.fromEntries(cats.map((c) => [c.name, c.color])), [cats]);
@@ -122,6 +123,7 @@ export default function BotGrid({ bots, cats }: { bots: Bot[]; cats: Cat[] }) {
     // eslint-disable-next-line react-hooks/set-state-in-effect -- syncing from the URL, an external source
     if (match) setCat(match.name);
     if (p.get("q")) setQ(p.get("q")!);
+    if (p.get("missing")) setMissing(p.get("missing"));
   }, [cats]);
 
   useEffect(() => {
@@ -236,6 +238,16 @@ export default function BotGrid({ bots, cats }: { bots: Bot[]; cats: Cat[] }) {
         </div>
       </div>
 
+      {missing && (
+        <p className={s.notice} role="status">
+          There&apos;s no bot at &ldquo;{missing}&rdquo; any more, or the link had a typo. Here&apos;s everything that&apos;s live.
+          <button type="button" aria-label="Dismiss" onClick={() => setMissing(null)}>
+            ×
+          </button>
+        </p>
+      )}
+
+      <h2 className={s.srOnly}>All bots</h2>
       <div className={`${s.resultLine} ${s.mono}`} aria-live="polite">
         <span>
           {filtered ? `${shown.length} of ${bots.length} bots` : `All ${bots.length} bots`}

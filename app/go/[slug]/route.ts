@@ -3,13 +3,15 @@ import { track } from "@vercel/analytics/server";
 import { getBot } from "../../lib/bots";
 
 // rushindra.com/go/<slug>: the short, shareable link for every bot. Logs the
-// click, then 302s to the bot's template page. Unknown slugs land on /bots
-// instead of a 404 so a mistyped link still finds the directory.
+// click, then 302s to the bot's template page. Unknown slugs land on
+// /bots?missing=<slug>, which shows a notice, so a dead link still finds the directory.
 export async function GET(request: NextRequest, ctx: { params: Promise<{ slug: string }> }) {
   const { slug } = await ctx.params;
   const bot = getBot(slug);
   if (!bot || bot.status !== "live") {
-    return NextResponse.redirect(new URL("/bots", request.url), 302);
+    const to = new URL("/bots", request.url);
+    to.searchParams.set("missing", slug.slice(0, 60));
+    return NextResponse.redirect(to, 302);
   }
 
   const ref = request.nextUrl.searchParams.get("ref") ?? "direct";

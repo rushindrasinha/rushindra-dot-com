@@ -48,8 +48,15 @@ export default function BotsPage() {
       itemListElement: BOTS.map((b, i) => ({
         "@type": "ListItem",
         position: i + 1,
-        url: `https://rushindra.com/bots/${b.slug}`,
-        name: b.name,
+        item: {
+          "@type": "SoftwareApplication",
+          name: b.name,
+          description: b.oneLiner,
+          url: `https://rushindra.com/bots/${b.slug}`,
+          applicationCategory: `${b.category} bot`,
+          operatingSystem: b.platform,
+          author: { "@type": "Person", name: "Dr. Rushindra Sinha", url: "https://rushindra.com" },
+        },
       })),
     },
   };
@@ -103,6 +110,7 @@ export default function BotsPage() {
           </div>
         </header>
 
+        <h2 className={s.srOnly}>Start here</h2>
         <section className={s.startHere} aria-label="Start here">
           {START_HERE.map((p) => {
             const b = getBot(p.slug);
