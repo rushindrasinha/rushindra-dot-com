@@ -4,12 +4,12 @@ import { PageShell, P, H2, UL, LI, C } from "../components/PageShell";
 export const metadata: Metadata = {
   title: "About — Dr. Rushindra Sinha",
   description:
-    "Doctor, Stanford GSB executive-education alumnus, founder of Jeufy, co-founder of Global Esports, and AI builder. The full background behind rushindra.com.",
+    "Doctor, Stanford GSB executive-education alumnus, founder of Jeufy, founder of Global Esports, and AI builder. The full background behind rushindra.com.",
   alternates: { canonical: "/about" },
   openGraph: {
     title: "About — Dr. Rushindra Sinha",
     description:
-      "Doctor, Stanford GSB executive-education alumnus, founder of Jeufy, co-founder of Global Esports, and AI builder.",
+      "Doctor, Stanford GSB executive-education alumnus, founder of Jeufy, founder of Global Esports, and AI builder.",
     url: "https://rushindra.com/about",
     type: "profile",
   },
@@ -106,8 +106,19 @@ export default function AboutPage() {
           model fits the task rather than locking to one vendor.
         </LI>
         <LI>
-          AI spend peaked near $15,000 in a single month; it now runs on a hard
-          $500-a-month cap and does more.
+          By the numbers, counted from his own logs (August 2025 to 16 October
+          2026, every figure a floor): 32B+ AI tokens processed, most of them
+          cached context the agents re-read; 14,000+ AI coding sessions; 500+
+          hours of his own hands-on time; 1,500+ commits across 36 repos since
+          August.
+        </LI>
+        <LI>
+          One human runs a 63-channel Discord command centre: 10,000+ messages
+          in 68 days, with a median reply under a minute.
+        </LI>
+        <LI>
+          Fourteen months of it cost about $12,400 all-in, mostly two
+          $200-a-month subscriptions.
         </LI>
         <LI>
           Built an agent whose only job is to build the other agents.
@@ -119,14 +130,13 @@ export default function AboutPage() {
         His current focus: Jeufy, the prompt-to-playable game studio; Ares, his AI
         operating system, built on OpenClaw and run in public from a Discord
         command centre; an AI-native team, taught to master AI instead of being
-        replaced by it; the next version of Aarees, in build; and Global Esports,
+        replaced by it; Aarees, an AI chief of staff that lives in Discord, now live; and Global Esports,
         2026 VCT Pacific Stage 2 champions, who played their first Champions at
         Shanghai 2026.
       </P>
       <P>
         Alongside that, his product work for the creator economy includes
-        Aarees, a multi-agent creator platform delivered over WhatsApp, with its
-        next version in build; thumbnail.gg, AI thumbnail generation for YouTube
+        Aarees, an AI chief of staff for gaming that lives in your Discord server; thumbnail.gg, AI thumbnail generation for YouTube
         creators; and ClutchPass, an AI battle pass for competitive gamers. He also
         runs Mundhe Maps, a public map of Mumbai food businesses actioned by FDA
         Maharashtra, updated daily.

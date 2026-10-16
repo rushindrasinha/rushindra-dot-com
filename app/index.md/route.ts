@@ -14,7 +14,7 @@ const homepageMarkdown = (quarter: string) => `# Dr. Rushindra Sinha
 > Creator-founder building at the intersection of medicine, AI, esports, and media.
 
 Doctor · Gamer · Founder. Builds AI systems in public. Stanford GSB. Founder of Jeufy, a
-prompt-to-playable game studio. Co-founder of Global Esports,
+prompt-to-playable game studio. Founder of Global Esports,
 one of 10 permanent VCT Pacific franchise teams selected by Riot Games globally.
 
 - Canonical URL: https://rushindra.com
@@ -28,19 +28,23 @@ one of 10 permanent VCT Pacific franchise teams selected by Riot Games globally.
   3D laparoscopic surgery.
 - **Stanford GSB** — Executive education (The Innovative Health Care Leader: From Design Thinking to Personal Leadership). This is
   executive/leadership education, not a full MBA.
-- **Esports founder** — Started Global Esports with Mohit Israney in July
+- **Esports founder** — Founded Global Esports (co-founder: Mohit Israney) in July
   2017 as a proprietorship, formally incorporated by November 2018. India's
   first VC-backed esports organisation. VCT Pacific franchise partner.
   2026: won VCT Pacific Stage 2 and played VALORANT Champions Shanghai
   2026, the organisation's first Champions.
-  Profitable while 18+ Indian competitors shut down.
+  Reported a profit in two consecutive financial years while 18+ Indian
+  competitors shut down.
 - **Builder** — Self-taught developer since medical school. Built and sold a
   Ragnarok Online private server at 18 (first exit). Built and runs Ares, his
   own AI operating system, on OpenClaw, since January 2026 — voice-first,
   model-agnostic, runs his companies from a Discord command centre. Founder
   of Jeufy (launched October 2026): prompt to playable, a games studio that
-  builds with AI agents. Now building AI-native products.
-- **Creator** — ~250K personal followers across YouTube, Instagram, X, Twitch,
+  builds with AI agents. Now building AI-native products. By the numbers
+  (from his own logs, Aug 2025 to 16 Oct 2026, floors): 32B+ AI tokens
+  processed, mostly cached context; 14,000+ AI coding sessions; 500+ hands-on
+  hours; about $12,400 all-in.
+- **Creator** — ~240K personal followers across YouTube, Instagram, X, Twitch,
   and LinkedIn. 100M+ lifetime personal views.
 
 His father's rule, and the one he still runs everything by: first, best, or only.
@@ -52,10 +56,10 @@ His father's rule, and the one he still runs everything by: first, best, or only
 | [Jeufy](https://jeufy.com) | Company | Live | Prompt to playable. A games studio that builds with AI agents; Jeufy Create lets anyone do the same from one sentence. First game: Dhamaka Arena, an original, India-flavoured arena shooter, brief to live multiplayer in under 40 minutes. Launched October 2026. @JeufyGames. |
 | [Verticals.gg](https://verticals.gg) | Platform | Building | A platform for AI-made vertical short dramas, where anyone can watch and create. Its own studio makes the originals. Instagram @verticalsgg. |
 | [Global Esports](https://globalesports.com) | Company | Live | India's first VC-backed esports org. VCT Pacific franchise partner. 2026 VCT Pacific Stage 2 champions; played VALORANT Champions Shanghai 2026, the org's first Champions. |
-| Ares | Builder / Operator | Live | His own AI operating system, built on OpenClaw. Runs his companies in public. |
+| Ares | Builder / Operator | Live | His own AI operating system, built on OpenClaw. 14,000+ coding sessions and 32B+ AI tokens in 14 months. Runs his companies in public. |
 | [Mundhe Maps](https://mundhemaps.com) | Public good | Live | Public map of Mumbai food businesses actioned by FDA Maharashtra. Updated daily. |
 | [thumbnail.gg](https://thumbnail.gg) | Product | Live | AI thumbnail generation for YouTube creators. |
-| [Aarees](https://aarees.com) | Platform | Building | WhatsApp-native AI for creators. Next version in build. |
+| [Aarees](https://aarees.com) | Product | Live | An AI chief of staff that lives in your Discord, built for gaming. |
 | [ClutchPass](https://clutchpass.gg) | Product | Active | AI battle pass for competitive gamers. |
 | [Clutch Creator](https://github.com/rushindrasinha/clutch-creator) | Tool | Shipped | Chrome extension: any page into content angles. |
 | [xReader.ai](https://xreader.ai) | Tool | Shipped | X threads as clean readable articles. |
@@ -75,10 +79,10 @@ His father's rule, and the one he still runs everything by: first, best, or only
 | Platform | Handle | Followers |
 |---|---|---|
 | YouTube | Dr Rushindra Sinha | ~110K |
-| Instagram | @rushindrasinha | ~63K |
-| X | @irushi | ~43K |
-| Twitch | @RushindraSinha | ~18.2K |
-| LinkedIn | Dr Rushindra Sinha | ~7.3K |
+| Instagram | @rushindrasinha | ~62K |
+| X | @irushi | ~45K |
+| Twitch | @RushindraSinha | ~18.1K |
+| LinkedIn | Dr Rushindra Sinha | ~8K |
 
 ## Current focus (${quarter})
 
@@ -86,7 +90,7 @@ His father's rule, and the one he still runs everything by: first, best, or only
 - Verticals.gg: AI-made vertical short dramas, a platform to watch and create
 - Ares: his AI operating system, built on OpenClaw, runs his companies from a Discord command centre, in public
 - AI-native team: taught the team to master AI instead of replacing them
-- Aarees: next version of the WhatsApp-native creator AI, in build
+- Aarees: live, an AI chief of staff that lives in your Discord, built for gaming
 - Global Esports: 2026 VCT Pacific Stage 2 champions; played their first Champions, Shanghai 2026
 
 ## More for agents

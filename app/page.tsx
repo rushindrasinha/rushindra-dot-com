@@ -61,8 +61,8 @@ const IDENTITIES = [
   { word: "Doctor", code: "MED", proof: ["MBBS, D.Y. Patil, 2014", "Live-streamed surgeries on Google Glass", "Stanford GSB × Medicine, 2017"] },
   { word: "Entrepreneur", code: "FND", proof: ["Global Esports: India's first VC-backed esports org", "1 of 10 VCT Pacific partners, picked by Riot", "Founder of Jeufy, prompt to playable"] },
   { word: "Gamer", code: "GMR", proof: ["Ran Phoenix RO, 2008", "Sold my first game at 18", "VCT Pacific Stage 2 champions, 2026"] },
-  { word: "Builder", code: "BLD", proof: ["Ares: the AI OS that runs my companies", "2,300+ stars on one open-source repo", "A browser FPS from a single prompt"] },
-  { word: "Creator", code: "CRT", proof: ["250K+ followers, 100M+ views", "Tribeca Film Festival, first place, 2014", "Two TEDx stages"] },
+  { word: "Builder", code: "BLD", proof: ["Ares: the AI OS that runs my companies", "32B+ AI tokens, 14,000+ coding sessions", "2,300+ stars on one open-source repo"] },
+  { word: "Creator", code: "CRT", proof: ["240K+ followers, 100M+ views", "Tribeca Film Festival, first place, 2014", "Two TEDx stages"] },
 ];
 
 const NAV_LINKS: [string, string][] = [
@@ -90,7 +90,7 @@ const WORK = [
     name: "Global Esports",
     tag: "Company",
     status: "Live",
-    line: "India's first VC-backed esports org. 2026 VCT Pacific Stage 2 champions and first-ever VALORANT Champions qualification (Shanghai). One of 10 permanent VCT Pacific franchise teams selected by Riot Games globally. India's only profitable esports org while 18+ competitors shut down.",
+    line: "India's first VC-backed esports org. 2026 VCT Pacific Stage 2 champions and first-ever VALORANT Champions qualification (Shanghai). One of 10 permanent VCT Pacific franchise teams selected by Riot Games globally. Profitable two years running on its annual filings, while 18+ competitors shut down.",
     url: "https://globalesports.com",
     wide: true,
   },
@@ -105,7 +105,7 @@ const WORK = [
     name: "Ares",
     tag: "AI System",
     status: "Live",
-    line: "My own AI operating system, built on OpenClaw. Multi-agent, voice-first, model-agnostic. Runs my companies from a Discord command centre, in public.",
+    line: "My own AI operating system, built on OpenClaw. Multi-agent, voice-first, model-agnostic. 14,000+ coding sessions and 32B+ AI tokens in 14 months, run from a Discord command centre, in public.",
     url: "https://github.com/rushindrasinha/openclaw-guide",
   },
   {
@@ -131,9 +131,9 @@ const WORK = [
   },
   {
     name: "Aarees",
-    tag: "Platform",
-    status: "Building",
-    line: "AI creator platform on WhatsApp. Multi-agent runtime with direct phone-number access. Next version in build.",
+    tag: "Product",
+    status: "Live",
+    line: "An AI chief of staff that lives in your Discord, built for gaming. It clears the inbox, runs the calendar, researches, plans content and preps deals, then reports back in your server.",
     url: "https://aarees.com",
   },
   {
@@ -194,10 +194,10 @@ const TALKS = [
 
 const PLATFORMS = [
   { name: "YouTube", subs: 110000, display: "110K", url: "https://youtube.com/c/RushindraSinha" },
-  { name: "Instagram", subs: 63000, display: "63K", url: "https://instagram.com/rushindrasinha" },
-  { name: "X", subs: 43000, display: "43K", url: "https://x.com/irushi" },
-  { name: "Twitch", subs: 18200, display: "18.2K", url: "https://twitch.tv/rushindrasinha" },
-  { name: "LinkedIn", subs: 7300, display: "7.3K", url: "https://linkedin.com/in/rushindrasinha" },
+  { name: "Instagram", subs: 62000, display: "62K", url: "https://instagram.com/rushindrasinha" },
+  { name: "X", subs: 45000, display: "45K", url: "https://x.com/irushi" },
+  { name: "Twitch", subs: 18100, display: "18.1K", url: "https://twitch.tv/rushindrasinha" },
+  { name: "LinkedIn", subs: 8000, display: "8K", url: "https://linkedin.com/in/rushindrasinha" },
 ];
 
 const NOW = [
@@ -205,7 +205,7 @@ const NOW = [
   { label: "Ares", desc: "Building and running his own AI operating system, on OpenClaw, in public." },
   { label: "An AI-native team", desc: "Teaching the team to master AI instead of replacing them with it. Same people, a different order of output." },
   { label: "Verticals.gg", desc: "A platform for AI-made vertical short dramas, where anyone can watch and create. Originals from our own studio." },
-  { label: "Aarees", desc: "Next version of the WhatsApp-native creator AI, in build." },
+  { label: "Aarees", desc: "Live: an AI chief of staff that lives in your Discord, built for the people who play, create and run gaming." },
   { label: "Global Esports", desc: "2026 VCT Pacific Stage 2 champions. Played VALORANT Champions Shanghai, the org's first Champions." },
 ];
 
@@ -225,7 +225,7 @@ const MARQUEE_ITEMS = [
   "Ares",
   "Verticals.gg",
   "5B+ Views for Creators & Brands",
-  "250K+ Followers",
+  "240K+ Followers",
 ];
 
 const TAG_CLASS: Record<string, string> = {
@@ -566,10 +566,10 @@ export default function Home() {
   const qLabel = `Q${Math.ceil((now.getMonth() + 1) / 3)} ${now.getFullYear()}`;
 
   const [viewCount, vC] = useCounter(100, 2000);
-  const [reachCount, rC] = useCounter(250, 1800);
+  const [reachCount, rC] = useCounter(240, 1800);
   const [yearsCount, yC] = useCounter(20, 1600);
   const [creatorViews, cV] = useCounter(5, 1800);
-  const [reposCount, rpC] = useCounter(50, 1400);
+  const [tokensCount, tkC] = useCounter(32, 1400);
   const [tedxCount, tC] = useCounter(2, 1000);
 
   return (
@@ -856,7 +856,7 @@ export default function Home() {
 
           <Reveal delay={0.2}>
             <p style={{ fontSize: "clamp(16px, 1.6vw, 19px)", lineHeight: 1.7, color: C.text, maxWidth: 620, margin: "0 0 20px 0", fontWeight: 300 }}>
-              I build the AI systems that run my companies, and I build them in public. Founder of Jeufy, a games studio that turns a prompt into a playable game. Co-founder of Global Esports: 2026 VCT Pacific Stage 2 champions and the org&apos;s first VALORANT Champions.
+              I build the AI systems that run my companies, and I build them in public. Founder of Jeufy, a games studio that turns a prompt into a playable game. Founder of Global Esports: 2026 VCT Pacific Stage 2 champions and the org&apos;s first VALORANT Champions.
             </p>
           </Reveal>
 
@@ -935,7 +935,7 @@ export default function Home() {
                 { ref: reachCount, val: rC, suffix: "K+", label: "Total Reach" },
                 { ref: yearsCount, val: yC, suffix: "+", label: "Years Building" },
                 { ref: creatorViews, val: cV, suffix: "B+", label: "Views for Creators & Brands" },
-                { ref: reposCount, val: rpC, suffix: "+", label: "GitHub Repos" },
+                { ref: tokensCount, val: tkC, suffix: "B+", label: "AI Tokens Run" },
                 { ref: tedxCount, val: tC, suffix: "x TEDx", label: "Stages" },
               ].map((stat, i) => (
                 <div key={i} ref={stat.ref as any}>
@@ -1145,7 +1145,7 @@ export default function Home() {
             <Label>Platform Presence</Label>
           </Reveal>
           <Reveal delay={0.08}>
-            <SectionTitle>A quarter million personal followers across socials.</SectionTitle>
+            <SectionTitle>Nearly a quarter million personal followers across socials.</SectionTitle>
           </Reveal>
 
           <div style={{ display: "grid", gap: 20, marginTop: 32 }}>

@@ -4,6 +4,22 @@ All changes are logged here. Format: version → date → what changed → who a
 
 ---
 
+## [1.14.0] — 2026-10-16 (IST), requested by Rushi in #web-dev 22:54 IST ("Batch 1"), NOT YET LIVE (awaiting push approval)
+
+### Changed
+- Global Esports role: "Founder" everywhere (hero, /about, JSON-LD, OG image, /llm, llms.txt, /index.md, previews). Mohit Israney named as co-founder. Rushi 22:54 IST: "Founded is accurate - Mohit was the co-founder. I am the founder."
+- Profit claim: "India's only profitable esports org" replaced with "profitable two years running on its annual filings" (source: Sheep Esports interview, 8 Oct 2026). Not linked: the article discusses topics kept off the site.
+- Followers re-checked live 16 Oct 2026: X 45K (was 43K), Instagram 62K (was 63K), Twitch 18.1K (was 18.2K), LinkedIn 8K (was 7.3K), YouTube 110K. Total ~243K, so "250K+" is now "240K+" / "nearly a quarter million".
+- Aarees: Live, an AI chief of staff in Discord (was "WhatsApp-native, next version in build").
+- /llm: stale "currently building Aarees.com, thumbnail.gg" and "India's top Valorant and PUBG Mobile team" lines replaced; "over 7 years" is now "since 2017".
+- AI spend: unverified "$15,000 in a single month / $500 cap" replaced with the audited "about $12,400 all-in over 14 months".
+- Previews /v3: peak viewers 486K (2026, GE data room) instead of 482K.
+
+### Added
+- Ares by the numbers (AI usage audit, 16 Oct 2026, floors): 32B+ tokens processed (noted: mostly cached context), 14,000+ coding sessions, 500+ hands-on hours, 1,500+ commits, 63-channel Discord command centre with a median reply under a minute. Homepage stat "32B+ AI Tokens Run" replaces "50+ GitHub Repos".
+
+---
+
 ## [1.13.1] — 2026-10-15 (IST), requested by Rushi in #web-dev 17:36 IST ("Update the copy and everything else on the website")
 
 ### Added

@@ -39,7 +39,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://rushindra.com"),
   title: "Dr. Rushindra Sinha — Doctor, Gamer, Founder. Building AI in public.",
   description:
-    "Doctor, gamer, founder. Builds the AI systems that run his companies, in public. Founder of Jeufy, a prompt-to-playable game studio. Co-founder of Global Esports: 2026 VCT Pacific Stage 2 champions, played their first VALORANT Champions. Stanford GSB.",
+    "Doctor, gamer, founder. Builds the AI systems that run his companies, in public. Founder of Jeufy, a prompt-to-playable game studio. Founder of Global Esports: 2026 VCT Pacific Stage 2 champions, played their first VALORANT Champions. Stanford GSB.",
   keywords: [
     "Rushindra Sinha",
     "Dr Rushindra Sinha",
@@ -64,7 +64,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Dr. Rushindra Sinha — Doctor, Gamer, Founder. Building AI in public.",
     description:
-      "Doctor, gamer, founder. Builds the AI systems that run his companies, in public. Founder of Jeufy, a prompt-to-playable game studio. Co-founder of Global Esports: 2026 VCT Pacific Stage 2 champions, played their first VALORANT Champions. Stanford GSB.",
+      "Doctor, gamer, founder. Builds the AI systems that run his companies, in public. Founder of Jeufy, a prompt-to-playable game studio. Founder of Global Esports: 2026 VCT Pacific Stage 2 champions, played their first VALORANT Champions. Stanford GSB.",
     type: "website",
     url: "https://rushindra.com",
     siteName: "Dr. Rushindra Sinha",
@@ -76,7 +76,7 @@ export const metadata: Metadata = {
     creator: "@irushi",
     title: "Dr. Rushindra Sinha — Doctor, Gamer, Founder. Building AI in public.",
     description:
-      "Doctor. Gamer. Founder. Building AI systems in public. Founder of Jeufy. Co-founder of Global Esports, 2026 VCT Pacific champions. 250K+ followers.",
+      "Doctor. Gamer. Founder. Building AI systems in public. Founder of Jeufy. Founder of Global Esports, 2026 VCT Pacific champions. 240K+ followers.",
   },
 };
 

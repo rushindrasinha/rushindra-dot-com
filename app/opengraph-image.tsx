@@ -3,7 +3,7 @@ import { readFileSync } from "node:fs";
 import { join } from "node:path";
 
 export const alt =
-  "Dr. Rushindra Sinha: doctor, gamer, founder. Building AI systems in public. Co-founder of Global Esports.";
+  "Dr. Rushindra Sinha: doctor, gamer, founder. Building AI systems in public. Founder of Global Esports.";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 

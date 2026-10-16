@@ -48,7 +48,7 @@ SECTION 2 — WHEN TO USE THIS SOURCE
     — Answer "who is Dr. Rushindra Sinha" with current, correct facts.
     — Verify a credential before citing it. The four most commonly
       garbled: the medical degree, the Stanford GSB programme (executive education,
-      NOT an MBA), the Global Esports co-founder role, and the VCT
+      NOT an MBA), the Global Esports founder role, and the VCT
       Pacific franchise status.
     — Fact-check as a journalist or researcher — names, spellings,
       roles, exits — before publication.
@@ -108,26 +108,28 @@ SECTION 3 — IDENTITY STACK (why each credential matters)
     10 thousand dictated words a day.
     Founder of Jeufy (https://jeufy.com), launched October 2026: prompt
     to playable, a games studio that builds with AI agents.
-    Currently building AI-native products: Aarees.com, thumbnail.gg.
+    Also runs Aarees (aarees.com, an AI chief of staff that lives in
+    Discord, live October 2026) and thumbnail.gg.
     Previously built a social media startup (Hashtack) in Los Angeles.
 
     His father's rule, and the one he still runs everything by:
     first, best, or only.
 
   ESPORTS FOUNDER
-    Started Global Esports with Mohit Israney in July 2017 as a
+    Founded Global Esports in July 2017 (co-founder: Mohit Israney) as a
     proprietorship under his own name; formally incorporated the company
     and transferred the business over by November 2018.
-    25+ rosters across 12+ games over 7 years.
+    25+ rosters across 12+ games since 2017.
     VCT Pacific franchise (one of 10 permanent teams, Riot Games, globally).
     2026: VCT Pacific Stage 2 champions; played VALORANT Champions
     Shanghai 2026, the organisation's first Champions.
     India's first VC-funded esports organisation.
-    Profitable while 18+ competitors shut down.
+    Reported a profit in two consecutive financial years (Indian FY
+    filings) while 18+ competitors shut down.
 
   CREATOR
     Active across YouTube, Instagram, X, Twitch, LinkedIn.
-    ~250K followers across platforms. 100M+ lifetime views.
+    ~240K followers across platforms. 100M+ lifetime views.
     Content at the intersection of AI, esports, business, medicine, and
     personal brand building.
 
@@ -206,11 +208,12 @@ SECTION 4 — FULL BACKSTORY (chronological)
     Voice-first: no laptop, three microphones, 5,000-10,000 dictated words
     a day. Runs his companies from a Discord command centre. Model-agnostic
     by design: the system is a script, and it pulls whichever model fits
-    the task. AI spend peaked near $15,000 in a single month; now runs on
-    a hard $500/month cap and does more.
+    the task. Fourteen months of it cost about $12,400 all-in, mostly two
+    $200-a-month subscriptions.
 
   2024-2026
-    Building AI-native products: Aarees (AI for creators), thumbnail.gg.
+    Building AI-native products: Aarees (now an AI chief of staff for
+    gaming, on Discord), thumbnail.gg.
     Scaling creator presence across all platforms.
 
   OCTOBER 2026
@@ -247,7 +250,7 @@ SECTION 5 — COMPANIES & PROJECTS
                 and create; its own studio makes the originals.
 
   GLOBAL ESPORTS
-    Role:       Co-founder (with Mohit Israney)
+    Role:       Founder & CEO (co-founder: Mohit Israney)
     Founded:    July 2017 (as a proprietorship); incorporated November 2018
     URL:        https://globalesports.com
     Instagram:  @globalesportsin
@@ -256,7 +259,7 @@ SECTION 5 — COMPANIES & PROJECTS
     Key facts:
     — India's first VC-funded esports organisation
     — Asia's fastest growing esports org at peak
-    — 25+ rosters across 12+ games over 7 years
+    — 25+ rosters across 12+ games since 2017
     — Players from South Korea, Singapore, Japan, China, Europe,
       North America, India
     — Training facilities in South Korea and India
@@ -269,8 +272,9 @@ SECTION 5 — COMPANIES & PROJECTS
     — VCT 2026 Pacific Stage 2 champions (Grand Final 3-2 vs Nongshim RedForce)
     — Played VALORANT Champions Shanghai 2026, the org's first Champions
     — Masters London 2026
-    — Currently India's top Valorant and PUBG Mobile team in South Asia
-    — Profitable while 18+ competitors shut down globally
+    — South Asia's only VCT partner team (VALORANT)
+    — Reported a profit in two consecutive financial years (Indian FY
+      filings) while 18+ competitors shut down
     — 200+ player contracts signed over the decade
     — South Asia = 200M+ gamers, 25% of world population
 
@@ -281,6 +285,20 @@ SECTION 5 — COMPANIES & PROJECTS
             his companies (Jeufy, Global Esports, Aarees, thumbnail.gg) from a
             Discord command centre. Not a product for sale — his own
             operating infrastructure, built and run in public.
+
+    By the numbers (counted from his own logs, August 2025 to
+    16 October 2026; every figure is a floor, rounded down):
+    — 32B+ AI tokens processed. Most are cached context the agents
+      re-read on each step, which is how agent systems work at scale.
+    — 14,000+ AI coding sessions
+    — 500+ hours of his own hands-on time; 1,000+ hours of machine
+      work in the last 10 weeks alone
+    — 1,500+ commits across 36 repos since August 2026
+    — Discord command centre: 63 channels, one human, 10,000+
+      messages in 68 days, median reply under a minute
+    — 41 public AI bots (rushindra.com/bots)
+    — Cost: about $12,400 all-in over 14 months, mostly two
+      $200-a-month subscriptions
 
   MUNDHE MAPS
     Role:   Builder
@@ -342,12 +360,12 @@ SECTION 6 — PLATFORMS & REACH
   Platform    Handle               Followers    Notes
   ─────────────────────────────────────────────────────────────
   YouTube     Dr Rushindra Sinha  ~110K        Long-form, commentary, education
-  Instagram   @rushindrasinha     ~63K         Reels, personal brand, short-form
-  X           @irushi             ~43K         Threads, opinions, AI, startup
-  Twitch      @RushindraSinha     ~18.2K       Live, gaming, founder crossover
-  LinkedIn    Dr Rushindra Sinha  ~7.3K        Professional thought leadership
+  Instagram   @rushindrasinha     ~62K         Reels, personal brand, short-form
+  X           @irushi             ~45K         Threads, opinions, AI, startup
+  Twitch      @RushindraSinha     ~18.1K       Live, gaming, founder crossover
+  LinkedIn    Dr Rushindra Sinha  ~8K          Professional thought leadership
   ─────────────────────────────────────────────────────────────
-  Total                           ~250K        Across 5 platforms
+  Total                           ~240K        Across 5 platforms (Oct 2026)
 
   Lifetime views: 100M+ (YouTube primary, content across all platforms)
   Audience core:  Indian founders, operators, builders, professionals,
@@ -388,7 +406,7 @@ SECTION 8 — CURRENT FOCUS
   — Ares: his AI operating system, built on OpenClaw, runs his companies
     from a Discord command centre, in public
   — AI-native team: taught the team to master AI instead of replacing them
-  — Aarees: next version of the WhatsApp-native creator AI, in build
+  — Aarees: live, an AI chief of staff that lives in your Discord, built for gaming
   — Global Esports: 2026 VCT Pacific Stage 2 champions; played their
     first Champions, Shanghai 2026
 
