@@ -4,6 +4,14 @@ All changes are logged here. Format: version → date → what changed → who a
 
 ---
 
+## [1.14.1] — 2026-10-17 (IST), Rushi in #web-dev 00:04 IST ("update the peak viewers from champs yes"; "August 2017 is founding for GE, my work started in July 2017")
+
+### Changed
+- Peak viewers: 583K for a GE match at VALORANT Champions 2026 (Esports Charts), replacing the deck's 486K on /v3; added to /llm and llms.txt GE facts.
+- Global Esports founding month: August 2017 everywhere (/about, /llm, llms.txt).
+
+---
+
 ## [1.14.0] — 2026-10-16 (IST), requested by Rushi in #web-dev 22:54 IST ("Batch 1"), pushed on Rushi's "push it" 23:04 IST
 
 ### Changed

@@ -53,7 +53,7 @@ export default function AboutPage() {
 
       <H2>Global Esports</H2>
       <P>
-        He started Global Esports with Mohit Israney in July 2017, initially
+        He founded Global Esports with Mohit Israney in August 2017, initially
         running it as a proprietorship under his own name. The pair formally
         incorporated the company and transferred the business over by
         November 2018, building what became India&apos;s first VC-backed

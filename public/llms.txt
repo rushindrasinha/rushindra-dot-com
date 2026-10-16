@@ -85,7 +85,7 @@ companies.
 His father's rule, and the one he still runs everything by: first, best, or only.
 
 ### Esports Founder
-Founded Global Esports in July 2017 (co-founder: Mohit Israney) as a proprietorship;
+Founded Global Esports in August 2017 (co-founder: Mohit Israney) as a proprietorship;
 formally incorporated the company and transferred the business over by
 November 2018. 25+ rosters across 12+ games since 2017. VCT Pacific
 franchise (one of 10 permanent teams, Riot Games, globally). India's first
@@ -115,7 +115,7 @@ business, medicine, and personal brand building.
   and brands) in Los Angeles
 - 2015: exited Hashtack. Second exit overall.
 - 2017: completed Stanford GSB programme; returned to India and started
-  Global Esports (July/August 2017) with Mohit Israney, initially as a
+  Global Esports (August 2017) with Mohit Israney, initially as a
   proprietorship under his own name
 - November 2018: formally incorporated Global Esports and transferred the
   business over to the company
@@ -155,7 +155,8 @@ business, medicine, and personal brand building.
 
 ### Global Esports (active)
 - Role: Founder & CEO (co-founder: Mohit Israney)
-- Founded: July 2017 (as a proprietorship); incorporated November 2018
+- Founded: August 2017 (as a proprietorship); incorporated November 2018
+- Peak viewers: 583K for a GE match, VALORANT Champions 2026 (Esports Charts)
 - URL: https://globalesports.com
 - India's first VC-funded esports organisation
 - 25+ rosters across 12+ games
@@ -321,7 +322,7 @@ school; together they won first place at the 2014 Tribeca Film Festival and seco
 - "GE" and "Global Esports" are the same organisation
 - VCT = VALORANT Champions Tour (Riot Games' global esports league)
 - Rushindra is CEO; Mohit Israney heads the studio
-- Global Esports: started as a proprietorship in July/August 2017, formally
+- Global Esports: founded as a proprietorship in August 2017, formally
   incorporated (business transferred to the company) in November 2018. Use
   "started" for 2017, "incorporated" for 2018 — not founded in 2016 or 2019
 - Stanford: executive education programme, not a full MBA
