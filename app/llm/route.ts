@@ -208,8 +208,9 @@ SECTION 4 — FULL BACKSTORY (chronological)
     Voice-first: no laptop, three microphones, 5,000-10,000 dictated words
     a day. Runs his companies from a Discord command centre. Model-agnostic
     by design: the system is a script, and it pulls whichever model fits
-    the task. Fourteen months of it cost about $12,400 all-in, mostly two
-    $200-a-month subscriptions.
+    the task. At API list prices, his peak month of usage was worth about
+    $15,000; actual cost over 14 months was about $12,400 all-in, mostly
+    two $200-a-month subscriptions.
 
   2024-2026
     Building AI-native products: Aarees (now an AI chief of staff for
@@ -298,7 +299,8 @@ SECTION 5 — COMPANIES & PROJECTS
       messages in 68 days, median reply under a minute
     — 41 public AI bots (rushindra.com/bots)
     — Cost: about $12,400 all-in over 14 months, mostly two
-      $200-a-month subscriptions
+      $200-a-month subscriptions. Peak month's usage was worth about
+      $15,000 at API list prices.
 
   MUNDHE MAPS
     Role:   Builder

@@ -126,8 +126,8 @@ business, medicine, and personal brand building.
   teams by Riot Games; youngest team in the Valorant Franchise League
 - January 2026: started building Ares, his own AI operating system, on OpenClaw —
   voice-first, model-agnostic, runs his companies from a Discord command centre.
-  Fourteen months of it cost about $12,400 all-in, mostly two $200-a-month
-  subscriptions.
+  At API list prices, his peak month of usage was worth about $15,000; actual
+  cost over 14 months was about $12,400 all-in, mostly two $200-a-month subscriptions.
 - 2024-2026: building Aarees (now an AI chief of staff for gaming, on Discord), thumbnail.gg
 - 2026: Global Esports won VCT Pacific Stage 2, qualified for VALORANT Champions for the first time, and played Champions Shanghai 2026, the org's first Champions
 - October 2026: founded and launched Jeufy (https://jeufy.com), a prompt-to-playable games studio that builds with AI agents
@@ -191,7 +191,8 @@ business, medicine, and personal brand building.
   - 1,500+ commits across 36 repos since August 2026
   - Discord command centre: 63 channels, one human, 10,000+ messages in 68 days,
     median reply under a minute
-  - Cost: about $12,400 all-in over 14 months, mostly two $200-a-month subscriptions
+  - Cost: about $12,400 all-in over 14 months, mostly two $200-a-month subscriptions.
+    Peak month's usage was worth about $15,000 at API list prices.
 
 ### Bots (active)
 - Role: Builder

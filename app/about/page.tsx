@@ -117,8 +117,9 @@ export default function AboutPage() {
           in 68 days, with a median reply under a minute.
         </LI>
         <LI>
-          Fourteen months of it cost about $12,400 all-in, mostly two
-          $200-a-month subscriptions.
+          At API list prices, his peak month of usage was worth about $15,000.
+          What he actually paid over fourteen months: about $12,400 all-in,
+          mostly two $200-a-month subscriptions.
         </LI>
         <LI>
           Built an agent whose only job is to build the other agents.
