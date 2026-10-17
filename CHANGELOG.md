@@ -4,7 +4,7 @@ All changes are logged here. Format: version → date → what changed → who a
 
 ---
 
-## v1.15.0 (2026-10-17 15:23 IST)
+## v1.15.0 (2026-10-17 15:23 IST), approved by Rushi in #web-dev 15:29 IST ("push live")
 - New "In the press" section on the homepage (#press), after Talks: 13 earned-press items, newest first (Aimlabs Podcast 2025, Esports Insider 2025/2023, Storyboard18 2024, The Economic Times 2023, The Financial Express 2023, PocketGamer.biz 2023, The Esports Advocate 2023, Sportskeeda 2020, GuruGamer 2019, MobyGeek 2019, Inc42 2018, WIRED 2014). Each link checked live on 2026-10-17 15:23 IST except Esports Insider (DNS blocked from this network; verified via search index).
 - Backlinks to globalesports.com: hero "Founder of Global Esports", About "In 2017 I started Global Esports", Press footer, plus the existing Work card.
 - Press list mirrored into llms.txt and /index.md.

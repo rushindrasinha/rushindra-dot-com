@@ -335,3 +335,5 @@ Rushi requested a site improvement pass covering: better browser (headless, no v
 
 ## 2026-10-17 15:23 IST: v1.15.0 staged (local commit, awaiting Rushi's push approval)
 Rushi (#web-dev, 15:19 IST): add earned press/published articles as a segment for credibility, and backlink globalesports.com now that it is fully updated. Built locally, build passes, screenshots desktop+phone reviewed.
+
+Pushed 2026-10-17 15:30 IST on Rushi's "push live" (#web-dev 15:29 IST).
