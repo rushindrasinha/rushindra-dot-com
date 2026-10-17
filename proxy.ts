@@ -31,6 +31,7 @@ const KNOWN_PATHS = new Set([
   "/clean",
   "/v2",
   "/v3",
+  "/v4",
   "/bots",
 ]);
 
