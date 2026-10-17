@@ -57,6 +57,19 @@ const nextConfig: NextConfig = {
           },
         ],
       },
+      {
+        // The Markdown twin (served for Accept: text/markdown via the rewrite,
+        // and directly at /index.md). Next.js replaces the route handler's own
+        // Vary, so Accept is declared here too.
+        source: "/index.md",
+        headers: [
+          {
+            key: "Vary",
+            value:
+              "Accept, RSC, Next-Router-State-Tree, Next-Router-Prefetch, Next-Router-Segment-Prefetch, Accept-Encoding",
+          },
+        ],
+      },
     ];
   },
 };

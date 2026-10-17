@@ -540,3 +540,23 @@ body::before {
   .press-row { grid-template-columns: 1fr auto !important; gap: 6px 14px !important; }
   .press-row span:nth-child(2) { grid-column: 1 / -1; grid-row: 2; }
 }
+
+/* Skip link: hidden until focused by keyboard, then shown top-left above the nav. */
+.skip-link {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 2000;
+  padding: 10px 16px;
+  border-radius: 8px;
+  background: #9cff57;
+  color: #08080a;
+  font-weight: 700;
+  font-size: 14px;
+  text-decoration: none;
+  transform: translateY(-200%);
+}
+.skip-link:focus,
+.skip-link:focus-visible {
+  transform: translateY(0);
+}

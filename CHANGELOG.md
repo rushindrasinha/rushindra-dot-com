@@ -4,6 +4,11 @@ All changes are logged here. Format: version → date → what changed → who a
 
 ---
 
+## v1.16.2 (2026-10-18 02:06 IST), approved by Rushi in #web-dev 01:58 IST ("Yes fix please")
+- Homepage accessibility and agent-readability, no visible change: page content now sits in a `<main>` landmark; a "Skip to content" link appears on first Tab; the R_ logo and the About/Work/Talks/Now/Contact nav items (desktop and phone menu) are real `<a href="#id">` links (smooth scroll kept, work without JS); the two h4 card titles under Now and Contact are h3 (no heading-level skip).
+- The Markdown twin (/index.md and Accept: text/markdown on /) now declares `Vary: Accept` via next.config headers, since Next.js replaced the route's own Vary.
+- Checked: build passes; agent-readiness audit 13 pass / 8 warn / 1 fail (live) to 17 / 4 / 0 (local next start); first-screen pixel diff vs live 0% on phone and phone menu, 0.67% on desktop (the stats counter mid-animation); phone menu link still scrolls to its section.
+
 ## v1.16.0 (2026-10-17 16:12 IST), requested by Rushi in #web-dev 15:51 IST (v4 at rushindra.com/v4)
 - New /v4 preview (noindex, same pattern as /v3): a full redesign in the globalesports.com design family. Hero, 60-second ledger, story timeline, Global Esports season and studio, AI operating record, work, both TEDx talks, all 14 press items, platforms, Now, contact, sources.
 - Static HTML/CSS/JS in public/v4, self-hosted fonts and AVIF/WebP images. Lighthouse mobile 99/100/100, desktop 100/100/100; axe zero violations at six widths.

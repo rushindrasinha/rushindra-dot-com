@@ -578,6 +578,11 @@ export default function Home() {
     const el = document.getElementById(id);
     if (el) el.scrollIntoView({ behavior: "smooth" });
   };
+  // In-page links stay real <a href="#id"> (visible URL, works without JS); JS keeps the smooth scroll.
+  const jump = (id: string) => (e: React.MouseEvent) => {
+    e.preventDefault();
+    scrollTo(id);
+  };
 
   const now = new Date();
   const qLabel = `Q${Math.ceil((now.getMonth() + 1) / 3)} ${now.getFullYear()}`;
@@ -592,6 +597,7 @@ export default function Home() {
   return (
     <ThemeCtx.Provider value={C}>
     <div style={{ background: C.bg, color: C.text, fontFamily: F.body, minHeight: "100vh", overflowX: "hidden" }}>
+      <a href="#main" className="skip-link">Skip to content</a>
       <CursorFX accent={C.accent} />
       <div className="scroll-progress" style={{ width: `${scrollPct}%` }} />
       <div
@@ -628,20 +634,19 @@ export default function Home() {
           transition: "all 0.35s ease",
         }}
       >
-        <button onClick={() => scrollTo("hero")} aria-label="Back to top" style={{ background: "none", border: "none", cursor: "pointer", fontFamily: F.mono, fontSize: 20, fontWeight: 600, color: C.accent, letterSpacing: 0, minWidth: 44, minHeight: 44, textAlign: "left" }}>
+        <a href="#hero" onClick={jump("hero")} aria-label="Back to top" style={{ display: "inline-flex", alignItems: "center", textDecoration: "none", cursor: "pointer", fontFamily: F.mono, fontSize: 20, fontWeight: 600, color: C.accent, letterSpacing: 0, minWidth: 44, minHeight: 44, textAlign: "left" }}>
           R_
-        </button>
+        </a>
 
         <div style={{ display: "flex", alignItems: "center", gap: 20 }}>
           <div className="nav-links" style={{ display: "flex", gap: 28, fontSize: 12, fontWeight: 500, letterSpacing: "1.4px", fontFamily: F.body }}>
             {NAV_LINKS.map(([label, id]) => (
-              <button
+              <a
                 key={id}
-                onClick={() => scrollTo(id)}
-                aria-label={`Go to ${label} section`}
+                href={`#${id}`}
+                onClick={jump(id)}
                 style={{
-                  background: "none",
-                  border: "none",
+                  textDecoration: "none",
                   cursor: "pointer",
                   color: C.textMid,
                   transition: "color 0.2s",
@@ -654,7 +659,7 @@ export default function Home() {
                 }}
               >
                 {label}
-              </button>
+              </a>
             ))}
           </div>
           {/* Outside .nav-links on purpose: that row is hidden on phones, /bots is not. */}
@@ -773,13 +778,13 @@ export default function Home() {
             }}
           >
             {NAV_LINKS.map(([label, id]) => (
-              <button
+              <a
                 key={id}
-                onClick={() => scrollTo(id)}
-                aria-label={`Go to ${label} section`}
+                href={`#${id}`}
+                onClick={jump(id)}
                 style={{
-                  background: "none",
-                  border: "none",
+                  display: "block",
+                  textDecoration: "none",
                   textAlign: "left",
                   cursor: "pointer",
                   color: C.text,
@@ -790,7 +795,7 @@ export default function Home() {
                 }}
               >
                 {label}
-              </button>
+              </a>
             ))}
             <div style={{ marginTop: 10, marginLeft: -12 }}>
               <SocialIcons size={20} gap={0} tap />
@@ -818,6 +823,7 @@ export default function Home() {
         )}
       </nav>
 
+      <main id="main">
       {/* ========== HERO ========== */}
       <section id="hero" style={{ minHeight: "100vh", display: "flex", alignItems: "center", padding: "140px clamp(24px, 5vw, 64px) 100px", position: "relative" }}>
         <div className="hero-dot-grid" aria-hidden="true" />
@@ -1234,7 +1240,7 @@ export default function Home() {
                 <div className="card" style={{ padding: "22px 26px", display: "flex", gap: 18, alignItems: "flex-start" }}>
                   <div style={{ width: 3, minHeight: 40, borderRadius: 2, background: C.accent, flexShrink: 0, marginTop: 2 }} />
                   <div>
-                    <h4 style={{ margin: "0 0 6px 0", fontSize: 16, fontWeight: 600, color: C.white }}>{item.label}</h4>
+                    <h3 style={{ margin: "0 0 6px 0", fontSize: 16, fontWeight: 600, color: C.white }}>{item.label}</h3>
                     <p style={{ margin: 0, fontSize: 14, color: C.textMid, lineHeight: 1.6, fontWeight: 300 }}>{item.desc}</p>
                   </div>
                 </div>
@@ -1286,7 +1292,7 @@ export default function Home() {
               <Reveal key={r.label} delay={0.08 * i}>
                 <a href={`mailto:sinha@rushindra.com?subject=${encodeURIComponent(r.label)}`} style={{ textDecoration: "none", color: "inherit" }}>
                   <div className="card" style={{ padding: 22, height: "100%" }}>
-                    <h4 style={{ margin: "0 0 6px 0", fontSize: 15, fontWeight: 600, color: C.white }}>{r.label}</h4>
+                    <h3 style={{ margin: "0 0 6px 0", fontSize: 15, fontWeight: 600, color: C.white }}>{r.label}</h3>
                     <p style={{ margin: 0, fontSize: 13, color: C.textMid, lineHeight: 1.5, fontWeight: 300 }}>{r.desc}</p>
                     <p style={{ margin: "10px 0 0 0", fontSize: 12, color: C.accent, fontWeight: 600 }}>Reach out →</p>
                   </div>
@@ -1361,6 +1367,8 @@ export default function Home() {
           </button>
         </Reveal>
       </section>
+
+      </main>
 
       {/* ========== FOOTER ========== */}
       <footer style={{ padding: "24px clamp(24px, 5vw, 64px) 36px", display: "flex", justifyContent: "center", alignItems: "center" }}>
