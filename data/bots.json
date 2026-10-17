@@ -645,10 +645,19 @@
     "platform": "Grok Bot",
     "link": "https://x.ai/bot/gE7R1kyX3-QhYVEdz8514",
     "category": "Engineering",
-    "tags": [],
+    "tags": [
+      "pull-requests",
+      "issues",
+      "test-results",
+      "claim-checks"
+    ],
     "emoji": "🧪",
     "status": "live",
-    "uses": [],
+    "uses": [
+      "A second pair of eyes on every PR",
+      "Issues, test results, and claim checks",
+      "It never merges"
+    ],
     "needs": null,
     "runsOnItsOwn": null,
     "asksFirst": true,
@@ -755,10 +764,19 @@
     "platform": "Grok Bot",
     "link": "https://x.ai/bot/N6SMCP4WTdlFqRpy4iRMe",
     "category": "Productivity",
-    "tags": [],
+    "tags": [
+      "email",
+      "sorting",
+      "replies"
+    ],
     "emoji": "📥",
     "status": "live",
-    "uses": [],
+    "uses": [
+      "Sweep your email",
+      "Sort what matters",
+      "Draft replies",
+      "Nothing goes out until you say yes"
+    ],
     "needs": [
       "Email"
     ],
@@ -776,10 +794,19 @@
     "platform": "Grok Bot",
     "link": "https://x.ai/bot/U__mgR7TK79U1FGD54bXm",
     "category": "Productivity",
-    "tags": [],
+    "tags": [
+      "monthly-books",
+      "money-digest",
+      "statements",
+      "receipts"
+    ],
     "emoji": "📒",
     "status": "live",
-    "uses": [],
+    "uses": [
+      "Monthly books from your statements and receipts",
+      "A plain-English money digest",
+      "Read-only: it never moves money"
+    ],
     "needs": null,
     "runsOnItsOwn": null,
     "asksFirst": true,
@@ -795,10 +822,18 @@
     "platform": "Grok Bot",
     "link": "https://x.ai/bot/lX3QL10yllBFRhyb7yZq0",
     "category": "Personal",
-    "tags": [],
+    "tags": [
+      "morning-page",
+      "your-day",
+      "overnight"
+    ],
     "emoji": "☀️",
     "status": "live",
-    "uses": [],
+    "uses": [
+      "One short morning page",
+      "Your day, what changed overnight, and what needs you",
+      "No noise"
+    ],
     "needs": null,
     "runsOnItsOwn": null,
     "asksFirst": false,
@@ -814,12 +849,21 @@
     "platform": "Grok Bot",
     "link": "https://x.ai/bot/GTXyonGEiybwnzX3YNbkX",
     "category": "Personal",
-    "tags": [],
+    "tags": [
+      "to-dos",
+      "daily-plan",
+      "check-ins",
+      "quiet-hours"
+    ],
     "emoji": "⏰",
     "status": "live",
-    "uses": [],
+    "uses": [
+      "Turn your to-dos into a daily plan",
+      "Check in so things don't slip",
+      "Quiet hours respected"
+    ],
     "needs": null,
-    "runsOnItsOwn": null,
+    "runsOnItsOwn": "daily plan and check-ins",
     "asksFirst": false,
     "featured": false,
     "addedAt": "2026-10-15",
@@ -833,10 +877,19 @@
     "platform": "Grok Bot",
     "link": "https://x.ai/bot/jPDcVSgAyjDo15jqgxN3S",
     "category": "Productivity",
-    "tags": [],
+    "tags": [
+      "refunds",
+      "claims",
+      "renewals",
+      "forms"
+    ],
     "emoji": "🧾",
     "status": "live",
-    "uses": [],
+    "uses": [
+      "Track refunds, claims, renewals and forms",
+      "Draft each one",
+      "You press submit"
+    ],
     "needs": null,
     "runsOnItsOwn": null,
     "asksFirst": true,
@@ -852,10 +905,18 @@
     "platform": "Grok Bot",
     "link": "https://x.ai/bot/rOFRJeodZFKJdhQ_hptd3",
     "category": "Personal",
-    "tags": [],
+    "tags": [
+      "trips",
+      "prices",
+      "sources"
+    ],
     "emoji": "✈️",
     "status": "live",
-    "uses": [],
+    "uses": [
+      "Plan trips",
+      "Compare options with prices and sources",
+      "Nothing gets booked until you say so"
+    ],
     "needs": null,
     "runsOnItsOwn": null,
     "asksFirst": true,
@@ -871,10 +932,19 @@
     "platform": "Grok Bot",
     "link": "https://x.ai/bot/rzmSD56ezdrBliXYRJGIt",
     "category": "Personal",
-    "tags": [],
+    "tags": [
+      "meals",
+      "shopping-list",
+      "tastes",
+      "budget"
+    ],
     "emoji": "🥗",
     "status": "live",
-    "uses": [],
+    "uses": [
+      "A week of meals",
+      "One shopping list",
+      "Fitted to your tastes and budget"
+    ],
     "needs": null,
     "runsOnItsOwn": null,
     "asksFirst": false,
@@ -890,12 +960,20 @@
     "platform": "Grok Bot",
     "link": "https://x.ai/bot/dcu5tAMg2fbZx4qFwOmvd",
     "category": "Personal",
-    "tags": [],
+    "tags": [
+      "workouts",
+      "weekly-check-ins",
+      "wellness"
+    ],
     "emoji": "💪",
     "status": "live",
-    "uses": [],
+    "uses": [
+      "Workout plans",
+      "Gentle weekly check-ins",
+      "General wellness only, not medical advice"
+    ],
     "needs": null,
-    "runsOnItsOwn": null,
+    "runsOnItsOwn": "weekly check-ins",
     "asksFirst": false,
     "featured": false,
     "addedAt": "2026-10-15",
@@ -909,10 +987,18 @@
     "platform": "Grok Bot",
     "link": "https://x.ai/bot/HpXs9KTtUdUmNIZljFkdS",
     "category": "Personal",
-    "tags": [],
+    "tags": [
+      "family",
+      "logistics",
+      "kids-projects"
+    ],
     "emoji": "🏡",
     "status": "live",
-    "uses": [],
+    "uses": [
+      "Family logistics",
+      "Fun kids' projects",
+      "Kept private to you"
+    ],
     "needs": null,
     "runsOnItsOwn": null,
     "asksFirst": false,
@@ -928,10 +1014,17 @@
     "platform": "Grok Bot",
     "link": "https://x.ai/bot/GdGLuzqsjVmFC3hkLe3Ik",
     "category": "Personal",
-    "tags": [],
+    "tags": [
+      "tutor",
+      "plan",
+      "daily-lessons"
+    ],
     "emoji": "🎓",
     "status": "live",
-    "uses": [],
+    "uses": [
+      "A real plan for whatever you want to learn",
+      "Short daily lessons"
+    ],
     "needs": null,
     "runsOnItsOwn": null,
     "asksFirst": false,
@@ -947,10 +1040,18 @@
     "platform": "Grok Bot",
     "link": "https://x.ai/bot/d5SQQiQHpCDfKJHjkO6Ka",
     "category": "Personal",
-    "tags": [],
+    "tags": [
+      "applications",
+      "applicants",
+      "follow-ups"
+    ],
     "emoji": "💼",
     "status": "live",
-    "uses": [],
+    "uses": [
+      "Track applications or applicants",
+      "Draft every follow-up",
+      "You send"
+    ],
     "needs": null,
     "runsOnItsOwn": null,
     "asksFirst": true,
@@ -966,10 +1067,19 @@
     "platform": "Grok Bot",
     "link": "https://x.ai/bot/Onyp43w-D--RPDggDMDbE",
     "category": "Business",
-    "tags": [],
+    "tags": [
+      "ops-sheet",
+      "small-business",
+      "customers",
+      "vendors"
+    ],
     "emoji": "🏪",
     "status": "live",
-    "uses": [],
+    "uses": [
+      "A daily ops sheet for your small business",
+      "Reply drafts for customers and vendors",
+      "You approve every action"
+    ],
     "needs": null,
     "runsOnItsOwn": null,
     "asksFirst": true,
@@ -985,10 +1095,19 @@
     "platform": "Grok Bot",
     "link": "https://x.ai/bot/QbBAhvuXb7clgleL_W6gR",
     "category": "Business",
-    "tags": [],
+    "tags": [
+      "watchlist",
+      "filings",
+      "earnings",
+      "news"
+    ],
     "emoji": "📊",
     "status": "live",
-    "uses": [],
+    "uses": [
+      "Research notes on your watchlist",
+      "From filings, earnings, and news",
+      "It never trades and never gives orders"
+    ],
     "needs": null,
     "runsOnItsOwn": null,
     "asksFirst": true,
@@ -1004,10 +1123,17 @@
     "platform": "Grok Bot",
     "link": "https://x.ai/bot/RnQS0ZVU4xMJ-o4-oKLDM",
     "category": "Business",
-    "tags": [],
+    "tags": [
+      "prospects",
+      "first-messages"
+    ],
     "emoji": "🎯",
     "status": "live",
-    "uses": [],
+    "uses": [
+      "Find prospects that fit",
+      "Draft personal first messages",
+      "You send every one"
+    ],
     "needs": null,
     "runsOnItsOwn": null,
     "asksFirst": true,
@@ -1023,10 +1149,17 @@
     "platform": "Grok Bot",
     "link": "https://x.ai/bot/Qf5RkA-cvxFwOR7E4EP4-",
     "category": "Business",
-    "tags": [],
+    "tags": [
+      "call-scripts",
+      "summaries",
+      "calls"
+    ],
     "emoji": "📞",
     "status": "live",
-    "uses": [],
+    "uses": [
+      "Call scripts and summaries, ready to go",
+      "It places a call only when you approve that one"
+    ],
     "needs": null,
     "runsOnItsOwn": null,
     "asksFirst": true,
@@ -1042,10 +1175,18 @@
     "platform": "Grok Bot",
     "link": "https://x.ai/bot/2W4GdK4yEb2CoJphwTOCQ",
     "category": "Engineering",
-    "tags": [],
+    "tags": [
+      "servers",
+      "sites",
+      "read-only"
+    ],
     "emoji": "🛰️",
     "status": "live",
-    "uses": [],
+    "uses": [
+      "Keep an eye on your servers and sites",
+      "Speak up only when something breaks",
+      "Read-only"
+    ],
     "needs": null,
     "runsOnItsOwn": null,
     "asksFirst": true,

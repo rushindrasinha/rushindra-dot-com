@@ -4,6 +4,10 @@ All changes are logged here. Format: version → date → what changed → who a
 
 ---
 
+## v1.16.1 (2026-10-18 01:56 IST)
+- data/bots.json: tags and uses filled for the 17 one-line bots, using only the text on each live x.ai/bot page. Descriptions stay that one line, because the page has no further sentence. Names, slugs, links, categories, and the original 24 bots are unchanged. Nudge and Wellness Coach record the check-in cadence the page states. The other 15 pages do not state a schedule, so that field stays empty.
+- Homepage lint: the IST clock and saved theme now update from a timeout so the effect does not set state in the same turn. The hero stat refs no longer use `any`. The Now heading is the same sentence, moved into a string so the apostrophe lints.
+
 ## v1.16.0 (2026-10-17 16:12 IST), requested by Rushi in #web-dev 15:51 IST (v4 at rushindra.com/v4)
 - New /v4 preview (noindex, same pattern as /v3): a full redesign in the globalesports.com design family. Hero, 60-second ledger, story timeline, Global Esports season and studio, AI operating record, work, both TEDx talks, all 14 press items, platforms, Now, contact, sources.
 - Static HTML/CSS/JS in public/v4, self-hosted fonts and AVIF/WebP images. Lighthouse mobile 99/100/100, desktop 100/100/100; axe zero violations at six widths.

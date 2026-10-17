@@ -409,9 +409,12 @@ function LiveStatus() {
   const [t, setT] = useState("");
   useEffect(() => {
     const fmt = () => new Date().toLocaleTimeString("en-GB", { timeZone: "Asia/Kolkata", hour: "2-digit", minute: "2-digit" });
-    setT(fmt());
+    const kick = setTimeout(() => setT(fmt()), 0);
     const id = setInterval(() => setT(fmt()), 15000);
-    return () => clearInterval(id);
+    return () => {
+      clearTimeout(kick);
+      clearInterval(id);
+    };
   }, []);
   return (
     <p style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: "6px 10px", margin: 0, fontFamily: F.mono, fontSize: 12, letterSpacing: "1.4px", textTransform: "uppercase", color: C.textMid }}>
@@ -540,8 +543,11 @@ export default function Home() {
   };
 
   useEffect(() => {
-    const saved = localStorage.getItem("theme");
-    if (saved === "light") setIsDark(false);
+    const kick = setTimeout(() => {
+      const saved = localStorage.getItem("theme");
+      if (saved === "light") setIsDark(false);
+    }, 0);
+    return () => clearTimeout(kick);
   }, []);
 
   useEffect(() => {
@@ -955,7 +961,7 @@ export default function Home() {
                 { ref: tokensCount, val: tkC, suffix: "B+", label: "AI Tokens Run" },
                 { ref: tedxCount, val: tC, suffix: "x TEDx", label: "Stages" },
               ].map((stat, i) => (
-                <div key={i} ref={stat.ref as any}>
+                <div key={i} ref={stat.ref}>
                   <div style={{ fontSize: "clamp(28px, 3vw, 36px)", fontWeight: 700, color: C.accent, lineHeight: 1, fontFamily: F.display, letterSpacing: "-0.03em" }}>
                     {stat.val}
                     {stat.suffix}
@@ -1225,7 +1231,7 @@ export default function Home() {
             <Label>Current Focus · {qLabel}</Label>
           </Reveal>
           <Reveal delay={0.08}>
-            <SectionTitle>What I'm building right now.</SectionTitle>
+            <SectionTitle>{"What I'm building right now."}</SectionTitle>
           </Reveal>
 
           <div style={{ display: "grid", gap: 14, marginTop: 32 }}>

@@ -4,6 +4,12 @@ Timestamped record of every session, change, and decision. Never deleted — app
 
 ---
 
+## Session 012 — 2026-10-18 01:56 IST
+
+Filled the 17 thin Grok bot entries in data/bots.json from their live x.ai/bot pages. Each page's description is the same one line already stored locally, so description, name, slug, link, and category were left as they were. Tags and uses are splits of that sentence, not new capabilities. Schedule is set only for nudge (daily plan and check-ins) and wellness-coach (weekly check-ins). The other 15 pages do not state a schedule or a connector, so those fields stay empty. inbox-runner already listed Email.
+
+`npm run lint` was already failing on the homepage (clock and theme effects, an `any` cast, one apostrophe). Those four errors are fixed so the required lint run exits 0. Four pre-existing image warnings remain. `npm run build` passed. Not pushed.
+
 ## Session 011 — 2026-09-29 (afternoon)
 
 Rushi asked why Mundhe Maps was missing and what UI/UX work was needed, mobile-first. He approved: Doctor not MD, best photo, builder-in-public hero, no serif headings.
