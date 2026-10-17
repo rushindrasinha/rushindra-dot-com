@@ -4,6 +4,12 @@ All changes are logged here. Format: version → date → what changed → who a
 
 ---
 
+## v1.16.0 (2026-10-17 16:12 IST), requested by Rushi in #web-dev 15:51 IST (v4 at rushindra.com/v4)
+- New /v4 preview (noindex, same pattern as /v3): a full redesign in the globalesports.com design family. Hero, 60-second ledger, story timeline, Global Esports season and studio, AI operating record, work, both TEDx talks, all 14 press items, platforms, Now, contact, sources.
+- Static HTML/CSS/JS in public/v4, self-hosted fonts and AVIF/WebP images. Lighthouse mobile 99/100/100, desktop 100/100/100; axe zero violations at six widths.
+- Config only: /v4 rewrite and noindex headers in next.config.ts, /v4 in proxy KNOWN_PATHS. Homepage and every other route unchanged.
+- Facts ledger (72 sourced entries) kept off the public repo, in ~/clawd/builds/rushindra-v4/FACTS_V4.md.
+
 ## v1.15.0 (2026-10-17 15:23 IST), approved by Rushi in #web-dev 15:29 IST ("push live")
 - New "In the press" section on the homepage (#press), after Talks: 13 earned-press items, newest first (Aimlabs Podcast 2025, Esports Insider 2025/2023, Storyboard18 2024, The Economic Times 2023, The Financial Express 2023, PocketGamer.biz 2023, The Esports Advocate 2023, Sportskeeda 2020, GuruGamer 2019, MobyGeek 2019, Inc42 2018, WIRED 2014). Each link checked live on 2026-10-17 15:23 IST except Esports Insider (DNS blocked from this network; verified via search index).
 - Backlinks to globalesports.com: hero "Founder of Global Esports", About "In 2017 I started Global Esports", Press footer, plus the existing Work card.

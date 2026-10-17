@@ -337,3 +337,7 @@ Rushi requested a site improvement pass covering: better browser (headless, no v
 Rushi (#web-dev, 15:19 IST): add earned press/published articles as a segment for credibility, and backlink globalesports.com now that it is fully updated. Built locally, build passes, screenshots desktop+phone reviewed.
 
 Pushed 2026-10-17 15:30 IST on Rushi's "push live" (#web-dev 15:29 IST).
+
+
+## 2026-10-17 16:12 IST: v1.16.0, /v4 preview
+Rushi (#web-dev, 15:51 IST): a v4 of rushindra.com at /v4, a full redesign using globalesports.com as the reference. Built by Codex on branch v4-redesign, reviewed by Ares (facts, no em dashes, Founder wording, banned topics, diff limited to /v4 + config), one spacing fix, merged and pushed. Homepage untouched.
