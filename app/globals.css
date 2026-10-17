@@ -532,3 +532,11 @@ body::before {
   .live-dot { animation: none; }
 }
 @media (max-width: 600px) { .live-sep { display: none; } }
+
+/* Press list (v1.15.0) */
+.press-row { transition: opacity .2s ease; }
+@media (hover: hover) { .press-row:hover span:nth-child(2) { text-decoration: underline; text-underline-offset: 4px; } }
+@media (max-width: 640px) {
+  .press-row { grid-template-columns: 1fr auto !important; gap: 6px 14px !important; }
+  .press-row span:nth-child(2) { grid-column: 1 / -1; grid-row: 2; }
+}

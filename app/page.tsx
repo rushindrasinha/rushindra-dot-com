@@ -192,6 +192,22 @@ const TALKS = [
   { event: "TEDx NMIMS · 2020", title: "Can You Get Paid To Play Video Games?", url: "https://youtu.be/DFw5fSh9D3I", img: "/talks/tedx-nmims.jpg", note: "With co-founder Mohit Israney" },
 ];
 
+const PRESS = [
+  { outlet: "Aimlabs Podcast", date: "Sep 2025", title: "Inside Global Esports: challenges, growth, and the future of gaming", url: "https://aimlabs.com/articles/aimlabs-podcast/inside-global-esports-challenges-growth-and-the-future-of-gaming-on-the-aimlabs-podcast/" },
+  { outlet: "Esports Insider", date: "Apr 2025", title: "Global Esports CEO Rushindra Sinha on expanding into other esports titles", url: "https://esportsinsider.com/2025/04/global-esports-expands-with-three-major-leadership-additions" },
+  { outlet: "Storyboard18", date: "Nov 2024", title: "Global Esports defies odds to become India\u2019s first profitable esports organization", url: "https://www.storyboard18.com/gaming-news/global-esports-defies-odds-to-become-indias-first-profitable-esports-organization-46892.htm" },
+  { outlet: "The Economic Times", date: "Dec 2023", title: "Riot Games to debut international esports tournament in India", url: "https://economictimes.indiatimes.com/industry/media/entertainment/us-video-game-developer-riot-games-to-debut-international-esports-tournament-in-india/articleshow/105927861.cms" },
+  { outlet: "The Financial Express", date: "Jul 2023", title: "Meet Dr Rushindra Sinha, a doctor-turned-entrepreneur who is the CEO of Global Esports", url: "https://www.financialexpress.com/life/lifestyle-meet-dr-rushindra-sinha-a-doctor-turned-entrepreneur-who-is-the-ceo-of-global-esports-know-about-his-journey-lifestyle-3164007/" },
+  { outlet: "PocketGamer.biz", date: "Mar 2023", title: "Global Esports CEO Dr Rushindra Sinha weighs in on the state of mobile esports in India", url: "https://www.pocketgamer.biz/global-esports-ceo-dr-rushindra-sinha-weighs-in-on-the-state-of-mobile-esports-in-india/" },
+  { outlet: "Esports Insider", date: "Feb 2023", title: "Indian goliaths S8UL and Global Esports secure VALORANT deal", url: "https://esportsinsider.com/2023/02/s8ul-global-esports-valorant-india" },
+  { outlet: "The Esports Advocate", date: "Jan 2023", title: "Global Esports founder Dr. Rushindra Sinha on Battlegrounds Mobile India", url: "https://esportsadvocate.net/2023/01/global-esports-ceo-bmgi/" },
+  { outlet: "Sportskeeda", date: "Oct 2020", title: "India has a bright future in VALORANT because of accessible PC requirements", url: "https://www.sportskeeda.com/valorant/india-bright-future-valorant-accessible-pc-system-requirements-dr-rushindra-sinha-ceo-co-founder-global-esports" },
+  { outlet: "GuruGamer", date: "Dec 2019", title: "How a pet project turned into the most well-known Indian esports organization", url: "https://gurugamer.com/esports/interview-with-founders-of-global-esports-how-a-pet-project-turned-into-the-most-well-known-indian-esports-organization-6244" },
+  { outlet: "MobyGeek", date: "Dec 2019", title: "Exclusive interview with Rushindra Sinha, CEO of Global Esports", url: "https://mobygeek.com/features/exclusive-interview-our-major-revenue-comes-from-content-creation-says-rushindra-sinha-10360" },
+  { outlet: "Inc42", date: "Nov 2018", title: "Global eSports takes over international competitive video gaming", url: "https://inc42.com/?p=140737" },
+  { outlet: "WIRED", date: "Apr 2014", title: "No Exit: one startup\u2019s struggle to survive Silicon Valley\u2019s gold rush (he is \u201cthe doctor\u201d)", url: "https://www.wired.com/2014/04/no-exit/" },
+];
+
 const PLATFORMS = [
   { name: "YouTube", subs: 110000, display: "110K", url: "https://youtube.com/c/RushindraSinha" },
   { name: "Instagram", subs: 62000, display: "62K", url: "https://instagram.com/rushindrasinha" },
@@ -856,7 +872,7 @@ export default function Home() {
 
           <Reveal delay={0.2}>
             <p style={{ fontSize: "clamp(16px, 1.6vw, 19px)", lineHeight: 1.7, color: C.text, maxWidth: 620, margin: "0 0 20px 0", fontWeight: 300 }}>
-              I build the AI systems that run my companies, and I build them in public. Founder of Jeufy, a games studio that turns a prompt into a playable game. Founder of Global Esports: 2026 VCT Pacific Stage 2 champions and the org&apos;s first VALORANT Champions.
+              I build the AI systems that run my companies, and I build them in public. Founder of Jeufy, a games studio that turns a prompt into a playable game. Founder of <a href="https://globalesports.com" target="_blank" rel="noopener" style={{ color: C.accent, textDecoration: "none", borderBottom: `1px solid ${C.accent}` }}>Global Esports</a>: 2026 VCT Pacific Stage 2 champions and the org&apos;s first VALORANT Champions.
             </p>
           </Reveal>
 
@@ -1006,7 +1022,7 @@ export default function Home() {
                 I completed my MBBS at D.Y. Patil Medical College, Navi Mumbai in 2014. I was already experimenting, using Google Glass to live-stream surgeries, one of the first in India to do so. But the pull toward building was too strong. San Francisco. A 480-hour full-stack bootcamp at General Assembly. Stanford GSB&apos;s Innovative Health Care Leader program, from design thinking to personal leadership, completed in 2017. Self-teaching code from zero while holding a medical degree. I wanted to be dangerous with both.
               </p>
               <p className={`story-more${storyOpen ? " open" : ""}`} style={{ marginBottom: 22 }}>
-                In 2017 I started Global Esports, India&apos;s first VC-backed esports organization. It ran as a proprietorship under my own name for the first year; I incorporated the company and moved the business over by November 2018. We won the Valorant Conqueror Championship. Riot Games selected us as one of 10 permanent VCT Pacific franchise partners globally. We stayed profitable while 18+ Indian esports competitors shut down. In 2026 we won VCT Pacific Stage 2 and qualified for VALORANT Champions for the first time. Alongside that: 100M+ personal views across platforms, 5B+ generated for creators and brands, two TEDx stages, first place at the 2014 Tribeca Film Festival and second place at the Beijing film festival with Mohit, and national rankings in inline speed skating.
+                In 2017 I started <a href="https://globalesports.com" target="_blank" rel="noopener" style={{ color: C.accent }}>Global Esports</a>, India&apos;s first VC-backed esports organization. It ran as a proprietorship under my own name for the first year; I incorporated the company and moved the business over by November 2018. We won the Valorant Conqueror Championship. Riot Games selected us as one of 10 permanent VCT Pacific franchise partners globally. We stayed profitable while 18+ Indian esports competitors shut down. In 2026 we won VCT Pacific Stage 2 and qualified for VALORANT Champions for the first time. Alongside that: 100M+ personal views across platforms, 5B+ generated for creators and brands, two TEDx stages, first place at the 2014 Tribeca Film Festival and second place at the Beijing film festival with Mohit, and national rankings in inline speed skating.
               </p>
               <p className={`story-more${storyOpen ? " open" : ""}`} style={{ marginBottom: 22 }}>
                 Today I build AI systems in public. Ares, my own AI operating system, runs my companies from a Discord command centre, and most of what I ship now starts as a voice note. In October 2026 I launched Jeufy, a games studio that builds with AI agents: prompt to playable. I didn&apos;t replace my team with AI. I taught them to master it.
@@ -1133,6 +1149,34 @@ export default function Home() {
               </Reveal>
             ))}
           </div>
+        </div>
+      </section>
+
+      <Divider />
+
+      {/* ========== PRESS ========== */}
+      <section id="press" style={{ padding: "96px clamp(24px, 5vw, 64px)" }}>
+        <div style={{ maxWidth: 980, margin: "0 auto" }}>
+          <Reveal>
+            <Label>Press</Label>
+          </Reveal>
+          <Reveal delay={0.08}>
+            <SectionTitle>In the press.</SectionTitle>
+          </Reveal>
+          <ul style={{ listStyle: "none", padding: 0, margin: "32px 0 0 0", borderTop: `1px solid ${C.border}` }}>
+            {PRESS.map((p, i) => (
+              <Reveal key={p.url} delay={0.03 * i}>
+                <li style={{ borderBottom: `1px solid ${C.border}` }}>
+                  <a href={p.url} target="_blank" rel="noopener noreferrer" className="press-row" style={{ display: "grid", gridTemplateColumns: "minmax(140px, 200px) 1fr auto", gap: 20, alignItems: "baseline", padding: "18px 0", textDecoration: "none", color: "inherit" }}>
+                    <span style={{ fontSize: 12, color: C.accent, fontFamily: F.mono, textTransform: "uppercase", letterSpacing: "1px" }}>{p.outlet}</span>
+                    <span style={{ fontSize: 16, color: C.white, lineHeight: 1.45 }}>{p.title}</span>
+                    <span style={{ fontSize: 12, color: C.textMid, fontFamily: F.mono, whiteSpace: "nowrap" }}>{p.date}</span>
+                  </a>
+                </li>
+              </Reveal>
+            ))}
+          </ul>
+          <p style={{ marginTop: 20, fontSize: 13, color: C.textMid }}>More on Global Esports at <a href="https://globalesports.com" target="_blank" rel="noopener" style={{ color: C.accent }}>globalesports.com</a>.</p>
         </div>
       </section>
 
