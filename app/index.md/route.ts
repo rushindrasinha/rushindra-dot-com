@@ -76,6 +76,7 @@ His father's rule, and the one he still runs everything by: first, best, or only
 
 
 ## Press
+- Sheep Esports (Oct 2026): "Global Esports founder Rushindra Sinha: The only other title we might consider in the future is VALORANT Mobile": https://www.sheepesports.com/en/articles/global-esports-founder-rushindra-sinha-the-only-other-title-we-might-consider-in-the-future-is/en
 - Aimlabs Podcast (Sep 2025): "Inside Global Esports: challenges, growth, and the future of gaming": https://aimlabs.com/articles/aimlabs-podcast/inside-global-esports-challenges-growth-and-the-future-of-gaming-on-the-aimlabs-podcast/
 - Esports Insider (Apr 2025): "Global Esports CEO Rushindra Sinha on expanding into other esports titles": https://esportsinsider.com/2025/04/global-esports-expands-with-three-major-leadership-additions
 - Storyboard18 (Nov 2024): "Global Esports defies odds to become India's first profitable esports organization": https://www.storyboard18.com/gaming-news/global-esports-defies-odds-to-become-indias-first-profitable-esports-organization-46892.htm

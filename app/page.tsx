@@ -193,6 +193,7 @@ const TALKS = [
 ];
 
 const PRESS = [
+  { outlet: "Sheep Esports", date: "Oct 2026", title: "Global Esports founder Rushindra Sinha: \u201cThe only other title we might consider in the future is VALORANT Mobile\u201d", url: "https://www.sheepesports.com/en/articles/global-esports-founder-rushindra-sinha-the-only-other-title-we-might-consider-in-the-future-is/en" },
   { outlet: "Aimlabs Podcast", date: "Sep 2025", title: "Inside Global Esports: challenges, growth, and the future of gaming", url: "https://aimlabs.com/articles/aimlabs-podcast/inside-global-esports-challenges-growth-and-the-future-of-gaming-on-the-aimlabs-podcast/" },
   { outlet: "Esports Insider", date: "Apr 2025", title: "Global Esports CEO Rushindra Sinha on expanding into other esports titles", url: "https://esportsinsider.com/2025/04/global-esports-expands-with-three-major-leadership-additions" },
   { outlet: "Storyboard18", date: "Nov 2024", title: "Global Esports defies odds to become India\u2019s first profitable esports organization", url: "https://www.storyboard18.com/gaming-news/global-esports-defies-odds-to-become-indias-first-profitable-esports-organization-46892.htm" },
