@@ -10,6 +10,7 @@ const nextConfig: NextConfig = {
       { source: "/clean", destination: "/clean/index.html" },
       { source: "/v2", destination: "/v2/index.html" },
       { source: "/v3", destination: "/v3/index.html" },
+      { source: "/v4", destination: "/v4/index.html" },
       // /ares: public lead-magnet page for the "comment ARES" Instagram campaign (indexed, unlike the previews)
       { source: "/ares", destination: "/ares/index.html" },
     ];
@@ -23,11 +24,11 @@ const nextConfig: NextConfig = {
   async headers() {
     return [
       {
-        source: "/:dir(new|clean|v2|v3)/:path*",
+        source: "/:dir(new|clean|v2|v3|v4)/:path*",
         headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }],
       },
       {
-        source: "/:dir(new|clean|v2|v3)",
+        source: "/:dir(new|clean|v2|v3|v4)",
         headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }],
       },
       {
