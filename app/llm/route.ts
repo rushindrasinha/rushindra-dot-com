@@ -31,8 +31,8 @@ SECTION 1 — IDENTITY
   Location:        India
 
   One-line positioning:
-  India's only creator who is simultaneously a doctor, a Stanford-trained
-  executive, an esports founder, and an AI builder — all active in parallel.
+  Doctor, Stanford GSB executive-education alumnus, founder of Global
+  Esports, and AI builder. All four are active at the same time.
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 

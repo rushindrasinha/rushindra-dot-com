@@ -4,10 +4,19 @@ All changes are logged here. Format: version → date → what changed → who a
 
 ---
 
+## v1.16.3 (2026-10-18 08:13 IST), approved by Rushi in #web-dev 08:10 IST ("Keep going", on the 02:21 list)
+- Security: Next.js 16.3.7 to 16.4.2 (two critical remote-code-execution fixes and one high-severity SSRF fix), eslint-config-next to match, and source-map-js 1.2.1 to 1.2.2 via `npm audit fix`. `npm audit --omit=dev` is now clean. Five high-severity advisories remain in dev-only tooling (braces), which never ship to the site.
+- Merged Cursor's v1.16.1 (bot tags and uses, lint fixes) onto v1.16.2.
+- llms.txt and /llm: the one-line summary "India's only creator who is simultaneously..." is replaced with four facts the file already sources (doctor, Stanford GSB executive education, Global Esports founder, AI builder). The 28 em dashes in llms.txt are replaced with colons, commas and full stops. No facts changed.
+
 ## v1.16.2 (2026-10-18 02:06 IST), approved by Rushi in #web-dev 01:58 IST ("Yes fix please")
 - Homepage accessibility and agent-readability, no visible change: page content now sits in a `<main>` landmark; a "Skip to content" link appears on first Tab; the R_ logo and the About/Work/Talks/Now/Contact nav items (desktop and phone menu) are real `<a href="#id">` links (smooth scroll kept, work without JS); the two h4 card titles under Now and Contact are h3 (no heading-level skip).
 - The Markdown twin (/index.md and Accept: text/markdown on /) now declares `Vary: Accept` via next.config headers, since Next.js replaced the route's own Vary.
 - Checked: build passes; agent-readiness audit 13 pass / 8 warn / 1 fail (live) to 17 / 4 / 0 (local next start); first-screen pixel diff vs live 0% on phone and phone menu, 0.67% on desktop (the stats counter mid-animation); phone menu link still scrolls to its section.
+
+## v1.16.1 (2026-10-18 01:56 IST)
+- data/bots.json: tags and uses filled for the 17 one-line bots, using only the text on each live x.ai/bot page. Descriptions stay that one line, because the page has no further sentence. Names, slugs, links, categories, and the original 24 bots are unchanged. Nudge and Wellness Coach record the check-in cadence the page states. The other 15 pages do not state a schedule, so that field stays empty.
+- Homepage lint: the IST clock and saved theme now update from a timeout so the effect does not set state in the same turn. The hero stat refs no longer use `any`. The Now heading is the same sentence, moved into a string so the apostrophe lints.
 
 ## v1.16.0 (2026-10-17 16:12 IST), requested by Rushi in #web-dev 15:51 IST (v4 at rushindra.com/v4)
 - New /v4 preview (noindex, same pattern as /v3): a full redesign in the globalesports.com design family. Hero, 60-second ledger, story timeline, Global Esports season and studio, AI operating record, work, both TEDx talks, all 14 press items, platforms, Now, contact, sources.
