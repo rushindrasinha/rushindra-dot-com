@@ -4,6 +4,10 @@ Timestamped record of every session, change, and decision. Never deleted — app
 
 ---
 
+## Session 013 — 2026-10-18 08:15 IST
+
+Rushi said "Keep going" at 08:10 IST on the 02:21 list. Shipped v1.16.3 (commit 2e01bb5, Actions run 39091134728): Next.js 16.4.2 security update, Cursor's v1.16.1 bot data merged after review (tags and uses only, no invented capabilities), and the llms.txt / /llm tagline replaced with sourced facts plus the 28 em dashes in llms.txt removed. Lint 0 errors, build passed, local and live smoke checks passed on /, /bots, /bots/nudge, /llm, /llms.txt, /v4, /about. Open: /llm still has 97 em dashes; five dev-only npm advisories (braces) remain.
+
 ## Session 012 — 2026-10-18 01:56 IST
 
 Filled the 17 thin Grok bot entries in data/bots.json from their live x.ai/bot pages. Each page's description is the same one line already stored locally, so description, name, slug, link, and category were left as they were. Tags and uses are splits of that sentence, not new capabilities. Schedule is set only for nudge (daily plan and check-ins) and wellness-coach (weekly check-ins). The other 15 pages do not state a schedule or a connector, so those fields stay empty. inbox-runner already listed Email.
