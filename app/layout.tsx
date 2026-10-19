@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
 import { Analytics } from "@vercel/analytics/next";
+import Script from "next/script";
 import "./globals.css";
 
 // Display: grotesk, not serif. Rushi rejected serif/editorial for this site
@@ -150,6 +151,16 @@ export default function RootLayout({
         />
         {children}
         <Analytics />
+        {/* Umami (self-hosted at pulse.rushindra.com): cookieless, honours Do Not Track, counts only on rushindra.com.
+            The click listener sends `cta` (mailto, /go/ links, .nav-cta, PDFs) and `outbound` (other hosts) events. */}
+        <Script
+          src="https://pulse.rushindra.com/p.js"
+          data-website-id="3ae3410e-2bad-4738-b5d4-64b727655c8d"
+          data-domains="rushindra.com"
+          data-do-not-track="true"
+          strategy="afterInteractive"
+        />
+        <Script id="umami-clicks" strategy="afterInteractive">{"document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a');if(!a||!window.umami)return;var h=a.getAttribute('href')||'';if(a.matches('.btn,.nav-cta,[data-cta],#bag-checkout')||/^mailto:|^\\/go\\/|\\.pdf($|[?#])/.test(h)){umami.track('cta',{label:(a.dataset.add||a.textContent||'').trim().slice(0,60),href:h.slice(0,200)});}if(a.host&&a.host!==location.host&&/^https?:/.test(a.protocol)){umami.track('outbound',{url:(a.host+a.pathname).slice(0,200)});}},true);"}</Script>
       </body>
     </html>
   );

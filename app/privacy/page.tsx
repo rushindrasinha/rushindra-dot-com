@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 };
 
 const EMAIL = "sinha@rushindra.com";
-const UPDATED = "22 August 2026";
+const UPDATED = "19 October 2026";
 
 export default function PrivacyPage() {
   return (
@@ -30,11 +30,14 @@ export default function PrivacyPage() {
 
       <H2>Analytics</H2>
       <P>
-        This site uses Vercel Web Analytics to count page views. It is cookieless
-        and does not track individuals: it records aggregate events such as the page
-        visited, referrer, approximate country, browser, and device type. It does not
-        build a profile of you, does not follow you across other websites, and does
-        not use device fingerprinting for advertising. There are no advertising
+        This site counts page views with two cookieless tools: Vercel Web Analytics,
+        and Umami, which is self-hosted on a server I run, so its data is not shared with
+        any analytics company. Neither tracks individuals: they record aggregate events
+        such as the page visited, referrer, campaign tags in the link, approximate
+        country, browser, device type, and clicks on contact and outbound links. Umami
+        does not run at all if your browser sends Do Not Track. Neither tool builds
+        a profile of you, follows you across other websites, or uses device
+        fingerprinting for advertising. There are no advertising
         trackers, no Google Analytics, no Meta pixel, and no third-party ad networks
         on this site.
       </P>

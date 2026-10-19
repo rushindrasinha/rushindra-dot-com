@@ -4,6 +4,11 @@ All changes are logged here. Format: version → date → what changed → who a
 
 ---
 
+## v1.17.0 (2026-10-19 09:46 IST), NOT PUSHED: awaiting Rushi's approval (requested via the analytics PRD, Rushi 2026-10-19 09:29 IST: "full analytics setup across all our surfaces")
+- Analytics: adds Umami, self-hosted at pulse.rushindra.com (Hetzner box), alongside Vercel Web Analytics, which stays on. Umami has an API, so Ares can read traffic without the Vercel dashboard. Cookieless, honours Do Not Track, counts only on rushindra.com (previews ignored).
+- Events: `cta` (mailto, /go/ bot links, nav CTA, PDF downloads) and `outbound` (links to other sites), from one click listener in app/layout.tsx. /ares (static lead-magnet page) gets the same tag.
+- Privacy page: the Analytics paragraph names both tools; last updated 19 October 2026.
+
 ## v1.16.3 (2026-10-18 08:13 IST), approved by Rushi in #web-dev 08:10 IST ("Keep going", on the 02:21 list)
 - Security: Next.js 16.3.7 to 16.4.2 (two critical remote-code-execution fixes and one high-severity SSRF fix), eslint-config-next to match, and source-map-js 1.2.1 to 1.2.2 via `npm audit fix`. `npm audit --omit=dev` is now clean. Five high-severity advisories remain in dev-only tooling (braces), which never ship to the site.
 - Merged Cursor's v1.16.1 (bot tags and uses, lint fixes) onto v1.16.2.
