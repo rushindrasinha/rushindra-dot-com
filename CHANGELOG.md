@@ -4,6 +4,9 @@ All changes are logged here. Format: version → date → what changed → who a
 
 ---
 
+## v1.17.2 (2026-11-05 19:07 IST), NOT PUSHED: awaiting Rushi's approval (requested in #social 19:03 IST: prep the next 10 irushi.ai reels with PDFs)
+- Adds 16 DM card cover images under public/prompts/covers/ (1200x630 jpg) used by the @irushi.ai Instagram DM card, and ten more static prompt PDFs under public/prompts/ (duckling-chilli, chicken-dum-biryani, balloon-sofa-cat, bear-vr-logout, red-lehenga, tonkotsu-ramen, tiny-agent-desk, giant-gaming-chair, airboat-hammock, one-slap-door). Files only, no code, page or nav change.
+
 ## v1.17.1 (2026-11-05 18:48 IST), NOT PUSHED: awaiting Rushi's approval (asked in #social 18:46 IST: host the irushi.ai prompt PDFs on rushindra.com instead of Google Drive)
 - Adds public/prompts/: six static prompt PDFs (birria-tacos, chef-vs-cockroach, katsudon, riko-sandwich, saltworks, amalfi-coast) linked from the @irushi.ai Instagram DMs. No page, route, nav or code change; files only.
 
