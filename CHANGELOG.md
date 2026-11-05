@@ -4,6 +4,9 @@ All changes are logged here. Format: version → date → what changed → who a
 
 ---
 
+## v1.17.3 (2026-11-05 21:56 IST), approved by Rushi in Discord #content 21:31 IST ("Go ahead and start the next batch uploads")
+- Adds 8 static prompt PDFs under public/prompts/ and their 8 DM card covers under public/prompts/covers/ for the next @irushi.ai batch (frozen-street, smile-door-window, tiny-robot-duck, superbike-mountain, parking-guard, harbor-blaster, wrong-pumpkin, motor-show). Files only, no code, page or nav change.
+
 ## v1.17.2 (2026-11-05 19:07 IST), NOT PUSHED: awaiting Rushi's approval (requested in #social 19:03 IST: prep the next 10 irushi.ai reels with PDFs)
 - Adds 16 DM card cover images under public/prompts/covers/ (1200x630 jpg) used by the @irushi.ai Instagram DM card, and ten more static prompt PDFs under public/prompts/ (duckling-chilli, chicken-dum-biryani, balloon-sofa-cat, bear-vr-logout, red-lehenga, tonkotsu-ramen, tiny-agent-desk, giant-gaming-chair, airboat-hammock, one-slap-door). Files only, no code, page or nav change.
 
