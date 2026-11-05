@@ -4,6 +4,9 @@ All changes are logged here. Format: version → date → what changed → who a
 
 ---
 
+## v1.17.1 (2026-11-05 18:48 IST), NOT PUSHED: awaiting Rushi's approval (asked in #social 18:46 IST: host the irushi.ai prompt PDFs on rushindra.com instead of Google Drive)
+- Adds public/prompts/: six static prompt PDFs (birria-tacos, chef-vs-cockroach, katsudon, riko-sandwich, saltworks, amalfi-coast) linked from the @irushi.ai Instagram DMs. No page, route, nav or code change; files only.
+
 ## v1.17.0 (2026-10-19 09:46 IST), NOT PUSHED: awaiting Rushi's approval (requested via the analytics PRD, Rushi 2026-10-19 09:29 IST: "full analytics setup across all our surfaces")
 - Analytics: adds Umami, self-hosted at pulse.rushindra.com (Hetzner box), alongside Vercel Web Analytics, which stays on. Umami has an API, so Ares can read traffic without the Vercel dashboard. Cookieless, honours Do Not Track, counts only on rushindra.com (previews ignored).
 - Events: `cta` (mailto, /go/ bot links, nav CTA, PDF downloads) and `outbound` (links to other sites), from one click listener in app/layout.tsx. /ares (static lead-magnet page) gets the same tag.
