@@ -4,6 +4,9 @@ All changes are logged here. Format: version → date → what changed → who a
 
 ---
 
+## v1.17.4 (2026-11-06 02:18 IST), approved by Rushi in Discord #content 02:08 IST ("Approve all 9 - post 1 every hour starting now")
+- Adds 9 static prompt PDFs under public/prompts/ and their 9 DM card covers under public/prompts/covers/ for @irushi.ai batch 4 (loop-world-drive, every-lobby, i-let-you-win, mouse-duel, mum-mid-clutch, ice-cream-trick, shrimp-boss-fight, notebook-war, out-for-milk). Files only, no code, page or nav change.
+
 ## v1.17.3 (2026-11-05 21:56 IST), approved by Rushi in Discord #content 21:31 IST ("Go ahead and start the next batch uploads")
 - Adds 8 static prompt PDFs under public/prompts/ and their 8 DM card covers under public/prompts/covers/ for the next @irushi.ai batch (frozen-street, smile-door-window, tiny-robot-duck, superbike-mountain, parking-guard, harbor-blaster, wrong-pumpkin, motor-show). Files only, no code, page or nav change.
 
