@@ -4,6 +4,9 @@ All changes are logged here. Format: version → date → what changed → who a
 
 ---
 
+## v1.17.5 (2026-11-06 10:16 IST), approved by Rushi in Discord #content 09:56 IST ("all 4 are approved to upload on irushi.ai")
+- Adds 4 static prompt PDFs under public/prompts/ and their 4 DM card covers under public/prompts/covers/ for the @irushi.ai Mindset reels (rule-01-patched-balloons, rule-02-prompt-tower, rule-03-sink-or-build, rule-04-read-the-wall). Files only, no code, page or nav change.
+
 ## v1.17.4 (2026-11-06 02:18 IST), approved by Rushi in Discord #content 02:08 IST ("Approve all 9 - post 1 every hour starting now")
 - Adds 9 static prompt PDFs under public/prompts/ and their 9 DM card covers under public/prompts/covers/ for @irushi.ai batch 4 (loop-world-drive, every-lobby, i-let-you-win, mouse-duel, mum-mid-clutch, ice-cream-trick, shrimp-boss-fight, notebook-war, out-for-milk). Files only, no code, page or nav change.
 
