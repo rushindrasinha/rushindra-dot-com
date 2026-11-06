@@ -365,3 +365,6 @@ Rushi (#content, 02:08 IST) approved all 9 batch 4 reels. Static PDFs and DM cov
 
 ## 2026-11-06 10:16 IST: v1.17.5, @irushi.ai Mindset prompt files
 Rushi (#content, 09:56 IST) approved all 4 Mindset reels. Static PDFs and DM covers only, same pattern as v1.17.4. No code, page or deployment change.
+
+## 2026-11-06 12:21 IST: v1.17.7, @irushi.ai batch 5 prompt files
+Rushi (#content, 11:59 IST) approved all 10 batch 5 reels. Static PDFs and DM covers only, same pattern as v1.17.5. No code, page or deployment change. v1.17.6 is not included.
