@@ -4,6 +4,10 @@ All changes are logged here. Format: version → date → what changed → who a
 
 ---
 
+## v1.17.9 (2026-11-06 21:54 IST), approved by Rushi in Discord #content 2026-11-06 21:33 IST ("go", on the RECON.pdf proposal to post the 44 recon clips as 7 reels and 37 trial reels)
+- Adds 44 static prompt PDFs under public/prompts/ and their 44 DM card covers under public/prompts/covers/ for the @irushi.ai recon 44. PDFs credit the original prompt author with a link to their post where the author is on file. Slugs that already existed get the clip id appended. Files only, no code, page or nav change.
+- Built on main from v1.17.8. v1.17.6 (agent tooling text) stays on its own branch, not pushed.
+
 ## v1.17.8 (2026-11-06 18:14 IST), approved by Rushi in Discord #content 2026-11-06 18:05 IST ("these look great - you can go ahead and queue them", on the Verbatim 15 finals)
 - Adds 10 static prompt PDFs under public/prompts/ and their 10 DM card covers under public/prompts/covers/ for @irushi.ai Verbatim 15 (the-train-through-a-sandwich, the-skeletons-stayed-after-the-party, he-laughed-at-her-on-the-platform, tiny-runner-in-a-stationery-shop, never-follow-a-black-cat-on-halloween, waiting-for-their-person, she-ran-from-the-witch-at-the-bus-stop, everything-is-free-tonight, smile-you-re-on-camera, he-spat-water-on-her-and-laughed). Each PDF credits the original prompt author with a link to their post. Files only, no code, page or nav change.
 - Built on main from v1.17.7. v1.17.6 (agent tooling text) stays on its own branch, not pushed.
