@@ -313,8 +313,11 @@ SECTION 5 — COMPANIES & PROJECTS
     Role:   Builder
     URL:    https://github.com/rushindrasinha
     What:   openclaw-guide (field manual for running a self-hosted AI agent),
-            ares-mbl, skill-audit-router, xreader-mcp. Plus the YouTube
-            Shorts pipeline (2,300+ GitHub stars).
+            ares-mbl, skill-audit-router, xreader-mcp, clip-engine (long talks
+            into captioned vertical shorts, approved then posted one an
+            hour), sylar (a skill that lets an agent absorb capabilities from
+            anything it touches). Plus the YouTube Shorts pipeline (2,300+
+            GitHub stars).
 
   BOTS
     Role:   Builder

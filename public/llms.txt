@@ -245,6 +245,8 @@ business, medicine, and personal brand building.
 ### Agent tooling (open source)
 - URL: https://github.com/rushindrasinha
 - openclaw-guide, ares-mbl, skill-audit-router, xreader-mcp
+- clip-engine: turns a long talk, podcast or interview into captioned vertical shorts, approved then posted one an hour
+- sylar: a skill that lets an agent absorb capabilities from anything it touches
 - YouTube Shorts Pipeline: 2,300+ GitHub stars
 
 ### Talks

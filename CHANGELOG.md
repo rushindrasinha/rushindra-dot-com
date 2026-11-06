@@ -4,6 +4,10 @@ All changes are logged here. Format: version → date → what changed → who a
 
 ---
 
+## v1.17.13 (2026-11-10 17:59 IST), approved by Rushi in Discord #web-dev 2026-11-10 17:58 IST ("1) yes", on the exact diff shown 17:43 IST). Rebased from the v1.17.6 branch (staged 2026-11-06 10:35 IST) onto v1.17.12; same text change, new number because v1.17.7 to v1.17.12 shipped first.
+- Agent tooling now names clip-engine and sylar (both public on GitHub since 15 and 12 Oct) in all four layers: homepage card, /index.md, /llm, /llms.txt. Text only, no layout change.
+- Deliberately NOT included: a /prompts index (would expose the unposted drip PDFs and bypass the follow gate), @irushi.ai in Platforms (1 follower), refreshed AI numbers (no re-runnable audit, figures stay labelled to 16 Oct), any Global Esports change (Rushi 10:32 IST).
+
 ## v1.17.12 (2026-11-10 14:12 IST), approved by Rushi in Discord #irushi-ai 2026-11-10 13:15 IST ("done- sounds good - queue it up", batch 2 items 16 to 20)
 - Adds 5 static prompt PDFs under public/prompts/ and their 5 DM card covers under public/prompts/covers/ for the @irushi.ai Stage 13 trial clips. No slug collided with an existing file. Files only, no code, page or nav change.
 - Built on main from v1.17.11. v1.17.6 (agent tooling text) stays on its own branch, not pushed.

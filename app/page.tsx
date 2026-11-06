@@ -175,7 +175,7 @@ const WORK = [
     name: "Agent tooling",
     tag: "Open Source",
     status: "Shipped",
-    line: "Field-tested tools for running real AI agents: openclaw-guide, ares-mbl, skill-audit-router, xreader-mcp.",
+    line: "Field-tested tools for running real AI agents: openclaw-guide, ares-mbl, skill-audit-router, xreader-mcp, clip-engine (long talks into captioned vertical shorts), sylar (a skill that lets an agent absorb capabilities from anything it touches).",
     url: "https://github.com/rushindrasinha",
   },
   {
