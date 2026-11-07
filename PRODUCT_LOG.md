@@ -374,3 +374,6 @@ Rushi (#content, 18:05 IST) approved queueing the 10 Verbatim 15 reels. Static P
 
 ## 2026-11-06 21:54 IST: v1.17.9, @irushi.ai recon 44 prompt files
 Rushi (#content, 21:33 IST) said go on posting the 44 recon clips (7 reels, 37 trial reels). Static PDFs and DM covers only, same pattern as v1.17.8. No code, page or deployment change. v1.17.6 is not included.
+
+## 2026-11-08 00:15 IST: v1.17.10, @irushi.ai Stage 10 prompt files
+Rushi (#content, 2026-11-08 00:05 IST) said go on queueing the 30 Shortlisted Generations clips. Static PDFs and DM covers for the 29 with a prompt, same pattern as v1.17.9. No code, page or deployment change. v1.17.6 is not included.

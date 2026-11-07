@@ -4,6 +4,10 @@ All changes are logged here. Format: version → date → what changed → who a
 
 ---
 
+## v1.17.10 (2026-11-08 00:15 IST), approved by Rushi in Discord #content 2026-11-08 00:05 IST ("go", on the Stage 10 Shortlisted Generations review with exact captions and order)
+- Adds 29 static prompt PDFs under public/prompts/ and their 29 DM card covers under public/prompts/covers/ for the @irushi.ai Stage 10 Shortlisted Generations clips. No slug collided with an existing file. Files only, no code, page or nav change.
+- Built on main from v1.17.9. v1.17.6 (agent tooling text) stays on its own branch, not pushed.
+
 ## v1.17.9 (2026-11-06 21:54 IST), approved by Rushi in Discord #content 2026-11-06 21:33 IST ("go", on the RECON.pdf proposal to post the 44 recon clips as 7 reels and 37 trial reels)
 - Adds 44 static prompt PDFs under public/prompts/ and their 44 DM card covers under public/prompts/covers/ for the @irushi.ai recon 44. PDFs credit the original prompt author with a link to their post where the author is on file. Slugs that already existed get the clip id appended. Files only, no code, page or nav change.
 - Built on main from v1.17.8. v1.17.6 (agent tooling text) stays on its own branch, not pushed.
