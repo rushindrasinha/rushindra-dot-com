@@ -4,6 +4,10 @@ All changes are logged here. Format: version → date → what changed → who a
 
 ---
 
+## v1.17.12 (2026-11-10 14:12 IST), approved by Rushi in Discord #irushi-ai 2026-11-10 13:15 IST ("done- sounds good - queue it up", batch 2 items 16 to 20)
+- Adds 5 static prompt PDFs under public/prompts/ and their 5 DM card covers under public/prompts/covers/ for the @irushi.ai Stage 13 trial clips. No slug collided with an existing file. Files only, no code, page or nav change.
+- Built on main from v1.17.11. v1.17.6 (agent tooling text) stays on its own branch, not pushed.
+
 ## v1.17.11 (2026-11-10 13:06 IST), approved by Rushi in Discord #irushi-ai 2026-11-10 13:00 IST ("go on all 10", on the 11:43 IST Stage 12 pack with exact captions and slots)
 - Adds 10 static prompt PDFs under public/prompts/ and their 10 DM card covers under public/prompts/covers/ for the @irushi.ai Stage 12 bank clips. No slug collided with an existing file. Files only, no code, page or nav change.
 - Built on main from v1.17.10. v1.17.6 (agent tooling text) stays on its own branch, not pushed.
