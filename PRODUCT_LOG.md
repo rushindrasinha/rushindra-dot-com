@@ -383,3 +383,6 @@ Rushi (#irushi-ai, 2026-11-10 13:00 IST) said go on all 10 Stage 12 bank clips. 
 
 ## 2026-11-10 14:12 IST: v1.17.12, @irushi.ai Stage 13 prompt files
 Rushi (#irushi-ai, 2026-11-10 13:15 IST) said queue batch 2 items 16 to 20. Static PDFs and DM covers for all 5, same pattern as v1.17.11. No code, page or deployment change. v1.17.6 is not included.
+
+## 2026-11-19 16:30 IST: v1.18.0, /live landing page
+Rushi (#cofounder, 16:22 IST) said push live. New static page /live linking YouTube, Twitch, Kick, X and Instagram. Links verified, viewport audit passed, build clean.

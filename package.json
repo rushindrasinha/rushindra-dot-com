@@ -1,6 +1,6 @@
 {
   "name": "rushindra-dot-com",
-  "version": "1.17.13",
+  "version": "1.18.0",
   "private": true,
   "scripts": {
     "dev": "next dev",

@@ -4,6 +4,9 @@ All changes are logged here. Format: version → date → what changed → who a
 
 ---
 
+## v1.18.0 (2026-11-19 16:30 IST), approved by Rushi in Discord #cofounder 2026-11-19 16:22 IST ("Push live")
+- New page /live: one-tap links to YouTube, Twitch, Kick, X (@irushi) and Instagram. All five profile URLs fetched and confirmed to be real pages before ship. Static page, no other file touched. Viewport audit PASS.
+
 ## v1.17.13 (2026-11-10 17:59 IST), approved by Rushi in Discord #web-dev 2026-11-10 17:58 IST ("1) yes", on the exact diff shown 17:43 IST). Rebased from the v1.17.6 branch (staged 2026-11-06 10:35 IST) onto v1.17.12; same text change, new number because v1.17.7 to v1.17.12 shipped first.
 - Agent tooling now names clip-engine and sylar (both public on GitHub since 15 and 12 Oct) in all four layers: homepage card, /index.md, /llm, /llms.txt. Text only, no layout change.
 - Deliberately NOT included: a /prompts index (would expose the unposted drip PDFs and bypass the follow gate), @irushi.ai in Platforms (1 follower), refreshed AI numbers (no re-runnable audit, figures stay labelled to 16 Oct), any Global Esports change (Rushi 10:32 IST).
