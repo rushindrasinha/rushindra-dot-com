@@ -386,3 +386,6 @@ Rushi (#irushi-ai, 2026-11-10 13:15 IST) said queue batch 2 items 16 to 20. Stat
 
 ## 2026-11-19 16:30 IST: v1.18.0, /live landing page
 Rushi (#cofounder, 16:22 IST) said push live. New static page /live linking YouTube, Twitch, Kick, X and Instagram. Links verified, viewport audit passed, build clean.
+
+## 2026-11-19 22:05 IST: v1.18.2, /live live-status + new heading
+Rushi (#cofounder, 22:02 IST) went after seeing the exact render. Adds /api/live and LiveStatus client component; heading reworded away from gaming.

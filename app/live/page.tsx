@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import LiveStatus from "./LiveStatus";
 
 // ── DATA ─────────────────────────────────────────────────────────────
 // Handles: X is @irushi; every other platform uses the shared handle.
@@ -11,12 +12,12 @@ const CHANNELS: Channel[] = [
     live: true,
   },
   {
-    name: "Twitch", note: "Live now, with chat", cta: "Watch", url: `https://twitch.tv/${H}`, handle: `@${H}`, glow: "145,70,255",
+    name: "Twitch", note: "Streams with live chat", cta: "Watch", url: `https://twitch.tv/${H}`, handle: `@${H}`, glow: "145,70,255",
     icon: "M11.6 11.1h1.8V5.8h-1.8v5.3zm4.9 0h1.8V5.8h-1.8v5.3zM6.3 0 1.7 4.6v14.8h5.5V24l4.6-4.6h3.7L22.3 12.9V0H6.3zm14.2 12-3.6 3.6h-5.5l-3.2 3.2v-3.2H5.5V1.8h15v10.2z",
     live: true,
   },
   {
-    name: "Kick", note: "Live now, with chat", cta: "Watch", url: `https://kick.com/${H}`, handle: `@${H}`, glow: "83,252,24",
+    name: "Kick", note: "Streams with live chat", cta: "Watch", url: `https://kick.com/${H}`, handle: `@${H}`, glow: "83,252,24",
     icon: "M2 2h6v6h2.5V5.5H13V3h3v3.5h-2.5V9H11v2.5h2.5V14H16v2.5h3V19h-3v3h-3v-2.5h-2.5V17H8v5H2V2z",
     live: true,
   },
@@ -75,6 +76,15 @@ const CSS = `
 .lv-cta{display:inline-flex;align-items:center;gap:6px;font-weight:600;color:rgb(var(--g))}
 .lv-cta i{font-style:normal;transition:transform .25s}
 .lv-card:hover .lv-cta i{transform:translateX(4px)}
+.lv-badge-live{color:#fff;border-color:rgba(255,60,60,.7);background:rgba(255,60,60,.15)}
+.lv-badge-live .lv-dot{background:#ff3c3c;box-shadow:0 0 0 0 rgba(255,60,60,.6)}
+.lv-tag .t-on{display:none;font-weight:700}
+.lv-card.is-live{border-color:rgba(255,60,60,.8);box-shadow:0 0 0 1px rgba(255,60,60,.5),0 18px 50px -18px rgba(255,60,60,.6)}
+.lv-card.is-live .lv-tag{color:#fff;background:#e5262b;border-color:#e5262b}
+.lv-card.is-live .lv-tag .t-on{display:inline}
+.lv-card.is-live .lv-tag .t-off{display:none}
+.lv-card.is-live .lv-cta{font-size:0}
+.lv-card.is-live .lv-cta::before{content:"Watch live";font-size:15px}
 .lv-foot{margin-top:36px;font-size:14px;color:var(--text-dim)}
 .lv-foot a{color:var(--text-dim);text-decoration:none;border-bottom:1px solid var(--border)}
 @media(prefers-reduced-motion:reduce){.lv-dot{animation:none}.lv-card,.lv-cta i{transition:none}}
@@ -85,15 +95,16 @@ export default function LivePage() {
     <main className="lv">
       <style dangerouslySetInnerHTML={{ __html: CSS }} />
       <div className="lv-wrap">
-        <span className="lv-badge"><span className="lv-dot" aria-hidden="true" />Streams</span>
-        <h1>Watch me <span>play.</span></h1>
-        <p className="lv-sub">Streaming on every platform. Pick yours and join the stream.</p>
+        <LiveStatus />
+        <h1>Live. <span>Unscripted.</span></h1>
+        <p className="lv-sub">IRL streams, games, cooking, drives, coding, real talk, podcasts, behind the scenes. Anything goes. Pick a platform and join in.</p>
 
         <nav aria-label="Streaming and social channels" className="lv-grid">
           {CHANNELS.map((c) => (
             <a
               key={c.name}
               className="lv-card"
+              data-p={c.name.toLowerCase()}
               style={{ ["--g" as string]: c.glow }}
               href={c.url}
               target="_blank"
@@ -104,7 +115,7 @@ export default function LivePage() {
                 <span className="lv-ico">
                   <svg viewBox="0 0 24 24" aria-hidden="true"><path d={c.icon} /></svg>
                 </span>
-                {c.live ? <span className="lv-tag">Streams</span> : null}
+                {c.live ? <span className="lv-tag"><span className="t-on">Live now</span><span className="t-off">Streams</span></span> : null}
               </span>
               <span className="lv-body">
                 <span className="lv-name">{c.name}</span>

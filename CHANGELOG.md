@@ -4,6 +4,9 @@ All changes are logged here. Format: version → date → what changed → who a
 
 ---
 
+## v1.18.2 (2026-11-19 22:05 IST), approved by Rushi in Discord #cofounder 2026-11-19 22:02 IST ("go", after seeing the exact screenshot and wording)
+- /live: heading now "Live. Unscripted." with an IRL/games/cooking/drives/coding/real talk/podcasts line (no gaming framing). New /api/live checks Twitch, Kick, YouTube (public endpoints, 30s cache); live platforms get a red LIVE NOW tag and the top badge flips to "Live now".
+
 ## v1.18.0 (2026-11-19 16:30 IST), approved by Rushi in Discord #cofounder 2026-11-19 16:22 IST ("Push live")
 - New page /live: one-tap links to YouTube, Twitch, Kick, X (@irushi) and Instagram. All five profile URLs fetched and confirmed to be real pages before ship. Static page, no other file touched. Viewport audit PASS.
 
