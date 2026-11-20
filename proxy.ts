@@ -83,7 +83,7 @@ export function proxy(request: NextRequest) {
       url.pathname = "/live";
       return NextResponse.rewrite(url);
     }
-    if (pathname === "/api/live" || pathname.startsWith("/_next/") || pathname.startsWith("/_vercel/insights/") || ["/favicon.ico", "/icon.svg", "/opengraph-image"].includes(pathname)) {
+    if (pathname === "/api/live" || pathname.startsWith("/_next/") || pathname.startsWith("/_vercel/insights/") || ["/favicon.ico", "/icon.svg", "/opengraph-image", "/rushi.jpg", "/rushi-avatar.jpg"].includes(pathname)) {
       return NextResponse.next();
     }
     // This hostname is a live hub, not a second copy of the portfolio.

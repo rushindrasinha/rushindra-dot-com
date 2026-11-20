@@ -24,6 +24,10 @@ function request(host, route, markdown = false) {
   r = request('www.rushi.live', '/?x=1');
   assert.equal(r.headers.get('location'), 'https://rushi.live/?x=1');
   assert.equal(request('rushi.live', '/api/live').headers.get('x-middleware-next'), '1');
+  for (const asset of ['/rushi.jpg', '/rushi-avatar.jpg']) {
+    assert.equal(request('rushi.live', asset).headers.get('x-middleware-next'), '1', asset);
+    assert.ok(fs.statSync(path.join(root, 'public', asset)).size > 0, asset);
+  }
   assert.equal(request('rushi.live', '/_vercel/insights/script.js').headers.get('x-middleware-next'), '1');
   assert.equal(request('rushi.live', '/_next/static/chunk.js').headers.get('x-middleware-next'), '1');
   assert.equal(request('rushindra.com', '/_next/static/chunk.js', true).headers.get('x-middleware-next'), '1');
@@ -33,7 +37,7 @@ function request(host, route, markdown = false) {
   const liveMarkdown = await request('rushi.live', '/', true).text();
   assert.match(liveMarkdown, /Rushi Live/);
   assert.match(liveMarkdown, /youtube.com/);
-  for (const route of ['/login', '/login/', '/reset-password?token=secret', '/signup', '/auth/callback', '/forgot-password', '/about', '/v4/index.html', '/api/private']) {
+  for (const route of ['/login', '/login/', '/reset-password?token=secret', '/signup', '/auth/callback', '/forgot-password', '/about', '/v4/index.html', '/api/private', '/private-export.json', '/private-metadata.txt']) {
     const response = request('rushi.live', route);
     assert.equal(response.status, 404, route);
     assert.equal(response.headers.get('location'), null, route);
