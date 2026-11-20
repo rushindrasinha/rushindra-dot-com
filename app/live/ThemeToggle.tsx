@@ -1,10 +1,9 @@
 "use client";
-import { useLayoutEffect, useState } from "react";
+import { useLayoutEffect, useSyncExternalStore } from "react";
 
 type Theme = "dark" | "light";
 
 const stored = (): Theme => {
-  if (typeof window === "undefined") return "dark";
   try {
     return localStorage.getItem("theme") === "light" ? "light" : "dark";
   } catch {
@@ -12,26 +11,37 @@ const stored = (): Theme => {
   }
 };
 
+// The <html data-theme> attribute is the single source of truth: the page's inline
+// script sets it before paint, this button flips it. Subscribing to it (instead of
+// seeding state from localStorage) keeps the aria-label correct after hydration.
+const subscribe = (cb: () => void) => {
+  const o = new MutationObserver(cb);
+  o.observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+  return () => o.disconnect();
+};
+const current = (): Theme => (document.documentElement.dataset.theme === "light" ? "light" : "dark");
+const serverTheme = (): Theme => "dark";
+
 /**
  * Shares the `theme` localStorage key with the home page, so the choice follows the
  * visitor between / and /live. The icon swap is pure CSS off `[data-theme]`, so it never
- * flashes the wrong glyph before hydration; state only drives the label.
+ * flashes the wrong glyph before hydration.
  */
 export default function ThemeToggle() {
-  const [theme, setTheme] = useState<Theme>(stored);
+  const theme = useSyncExternalStore(subscribe, current, serverTheme);
 
-  // The page's inline script sets the attribute before paint. React's dev-only remount
-  // drops attributes it does not own, so re-assert it here. No-op in production.
+  // React's dev-only remount can drop attributes it does not own; re-assert the stored
+  // choice if the attribute went missing. No-op in production.
   useLayoutEffect(() => {
-    document.documentElement.dataset.theme = theme;
-  }, [theme]);
+    if (!document.documentElement.dataset.theme) document.documentElement.dataset.theme = stored();
+  }, []);
 
   const flip = () => {
     const next: Theme = theme === "dark" ? "light" : "dark";
     try {
       localStorage.setItem("theme", next);
     } catch {}
-    setTheme(next);
+    document.documentElement.dataset.theme = next;
   };
 
   return (
@@ -40,7 +50,6 @@ export default function ThemeToggle() {
       className="lv-theme"
       onClick={flip}
       aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
-      suppressHydrationWarning
     >
       <svg className="lv-i-sun" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
         <circle cx="12" cy="12" r="4.2" />
