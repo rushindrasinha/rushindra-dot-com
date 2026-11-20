@@ -4,6 +4,14 @@ Timestamped record of every session, change, and decision. Never deleted — app
 
 ---
 
+## Session 015 — 2026-11-20 13:22 IST
+
+/live design pass v2 ("On Air"), branch `cursor/live-v2`, v1.19.0. Rebuilt `app/live/page.tsx` and `app/live/LiveStatus.tsx` around one named aesthetic — a broadcast control-room schedule board — and dropped the generic AI-landing-page signals the v1 page had (gradient text, blurred blobs, glassmorphism cards, icon tiles). Only /live files plus one vendored font changed; `app/api/live/route.ts`, the homepage and the globals.css tokens were not touched.
+
+Font decision: Instrument Serif Italic for the one italic line, extracted from `@fontsource/instrument-serif` with `npm pack` and committed as a 22 KB woff2 in `app/fonts/`, loaded with `next/font/local` inside the page so it never ships on any other route and never becomes a runtime dependency. OFL, same self-hosting rule as the other three faces.
+
+Verified in Chrome at 320, 344, 360, 390, 412, 768, 1024 and 1440: `document.scrollWidth` equals the viewport at every width. Live state checked by toggling `is-live` by hand — red bar, ON AIR tag, swapped note, and the row jumps above the WATCH LIVE group. Hover checked on Twitch: 12% purple sweep, purple bar and cap, 8px name shift; Kick keeps a neutral sweep so its green never reads as a broken lime. `npm run lint` 0 errors, `npm run build` passes. Not pushed — waiting on Rushi.
+
 ## Session 014 — 2026-10-19 09:46 IST
 
 Analytics PRD (~/clawd/projects/analytics/prds/ANALYTICS_PRD.md), Phase 1. Added the Umami tag + click events (layout.tsx, public/ares) and updated the privacy copy. Branch `analytics-umami`, built and checked on a Vercel preview. NOT pushed to main: per CLAUDE.md rule 1 it waits for Rushi's explicit yes. Evidence: ~/clawd/projects/analytics/PHASE1_REPORT.md.

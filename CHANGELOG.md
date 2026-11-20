@@ -4,6 +4,9 @@ All changes are logged here. Format: version → date → what changed → who a
 
 ---
 
+## v1.19.0 (2026-11-20 13:22 IST), NOT approved — branch `cursor/live-v2`, awaiting Rushi's review. Not pushed.
+- /live design pass v2, "On Air": the page is now a broadcast board instead of a card grid. Gone: the purple→green gradient headline, the two blurred colour blobs, the glassmorphism cards and the icon tiles. New: mono status bar with a live IST clock, a poster-scale LIVE / *Unscripted.* hero over a single thin lime horizon arc, a lower-third host chip, a full-bleed formats ticker, and a numbered channel index (01–05) of full-width rows grouped WATCH LIVE / FOLLOW. Platform brand colour appears only on that row's hover/focus (12% fill sweep, 3px left bar, filled arrow cap); red is reserved for the real on-air state, which also pins the live row to the top of the list. Adds one page-scoped font, Instrument Serif Italic (OFL, self-hosted woff2, not an npm dependency). Channel URLs, handles, aria-labels, `/api/live` and its 45s polling are unchanged.
+
 ## v1.18.2 (2026-11-19 22:05 IST), approved by Rushi in Discord #cofounder 2026-11-19 22:02 IST ("go", after seeing the exact screenshot and wording)
 - /live: heading now "Live. Unscripted." with an IRL/games/cooking/drives/coding/real talk/podcasts line (no gaming framing). New /api/live checks Twitch, Kick, YouTube (public endpoints, 30s cache); live platforms get a red LIVE NOW tag and the top badge flips to "Live now".
 
