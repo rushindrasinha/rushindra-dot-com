@@ -33,6 +33,8 @@ const KNOWN_PATHS = new Set([
   "/v3",
   "/v4",
   "/bots",
+  "/live",
+  "/api/live",
 ]);
 
 function wantsMarkdown(accept: string | null): boolean {
@@ -44,6 +46,55 @@ function wantsMarkdown(accept: string | null): boolean {
 export function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
   const markdown = wantsMarkdown(request.headers.get("accept"));
+  const host = (request.headers.get("host") || request.nextUrl.host).split(":")[0].toLowerCase();
+  const liveHost = host === "rushi.live" || host === "www.rushi.live";
+  const liveMarkdown = "# Rushi Live\n\nWatch Rushindra Sinha live and follow the latest clips.\n\n- [YouTube](https://youtube.com/@rushindrasinha)\n- [Twitch](https://twitch.tv/rushindrasinha)\n- [Kick](https://kick.com/rushindrasinha)\n- [X](https://x.com/irushi)\n- [Instagram](https://instagram.com/rushindrasinha)\n\n[About Rushindra](https://rushindra.com/)\n";
+  const moved = (origin: string, path: string) => {
+    const url = request.nextUrl.clone();
+    url.protocol = "https:";
+    url.host = origin;
+    url.port = "";
+    url.pathname = path;
+    return NextResponse.redirect(url, 308);
+  };
+
+  if ((host === "rushindra.com" || host === "www.rushindra.com") && (pathname === "/live" || pathname === "/live/")) {
+    return moved("rushi.live", "/");
+  }
+
+  if (liveHost) {
+    // No redirects or hints for old private-tool paths; do not forward query data.
+    if (["/login", "/reset-password", "/signup", "/auth", "/forgot-password"].some((p) => pathname === p || pathname.startsWith(p + "/"))) {
+      return new NextResponse("Not found", { status: 404, headers: { "X-Robots-Tag": "noindex" } });
+    }
+    if (host === "www.rushi.live") return moved("rushi.live", pathname);
+    if (pathname === "/live" || pathname === "/live/") return moved("rushi.live", "/");
+    if (pathname === "/robots.txt") {
+      return new NextResponse("User-agent: *\nAllow: /\nSitemap: https://rushi.live/sitemap.xml\n", { headers: { "Content-Type": "text/plain; charset=utf-8" } });
+    }
+    if (pathname === "/sitemap.xml") {
+      return new NextResponse('<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>https://rushi.live/</loc></url></urlset>', { headers: { "Content-Type": "application/xml; charset=utf-8" } });
+    }
+    if (pathname === "/llms.txt" || pathname === "/index.md" || pathname === "/llm" || (pathname === "/" && markdown)) {
+      return new NextResponse(liveMarkdown, { headers: { "Content-Type": "text/markdown; charset=utf-8", Vary: VARY } });
+    }
+    if (pathname === "/") {
+      const url = request.nextUrl.clone();
+      url.pathname = "/live";
+      return NextResponse.rewrite(url);
+    }
+    if (pathname === "/api/live" || pathname.startsWith("/_next/") || pathname.startsWith("/_vercel/insights/") || ["/favicon.ico", "/icon.svg", "/opengraph-image"].includes(pathname)) {
+      return NextResponse.next();
+    }
+    // This hostname is a live hub, not a second copy of the portfolio.
+    return new NextResponse("Not found", { status: 404, headers: { "X-Robots-Tag": "noindex" } });
+  }
+
+  if (pathname.startsWith("/_next/") || /\.[^/]+$/.test(pathname)) return NextResponse.next();
+
+  if (pathname === "/live" && markdown) {
+    return new NextResponse(liveMarkdown, { headers: { "Content-Type": "text/markdown; charset=utf-8", Vary: VARY } });
+  }
 
   if (pathname === "/" && markdown) {
     const response = NextResponse.rewrite(new URL("/index.md", request.url));
@@ -70,10 +121,7 @@ export function proxy(request: NextRequest) {
 }
 
 export const config = {
-  // Run on every extension-less path (i.e. every page-shaped request, not
-  // static/image/asset requests) so the 404 branch above can see paths that
-  // don't match any route — not just "/". Files with an extension
-  // (llms.txt, icon.svg, favicon.ico, ...) are real static/generated routes
-  // Next serves directly and don't need this negotiation pass.
-  matcher: ["/((?!_next/static|_next/image|favicon.ico|.*\\..*).*)"],
+  // Include robots/sitemap/assets so the live hostname cannot leak portfolio routes.
+  // Static assets pass through before main-site content negotiation above.
+  matcher: ["/:path*"],
 };

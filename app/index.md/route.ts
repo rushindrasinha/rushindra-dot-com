@@ -64,7 +64,6 @@ His father's rule, and the one he still runs everything by: first, best, or only
 | [Clutch Creator](https://github.com/rushindrasinha/clutch-creator) | Tool | Shipped | Chrome extension: any page into content angles. |
 | [xReader.ai](https://xreader.ai) | Tool | Shipped | X threads as clean readable articles. |
 | [Bots](https://rushindra.com/bots) | Directory | Live | ${BOTS.length} Grok Bots built by Rushi, ready to open and run. |
-| [rushi.live](https://rushi.live) | Tool | Live | Prompt Engine — plain-language intent into production-ready AI prompts. |
 | [Operation Blackout](https://github.com/rushindrasinha/operation-blackout) | Open Source | Shipped | One-prompt browser FPS. Zero external assets. |
 | [YT Shorts Pipeline](https://github.com/rushindrasinha/youtube-shorts-pipeline) | Open Source | Shipped | Automated YouTube Shorts engine. 2,300+ GitHub stars. |
 | [Agent tooling](https://github.com/rushindrasinha) | Open Source | Shipped | openclaw-guide, ares-mbl, skill-audit-router, xreader-mcp, clip-engine (long talks into captioned vertical shorts), sylar (a skill that lets an agent absorb capabilities from anything it touches). |

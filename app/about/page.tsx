@@ -141,8 +141,7 @@ export default function AboutPage() {
         creators; and ClutchPass, an AI battle pass for competitive gamers. He also
         runs Mundhe Maps, a public map of Mumbai food businesses actioned by FDA
         Maharashtra, updated daily.
-        Several smaller tools — xReader.ai, rushi.live (a prompt engine that turns
-        plain-language intent into production-ready AI prompts), Operation Blackout
+        Several smaller tools — xReader.ai, Operation Blackout
         (a one-prompt browser FPS, open source), and an open-source YouTube Shorts
         pipeline among them — are shipped and public.
       </P>

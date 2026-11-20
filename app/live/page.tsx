@@ -61,14 +61,20 @@ const THEME_BOOT = `(function(){try{var t=localStorage.getItem("theme");document
 // ─────────────────────────────────────────────────────────────────────
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://rushi.live"),
   title: "Live — Dr. Rushindra Sinha",
   description: "Watch Rushindra Sinha live: YouTube, Twitch, Kick. Clips and updates on X and Instagram. All channels in one place.",
-  alternates: { canonical: "/live" },
+  alternates: { canonical: "https://rushi.live/" },
   openGraph: {
     title: "Live — Dr. Rushindra Sinha",
     description: "Watch live on YouTube, Twitch or Kick. Clips on X and Instagram.",
-    url: "https://rushindra.com/live",
+    url: "https://rushi.live/",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Live — Dr. Rushindra Sinha",
+    description: "Watch live on YouTube, Twitch or Kick. Clips on X and Instagram.",
   },
 };
 
@@ -382,8 +388,8 @@ export default function LivePage() {
         </nav>
 
         <footer className="lv-foot">
-          <div className="lv-in"><Link className="lv-back lv-mono" href="/">← rushindra.com</Link></div>
-          <Link className="lv-ghost" href="/" aria-label="Back to rushindra.com"><span aria-hidden="true">RUSHINDRA.COM</span></Link>
+          <div className="lv-in"><Link className="lv-back lv-mono" href="https://rushindra.com/">← rushindra.com</Link></div>
+          <Link className="lv-ghost" href="https://rushindra.com/" aria-label="Back to rushindra.com"><span aria-hidden="true">RUSHINDRA.COM</span></Link>
         </footer>
       </LiveState>
     </main>

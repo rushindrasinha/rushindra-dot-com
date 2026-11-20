@@ -151,12 +151,12 @@ export default function RootLayout({
         />
         {children}
         <Analytics />
-        {/* Umami (self-hosted at pulse.rushindra.com): cookieless, honours Do Not Track, counts only on rushindra.com.
+        {/* Umami (self-hosted at pulse.rushindra.com): cookieless, honours Do Not Track, counts only on rushindra.com and rushi.live.
             The click listener sends `cta` (mailto, /go/ links, .nav-cta, PDFs) and `outbound` (other hosts) events. */}
         <Script
           src="https://pulse.rushindra.com/p.js"
           data-website-id="3ae3410e-2bad-4738-b5d4-64b727655c8d"
-          data-domains="rushindra.com"
+          data-domains="rushindra.com,rushi.live"
           data-do-not-track="true"
           strategy="afterInteractive"
         />

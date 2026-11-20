@@ -204,12 +204,6 @@ business, medicine, and personal brand building.
   productivity, personal and business. Most draft first and ask before they act.
 - Each bot has its own page at https://rushindra.com/bots/<slug>
 
-### rushi.live: Prompt Engine (active)
-- Role: Builder
-- URL: https://rushi.live
-- Turns plain-language intent into production-ready AI prompts for any major
-  AI tool. Live, public.
-
 ### Operation Blackout (shipped, open source)
 - Role: Builder
 - URL: https://github.com/rushindrasinha/operation-blackout

@@ -151,13 +151,6 @@ const WORK = [
     url: "/bots",
   },
   {
-    name: "rushi.live",
-    tag: "Tool",
-    status: "Live",
-    line: "Prompt Engine. Turns plain-language intent into production-ready AI prompts for any major AI tool.",
-    url: "https://rushi.live",
-  },
-  {
     name: "YT Shorts Pipeline",
     tag: "Open Source",
     status: "Shipped",

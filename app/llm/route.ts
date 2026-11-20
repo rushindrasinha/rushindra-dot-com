@@ -326,12 +326,6 @@ SECTION 5 — COMPANIES & PROJECTS
             anyone can open and run: content, games, business and everyday
             life. Most draft first and ask before they act.
 
-  RUSHI.LIVE — PROMPT ENGINE
-    Role:   Builder
-    URL:    https://rushi.live
-    What:   Turns plain-language intent into production-ready AI prompts
-            for any major AI tool. Live, public.
-
   OPERATION BLACKOUT
     Role:   Builder
     URL:    https://github.com/rushindrasinha/operation-blackout
