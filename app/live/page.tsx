@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import Link from "next/link";
+import LiveState, { type Platform } from "./LiveState";
 import LiveStatus from "./LiveStatus";
+import Monitor from "./Monitor";
+import ThemeToggle from "./ThemeToggle";
 
 // Instrument Serif Italic (OFL) — vendored woff2, extracted from @fontsource/instrument-serif
 // with `npm pack` so it is not a runtime dependency. Scoped to this page only: it is the one
@@ -45,6 +48,16 @@ const CHANNELS: Channel[] = [
 ];
 
 const FORMATS = ["IRL", "Games", "Cooking", "Drives", "Coding", "Real talk", "Podcasts", "Behind the scenes"];
+
+const WATCH = CHANNELS.filter((c) => c.canLive);
+const FOLLOW = CHANNELS.filter((c) => !c.canLive);
+
+// The monitor links to whichever channel is actually live; CHANNELS stays the only
+// place a URL is written down.
+const LIVE_LINKS = Object.fromEntries(WATCH.map((c) => [c.name.toLowerCase(), c.url])) as Record<Platform, string>;
+
+// Reads the theme the home page stores, before first paint, so /live is not stuck in dark.
+const THEME_BOOT = `(function(){try{var t=localStorage.getItem("theme");document.documentElement.dataset.theme=t==="light"?"light":"dark"}catch(e){document.documentElement.dataset.theme="dark"}})()`;
 // ─────────────────────────────────────────────────────────────────────
 
 export const metadata: Metadata = {
@@ -60,181 +73,319 @@ export const metadata: Metadata = {
 };
 
 const CSS = `
-.lv{--lv-red:#ff3b30;position:relative;display:flex;flex-direction:column;min-height:100dvh;overflow-x:clip;background:var(--bg);color:var(--text);font-family:var(--font-body)}
-[data-theme="light"] .lv{--bg:#f5f5f0;--surface:rgba(0,0,0,.035);--border:rgba(0,0,0,.12);--text:#1a1915;--text-mid:#545250;--accent:#4d9e1a;--lv-red:#c0271a}
+/* ── tokens ───────────────────────────────────────────────────────── */
+.lv{
+--lv-red:#ff3b30;--accent-txt:var(--accent);
+--dot:rgba(156,255,87,.15);--guide:rgba(156,255,87,.12);--vig:rgba(2,2,5,.62);
+--mon-b1:#2c2e33;--mon-b2:#0f1012;--mon-edge:rgba(255,255,255,.11);
+--duo:#9cff57;--duo-ink:#070a07;
+--l3-bg:rgba(11,11,13,.9);--l3-x:clamp(6px,2vw,16px);
+--ghost-o:.42;
+/* SMPTE-ish bars, pulled a little off full saturation so they sit in the brand */
+--cb1:#dcdad2;--cb2:#d9ca4e;--cb3:#4fc3cb;--cb4:#51b558;--cb5:#c34ca1;--cb6:#d1423a;--cb7:#4154b9;
+--cbl1:#3b3bb5;--cbl2:#111214;--cbl3:#a440af;--cbl4:#111214;--cbl5:#30b7c3;--cbl6:#111214;--cbl7:#87867f;
+--cbg1:var(--cb1);
+--cb-grad:linear-gradient(90deg,var(--cb1) 0 14.2857%,var(--cb2) 0 28.5714%,var(--cb3) 0 42.8571%,var(--cb4) 0 57.1428%,var(--cb5) 0 71.4285%,var(--cb6) 0 85.7142%,var(--cb7) 0 100%);
+/* the ghost word needs a grey in slot 1: a near-white bar disappears on paper */
+--cb-ghost:linear-gradient(90deg,var(--cbg1) 0 14.2857%,var(--cb2) 0 28.5714%,var(--cb3) 0 42.8571%,var(--cb4) 0 57.1428%,var(--cb5) 0 71.4285%,var(--cb6) 0 85.7142%,var(--cb7) 0 100%);
+position:relative;display:flex;flex-direction:column;min-height:100dvh;overflow-x:clip;background:var(--bg);color:var(--text);font-family:var(--font-body)}
+
+[data-theme="light"] .lv{
+--bg:#f4f1ea;--surface:rgba(0,0,0,.04);--border:rgba(0,0,0,.13);--text:#1a1915;--text-mid:#545250;
+--accent:#3f8f12;--accent-txt:#2f6e0c;--lv-red:#c0271a;
+--dot:rgba(63,143,18,.24);--guide:rgba(63,143,18,.2);--vig:rgba(96,88,66,.14);
+--mon-b1:#d8d4c9;--mon-b2:#a4a097;--mon-edge:rgba(255,255,255,.62);
+--duo-ink:#15140f;
+--l3-bg:rgba(250,248,243,.94);
+--ghost-o:.58;
+--cb1:#dfdcd2;--cbg1:#8e8b81}
+
 .lv-in{width:100%;max-width:var(--max-w);margin:0 auto;padding:0 var(--px)}
 .lv-mono{font-family:var(--font-mono);font-size:clamp(10.5px,2.7vw,12px);letter-spacing:.16em;text-transform:uppercase}
 
-/* 1 — status bar */
-.lv-bar{border-bottom:1px solid var(--border)}
-.lv-bar .lv-in{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:50px;padding-top:9px;padding-bottom:9px}
-.lv-status{display:flex;align-items:center;flex-wrap:wrap;gap:4px 8px;color:var(--text-mid)}
+/* ── 1 · colour-bar edge + status bar ─────────────────────────────── */
+.lv-cbtop{flex:none;height:3px;background:var(--cb-grad)}
+.lv-bar{position:relative;border-bottom:1px solid var(--border);background:color-mix(in srgb,var(--text) 3%,transparent)}
+.lv[data-live="on"] .lv-bar{box-shadow:inset 0 -2px 0 var(--lv-red)}
+.lv-bar .lv-in{display:flex;align-items:center;justify-content:space-between;gap:10px;min-height:52px;padding-top:4px;padding-bottom:4px}
+.lv-status{display:flex;align-items:center;flex-wrap:wrap;gap:4px 8px;min-width:0;color:var(--text-mid)}
 .lv-dot{width:7px;height:7px;border-radius:50%;background:var(--text-mid);flex:none}
 .lv-label{color:var(--text)}
 .lv-status.is-on .lv-dot{background:var(--lv-red);animation:lv-pulse 1.7s ease-in-out infinite}
 .lv-status.is-on .lv-label{color:var(--lv-red);font-weight:600}
-@keyframes lv-pulse{0%,100%{opacity:1}50%{opacity:.2}}
-.lv-ch-count{display:none;color:var(--text-mid);white-space:nowrap}
-@media(min-width:600px){.lv-ch-count{display:block}}
+@keyframes lv-pulse{0%,100%{opacity:1}50%{opacity:.22}}
+.lv-bar-r{display:flex;align-items:center;gap:clamp(6px,2vw,18px);flex:none}
+.lv-count{display:none}
+@media(min-width:620px){.lv-count{display:block;color:var(--text-mid);white-space:nowrap}}
+.lv-theme{display:grid;place-items:center;width:44px;height:44px;margin-right:-11px;padding:0;border:0;border-radius:50%;background:none;color:var(--text-mid);cursor:pointer}
+.lv-theme:hover{color:var(--text);background:var(--surface)}
+.lv-theme:focus-visible{outline:2px solid var(--accent);outline-offset:-2px}
+.lv-theme svg{width:19px;height:19px;flex:none}
+.lv-i-sun circle{fill:currentColor}
+.lv-i-sun g{fill:none;stroke:currentColor}
+.lv-i-moon{fill:currentColor}
+.lv-i-moon{display:none}
+[data-theme="light"] .lv-i-moon{display:block}
+[data-theme="light"] .lv-i-sun{display:none}
 
-/* 2 — hero */
-.lv-hero{position:relative;padding-top:clamp(44px,11vw,104px);padding-bottom:clamp(30px,6vw,56px)}
-.lv-arc{position:absolute;left:50%;top:clamp(54px,13vw,132px);width:min(1500px,164%);aspect-ratio:3/1;transform:translateX(-50%);border-radius:50% 50% 0 0/100% 100% 0 0;border-top:1px solid var(--accent);opacity:.32;pointer-events:none;-webkit-mask-image:linear-gradient(90deg,transparent,#000 24%,#000 76%,transparent);mask-image:linear-gradient(90deg,transparent,#000 24%,#000 76%,transparent)}
-.lv-word{position:relative;display:flex;flex-wrap:wrap;align-items:flex-end;gap:0 clamp(10px,2vw,26px);margin:0}
-.lv-live{font-family:var(--font-display);font-weight:700;font-size:clamp(96px,32vw,260px);line-height:.8;letter-spacing:-.045em;text-transform:uppercase;color:var(--text)}
-.lv-uns{font-family:var(--font-serif-italic),Georgia,serif;font-style:italic;font-weight:400;font-size:clamp(34px,9.5vw,92px);line-height:1;color:var(--text-mid);padding-bottom:clamp(4px,1.2vw,16px)}
-.lv-uns i{font-style:inherit;color:var(--accent)}
-.lv-deck{position:relative;max-width:46ch;margin-top:clamp(20px,4vw,30px);font-size:clamp(15px,3.8vw,17px);line-height:1.6;color:var(--text-mid)}
+/* ── 2 · hero ─────────────────────────────────────────────────────── */
+.lv-hero{position:relative;padding-top:clamp(32px,7.5vw,72px);padding-bottom:clamp(40px,7vw,70px)}
+.lv-dots{position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(circle,var(--dot) 1px,transparent 1px);background-size:clamp(17px,2.3vw,25px) clamp(17px,2.3vw,25px);-webkit-mask-image:radial-gradient(ellipse 80% 88% at 58% 44%,#000 8%,transparent 72%);mask-image:radial-gradient(ellipse 80% 88% at 58% 44%,#000 8%,transparent 72%)}
+.lv-safe{position:absolute;inset:clamp(10px,2.4vw,24px) clamp(12px,3vw,34px);pointer-events:none;border:1px solid var(--guide)}
+.lv-safe::before{content:"";position:absolute;inset:clamp(13px,2.8vw,32px);border:1px dashed var(--guide)}
+.lv-safe::after{content:"";position:absolute;left:50%;top:0;width:1px;height:clamp(9px,1.8vw,16px);background:var(--guide)}
+.lv-vig{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 94% 78% at 52% 36%,transparent 36%,var(--vig) 100%)}
+.lv-hero-g{position:relative;z-index:1;display:grid;gap:clamp(34px,6vw,46px)}
+@media(min-width:900px){.lv-hero-g{grid-template-columns:minmax(0,1fr) minmax(0,46%);align-items:center;gap:clamp(24px,4vw,54px)}}
+.lv-type{min-width:0}
+.lv-kick{display:inline-flex;align-items:center;gap:9px;margin-bottom:clamp(16px,3vw,24px);padding:5px 12px;border:1px solid var(--border);border-radius:999px;background:var(--surface);color:var(--text-mid)}
+.lv-kick::before{content:"";width:6px;height:6px;background:var(--accent);flex:none}
+.lv-word{display:flex;flex-direction:column;align-items:flex-start;margin:0}
+.lv-live{font-family:var(--font-display);font-weight:700;font-size:clamp(88px,30vw,180px);line-height:.78;letter-spacing:-.05em;text-transform:uppercase;color:var(--text)}
+.lv-uns{margin-top:clamp(6px,1.4vw,14px);font-family:var(--font-serif-italic),Georgia,serif;font-style:italic;font-weight:400;font-size:clamp(32px,8.6vw,74px);line-height:1;color:var(--text-mid)}
+.lv-uns i{font-style:inherit;color:var(--accent-txt)}
+.lv-deck{max-width:44ch;margin-top:clamp(18px,3.4vw,26px);font-size:clamp(15px,3.8vw,17px);line-height:1.62;color:var(--text-mid)}
 
-/* lower third */
-.lv-host{position:relative;display:inline-flex;align-items:center;gap:12px;max-width:100%;margin-top:clamp(24px,5vw,38px);padding:8px 16px 8px 9px;border:1px solid var(--border);border-left:3px solid var(--accent);background:var(--surface)}
-.lv-host img{width:clamp(48px,13vw,56px);height:clamp(48px,13vw,56px);object-fit:cover;border:1px solid var(--accent);filter:grayscale(1) contrast(1.06);flex:none}
-.lv-host-n{display:block;font-family:var(--font-display);font-weight:500;font-size:clamp(14px,3.6vw,16px);line-height:1.2;color:var(--text)}
-.lv-host-m{display:block;margin-top:6px;color:var(--text-mid)}
+/* ── 3 · the monitor ──────────────────────────────────────────────── */
+.lv-mon-wrap{position:relative;width:100%;max-width:448px;margin:0 auto;padding-bottom:30px}
+.lv-mon{position:relative;padding-top:13px;transform-style:preserve-3d}
+@media(min-width:900px){
+.lv-mon-wrap{margin:0 0 0 auto;perspective:1400px}
+.lv-mon{transform:rotateY(-6deg) rotateX(1.2deg)}
+}
+.lv-tally{position:absolute;top:0;left:50%;width:38px;height:14px;margin-left:-19px;border-radius:5px 5px 0 0;background:linear-gradient(180deg,var(--mon-b1),var(--mon-b2));box-shadow:inset 0 1px 0 var(--mon-edge)}
+.lv-tally::after{content:"";position:absolute;left:50%;top:4px;width:8px;height:8px;margin-left:-4px;border-radius:50%;background:#50535a}
+.lv-mon[data-on="on"] .lv-tally::after{background:#ff2a1f;box-shadow:0 0 11px 3px rgba(255,42,31,.6);animation:lv-pulse 1.6s ease-in-out infinite}
 
-/* 3 — ticker */
-.lv-tick{margin-top:clamp(28px,6vw,52px);padding:11px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);overflow:hidden}
-.lv-tick-in{display:flex;width:max-content;animation:lv-marq 36s linear infinite}
-.lv-tick-g{display:flex;flex:none}
-.lv-ti{display:inline-flex;align-items:center;font-family:var(--font-mono);font-size:clamp(10.5px,2.7vw,12px);letter-spacing:.2em;text-transform:uppercase;color:var(--text-mid);white-space:nowrap}
-.lv-ti::after{content:"";width:5px;height:5px;margin:0 clamp(14px,3.4vw,26px);background:var(--accent);flex:none}
+.lv-mon-plate{display:block;position:relative;padding:clamp(11px,2.4vw,16px);border-radius:clamp(14px,2.6vw,20px);background:linear-gradient(168deg,var(--mon-b1) 0%,var(--mon-b2) 74%);box-shadow:inset 0 1px 0 var(--mon-edge),inset 0 -2px 3px rgba(0,0,0,.45),0 26px 54px -24px rgba(0,0,0,.85),0 3px 10px -4px rgba(0,0,0,.55);color:inherit;text-decoration:none}
+a.lv-mon-plate:focus-visible{outline:3px solid var(--accent);outline-offset:4px}
+.lv-screen{position:relative;display:block;aspect-ratio:4/3;overflow:hidden;border-radius:clamp(5px,1vw,9px);background:#07080a;box-shadow:inset 0 0 0 1px rgba(0,0,0,.75),inset 0 0 36px rgba(0,0,0,.5)}
+
+.lv-bars{position:absolute;inset:0;background:var(--cb-grad)}
+.lv-bars::after{content:"";position:absolute;left:0;right:0;bottom:0;height:25%;background:linear-gradient(90deg,var(--cbl1) 0 14.2857%,var(--cbl2) 0 28.5714%,var(--cbl3) 0 42.8571%,var(--cbl4) 0 57.1428%,var(--cbl5) 0 71.4285%,var(--cbl6) 0 85.7142%,var(--cbl7) 0 100%)}
+.lv-bars::before{content:"";position:absolute;left:0;right:0;bottom:0;height:8%;z-index:1;background:linear-gradient(90deg,#0c0d10 0 24%,#1a1b20 0 36%,#0c0d10 0 48%,#242529 0 60%,#0c0d10 0 100%)}
+
+.lv-feed{position:absolute;inset:0;isolation:isolate;background:var(--duo)}
+.lv-feed img{display:block;width:100%;height:100%;object-fit:cover;object-position:50% 20%;mix-blend-mode:multiply;filter:grayscale(1) contrast(1.12) brightness(1.16)}
+.lv-feed::after{content:"";position:absolute;inset:0;background:radial-gradient(118% 94% at 50% 6%,transparent 34%,var(--duo-ink) 118%);mix-blend-mode:multiply}
+
+.lv-vf{position:absolute;inset:clamp(7px,1.6vw,12px);pointer-events:none}
+.lv-vf::before,.lv-vf::after{content:"";position:absolute;width:clamp(15px,3.4vw,24px);height:clamp(15px,3.4vw,24px);border:2px solid rgba(244,243,236,.8)}
+.lv-vf-a::before{top:0;left:0;border-right:0;border-bottom:0}
+.lv-vf-a::after{right:0;bottom:0;border-left:0;border-top:0}
+.lv-vf-b::before{top:0;right:0;border-left:0;border-bottom:0}
+.lv-vf-b::after{bottom:0;left:0;border-right:0;border-top:0}
+
+.lv-scan{position:absolute;inset:0;pointer-events:none;opacity:.6;background:repeating-linear-gradient(0deg,rgba(0,0,0,.42) 0 1px,rgba(0,0,0,0) 1px 3px);animation:lv-scan 1.3s steps(3) infinite}
+@keyframes lv-scan{to{transform:translateY(3px)}}
+.lv-roll{position:absolute;left:0;right:0;top:-42%;height:42%;pointer-events:none;background:linear-gradient(180deg,transparent,rgba(255,255,255,.085),transparent);animation:lv-roll 6.5s linear infinite}
+@keyframes lv-roll{to{transform:translateY(340%)}}
+.lv-gloss{position:absolute;inset:0;pointer-events:none;background:linear-gradient(116deg,rgba(255,255,255,.16) 0 15%,rgba(255,255,255,.05) 15% 28%,rgba(255,255,255,0) 40%)}
+
+.lv-osd{position:absolute;z-index:3;display:inline-flex;align-items:center;gap:6px;padding:4px 8px;border-radius:4px;background:rgba(6,7,9,.9);font-family:var(--font-mono);font-size:clamp(9px,1.9vw,10.5px);font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#f1f0ea;white-space:nowrap}
+.lv-rec{top:clamp(8px,1.8vw,13px);left:clamp(8px,1.8vw,13px);color:#ff5146}
+.lv-rec-d{width:7px;height:7px;border-radius:50%;background:#ff5146;flex:none;animation:lv-pulse 1.4s ease-in-out infinite}
+.lv-tc{top:clamp(8px,1.8vw,13px);right:clamp(8px,1.8vw,13px);letter-spacing:.07em;font-variant-numeric:tabular-nums}
+.lv-ch00{top:clamp(8px,1.8vw,13px);left:clamp(8px,1.8vw,13px)}
+.lv-plate{position:absolute;z-index:3;left:50%;top:50%;transform:translate(-50%,-50%);display:inline-flex;align-items:center;gap:8px;padding:9px clamp(12px,2.6vw,18px);border:1px solid rgba(241,240,234,.22);border-radius:5px;background:rgba(6,7,9,.9);font-family:var(--font-mono);font-size:clamp(10px,2.3vw,13px);font-weight:600;letter-spacing:.17em;text-transform:uppercase;color:#f1f0ea;white-space:nowrap}
+.lv-plate i{font-style:normal;color:#9cff57}
+.lv-now{position:absolute;z-index:3;left:0;bottom:clamp(28px,6.4vw,44px);display:inline-flex;align-items:center;padding:7px clamp(10px,2.2vw,15px);border-left:4px solid #0a0a0c;background:#9cff57;font-family:var(--font-mono);font-size:clamp(9.5px,2vw,11.5px);font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:#07140a;white-space:nowrap}
+.lv-mon[data-on="off"] .lv-feed,.lv-mon[data-on="off"] .lv-vf,.lv-mon[data-on="off"] .lv-rec,.lv-mon[data-on="off"] .lv-tc,.lv-mon[data-on="off"] .lv-now{display:none}
+.lv-mon[data-on="on"] .lv-bars,.lv-mon[data-on="on"] .lv-plate,.lv-mon[data-on="on"] .lv-ch00{display:none}
+
+/* lower third, straddling the monitor's bottom-left corner */
+.lv-l3{position:absolute;z-index:5;left:var(--l3-x);bottom:0;display:flex;align-items:center;gap:11px;max-width:calc(100% - var(--l3-x)*2);padding:7px 15px 7px 11px;border:1px solid var(--border);background:var(--l3-bg);box-shadow:0 14px 30px -16px rgba(0,0,0,.75)}
+.lv-l3-bar{position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--accent)}
+.lv-l3 img{width:clamp(40px,10vw,48px);height:clamp(40px,10vw,48px);object-fit:cover;border:1px solid var(--accent);filter:grayscale(1) contrast(1.06);flex:none}
+.lv-l3-n{display:block;font-family:var(--font-display);font-weight:500;font-size:clamp(13.5px,3.4vw,15px);line-height:1.2;color:var(--text)}
+.lv-l3-m{display:block;margin-top:5px;font-size:clamp(9px,2.4vw,11px);letter-spacing:.13em;color:var(--text-mid)}
+
+/* ── 4 · format tape ──────────────────────────────────────────────── */
+.lv-tape{position:relative;z-index:3;width:104%;margin:clamp(-16px,-2vw,-8px) 0 clamp(10px,2.4vw,20px) -2%;padding:clamp(9px,1.8vw,13px) 0;overflow:hidden;background:var(--accent);color:#07090a;transform:rotate(-1.5deg);box-shadow:0 12px 34px -20px rgba(0,0,0,.9)}
+[data-theme="light"] .lv-tape{background:#1a1915;color:#9cff57}
+.lv-tape-in{display:flex;width:max-content;animation:lv-marq 36s linear infinite}
+.lv-tape-g{display:flex;flex:none}
+.lv-ti{display:inline-flex;align-items:center;font-family:var(--font-mono);font-size:clamp(10.5px,2.7vw,12.5px);font-weight:700;letter-spacing:.2em;text-transform:uppercase;white-space:nowrap}
+.lv-ti::after{content:"";width:5px;height:5px;margin:0 clamp(14px,3.4vw,26px);background:currentColor;opacity:.55;flex:none}
 @keyframes lv-marq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
-/* 4 — channel index */
-.lv-list{display:flex;flex-direction:column;margin-top:clamp(36px,7vw,68px);border-top:1px solid var(--border)}
-.lv-grp{order:10;padding:clamp(22px,4.5vw,30px) var(--px) 11px}
-.lv-grp-2{order:20}
-.lv-grp>span{display:block;width:100%;max-width:var(--max-w);margin:0 auto;color:var(--text-mid)}
-.lv-row{position:relative;isolation:isolate;display:block;padding:17px var(--px);border-bottom:1px solid var(--border);color:var(--text);text-decoration:none;-webkit-tap-highlight-color:transparent}
-.lv-row[data-p="youtube"]{order:11}
-.lv-row[data-p="twitch"]{order:12}
-.lv-row[data-p="kick"]{order:13}
-.lv-row[data-p="x"]{order:21}
-.lv-row[data-p="instagram"]{order:22}
-.lv-row::before{content:"";position:absolute;inset:0;z-index:-1;background:rgba(var(--b),.12);transform:scaleX(0);transform-origin:left;transition:transform .5s cubic-bezier(.22,1,.36,1)}
-.lv-row::after{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:rgb(var(--b));transform:scaleX(0);transform-origin:left;transition:transform .3s ease}
-.lv-row[data-p="kick"]::before{background:rgba(255,255,255,.06)}
-[data-theme="light"] .lv-row[data-p="kick"]::before,[data-theme="light"] .lv-row[data-p="x"]::before{background:rgba(0,0,0,.06)}
-[data-theme="light"] .lv-row[data-p="x"]{--b:38,38,42}
-.lv-row:hover::before,.lv-row:focus-visible::before{transform:scaleX(1)}
-.lv-row:hover::after,.lv-row:focus-visible::after{transform:scaleX(1)}
-.lv-row:focus-visible{outline:2px solid var(--accent);outline-offset:-3px}
-.lv-rin{display:grid;width:100%;max-width:var(--max-w);min-height:42px;margin:0 auto;align-items:center;column-gap:14px;row-gap:5px;grid-template-columns:auto minmax(0,1fr) 44px;grid-template-areas:"num name cap" "note note cap" "hand hand cap"}
-.lv-num{grid-area:num;font-family:var(--font-mono);font-size:12px;letter-spacing:.1em;color:var(--text-mid);align-self:center}
-.lv-name{grid-area:name;display:flex;align-items:center;flex-wrap:wrap;gap:6px 12px;min-width:0;font-family:var(--font-display);font-weight:500;font-size:clamp(26px,7vw,34px);line-height:1.05;letter-spacing:-.02em;transition:transform .3s cubic-bezier(.22,1,.36,1)}
-.lv-ico{width:20px;height:20px;fill:currentColor;flex:none;opacity:.92}
-.lv-note{grid-area:note;font-size:15px;line-height:1.45;color:var(--text-mid)}
-.lv-hand{grid-area:hand;font-family:var(--font-mono);font-size:11.5px;letter-spacing:.08em;color:var(--text-mid)}
-.lv-cap{grid-area:cap;align-self:center;justify-self:end;display:grid;place-items:center;width:44px;height:44px;border:1px solid var(--border);border-radius:50%;font-size:15px;color:var(--text-mid);transition:background-color .3s ease,color .3s ease,border-color .3s ease}
-.lv-row:hover .lv-name,.lv-row:focus-visible .lv-name{transform:translateX(8px)}
-.lv-row:hover .lv-cap,.lv-row:focus-visible .lv-cap{background:rgb(var(--b));border-color:rgb(var(--b));color:#0a0a0c}
-@media(min-width:900px){
-.lv-rin{grid-template-columns:54px minmax(0,2.2fr) minmax(0,3fr) minmax(0,1.5fr) 44px;grid-template-areas:"num name note hand cap";column-gap:clamp(20px,2.6vw,36px);row-gap:0;min-height:54px}
-.lv-row{padding:22px var(--px)}
-.lv-name{font-size:clamp(30px,3.4vw,46px);flex-wrap:nowrap;white-space:nowrap}
-.lv-ico{width:22px;height:22px}
-.lv-hand{justify-self:end;white-space:nowrap}
-}
-/* live state */
-.lv-onair{display:none}
-.lv-note-on{display:none}
-.lv-row.is-live::after{transform:scaleX(1);background:var(--lv-red)}
-.lv-row.is-live{order:10}
-.lv-row.is-live .lv-onair{display:inline-flex;align-items:center;gap:6px;font-family:var(--font-mono);font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--lv-red)}
-.lv-row.is-live .lv-note-off{display:none}
-.lv-row.is-live .lv-note-on{display:inline}
-.lv-row.is-live .lv-note{color:var(--lv-red)}
+/* ── 5 · channel guide ────────────────────────────────────────────── */
+.lv-grp{margin-top:clamp(26px,5vw,44px)}
+.lv-grp-h{display:flex;align-items:center;gap:14px;margin:0 0 clamp(12px,2.4vw,18px);font-weight:400;color:var(--text-mid)}
+.lv-grp-h::after{content:"";flex:1;height:1px;background:var(--border)}
+.lv-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:clamp(9px,1.6vw,14px)}
 
-/* 5 — finale */
-.lv-foot{margin-top:auto;padding-top:clamp(44px,9vw,84px);overflow:clip}
+.lv-ch{position:relative;isolation:isolate;overflow:hidden;display:grid;grid-template-rows:auto 1fr;gap:10px;min-height:112px;padding:clamp(13px,2.6vw,18px);border-radius:14px;background:var(--fill);color:var(--fg);text-decoration:none;-webkit-tap-highlight-color:transparent;box-shadow:inset 0 1px 0 rgba(255,255,255,.15),0 10px 24px -18px rgba(0,0,0,.85);transition:transform .35s cubic-bezier(.22,1,.36,1),box-shadow .35s ease}
+.lv-ch[data-p="youtube"]{min-height:152px;--fill:#e00030;--fg:#fff;--fg2:#fff;--gl:#0a0a0c;--gl-o:.18}
+.lv-ch[data-p="twitch"]{--fill:#9146ff;--fg:#fff;--fg2:#fff;--gl:#0a0a0c;--gl-o:.18}
+.lv-ch[data-p="kick"]{--fill:#53fc18;--fg:#07140a;--fg2:rgba(7,20,10,.82);--gl:#fff;--gl-o:.22}
+.lv-ch[data-p="x"]{--fill:#0f0f10;--fg:#fff;--fg2:rgba(255,255,255,.78);--gl:#fff;--gl-o:.15;box-shadow:inset 0 0 0 1px rgba(255,255,255,.16),0 10px 24px -18px rgba(0,0,0,.85)}
+[data-theme="light"] .lv-ch[data-p="x"]{--fill:#1a1915;box-shadow:inset 0 0 0 1px rgba(0,0,0,.4),0 10px 24px -18px rgba(0,0,0,.6)}
+.lv-ch[data-p="instagram"]{--fill:#962fbf;--fg:#fff;--fg2:#fff;--gl:#0b0818;--gl-o:.2;background-image:linear-gradient(rgba(10,8,22,.12),rgba(10,8,22,.12)),linear-gradient(225deg,#feda75 0%,#fa7e1e 26%,#d62976 52%,#962fbf 76%,#4f5bd5 100%)}
+.lv-ch[data-p="instagram"]::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;background:linear-gradient(0deg,rgba(10,8,22,.6),transparent 62%)}
+
+.lv-ch-glyph{position:absolute;right:-30px;bottom:-52px;z-index:0;width:clamp(170px,23vw,232px);height:auto;fill:var(--gl);opacity:var(--gl-o);pointer-events:none;transition:transform .5s cubic-bezier(.22,1,.36,1),opacity .35s ease}
+.lv-ch-top,.lv-ch-body{position:relative;z-index:1}
+.lv-ch-top{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
+.lv-ch-no{font-family:var(--font-mono);font-size:clamp(10px,2.4vw,11.5px);font-weight:600;letter-spacing:.17em;text-transform:uppercase;color:var(--fg2)}
+.lv-ch-body{align-self:end;padding-right:54px}
+.lv-ch-name{display:block;font-family:var(--font-display);font-weight:600;font-size:clamp(27px,6.4vw,38px);line-height:1.02;letter-spacing:-.025em}
+.lv-ch-note{display:block;margin-top:7px;font-size:clamp(14px,3.5vw,15.5px);line-height:1.4;color:var(--fg2)}
+.lv-ch-hand{display:block;margin-top:5px;font-family:var(--font-mono);font-size:11px;letter-spacing:.08em;color:var(--fg2)}
+.lv-ch-go{position:absolute;z-index:1;right:clamp(13px,2.6vw,18px);bottom:clamp(13px,2.6vw,18px);display:grid;place-items:center;width:42px;height:42px;border:1.5px solid var(--fg);border-radius:50%;font-size:16px;color:var(--fg);transition:background-color .3s ease,color .3s ease}
+.lv-ch:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+@media(hover:hover){
+.lv-ch:hover{transform:translateY(-4px);box-shadow:inset 0 1px 0 rgba(255,255,255,.15),0 26px 46px -24px rgba(0,0,0,.9)}
+.lv-ch:hover .lv-ch-glyph{transform:rotate(-7deg) scale(1.08);opacity:calc(var(--gl-o) + .05)}
+.lv-ch:hover .lv-ch-go{background:var(--fg);color:var(--fill)}
+}
+.lv-ch:focus-visible .lv-ch-go{background:var(--fg);color:var(--fill)}
+
+/* live state */
+.lv-ch-badge,.lv-ch-on{display:none}
+.lv-ch.is-live{order:-1;box-shadow:inset 0 1px 0 rgba(255,255,255,.15),0 0 0 2px #ff5146,0 18px 36px -22px rgba(0,0,0,.9)}
+.lv-ch.is-live .lv-ch-off{display:none}
+.lv-ch.is-live .lv-ch-on{display:inline}
+.lv-ch.is-live .lv-ch-badge{display:inline-flex;align-items:center;gap:6px;flex:none;padding:4px 10px;border:1px solid rgba(255,255,255,.26);border-radius:999px;background:#0a0a0c;font-family:var(--font-mono);font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#ff5146;white-space:nowrap}
+.lv-ch-badge i{width:6px;height:6px;border-radius:50%;background:#ff5146;flex:none;animation:lv-pulse 1.5s ease-in-out infinite}
+
+@media(min-width:620px) and (max-width:899px){
+.lv-ch{min-height:142px}
+.lv-ch[data-p="youtube"]{min-height:200px}
+}
+@media(min-width:900px){
+.lv-ch,.lv-ch[data-p="youtube"]{min-height:0}
+.lv-grid{grid-template-columns:repeat(6,minmax(0,1fr));grid-auto-rows:clamp(146px,14.6vw,176px)}
+.lv-grid-w .lv-ch[data-p="youtube"]{grid-column:span 3;grid-row:span 2}
+.lv-grid-w .lv-ch[data-p="youtube"] .lv-ch-glyph{right:-44px;bottom:-70px;width:clamp(230px,21vw,312px)}
+.lv-grid-w .lv-ch[data-p="twitch"],.lv-grid-w .lv-ch[data-p="kick"]{grid-column:span 3}
+.lv-grid-f{grid-auto-rows:clamp(138px,13.4vw,164px)}
+.lv-grid-f .lv-ch[data-p="x"]{grid-column:span 2}
+.lv-grid-f .lv-ch[data-p="instagram"]{grid-column:span 4}
+/* Twitch + Kick live but not YouTube is the one reorder that would leave a hole in the
+   6-column flow, so YouTube drops its row span and runs full width underneath. */
+.lv[data-live-platforms="twitch kick"] .lv-grid-w .lv-ch[data-p="youtube"]{grid-column:span 6;grid-row:auto}
+.lv-ch-name{font-size:clamp(30px,3.2vw,44px)}
+}
+
+/* ── 6 · finale ───────────────────────────────────────────────────── */
+.lv-foot{margin-top:auto;padding-top:clamp(46px,9vw,86px);overflow:clip}
 .lv-back{display:inline-block;padding:4px 0;color:var(--text-mid);text-decoration:none}
 .lv-back:hover{color:var(--text)}
 .lv-ghost{display:block;margin-top:clamp(14px,3vw,26px);text-decoration:none}
-.lv-ghost span{display:block;margin-bottom:-.17em;font-family:var(--font-display);font-weight:700;font-size:min(13vw,185px);line-height:.78;letter-spacing:-.04em;text-align:center;white-space:nowrap;color:rgba(226,224,218,.08);color:color-mix(in srgb,var(--text) 8%,transparent)}
-.lv-ghost:hover span{color:color-mix(in srgb,var(--text) 14%,transparent)}
+.lv-ghost span{display:block;margin-bottom:-.17em;font-family:var(--font-display);font-weight:700;font-size:min(13vw,185px);line-height:.78;letter-spacing:-.04em;text-align:center;white-space:nowrap;color:var(--text);opacity:.1;background-image:var(--cb-ghost)}
+@supports ((-webkit-background-clip:text) or (background-clip:text)){
+.lv-ghost span{-webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;opacity:var(--ghost-o)}
+}
+.lv-ghost:hover span{opacity:calc(var(--ghost-o) + .18)}
 
 @media(prefers-reduced-motion:reduce){
-.lv-tick-in{animation:none}
-.lv-status.is-on .lv-dot{animation:none}
-.lv-row::before,.lv-row::after,.lv-name,.lv-cap{transition:none}
+.lv-tape-in{animation:none}
+.lv-status.is-on .lv-dot,.lv-tally::after,.lv-rec-d,.lv-ch-badge i{animation:none}
+.lv-scan{animation:none}
+.lv-roll{display:none}
+.lv-mon{transform:none}
+.lv-ch,.lv-ch-glyph,.lv-ch-go{transition:none}
+.lv-ch:hover{transform:none}
+.lv-ch:hover .lv-ch-glyph{transform:none}
 }
 `;
 
+function ChannelBlock({ c }: { c: Channel }) {
+  return (
+    <a
+      className="lv-ch"
+      data-p={c.name.toLowerCase()}
+      style={{ ["--b" as string]: c.brand }}
+      href={c.url}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={`${c.cta} on ${c.name} (${c.handle})`}
+    >
+      <svg className="lv-ch-glyph" viewBox="0 0 24 24" aria-hidden="true"><path d={c.icon} /></svg>
+      <span className="lv-ch-top">
+        <span className="lv-ch-no">CH {c.no}</span>
+        {c.canLive ? <span className="lv-ch-badge"><i aria-hidden="true" />On air</span> : null}
+      </span>
+      <span className="lv-ch-body">
+        <span className="lv-ch-name">{c.name}</span>
+        <span className="lv-ch-note">
+          <span className="lv-ch-off">{c.note}</span>
+          {c.canLive ? <span className="lv-ch-on">Live right now — join</span> : null}
+        </span>
+        <span className="lv-ch-hand">{c.handle}</span>
+      </span>
+      <span className="lv-ch-go" aria-hidden="true">↗</span>
+    </a>
+  );
+}
+
 export default function LivePage() {
   return (
-    <main className={`lv ${serifItalic.variable}`}>
+    <main className={`lv ${serifItalic.variable}`} data-live="off">
       <style dangerouslySetInnerHTML={{ __html: CSS }} />
+      <script suppressHydrationWarning dangerouslySetInnerHTML={{ __html: THEME_BOOT }} />
 
-      <div className="lv-bar">
-        <div className="lv-in">
-          <LiveStatus />
-          <span className="lv-ch-count lv-mono">CH 01—05</span>
-        </div>
-      </div>
+      <LiveState>
+        <div className="lv-cbtop" aria-hidden="true" />
 
-      <header className="lv-hero lv-in">
-        <span className="lv-arc" aria-hidden="true" />
-        <h1 className="lv-word">
-          <span className="lv-live">Live</span>{" "}
-          <span className="lv-uns">Unscripted<i>.</i></span>
-        </h1>
-        <p className="lv-deck">IRL streams, games, cooking, drives, coding, real talk, podcasts, behind the scenes. Anything goes. Pick a platform and join in.</p>
-        <div className="lv-host">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src="/rushi-avatar.jpg" alt="" width={56} height={56} />
-          <span>
-            <span className="lv-host-n">Dr. Rushindra Sinha</span>
-            <span className="lv-host-m lv-mono">Host · rushindra.com</span>
-          </span>
-        </div>
-      </header>
-
-      <div className="lv-tick" aria-hidden="true">
-        <div className="lv-tick-in">
-          {[0, 1].map((g) => (
-            <span className="lv-tick-g" key={g}>
-              {FORMATS.map((f) => <span className="lv-ti" key={f}>{f}</span>)}
+        <div className="lv-bar">
+          <div className="lv-in">
+            <LiveStatus />
+            <span className="lv-bar-r">
+              <span className="lv-count lv-mono">CH 01—05</span>
+              <ThemeToggle />
             </span>
-          ))}
+          </div>
         </div>
-      </div>
 
-      <nav aria-label="Streaming and social channels" className="lv-list">
-        <div className="lv-grp"><span className="lv-mono">Watch live</span></div>
-        <div className="lv-grp lv-grp-2"><span className="lv-mono">Follow</span></div>
-        {CHANNELS.map((c) => (
-          <a
-            key={c.name}
-            className="lv-row"
-            data-p={c.name.toLowerCase()}
-            style={{ ["--b" as string]: c.brand }}
-            href={c.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label={`${c.cta} on ${c.name} (${c.handle})`}
-          >
-            <span className="lv-rin">
-              <span className="lv-num">{c.no}</span>
-              <span className="lv-name">
-                <svg className="lv-ico" viewBox="0 0 24 24" aria-hidden="true"><path d={c.icon} /></svg>
-                {c.name}
-                {c.canLive ? <span className="lv-onair">● On air</span> : null}
-              </span>
-              <span className="lv-note">
-                <span className="lv-note-off">{c.note}</span>
-                {c.canLive ? <span className="lv-note-on">Live right now — join</span> : null}
-              </span>
-              <span className="lv-hand">{c.handle}</span>
-              <span className="lv-cap" aria-hidden="true">↗</span>
-            </span>
-          </a>
-        ))}
-      </nav>
+        <header className="lv-hero">
+          <span className="lv-dots" aria-hidden="true" />
+          <span className="lv-safe" aria-hidden="true" />
+          <span className="lv-vig" aria-hidden="true" />
+          <div className="lv-in lv-hero-g">
+            <div className="lv-type">
+              <span className="lv-kick lv-mono">Channel guide · 05 channels</span>
+              <h1 className="lv-word">
+                <span className="lv-live">Live</span>{" "}
+                <span className="lv-uns">Unscripted<i>.</i></span>
+              </h1>
+              <p className="lv-deck">IRL streams, games, cooking, drives, coding, real talk, podcasts, behind the scenes. Anything goes. Pick a platform and join in.</p>
+            </div>
+            <Monitor links={LIVE_LINKS} />
+          </div>
+        </header>
 
-      <footer className="lv-foot">
-        <div className="lv-in"><Link className="lv-back lv-mono" href="/">← rushindra.com</Link></div>
-        <Link className="lv-ghost" href="/" aria-label="Back to rushindra.com"><span aria-hidden="true">RUSHINDRA.COM</span></Link>
-      </footer>
+        <div className="lv-tape" aria-hidden="true">
+          <div className="lv-tape-in">
+            {[0, 1].map((g) => (
+              <span className="lv-tape-g" key={g}>
+                {FORMATS.map((f) => <span className="lv-ti" key={f}>{f}</span>)}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        <nav aria-label="Streaming and social channels" className="lv-in">
+          <section className="lv-grp">
+            <h2 className="lv-grp-h lv-mono"><span>Watch live</span></h2>
+            <div className="lv-grid lv-grid-w">
+              {WATCH.map((c) => <ChannelBlock c={c} key={c.name} />)}
+            </div>
+          </section>
+          <section className="lv-grp">
+            <h2 className="lv-grp-h lv-mono"><span>Follow</span></h2>
+            <div className="lv-grid lv-grid-f">
+              {FOLLOW.map((c) => <ChannelBlock c={c} key={c.name} />)}
+            </div>
+          </section>
+        </nav>
+
+        <footer className="lv-foot">
+          <div className="lv-in"><Link className="lv-back lv-mono" href="/">← rushindra.com</Link></div>
+          <Link className="lv-ghost" href="/" aria-label="Back to rushindra.com"><span aria-hidden="true">RUSHINDRA.COM</span></Link>
+        </footer>
+      </LiveState>
     </main>
   );
 }
